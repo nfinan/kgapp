@@ -1,0 +1,62 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:l8up4lsyb6_pubinfo {
+    ns1:l8up4lsyb6_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-30T23:46:24.505000+00:00"^^xsd:dateTime .
+}
+
+ns1:l8up4lsyb6_assertion {
+    <http://nanomine.org/viz/e3bd06d7c932c188> a ns5:Chart ;
+        ns2:description "Differential scanning calorimetry (DSC) measures the amount of heat energy put into (or removed from) a system in order to maintain a pre-defined heating or cooling profile. When a phase transition occurs, a change in the heat flow is observed. To compute the glass transition temperature, Tg, from DSC data, you can identify the inflection point in the heat flow curves by taking the derivative and looking for the minimum. This Vega-Lite shows how to compute such a derivative within the chart specification, and the reported values of Tg are overlaid as rule and text marks on the lower plot. As you can see, the results match quite nicely! These example DSC curves have been curated from Ash et al. (2004, doi: 10.1002/polb.20297)." ;
+        ns2:title "Computing Tg from DSC Data" ;
+        ns7:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:HeatFlow ; sio:hasValue ?HF ; 
+                             sio:inRelationTo [ a mm:Temperature ; sio:hasValue ?T_C ; sio:hasUnit om-2:degreeCelsius ] ] , 
+                           [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg_C ; sio:hasUnit om-2:degreeCelsius ] .
+  VALUES ?doi { <http://dx.doi.org/10.1002/polb.20297> }
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"window\":[{\"op\":\"lag\",\"field\":\"HF\",\"as\":\"HF0\"}],\"sort\":[{\"field\":\"T_C\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"window\":[{\"op\":\"lag\",\"field\":\"T_C\",\"as\":\"T0\"}],\"sort\":[{\"field\":\"T_C\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"(datum.HF - datum.HF0) / (datum.T_C - datum.T0)\",\"as\":\"dHF_dT\"},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"T_C\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"joinaggregate\":[{\"op\":\"argmin\",\"field\":\"dHF_dT\",\"as\":\"slope_min\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.slope_min['T_C']\",\"as\":\"T_inflection\"}],\"vconcat\":[{\"width\":500,\"height\":150,\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"domain\":[40,160]},\"title\":\"Temperature (C)\"},\"y\":{\"field\":\"HF\",\"type\":\"quantitative\",\"axis\":{\"labels\":false,\"grid\":false,\"ticks\":false},\"title\":\"Heat Flow\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10}},\"color\":{\"field\":\"sample\",\"type\":\"nominal\",\"legend\":null}}},{\"layer\":[{\"width\":500,\"height\":150,\"transform\":[{\"filter\":\"datum.row_number > 1\"}],\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"domain\":[40,160]},\"title\":\"Temperature (C)\"},\"y\":{\"field\":\"dHF_dT\",\"type\":\"quantitative\",\"axis\":{\"labels\":false,\"grid\":false,\"ticks\":false},\"title\":\"d(Heat Flow)/dT\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":30}}}},{\"transform\":[{\"filter\":\"datum.row_number == 1\"}],\"mark\":{\"type\":\"rule\",\"size\":2},\"encoding\":{\"x\":{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"scale\":{\"domain\":[40,160]}}}},{\"transform\":[{\"filter\":\"datum.row_number == 1\"},{\"calculate\":\"'Tg = ' + datum.Tg_C + ' C'\",\"as\":\"Tg_print\"}],\"mark\":{\"type\":\"text\",\"align\":\"left\",\"xOffset\":5,\"yOffset\":-60},\"encoding\":{\"x\":{\"field\":\"Tg_C\",\"type\":\"quantitative\"},\"text\":{\"field\":\"Tg_print\",\"type\":\"nominal\"}}}],\"encoding\":{\"color\":{\"field\":\"sample\",\"type\":\"nominal\"}}}],\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12,\"labelFlush\":false}}}" ;
+        ns4:depiction <http://nanomine.org/viz/e3bd06d7c932c188_depiction> .
+
+    <http://nanomine.org/viz/e3bd06d7c932c188_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-30T23:46:24.504000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "b2c1b86a-69ca-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:l8up4lsyb6 a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/e3bd06d7c932c188_depiction> ;
+        ns8:hasAssertion ns1:l8up4lsyb6_assertion ;
+        ns8:hasProvenance ns1:l8up4lsyb6_provenance ;
+        ns8:hasPublicationInfo ns1:l8up4lsyb6_pubinfo .
+
+    ns1:l8up4lsyb6_assertion a ns8:Assertion .
+
+    ns1:l8up4lsyb6_provenance a ns8:Provenance .
+
+    ns1:l8up4lsyb6_pubinfo a ns8:PublicationInfo .
+}
+

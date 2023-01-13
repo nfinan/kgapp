@@ -1,0 +1,248 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/ns/dcat#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/prov#> .
+@prefix ns8: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L271_S18_Sun_2004_assertion {
+    <http://materialsmine.org/sample/l271-s9-sun-2004> ns2:hasRole <http://materialsmine.org/sample/l271-s9-sun-2004_control_role> .
+
+    <http://materialsmine.org/compound/CarbonBlack> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Carbon black" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Degussa" ] ;
+        ns3:altLabel "carbon black" .
+
+    <http://materialsmine.org/compound/DgebfEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBF Epoxy Resin" ;
+        ns3:altLabel "Epon 862" .
+
+    <http://materialsmine.org/sample/l271-s18-sun-2004_filler_0> a <http://materialsmine.org/compound/CarbonBlack> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 3e+01 ],
+            [ a <http://materialsmine.org/ns/SpecificSurfaceArea> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/squareMetrePerGram> ;
+                ns2:hasValue 9.5e+02 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.7e+00 ],
+            <http://materialsmine.org/sample/l271-s18-sun-2004_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l271-s18-sun-2004_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l271-s18-sun-2004> ] .
+
+    <http://materialsmine.org/sample/l271-s18-sun-2004_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/l271-s18-sun-2004_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 1.373431e-02 .
+
+    <http://materialsmine.org/sample/l271-s18-sun-2004_matrix_0> a <http://materialsmine.org/compound/DgebfEpoxyResin> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "Epon 862" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Resolution Performance Products" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.16e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l271-s18-sun-2004> ] .
+
+    <http://materialsmine.org/sample/l271-s9-sun-2004_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l271-s18-sun-2004> .
+
+    <http://materialsmine.org/sample/l271-s18-sun-2004> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "carbon black in diglycidyl ether of bisphenol F" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.309749e+02 ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l271-s18-sun-2004_filler_0>,
+            <http://materialsmine.org/sample/l271-s18-sun-2004_matrix_0> .
+}
+
+ns1:L271_S18_Sun_2004_pubinfo {
+    ns1:L271_S18_Sun_2004_assertion ns4:created "2021-07-22T21:36:48.469000+00:00"^^xsd:dateTime ;
+        ns7:wasAttributedTo <http://nanomine.org/setl/MjI1MTAxLjM1Njk0NDE0MTQ0/MaterialsmineXMLImport> ;
+        ns7:wasQuotedFrom <http://dx.doi.org/10.1002/polb.20251> .
+
+    <http://dx.doi.org/10.1002/polb.20251> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Glass transition and relaxation behavior of epoxy nanocomposites" ;
+        ns4:created 2004 ;
+        ns4:creator <http://materialsmine.org/author/moon-kyoung-sik>,
+            <http://materialsmine.org/author/sun-yangyang>,
+            <http://materialsmine.org/author/wong-c-p>,
+            <http://materialsmine.org/author/zhang-zhuqing> ;
+        ns4:isPartOf <http://materialsmine.org/publication/journal-of-polymer-science-part-b-polymer-physics> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Glass transition and relaxation behavior of epoxy nanocomposites" ;
+        ns8:authorList ( <http://materialsmine.org/author/wong-c-p> <http://materialsmine.org/author/moon-kyoung-sik> <http://materialsmine.org/author/zhang-zhuqing> <http://materialsmine.org/author/sun-yangyang> ) ;
+        ns8:volume 42 ;
+        ns2:hasPart <http://materialsmine.org/sample/l271-s18-sun-2004> ;
+        rdfs:seeAlso <http://onlinelibrary.wiley.com/doi/10.1002/polb.20251/abstract> ;
+        ns5:keyword "Composites",
+            "Dielectric Properties",
+            "Glass Transition",
+            "Interfaces",
+            "Nanoparticles",
+            "Thermomechanical Properties" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/school-of-materials-science-and-engineering-georgia-institute-of-technology-atlanta-georgia-30332-usa> a ns4:Location ;
+        rdfs:label "School of Materials Science and Engineering, Georgia Institute of Technology, Atlanta, Georgia 30332, USA" .
+
+    <http://materialsmine.org/publication/journal-of-polymer-science-part-b-polymer-physics> ns4:publisher <publisher:wiley-subscription-services-inc-a-wiley-company> ;
+        ns4:title "Journal of Polymer Science Part B: Polymer Physics" .
+
+    <http://materialsmine.org/sample/l271-s18-sun-2004> ns7:wasAttributedTo <http://materialsmine.org/author/moon-kyoung-sik>,
+            <http://materialsmine.org/author/sun-yangyang>,
+            <http://materialsmine.org/author/wong-c-p>,
+            <http://materialsmine.org/author/zhang-zhuqing> .
+
+    <publisher:wiley-subscription-services-inc-a-wiley-company> rdfs:label "Wiley Subscription Services, Inc., A Wiley Company" ;
+        ns7:atLocation <http://materialsmine.org/location/school-of-materials-science-and-engineering-georgia-institute-of-technology-atlanta-georgia-30332-usa> .
+
+    <http://materialsmine.org/author/moon-kyoung-sik> a ns7:Agent ;
+        rdfs:label "Moon, Kyoung���Sik" ;
+        ns6:name "Moon, Kyoung���Sik" .
+
+    <http://materialsmine.org/author/sun-yangyang> a ns7:Agent ;
+        rdfs:label "Sun, Yangyang" ;
+        ns6:name "Sun, Yangyang" .
+
+    <http://materialsmine.org/author/wong-c-p> a ns7:Agent ;
+        rdfs:label "Wong, C. P." ;
+        ns6:name "Wong, C. P." .
+
+    <http://materialsmine.org/author/zhang-zhuqing> a ns7:Agent ;
+        rdfs:label "Zhang, Zhuqing" ;
+        ns6:name "Zhang, Zhuqing" .
+}
+
+ns1:L271_S18_Sun_2004_provenance {
+    <http://materialsmine.org/sample/l271-s18-sun-2004> ns7:wasGeneratedBy <http://materialsmine.org/entry/L271_S18_Sun_2004_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns7:Activity .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns2:Measuring,
+            ns7:Activity ;
+        ns7:used [ a <http://materialsmine.org/ns/model-2970-ta-instruments>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L271_S18_Sun_2004_description_attr_29>,
+                    <http://materialsmine.org/sample/L271_S18_Sun_2004_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns7:Activity ;
+        ns7:used [ a <http://materialsmine.org/ns/model-q1000-ta-instruments>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L271_S18_Sun_2004_description_attr_29>,
+                    <http://materialsmine.org/sample/L271_S18_Sun_2004_equipment_attr_30>,
+                    <http://materialsmine.org/sample/L271_S18_Sun_2004_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns7:Activity ;
+        ns7:used [ a <http://materialsmine.org/ns/model-2980-ta-instruments>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L271_S18_Sun_2004_description_attr_29>,
+                    <http://materialsmine.org/sample/L271_S18_Sun_2004_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns7:Activity .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns7:Activity .
+
+    <http://materialsmine.org/entry/L271_S18_Sun_2004_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0> .
+
+    <http://materialsmine.org/ns/model-2970-ta-instruments> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "model 2970, TA Instruments" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/model-2980-ta-instruments> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "model 2980, TA Instruments" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/model-q1000-ta-instruments> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "model Q1000, TA Instruments" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns2:hasValue 5e+00 .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_time> .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "The carbon black was mixed into the resin with sonication for 60 min" .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "5" .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_solution_processing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> rdfs:label "deg C / min" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L271_S18_Sun_2004_assertion ns7:wasDerivedFrom ns1:L271_S18_Sun_2004_assertion,
+            <http://nanomine.org/pub/NzA4MTkzLjYxOTM0MzMxODQ_assertion> ;
+        ns7:wasGeneratedBy [ a <http://nanomine.org/setl/MjI1MTAxLjM1Njk0NDE0MTQ0/MaterialsmineXMLImport> ;
+                ns7:used ns1:L271_S18_Sun_2004_assertion,
+                    <http://nanomine.org/pub/NzA4MTkzLjYxOTM0MzMxODQ_assertion> ],
+            <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_description>,
+            <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_equipment>,
+            <http://materialsmine.org/entry/L271_S18_Sun_2004_characterization_heatingrate> .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L271_S18_Sun_2004_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+

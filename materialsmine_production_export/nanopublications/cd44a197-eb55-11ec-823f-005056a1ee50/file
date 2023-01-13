@@ -1,0 +1,76 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:nr4mx7bpf0_assertion {
+    <http://nanomine.org/viz/d36e76d3c24e345e> a ns6:Chart ;
+        ns3:description "Many names may exist to refer to a particular material. To facilitate comparison of similar materials, we assign standardized names to material components using the ChemProps API, which parses chemical name strings provided by curators. This faceted pie chart, organized based on the role that the component material plays within the nanocomposite, shows such chemical names as well as their abbreviations if provided." ;
+        ns3:title "A Material by Any Other Name" ;
+        ns5:query """PREFIX nm: <http://nanomine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+SELECT DISTINCT ?Role ?MaterialClass ?Abbreviation (COUNT(DISTINCT ?component) AS ?Count) WHERE { 
+  ?component sio:hasRole [ a ?RoleURI ] .
+  ?RoleURI rdfs:label ?Role .
+  FILTER (?RoleURI != sio:ControlRole)
+  OPTIONAL {
+    ?component a ?MaterialClassURI .
+    ?MaterialClassURI rdfs:label ?MaterialClass
+  }
+  OPTIONAL {
+    ?component a ?MaterialClassURI ;
+               rdfs:label ?MaterialClass
+  }
+  OPTIONAL {
+    ?component skos:notation ?Abbreviation 
+  }
+  OPTIONAL {
+    ?MaterialClassURI skos:notation ?Abbreviation 
+  }
+  FILTER (?MaterialClass != "")
+} 
+GROUP BY ?Role ?MaterialClass ?Abbreviation
+ORDER BY DESC (?Count)""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"arc\",\"strokeWidth\":2},\"encoding\":{\"facet\":{\"field\":\"Role\",\"type\":\"nominal\",\"columns\":3,\"title\":null,\"header\":{\"labelFontSize\":20}},\"color\":{\"field\":\"MaterialClass\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20b\"}},\"theta\":{\"field\":\"Count\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.7},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Role\",\"type\":\"nominal\",\"title\":\"Material Role\"},{\"field\":\"MaterialClass\",\"type\":\"nominal\",\"title\":\"Material Class\"},{\"field\":\"Abbreviation\",\"type\":\"nominal\",\"title\":\"Abbreviation\"},{\"field\":\"Count\",\"type\":\"quantitative\",\"title\":\"Count\"}]},\"resolve\":{\"scale\":{\"theta\":\"independent\"}},\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns2:depiction <http://nanomine.org/viz/d36e76d3c24e345e_depiction> .
+
+    <http://nanomine.org/viz/d36e76d3c24e345e_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:35:37.591000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "616a953a-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+{
+    ns1:nr4mx7bpf0 a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/d36e76d3c24e345e_depiction> ;
+        ns8:hasAssertion ns1:nr4mx7bpf0_assertion ;
+        ns8:hasProvenance ns1:nr4mx7bpf0_provenance ;
+        ns8:hasPublicationInfo ns1:nr4mx7bpf0_pubinfo .
+
+    ns1:nr4mx7bpf0_assertion a ns8:Assertion .
+
+    ns1:nr4mx7bpf0_provenance a ns8:Provenance .
+
+    ns1:nr4mx7bpf0_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:nr4mx7bpf0_pubinfo {
+    ns1:nr4mx7bpf0_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:35:37.592000+00:00"^^xsd:dateTime .
+}
+

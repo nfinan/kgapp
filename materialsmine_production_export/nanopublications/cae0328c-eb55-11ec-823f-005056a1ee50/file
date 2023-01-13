@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:a14qgbhxep_pubinfo {
+    ns1:a14qgbhxep_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-06T21:26:01.080000+00:00"^^xsd:dateTime .
+}
+
+ns1:a14qgbhxep_assertion {
+    <http://nanomine.org/viz/9b0bc8888f115589> a ns5:Chart ;
+        ns2:description "One challenge in curation of heterogeneous data is the multiplicity of names that may refer to the same material. To address this challenge in MaterialsMine, user-input chemical name strings are passed through the ChemProps API to resolve the class of the compound based on a pre-defined list of standard names. This chart shows the diversity of user-input strings and compares those to the entity-resolved material class. Hover over a section of the pie chart to display the various names linked to the material class. User-input strings that match the preferred standard name are outlined in black." ;
+        ns2:title "Entity Resolution of Nanocomposite Filler Materials" ;
+        ns4:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT ?sample ?sample_label (GROUP_CONCAT(DISTINCT ?Filler; SEPARATOR=" and ") AS ?Fillers) (GROUP_CONCAT(DISTINCT ?Matrix; SEPARATOR=" and ") AS ?Matrices) WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          rdfs:label ?sample_label ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ] ;
+    sio:hasRole [ a mm:Filler ] ] ,
+      [ a [ rdfs:label ?Matrix ] ;
+    sio:hasRole [ a mm:Matrix ] ]
+} GROUP BY ?sample ?sample_label""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"split(datum.sample_label,' in ')\",\"as\":\"label_split\"},{\"calculate\":\"datum.label_split[0]\",\"as\":\"Fillers_curated\"},{\"calculate\":\"datum.Fillers_curated == datum.Fillers ? 1 : 0\",\"as\":\"name_match\"}],\"hconcat\":[{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"Fillers_curated\"],\"init\":{\"Fillers_curated\":\"Silicon dioxide\"}},\"hover_Fillers\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"Fillers\"],\"init\":{\"Fillers\":\"Silicon dioxide\"}}},\"height\":330,\"width\":300,\"mark\":{\"type\":\"arc\",\"radius\":150},\"encoding\":{\"color\":{\"field\":\"Fillers\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":0.7},\"value\":1},\"stroke\":{\"condition\":{\"test\":\"datum.name_match == 1\",\"value\":\"black\"},\"value\":\"transparent\"},\"theta\":{\"aggregate\":\"count\"},\"tooltip\":[{\"field\":\"Fillers\",\"type\":\"nominal\",\"title\":\"Classification\"},{\"field\":\"Fillers_curated\",\"type\":\"nominal\",\"title\":\"User-input string\"},{\"field\":\"name_match\",\"type\":\"quantitative\"},{\"aggregate\":\"count\"}]},\"view\":{\"stroke\":null}},{\"transform\":[{\"filter\":{\"selection\":\"hover_Fillers\"}}],\"layer\":[{\"width\":300,\"height\":300,\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":\"Fillers_curated\",\"type\":\"nominal\",\"axis\":{\"title\":null,\"orient\":\"right\"}},\"x\":{\"aggregate\":\"count\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Fillers\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":0.7},\"value\":1},\"stroke\":{\"condition\":{\"test\":\"datum.name_match == 1\",\"value\":\"black\"},\"value\":\"transparent\"}}},{\"transform\":[{\"filter\":{\"selection\":\"hover\"}},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}]},{\"filter\":\"datum.rank < 2\"}],\"mark\":{\"type\":\"text\",\"yOffset\":-130,\"align\":\"center\",\"fontSize\":14},\"encoding\":{\"text\":{\"field\":\"Fillers\",\"type\":\"nominal\"}}}]}],\"config\":{\"axis\":{\"labelAlign\":\"left\"}}}" ;
+        ns7:depiction <http://nanomine.org/viz/9b0bc8888f115589_depiction> .
+
+    <http://nanomine.org/viz/9b0bc8888f115589_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-06T21:26:01.080000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "00e50eec-26ec-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:a14qgbhxep a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/9b0bc8888f115589_depiction> ;
+        ns8:hasAssertion ns1:a14qgbhxep_assertion ;
+        ns8:hasProvenance ns1:a14qgbhxep_provenance ;
+        ns8:hasPublicationInfo ns1:a14qgbhxep_pubinfo .
+
+    ns1:a14qgbhxep_assertion a ns8:Assertion .
+
+    ns1:a14qgbhxep_provenance a ns8:Provenance .
+
+    ns1:a14qgbhxep_pubinfo a ns8:PublicationInfo .
+}
+

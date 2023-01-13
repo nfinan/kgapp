@@ -1,0 +1,84 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:nna4q2024c_pubinfo {
+    ns1:nna4q2024c_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:28:59.874000+00:00"^^xsd:dateTime .
+}
+
+ns1:nna4q2024c_assertion {
+    <http://nanomine.org/viz/dc1a4c0d5ab088b8> a ns3:Chart ;
+        ns2:description "Polymer nanocomposite properties are often compared to those of the \"neat matrix\" (i.e., the polymer without filler). Since samples are linked in the knowledge graph to these respective \"control samples,\" we can use the measured properties of control samples as a baseline for normalizing the measured properties of nanocomposites. This chart queries thermal property measurements reported in Celsius, converts those values to absolute units (Kelvin), then computes the normalized value by dividing the measured value by its control. Hover over a point to view its sample ID and DOI." ;
+        ns2:title "How Does Adding a Filler Affect Polymer Properties? (Thermal Property Edition)" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT ?doi ?sample ?control ?Matrix ?Filler ?VolumeFraction ?AttrType ?valueC ?valueC_control WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute ?attr .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute ?attr_control .
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?VolumeFraction ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+  ?doi sio:hasPart ?sample , ?control .
+  
+  ?unit rdfs:label "Celsius" .
+  
+  ?attr a ?AttrType ;
+        sio:hasValue ?valueC ;
+        sio:hasUnit ?unit .
+  ?attr_control a ?AttrType ;
+                sio:hasValue ?valueC_control ;
+                sio:hasUnit ?unit .
+  ?AttrType rdfs:subClassOf nm:ThermalProperty .
+  
+  FILTER NOT EXISTS {
+    ?attr sio:inRelationTo ?otherAttr
+  }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.AttrType,/^.*org.ns./,'')\",\"as\":\"AttrTrim\"},{\"calculate\":\"datum.valueC + 273.15\",\"as\":\"valueK\"},{\"calculate\":\"datum.valueC_control + 273.15\",\"as\":\"valueK_control\"},{\"calculate\":\"datum.valueK / datum.valueK_control\",\"as\":\"normValue\"},{\"calculate\":\"replace(datum.sample,/^.*org.sample./,'')\",\"as\":\"SampleID\"},{\"calculate\":\"replace(datum.doi,/^.*doi.org./,'')\",\"as\":\"DOI\"}],\"vconcat\":[{\"width\":400,\"height\":80,\"transform\":[{\"filter\":{\"selection\":\"highlight\"}},{\"density\":\"normValue\",\"extent\":[0,2]}],\"mark\":{\"type\":\"area\",\"color\":\"#777\"},\"encoding\":{\"x\":{\"field\":\"value\",\"type\":\"quantitative\",\"axis\":null,\"scale\":{\"domain\":[0,2]}},\"y\":{\"field\":\"density\",\"type\":\"quantitative\",\"axis\":null}}},{\"height\":200,\"width\":400,\"layer\":[{\"mark\":{\"type\":\"rule\",\"strokeDash\":[10,5],\"color\":\"#aaa\"},\"encoding\":{\"x\":{\"datum\":1,\"type\":\"quantitative\"}}},{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"AttrTrim\"],\"empty\":\"all\"}},\"mark\":{\"type\":\"point\",\"size\":50,\"filled\":true},\"encoding\":{\"y\":{\"field\":\"AttrTrim\",\"type\":\"nominal\",\"axis\":{\"title\":\"Property Type\",\"labelAngle\":-10,\"labelLimit\":250,\"labelOffset\":-20}},\"color\":{\"field\":\"AttrTrim\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20\"}},\"x\":{\"field\":\"normValue\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,2]},\"title\":\"Normalized Value\"},\"tooltip\":[{\"field\":\"AttrTrim\",\"type\":\"nominal\",\"title\":\"Attribute Type\"},{\"field\":\"normValue\",\"type\":\"quantitative\",\"title\":\"Normalized Value\",\"format\":\".4f\"},{\"field\":\"SampleID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}]}],\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14,\"labelFlush\":false},\"view\":{\"stroke\":null}}}" ;
+        ns7:depiction <http://nanomine.org/viz/dc1a4c0d5ab088b8_depiction> .
+
+    <http://nanomine.org/viz/dc1a4c0d5ab088b8_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:28:59.873000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "745eef48-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:nna4q2024c a ns8:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/dc1a4c0d5ab088b8_depiction> ;
+        ns8:hasAssertion ns1:nna4q2024c_assertion ;
+        ns8:hasProvenance ns1:nna4q2024c_provenance ;
+        ns8:hasPublicationInfo ns1:nna4q2024c_pubinfo .
+
+    ns1:nna4q2024c_assertion a ns8:Assertion .
+
+    ns1:nna4q2024c_provenance a ns8:Provenance .
+
+    ns1:nna4q2024c_pubinfo a ns8:PublicationInfo .
+}
+

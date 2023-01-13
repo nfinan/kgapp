@@ -1,0 +1,57 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://open.vocab.org/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:lwnnsr278r_assertion {
+    <http://nanomine.org/viz/d791eb34e35a9a67> a ns6:Chart ;
+        ns4:description "An example chart that looks up the frequency for each class in the knowledge graph." ;
+        ns4:title "Example Bar Chart" ;
+        ns5:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?c (MIN(?class) AS ?class) (COUNT(?x) AS ?count)
+WHERE {
+    ?x a ?c.
+    ?c rdfs:label ?class.
+}
+GROUP BY ?c
+ORDER BY DESC(?count)""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"count\",\"type\":\"quantitative\"},\"y\":{\"field\":\"class\",\"type\":\"ordinal\"}}}" ;
+        ns7:depiction <http://nanomine.org/viz/d791eb34e35a9a67_depiction> .
+
+    <http://nanomine.org/viz/d791eb34e35a9a67_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns2:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-07-27T21:26:02.553000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "3e711916-ef21-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+{
+    ns1:lwnnsr278r a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/d791eb34e35a9a67_depiction> ;
+        ns8:hasAssertion ns1:lwnnsr278r_assertion ;
+        ns8:hasProvenance ns1:lwnnsr278r_provenance ;
+        ns8:hasPublicationInfo ns1:lwnnsr278r_pubinfo .
+
+    ns1:lwnnsr278r_assertion a ns8:Assertion .
+
+    ns1:lwnnsr278r_provenance a ns8:Provenance .
+
+    ns1:lwnnsr278r_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:lwnnsr278r_pubinfo {
+    ns1:lwnnsr278r_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-07-27T21:26:02.557000+00:00"^^xsd:dateTime .
+}
+

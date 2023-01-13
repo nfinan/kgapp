@@ -1,0 +1,58 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:618lskmr5r a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/793703f1df97c9bd_depiction> ;
+        ns2:hasAssertion ns1:618lskmr5r_assertion ;
+        ns2:hasProvenance ns1:618lskmr5r_provenance ;
+        ns2:hasPublicationInfo ns1:618lskmr5r_pubinfo .
+
+    ns1:618lskmr5r_assertion a ns2:Assertion .
+
+    ns1:618lskmr5r_provenance a ns2:Provenance .
+
+    ns1:618lskmr5r_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:618lskmr5r_pubinfo {
+    ns1:618lskmr5r_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:08:20.321000+00:00"^^xsd:dateTime .
+}
+
+ns1:618lskmr5r_assertion {
+    <http://nanomine.org/viz/793703f1df97c9bd> a ns3:Chart ;
+        ns4:description "Stacked bar charts show the manufacturer or source names for materials in the knowledge graph. Since the manufacturer/source names are stored as plain strings (instead of globally unique URIs), there are duplicate entries as a result of different spellings. This plot shows some of the data cleaning work that must be done in order to integrate data into a knowledge graph." ;
+        ns4:title "Manufacturer Names of Materials in the Knowledge Graph" ;
+        ns5:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+SELECT DISTINCT ?MaterialStandardName ?Manufacturer (count(distinct ?material) as ?Count) WHERE {
+  ?material sio:hasAttribute [ a nm:ManufacturerOrSourceName ;
+                               sio:hasValue ?Manufacturer ] .
+  ?material a [ rdfs:label ?MaterialStandardName ]
+}
+GROUP BY ?MaterialStandardName ?Manufacturer""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"}},\"mark\":\"bar\",\"encoding\":{\"x\":{\"aggregate\":\"sum\",\"field\":\"Count\",\"type\":\"quantitative\"},\"y\":{\"field\":\"MaterialStandardName\",\"type\":\"nominal\",\"title\":\"Material Name\",\"sort\":\"-x\"},\"color\":{\"field\":\"Manufacturer\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.2},\"tooltip\":[{\"field\":\"Manufacturer\",\"type\":\"nominal\"}]}}" ;
+        ns8:depiction <http://nanomine.org/viz/793703f1df97c9bd_depiction> .
+
+    <http://nanomine.org/viz/793703f1df97c9bd_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:08:20.320000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "918a239c-f546-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

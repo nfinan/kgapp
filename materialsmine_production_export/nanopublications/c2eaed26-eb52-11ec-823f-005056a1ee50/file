@@ -1,0 +1,596 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L151_S1_Akcora_2010_assertion {
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan Chemicals" ] ;
+        ns3:altLabel "silica" ;
+        ns3:notation "SiO2" .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l151-s1-akcora-2010> .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.5e+01 ],
+            <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l151-s1-akcora-2010> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 0e+00 .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0_surface_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        rdfs:label "Polystyrene" ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l151-s1-akcora-2010> ] ;
+        ns3:notation "PS" .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 0e+00 .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_matrix_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.04e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PS" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l151-s1-akcora-2010> ] .
+
+    <http://materialsmine.org/compound/Polystyrene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Polystyrene" ;
+        ns3:notation "PS" .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in polystyrene" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.69684e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.772491e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.53732e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.945209e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.684999e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.721276e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.716486e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.02684e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.587913e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.147633e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.478894e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.594365e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.634818e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.580442e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.784978e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.516334e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.69684e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.772491e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.738709e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.412362e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.684999e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.721276e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.784978e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.516334e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.634818e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.580442e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.620315e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.412901e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.784978e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.516334e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.622482e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.225316e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.478894e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.594365e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.634818e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.580442e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.656493e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.315519e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.620315e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.412901e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.610954e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.954714e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.756512e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.113223e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.656493e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.315519e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.78532e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.621334e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.649067e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.835127e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.649067e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.835127e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.716486e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.02684e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.716486e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.02684e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.684999e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.721276e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.610954e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.954714e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.620315e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.412901e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.53732e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.945209e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.69684e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.772491e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.587913e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.147633e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.57532e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 3.105189e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.78532e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.621334e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.649067e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.835127e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.791596e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.308123e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.759801e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.042647e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.57532e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 3.105189e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.478894e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.594365e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.791596e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.308123e+01 ] ],
+            [ a <http://materialsmine.org/ns/ViscoelasticProperty> ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.756512e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.113223e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.622482e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.225316e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.587913e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.147633e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.739476e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.162914e+01 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.610954e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.954714e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.756512e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.113223e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.78532e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.621334e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.53732e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.945209e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.759801e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.042647e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.738709e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.412362e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.739476e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.162914e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.759801e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.042647e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.57532e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 3.105189e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.656493e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.315519e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.622482e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.225316e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.738709e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 1.412362e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.739476e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.162914e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.791596e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns2:hasValue 2.308123e+01 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l151-s1-akcora-2010_filler_0>,
+            <http://materialsmine.org/sample/l151-s1-akcora-2010_matrix_0> ;
+        ns2:hasRole <http://materialsmine.org/sample/l151-s1-akcora-2010_control_role> .
+
+    <http://materialsmine.org/ns/ShearStress> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "shear stress" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Time> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "time" ;
+        rdfs:subClassOf ns2:Quantity .
+}
+
+ns1:L151_S1_Akcora_2010_pubinfo {
+    ns1:L151_S1_Akcora_2010_assertion ns4:created "2021-07-22T10:21:13.753000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NTUwOTg2Ljg1MjIyNzIyODY/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/ma902072d> .
+
+    <http://dx.doi.org/10.1021/ma902072d> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "���Gel-like��� Mechanical Reinforcement in Polymer Nanocomposite Melts" ;
+        ns4:created 2010 ;
+        ns4:creator <http://materialsmine.org/author/akcora-pinar>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/colby-ralph-h>,
+            <http://materialsmine.org/author/douglas-jack-f>,
+            <http://materialsmine.org/author/ilavsky-jan>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/lewis-sarah>,
+            <http://materialsmine.org/author/li-yu>,
+            <http://materialsmine.org/author/moll-joseph>,
+            <http://materialsmine.org/author/narayanan-suresh>,
+            <http://materialsmine.org/author/sandy-alec>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/thiyagarajan-pappannan> ;
+        ns4:isPartOf <http://materialsmine.org/publication/macromolecules> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "���Gel-like��� Mechanical Reinforcement in Polymer Nanocomposite Melts" ;
+        ns7:authorList ( <http://materialsmine.org/author/douglas-jack-f> <http://materialsmine.org/author/colby-ralph-h> <http://materialsmine.org/author/thiyagarajan-pappannan> <http://materialsmine.org/author/ilavsky-jan> <http://materialsmine.org/author/narayanan-suresh> <http://materialsmine.org/author/sandy-alec> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/li-yu> <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/lewis-sarah> <http://materialsmine.org/author/moll-joseph> <http://materialsmine.org/author/kumar-sanat-k> <http://materialsmine.org/author/akcora-pinar> ) ;
+        ns7:volume 43 ;
+        ns2:hasPart <http://materialsmine.org/sample/l151-s1-akcora-2010> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/abs/10.1021/ma902072d> .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-chemical-engineering-columbia-university-new-york-new-york-usa> a ns4:Location ;
+        rdfs:label "Department of Chemical Engineering, Columbia University, New York, New York, USA" .
+
+    <http://materialsmine.org/publication/macromolecules> ns4:publisher <publisher:american-chemical-society> ;
+        ns4:title "Macromolecules" .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010> ns5:wasAttributedTo <http://materialsmine.org/author/akcora-pinar>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/colby-ralph-h>,
+            <http://materialsmine.org/author/douglas-jack-f>,
+            <http://materialsmine.org/author/ilavsky-jan>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/lewis-sarah>,
+            <http://materialsmine.org/author/li-yu>,
+            <http://materialsmine.org/author/moll-joseph>,
+            <http://materialsmine.org/author/narayanan-suresh>,
+            <http://materialsmine.org/author/sandy-alec>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/thiyagarajan-pappannan> .
+
+    <publisher:american-chemical-society> rdfs:label "American Chemical Society" ;
+        ns5:atLocation <http://materialsmine.org/location/department-of-chemical-engineering-columbia-university-new-york-new-york-usa> .
+
+    <http://materialsmine.org/author/akcora-pinar> a ns5:Agent ;
+        rdfs:label "Akcora, Pinar" ;
+        ns6:name "Akcora, Pinar" .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns5:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns6:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/colby-ralph-h> a ns5:Agent ;
+        rdfs:label "Colby, Ralph H." ;
+        ns6:name "Colby, Ralph H." .
+
+    <http://materialsmine.org/author/douglas-jack-f> a ns5:Agent ;
+        rdfs:label "Douglas, Jack F." ;
+        ns6:name "Douglas, Jack F." .
+
+    <http://materialsmine.org/author/ilavsky-jan> a ns5:Agent ;
+        rdfs:label "Ilavsky, Jan" ;
+        ns6:name "Ilavsky, Jan" .
+
+    <http://materialsmine.org/author/kumar-sanat-k> a ns5:Agent ;
+        rdfs:label "Kumar, Sanat K." ;
+        ns6:name "Kumar, Sanat K." .
+
+    <http://materialsmine.org/author/lewis-sarah> a ns5:Agent ;
+        rdfs:label "Lewis, Sarah" ;
+        ns6:name "Lewis, Sarah" .
+
+    <http://materialsmine.org/author/li-yu> a ns5:Agent ;
+        rdfs:label "Li, Yu" ;
+        ns6:name "Li, Yu" .
+
+    <http://materialsmine.org/author/moll-joseph> a ns5:Agent ;
+        rdfs:label "Moll, Joseph" ;
+        ns6:name "Moll, Joseph" .
+
+    <http://materialsmine.org/author/narayanan-suresh> a ns5:Agent ;
+        rdfs:label "Narayanan, Suresh" ;
+        ns6:name "Narayanan, Suresh" .
+
+    <http://materialsmine.org/author/sandy-alec> a ns5:Agent ;
+        rdfs:label "Sandy, Alec" ;
+        ns6:name "Sandy, Alec" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns5:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns6:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/thiyagarajan-pappannan> a ns5:Agent ;
+        rdfs:label "Thiyagarajan, Pappannan" ;
+        ns6:name "Thiyagarajan, Pappannan" .
+}
+
+ns1:L151_S1_Akcora_2010_provenance {
+    <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/ta-instruments-ar2000-rheometer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L151_S1_Akcora_2010_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/jeol-jem-100-cx>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L151_S1_Akcora_2010_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/ns/jeol-jem-100-cx> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JEM-100 CX" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-ar2000-rheometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments AR2000 rheometer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L151_S1_Akcora_2010_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L151_S1_Akcora_2010_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns1:L151_S1_Akcora_2010_assertion ns5:wasDerivedFrom ns1:L151_S1_Akcora_2010_assertion,
+            <http://nanomine.org/pub/NjI0MzQ4LjQ0MDEzNjc2NTQ_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NTUwOTg2Ljg1MjIyNzIyODY/MaterialsmineXMLImport> ;
+                ns5:used ns1:L151_S1_Akcora_2010_assertion,
+                    <http://nanomine.org/pub/NjI0MzQ4LjQ0MDEzNjc2NTQ_assertion> ],
+            <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_equipment>,
+            <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L151_S1_Akcora_2010_characterization_transmission-electron-microscopy> .
+}
+

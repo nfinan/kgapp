@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:rtsup94491_assertion {
+    <http://nanomine.org/viz/9af1e59a75d338b2> a ns5:Chart ;
+        ns2:description "The glass transition of a material occurs across a range of temperatures but is often described by a single representative glass transition temperature, Tg. If using Dynamic Mechanical Analysis (DMA), Tg can be defined as the peak of Loss Modulus or peak Tan Delta, which are relatively straightforward to compute. One can also use Storage Modulus data to define an onset Tg, which is based on the intersection of a tangent line at the inflection point in the E' curve with a horizontal line at the \"glassy plateau\" region. This interactive Vega-Lite plot shows how to compute the derivative and approximate the onset Tg using various window and aggregation transforms. Hover over a data series in the bottom plot to reveal the intersecting lines and approximated onset Tg. These DMA data series were curated from Hoepfner et al. (2018, doi: 10.1002/app.46157). For further comparisons of the various methodologies for computing Tg, see https://www.tainstruments.com/pdf/literature/RH100.pdf." ;
+        ns2:title "Calculating Onset Tg with the Derivative of Storage Modulus vs. Temperature" ;
+        ns7:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:StorageModulus ; sio:hasValue ?SM_Pa ; sio:hasUnit om-2:megapascal ;
+    sio:inRelationTo [ a mm:Temperature ; sio:hasValue ?T_C ; sio:hasUnit om-2:degreeCelsius ] ]
+  VALUES ?doi { <http://dx.doi.org/10.1002/app.46157> }
+} ORDER BY ?sample ?T_C""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"},{\"window\":[{\"op\":\"lag\",\"field\":\"SM_Pa\",\"as\":\"SM0\"}],\"sort\":[{\"field\":\"T_C\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"window\":[{\"op\":\"lag\",\"field\":\"T_C\",\"as\":\"T0\"}],\"sort\":[{\"field\":\"T_C\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"(datum.SM_Pa - datum.SM0) / (datum.T_C - datum.T0)\",\"as\":\"dSM_dT\"},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"T_C\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"joinaggregate\":[{\"op\":\"argmin\",\"field\":\"dSM_dT\",\"as\":\"slope_min\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.slope_min['T_C']\",\"as\":\"T_inflection\"},{\"calculate\":\"datum.slope_min['SM_Pa']\",\"as\":\"SM_at_inflection\"},{\"calculate\":\"datum.slope_min['dSM_dT']\",\"as\":\"tan_slope\"},{\"joinaggregate\":[{\"op\":\"max\",\"field\":\"SM_Pa\",\"as\":\"SM_plateau\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.tan_slope * (datum.T_C - datum.T_inflection) + datum.SM_at_inflection\",\"as\":\"tangent\"},{\"calculate\":\"abs(datum.SM_plateau - datum.tangent)\",\"as\":\"max_to_tangent\"},{\"joinaggregate\":[{\"op\":\"argmin\",\"field\":\"max_to_tangent\",\"as\":\"crossover\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.crossover['T_C']\",\"as\":\"Tg_approx\"},{\"calculate\":\"'Tg_onset (approx.): ' + format(datum.Tg_approx, '.3r') + ' C'\",\"as\":\"Tg_label\"}],\"vconcat\":[{\"layer\":[{\"height\":100,\"width\":500,\"transform\":[{\"filter\":\"datum.row_number > 1\"}],\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0.1}}},{\"transform\":[{\"filter\":\"datum.T_C == datum.T_inflection\"}],\"mark\":{\"type\":\"point\",\"stroke\":\"black\",\"filled\":true,\"size\":100},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":0}}}],\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Temperature (C)\"},\"y\":{\"field\":\"dSM_dT\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"d(E')/dT\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0.1}}},{\"layer\":[{\"layer\":[{\"height\":300,\"width\":500,\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"sample\"]},\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"all\",\"fields\":[\"sample\"]}},\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"y\":{\"field\":\"SM_Pa\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Storage Modulus, E' (MPa)\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0.1}}},{\"transform\":[{\"filter\":\"datum.tangent < (1.25 * datum.SM_plateau) && datum.tangent > 0\"}],\"mark\":{\"type\":\"line\",\"color\":\"black\",\"strokeDash\":[6,6]},\"encoding\":{\"y\":{\"field\":\"tangent\",\"type\":\"quantitative\"},\"detail\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":0.01}}},{\"transform\":[{\"filter\":\"datum.T_C == datum.T_inflection\"}],\"mark\":{\"type\":\"point\",\"stroke\":\"black\",\"filled\":true,\"size\":100},\"encoding\":{\"y\":{\"field\":\"SM_Pa\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":0}}}],\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Temperature (C)\"}}},{\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"sample\"]},{\"filter\":\"datum.rank == 1\"}],\"mark\":{\"type\":\"rule\",\"color\":\"black\",\"strokeDash\":[6,6],\"strokeWidth\":1.5},\"encoding\":{\"y\":{\"field\":\"SM_plateau\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":0.01}}},{\"transform\":[{\"filter\":\"datum.Tg_approx == datum.T_C\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"black\",\"strokeWidth\":1.5}},{\"mark\":{\"type\":\"text\",\"xOffset\":10,\"yOffset\":-125,\"align\":\"left\",\"fontSize\":14},\"encoding\":{\"text\":{\"field\":\"Tg_label\",\"type\":\"nominal\"}}}],\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":0.01}}}]}],\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns6:depiction <http://nanomine.org/viz/9af1e59a75d338b2_depiction> .
+
+    <http://nanomine.org/viz/9af1e59a75d338b2_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-07T20:55:58.370000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "1401d2dc-57a0-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:rtsup94491_pubinfo {
+    ns1:rtsup94491_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-07T20:55:58.370000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:rtsup94491 a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/9af1e59a75d338b2_depiction> ;
+        ns8:hasAssertion ns1:rtsup94491_assertion ;
+        ns8:hasProvenance ns1:rtsup94491_provenance ;
+        ns8:hasPublicationInfo ns1:rtsup94491_pubinfo .
+
+    ns1:rtsup94491_assertion a ns8:Assertion .
+
+    ns1:rtsup94491_provenance a ns8:Provenance .
+
+    ns1:rtsup94491_pubinfo a ns8:PublicationInfo .
+}
+

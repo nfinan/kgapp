@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:f1ypo7o4o1 a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/d1abcd7c63d5e7ee_depiction> ;
+        ns3:hasAssertion ns1:f1ypo7o4o1_assertion ;
+        ns3:hasProvenance ns1:f1ypo7o4o1_provenance ;
+        ns3:hasPublicationInfo ns1:f1ypo7o4o1_pubinfo .
+
+    ns1:f1ypo7o4o1_assertion a ns3:Assertion .
+
+    ns1:f1ypo7o4o1_provenance a ns3:Provenance .
+
+    ns1:f1ypo7o4o1_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:f1ypo7o4o1_pubinfo {
+    ns1:f1ypo7o4o1_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:46:19.386000+00:00"^^xsd:dateTime .
+}
+
+ns1:f1ypo7o4o1_assertion {
+    <http://nanomine.org/viz/d1abcd7c63d5e7ee> a ns2:Chart ;
+        ns4:description "An isotype grid represents all published and unpublished datasets that have been curated into NanoMine, and a pie chart shows the proportion of samples from each dataset contained in NanoMine. Hovering over an icon displays a tooltip with the title, DOI, number of authors, and number of samples." ;
+        ns4:title "One Dataset at a Time..." ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?doi (COUNT(DISTINCT ?sample) AS ?numSamplesForDOI) (COUNT(DISTINCT ?author) AS ?numAuthorsForDOI) (GROUP_CONCAT(DISTINCT ?title) AS ?Title) WHERE {
+  ?doi sio:hasPart ?sample;
+       dct:creator ?author ;
+       dct:title ?title .
+  ?sample a nm:PolymerNanocomposite .
+}
+GROUP BY ?doi""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"config\":{\"view\":{\"stroke\":\"\"}},\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"Rank\"}]},{\"calculate\":\"ceil (datum.Rank/17)\",\"as\":\"row\"},{\"calculate\":\"datum.Rank - datum.row*17\",\"as\":\"col\"},{\"calculate\":\"replace(datum.doi,/.*doi.org./,'')\",\"as\":\"DOI\"},{\"calculate\":\"datum.numAuthorsForDOI\",\"as\":\"# Authors\"},{\"calculate\":\"datum.numSamplesForDOI\",\"as\":\"# Samples\"}],\"hconcat\":[{\"width\":306,\"height\":495,\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"col\",\"type\":\"ordinal\",\"axis\":null},\"y\":{\"field\":\"row\",\"type\":\"ordinal\",\"axis\":null},\"shape\":{\"value\":\"M1.7 -1.7h-0.8c0.3 -0.2 0.6 -0.5 0.6 -0.9c0 -0.6 -0.4 -1 -1 -1c-0.6 0 -1 0.4 -1 1c0 0.4 0.2 0.7 0.6 0.9h-0.8c-0.4 0 -0.7 0.3 -0.7 0.6v1.9c0 0.3 0.3 0.6 0.6 0.6h0.2c0 0 0 0.1 0 0.1v1.9c0 0.3 0.2 0.6 0.3 0.6h1.3c0.2 0 0.3 -0.3 0.3 -0.6v-1.8c0 0 0 -0.1 0 -0.1h0.2c0.3 0 0.6 -0.3 0.6 -0.6v-2c0.2 -0.3 -0.1 -0.6 -0.4 -0.6z\"},\"color\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"#b3cde0\"},\"value\":\"rgb(187,185,176)\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"# Authors\",\"type\":\"nominal\"},{\"field\":\"# Samples\",\"type\":\"nominal\"}],\"size\":{\"value\":40}},\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"nearest\":true,\"clear\":\"mouseout\"}}},{\"width\":494,\"height\":495,\"mark\":\"arc\",\"encoding\":{\"theta\":{\"field\":\"# Samples\",\"type\":\"quantitative\"},\"color\":{\"field\":\"DOI\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"set3\"}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.9},\"value\":0.3}}}]}" ;
+        ns7:depiction <http://nanomine.org/viz/d1abcd7c63d5e7ee_depiction> .
+
+    <http://nanomine.org/viz/d1abcd7c63d5e7ee_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:46:19.385000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "1c6ef868-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

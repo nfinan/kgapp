@@ -1,0 +1,61 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:mbbo5r0lbx_pubinfo {
+    ns1:mbbo5r0lbx_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-09-24T20:56:59.718000+00:00"^^xsd:dateTime .
+}
+
+ns1:mbbo5r0lbx_assertion {
+    <http://nanomine.org/viz/c24fb36641a3264f> a ns6:Chart ;
+        ns2:description "Charts in the knowledge graph are defined by combining a SPARQL query and Vega-Lite specification. This chart plots each chart object based on the character length of its query and Vega-Lite spec. Hover over a point to view the chart title, or Ctrl-click to open the chart in a new tab. Only those with a query and Vega-Lite spec fewer than 1000 characters are shown." ;
+        ns2:title "Concise Chart Specifications" ;
+        ns3:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?chartURI ?Title 
+  (strlen(str(?Query)) AS ?QueryCharLength)
+  (strlen(str(?VLSpec)) AS ?VLSpecCharLength) 
+WHERE {
+  ?chartURI a sio:Chart ;
+            schema:query ?Query ;
+            dct:title ?Title ;
+            sio:hasValue ?VLSpec .
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"transform\":[{\"filter\":\"datum.QueryCharLength < 1000 && datum.VLSpecCharLength < 1000\"}],\"mark\":{\"type\":\"point\"},\"encoding\":{\"y\":{\"field\":\"QueryCharLength\",\"type\":\"quantitative\",\"title\":\"SPARQL query length (# chars)\"},\"x\":{\"field\":\"VLSpecCharLength\",\"type\":\"quantitative\",\"title\":\"Vega-Lite spec length (# chars)\"},\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"}]},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFlush\":false}}}" ;
+        ns4:depiction <http://nanomine.org/viz/c24fb36641a3264f_depiction> .
+
+    <http://nanomine.org/viz/c24fb36641a3264f_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-09-24T20:56:59.717000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "f600cb68-1d79-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:mbbo5r0lbx a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/c24fb36641a3264f_depiction> ;
+        ns8:hasAssertion ns1:mbbo5r0lbx_assertion ;
+        ns8:hasProvenance ns1:mbbo5r0lbx_provenance ;
+        ns8:hasPublicationInfo ns1:mbbo5r0lbx_pubinfo .
+
+    ns1:mbbo5r0lbx_assertion a ns8:Assertion .
+
+    ns1:mbbo5r0lbx_provenance a ns8:Provenance .
+
+    ns1:mbbo5r0lbx_pubinfo a ns8:PublicationInfo .
+}
+

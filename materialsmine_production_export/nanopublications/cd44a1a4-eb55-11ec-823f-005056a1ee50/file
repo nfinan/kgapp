@@ -1,0 +1,80 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:p60u3lgm0o_pubinfo {
+    ns1:p60u3lgm0o_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-18T16:43:50.234000+00:00"^^xsd:dateTime .
+}
+
+ns1:p60u3lgm0o_assertion {
+    <http://nanomine.org/viz/2b3a36b96014ae7a> a ns7:Chart ;
+        ns2:description "The range of operational temperatures can be an important factor for materials selection. This zoomable interactive chart shows the range from glass transition temperature, Tg, to thermal decomposition temperature, Td, using point marks layered over errorbar marks. Select a point to reveal all other samples linked to the same DOI, and Ctrl-click on the DOI to open the corresponding research article in a new tab." ;
+        ns2:title "Using the Errorbar Mark to Display Temperature Ranges" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:title ?Title ;
+       sio:hasPart ?sample .
+  
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute ?x1, ?x2 .
+  
+  ?x1 a mm:GlassTransitionTemperature ;
+      sio:hasValue ?Tg ;
+      sio:hasUnit om-2:degreeCelsius .
+  ?x2 a mm:ThermalDecompositionTemperature ; 
+      sio:hasValue ?Td ;
+      sio:hasUnit om-2:degreeCelsius .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a mm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a mm:Filler ] ;
+                                   sio:hasAttribute [ a mm:VolumeFraction ;
+                                                      sio:hasValue ?VolFrac ] ] .
+  }
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"}],\"layer\":[{\"width\":500,\"height\":300,\"mark\":{\"type\":\"errorbar\",\"thickness\":2},\"encoding\":{\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Temperature (Celsius)\"},\"y2\":{\"field\":\"Td\"}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"fields\":[\"doi\"]},\"highlight_measurement\":{\"type\":\"single\",\"fields\":[\"sample\",\"Td\"],\"empty\":\"none\"}},\"transform\":[{\"fold\":[\"Tg\",\"Td\"]}],\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10}},\"shape\":{\"field\":\"key\",\"type\":\"nominal\",\"title\":\"Attribute\",\"legend\":{\"labelExpr\":\"datum.label == 'Td' ? 'Thermal Decomposition Temperature, Td' : datum.label == 'Tg' ? 'Glass Transition Temperature, Tg' : 'other'\",\"labelLimit\":200}},\"size\":{\"condition\":{\"selection\":\"highlight\",\"value\":50},\"value\":0},\"tooltip\":[{\"field\":\"key\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Value (Celsius)\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"Filler Amt. (vol.%)\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"highlight_measurement\"}}],\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"encodings\":[\"text\"]}},\"mark\":{\"type\":\"text\",\"yOffset\":15,\"align\":\"left\"},\"encoding\":{\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\"},\"text\":{\"field\":\"DOI\",\"type\":\"nominal\"},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"}]}}],\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"axis\":{\"format\":\"p\"},\"title\":\"Filler Amount (vol.%)\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0}},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12}}}" ;
+        ns3:depiction <http://nanomine.org/viz/2b3a36b96014ae7a_depiction> .
+
+    <http://nanomine.org/viz/2b3a36b96014ae7a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-18T16:43:50.233000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "b515c2da-488e-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:p60u3lgm0o a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/2b3a36b96014ae7a_depiction> ;
+        ns8:hasAssertion ns1:p60u3lgm0o_assertion ;
+        ns8:hasProvenance ns1:p60u3lgm0o_provenance ;
+        ns8:hasPublicationInfo ns1:p60u3lgm0o_pubinfo .
+
+    ns1:p60u3lgm0o_assertion a ns8:Assertion .
+
+    ns1:p60u3lgm0o_provenance a ns8:Provenance .
+
+    ns1:p60u3lgm0o_pubinfo a ns8:PublicationInfo .
+}
+

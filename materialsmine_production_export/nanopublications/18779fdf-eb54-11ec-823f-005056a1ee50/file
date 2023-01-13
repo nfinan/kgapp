@@ -1,0 +1,1056 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L377_S4_Wanasekara_2017_assertion {
+    <http://materialsmine.org/sample/l377-s1-wanasekara-2017> ns2:hasRole <http://materialsmine.org/sample/l377-s1-wanasekara-2017_control_role> .
+
+    <http://materialsmine.org/compound/Cellulose> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Cellulose" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Process Development Center at the University of Maine" ] ;
+        ns4:altLabel "cellulose nanocrystals" ;
+        ns4:notation "CNC" .
+
+    <http://materialsmine.org/compound/CelluloseAcetateButyrate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Cellulose acetate butyrate" ;
+        ns4:notation "CAB" .
+
+    <http://materialsmine.org/sample/l377-s1-wanasekara-2017_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l377-s4-wanasekara-2017> .
+
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017_filler_0> a <http://materialsmine.org/compound/Cellulose> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.6e+00 ],
+            <http://materialsmine.org/sample/l377-s4-wanasekara-2017_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l377-s4-wanasekara-2017_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l377-s4-wanasekara-2017> ] .
+
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 1.961559e-01 .
+
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 1.05e-01 .
+
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017_matrix_0> a <http://materialsmine.org/compound/CelluloseAcetateButyrate> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "CAB" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.25e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l377-s4-wanasekara-2017> ] .
+
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "cellulose nanocrystals in cellulose acetone butyrate" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.66061e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.8776e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.46909e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.5918e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.958855e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.07143e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.4883e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.551e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.836675e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.78571e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.097744e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.8163e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.0886e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.615288e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.57143e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.015873e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.4082e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.98162e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.3673e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.77611e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.0408e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.890351e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.84694e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.23183e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.9592e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.178989e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.2245e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.64411e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.1837e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.941312e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.89796e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.785088e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.73469e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.96533e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.184e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.367377e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.36735e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.813074e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.7959e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.344403e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.2449e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.989557e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.94898e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.836675e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.78571e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.028822e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.11224e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.941312e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.89796e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.502297e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.0612e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.6182e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.02e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.015873e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.4082e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.344403e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.2449e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.77611e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.0408e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.836675e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.78571e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.14536e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.6327e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 0e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.0886e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/StrainAtBreak> ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 2e-01 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns2:hasValue 2.9e+00 ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.64411e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.1837e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.615288e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.57143e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.580409e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.4694e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.738513e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.2857e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.8066e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.7755e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.424394e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.6531e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.300752e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.31633e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.097744e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.8163e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.580409e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.4694e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.300752e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.31633e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.8066e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.7755e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.55472e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.52041e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.7118e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.041e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.168964e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.21429e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.96533e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.184e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.672723e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.62245e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.49457e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.46939e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 0e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.958855e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.07143e+00 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.168964e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.21429e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.14536e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.6327e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.72995e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.67347e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.344403e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.2449e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.7118e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.041e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.958855e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.07143e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.813074e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.7959e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.672723e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.62245e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.502297e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.0612e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.23183e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.9592e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.039265e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.0102e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.424394e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.6531e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.64411e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.1837e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.77611e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.0408e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.31287e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.234127e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.26531e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.813074e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.7959e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.432957e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.41837e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.168964e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.21429e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.367377e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.36735e+00 ] ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.72995e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.67347e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.52297e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.3265e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.890351e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.84694e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.028822e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.11224e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.98162e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.3673e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 0e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.49457e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.46939e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.097744e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.16327e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.6182e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.02e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.55472e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.52041e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.615288e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.57143e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.8066e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.7755e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.46199e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.082e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.52297e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.3265e-01 ] ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+                ns2:hasValue 2.8e+00 ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.015873e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.4082e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.097744e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.16327e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.7118e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.041e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.502297e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.0612e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.262114e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.7347e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.432957e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.41837e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.4883e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.551e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.738513e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.2857e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.738513e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.2857e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.46909e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.5918e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.234127e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.26531e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.66061e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.8776e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.989557e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.94898e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.98162e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.3673e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.785088e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.73469e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.49457e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.46939e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.262114e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.7347e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.0886e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.432957e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.41837e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.178989e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.2245e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.424394e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.6531e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.097744e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.16327e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.6182e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.02e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.31287e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.886383e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.03061e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.039265e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.0102e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.96533e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.184e-02 ] ],
+            [ a <http://materialsmine.org/ns/TensileStrength> ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 7e+00 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.5e+01 ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.262114e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.7347e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.580409e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.4694e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.234127e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.26531e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.300752e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.31633e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.989557e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.94898e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.46199e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.082e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.097744e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.8163e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.367377e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.36735e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.785088e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.73469e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.886383e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.03061e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.178989e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.2245e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.4883e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.551e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.52297e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.3265e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.66061e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.8776e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.72995e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.67347e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.55472e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.52041e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.46909e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.5918e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.672723e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.62245e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.23183e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.9592e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.039265e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.0102e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.890351e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.84694e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.46199e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.082e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.886383e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.03061e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.31287e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.028822e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.11224e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.14536e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.6327e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.941312e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.89796e+00 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l377-s4-wanasekara-2017_filler_0>,
+            <http://materialsmine.org/sample/l377-s4-wanasekara-2017_matrix_0> .
+
+    <http://materialsmine.org/ns/Strain> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Strain" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Stress> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Stress" ;
+        rdfs:subClassOf ns2:Quantity .
+}
+
+ns1:L377_S4_Wanasekara_2017_pubinfo {
+    ns1:L377_S4_Wanasekara_2017_assertion ns3:created "2021-07-23T02:28:40.919000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NTc3MjcyLjAyMjI4MDk2ODU/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/acsmacrolett.7b00609> .
+
+    <http://dx.doi.org/10.1021/acsmacrolett.7b00609> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Injectable Highly Loaded Cellulose Nanocrystal Fibers and Composites" ;
+        ns3:created 2017 ;
+        ns3:creator <http://materialsmine.org/author/eichhorn-stephen-j>,
+            <http://materialsmine.org/author/wanasekara-nandula-d> ;
+        ns3:isPartOf <http://materialsmine.org/publication/acs-macro-letters> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Injectable Highly Loaded Cellulose Nanocrystal Fibers and Composites" ;
+        ns7:authorList ( <http://materialsmine.org/author/eichhorn-stephen-j> <http://materialsmine.org/author/wanasekara-nandula-d> ) ;
+        ns7:volume 6 ;
+        ns2:hasPart <http://materialsmine.org/sample/l377-s4-wanasekara-2017> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/acsmacrolett.7b00609> .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/publication/acs-macro-letters> ns3:title "ACS Macro Letters" .
+
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017> ns5:wasAttributedTo <http://materialsmine.org/author/eichhorn-stephen-j>,
+            <http://materialsmine.org/author/wanasekara-nandula-d> .
+
+    <http://materialsmine.org/author/eichhorn-stephen-j> a ns5:Agent ;
+        rdfs:label "Eichhorn, Stephen J." ;
+        ns6:name "Eichhorn, Stephen J." .
+
+    <http://materialsmine.org/author/wanasekara-nandula-d> a ns5:Agent ;
+        rdfs:label "Wanasekara, Nandula D." ;
+        ns6:name "Wanasekara, Nandula D." .
+}
+
+ns1:L377_S4_Wanasekara_2017_provenance {
+    <http://materialsmine.org/sample/l377-s4-wanasekara-2017> ns5:wasGeneratedBy <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_raman-spectroscopy> a <http://materialsmine.org/ns/RamanSpectroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/renishaw-1000-raman-spectrometer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_rheometery> a <http://materialsmine.org/ns/ConePlateRheometery>,
+            <http://materialsmine.org/ns/Rheometery>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns3:description "5 wt.% PEO/water solution and 8 wt.% CNC/water solution was mixed together in a ratio of 1:3 v/v. A 5ml syringe with a needle (gauge=18) was used for injection of CNC/PEO solution to acetone. The injection speed was approx. 2mm/sec. The fibers were air dried for at least for two weeks before using for further experiments. Same procedure was followed for manufacturing CNC/CAB composites with the injection of CNC/water 8 wt.% solution was made to 5 wt.% CAB/acetone solution." ;
+        ns2:hasPart <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2> .
+
+    <http://materialsmine.org/ns/renishaw-1000-raman-spectrometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Renishaw 1000 Raman spectrometer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "mechanical mixing" .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_ambientcondition>,
+            <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "atmosphere" .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Day ;
+        ns2:hasValue "14.0" .
+
+    <http://materialsmine.org/sample/L377_S4_Wanasekara_2017_solution_processing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    ns2:Day rdfs:label "days" .
+
+    ns1:L377_S4_Wanasekara_2017_assertion ns5:wasDerivedFrom ns1:L377_S4_Wanasekara_2017_assertion,
+            <http://nanomine.org/pub/MTYzNTg4Ljk2MTQ1MzYzODY1_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NTc3MjcyLjAyMjI4MDk2ODU/MaterialsmineXMLImport> ;
+                ns5:used ns1:L377_S4_Wanasekara_2017_assertion,
+                    <http://nanomine.org/pub/MTYzNTg4Ljk2MTQ1MzYzODY1_assertion> ],
+            <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_description>,
+            <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_equipment>,
+            <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_raman-spectroscopy>,
+            <http://materialsmine.org/entry/L377_S4_Wanasekara_2017_characterization_rheometery> .
+}
+

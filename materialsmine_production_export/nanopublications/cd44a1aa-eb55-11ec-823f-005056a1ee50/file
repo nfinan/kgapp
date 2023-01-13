@@ -1,0 +1,61 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:qnlhs1tgiy_pubinfo {
+    ns1:qnlhs1tgiy_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:29:27.918000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:qnlhs1tgiy a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/357d0075963daa08_depiction> ;
+        ns3:hasAssertion ns1:qnlhs1tgiy_assertion ;
+        ns3:hasProvenance ns1:qnlhs1tgiy_provenance ;
+        ns3:hasPublicationInfo ns1:qnlhs1tgiy_pubinfo .
+
+    ns1:qnlhs1tgiy_assertion a ns3:Assertion .
+
+    ns1:qnlhs1tgiy_provenance a ns3:Provenance .
+
+    ns1:qnlhs1tgiy_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:qnlhs1tgiy_assertion {
+    <http://nanomine.org/viz/357d0075963daa08> a ns4:Chart ;
+        ns2:description "These stacked density plots show the distribution of glass transition temperature data in the knowledge graph. Hover over a series to display a tooltip with the matrix material name, glass transition temperature, and 1-D kernel density estimate." ;
+        ns2:title "Stacked Density Estimates" ;
+        ns6:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+  ?doi sio:hasPart ?sample .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":500,\"height\":400,\"transform\":[{\"density\":\"Tg\",\"groupby\":[\"Matrix\"],\"extent\":[-100,450],\"counts\":true,\"steps\":1000}],\"selection\":{\"isolate\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"fields\":[\"Matrix\"],\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"area\",\"interpolate\":\"monotone\"},\"encoding\":{\"x\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"y\":{\"field\":\"density\",\"type\":\"quantitative\",\"stack\":\"zero\",\"axis\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"}},\"opacity\":{\"condition\":{\"selection\":\"isolate\",\"value\":1},\"value\":0.1},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"},{\"field\":\"density\",\"type\":\"quantitative\"}]},\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14,\"labelFlush\":false}}}" ;
+        ns7:depiction <http://nanomine.org/viz/357d0075963daa08_depiction> .
+
+    <http://nanomine.org/viz/357d0075963daa08_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:29:27.918000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "85163832-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

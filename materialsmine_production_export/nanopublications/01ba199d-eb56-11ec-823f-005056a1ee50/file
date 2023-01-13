@@ -1,0 +1,47 @@
+@prefix ns1: <http://open.vocab.org/terms/> .
+@prefix ns2: <http://vocab.rpi.edu/whyis/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:pHo3kSdF76NcXado2DRTAX_assertion> {
+    <http://nanomine.org/nmr/dataset/132> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/L132_S2_Holt_2014> .
+
+    <http://nanomine.org/nmr/xml/L132_S2_Holt_2014?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns1:hasContentType "text/xml" ;
+        ns3:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T08:50:49.938000+00:00"^^xsd:dateTime ;
+        ns2:hasFileID "e9f4a458-eac9-11eb-9f8d-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns3:FileFormat .
+}
+
+<urn:pHo3kSdF76NcXado2DRTAX_pubinfo> {
+    <urn:pHo3kSdF76NcXado2DRTAX_assertion> ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T08:50:49.939000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:pHo3kSdF76NcXado2DRTAX> a ns6:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/nmr/xml/L132_S2_Holt_2014?format=xml> ;
+        ns6:hasAssertion <urn:pHo3kSdF76NcXado2DRTAX_assertion> ;
+        ns6:hasProvenance <urn:pHo3kSdF76NcXado2DRTAX_provenance> ;
+        ns6:hasPublicationInfo <urn:pHo3kSdF76NcXado2DRTAX_pubinfo> .
+
+    <urn:pHo3kSdF76NcXado2DRTAX_assertion> a ns6:Assertion .
+
+    <urn:pHo3kSdF76NcXado2DRTAX_provenance> a ns6:Provenance .
+
+    <urn:pHo3kSdF76NcXado2DRTAX_pubinfo> a ns6:PublicationInfo .
+}
+

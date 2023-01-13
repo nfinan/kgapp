@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.nanopub.org/nschema#> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:fui1SiNxmzD9W43to4tqnD> a ns1:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/nmr/xml/L382_S5_Huang_2019?format=xml> ;
+        ns1:hasAssertion <urn:fui1SiNxmzD9W43to4tqnD_assertion> ;
+        ns1:hasProvenance <urn:fui1SiNxmzD9W43to4tqnD_provenance> ;
+        ns1:hasPublicationInfo <urn:fui1SiNxmzD9W43to4tqnD_pubinfo> .
+
+    <urn:fui1SiNxmzD9W43to4tqnD_assertion> a ns1:Assertion .
+
+    <urn:fui1SiNxmzD9W43to4tqnD_provenance> a ns1:Provenance .
+
+    <urn:fui1SiNxmzD9W43to4tqnD_pubinfo> a ns1:PublicationInfo .
+}
+
+<urn:fui1SiNxmzD9W43to4tqnD_assertion> {
+    <http://nanomine.org/nmr/dataset/382> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/L382_S5_Huang_2019> .
+
+    <http://nanomine.org/nmr/xml/L382_S5_Huang_2019?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns5:hasContentType "text/xml" ;
+        ns3:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns3:contributor <http://nanomine.org/user/0807205> ;
+        ns3:created "2021-07-23T03:22:36.482000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "3a2765be-eb65-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns3:FileFormat .
+}
+
+<urn:fui1SiNxmzD9W43to4tqnD_pubinfo> {
+    <urn:fui1SiNxmzD9W43to4tqnD_assertion> ns3:contributor <http://nanomine.org/user/0807205> ;
+        ns3:created "2021-07-23T03:22:36.482000+00:00"^^xsd:dateTime .
+}
+

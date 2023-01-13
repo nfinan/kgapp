@@ -1,0 +1,71 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:45ujtwq6bo_assertion {
+    <http://nanomine.org/viz/e2c7c9816c563b62> a ns2:Chart ;
+        ns3:description "Dynamic mechanical analysis (DMA) examines the viscoelastic behavior of materials and can be used to determine properties such as the glass transition temperature, Tg. The storage modulus represents the in-phase component of the strain response to a applied sinusoidal stress, whereas the loss modulus represents the out-of-phase component. By measuring these quantities while performing a temperature and/or frequency sweep, one can determine where a material exhibits viscous or elastic behavior. Tan delta is defined as the ratio of loss modulus and storage modulus. In this chart, we compare some reported values of tan delta (upper right plot, colored lines) with computed values of tan delta taken by dividing the reported loss and storage modulus values (upper right, gray points). The bottom right plot shows another way to view these data as a scatter plot of loss modulus vs. storage modulus, where the size of each point corresponds to the temperature at which the measurement was taken. Reference dashed lines show where loss modulus and storage modulus are equivalent, or when tan delta is equal to 1. Hover over a point in the lower right plot to highlight the linked data points and display a tooltip. These experimental data were curated by Prasad et al. (2018)." ;
+        ns3:title "Visualizing Relationships Between Storage Modulus, Loss Modulus, and Tan Delta" ;
+        ns4:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX mm_s: <http://materialsmine.org/sample/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT ?doi ?sample ?AttrType ?val ?T_C ?unit WHERE {
+  ?doi sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute ?attr .
+  ?attr a ?AttrType ; sio:hasValue ?val ; 
+    	sio:inRelationTo [ a mm:Temperature ; sio:hasValue ?T_C ; sio:hasUnit om-2:degreeCelsius ] .
+  OPTIONAL { ?attr sio:hasUnit ?unit }
+  VALUES ?doi { <http://dx.doi.org/unpublished/doi-tW6qZKdpLFShLQazV6U2Fw> }
+  VALUES ( ?AttrType ?unit ) { 
+    ( mm:StorageModulus om-2:pascal )
+    ( mm:LossModulus om-2:pascal )
+    ( mm:TanDelta UNDEF)
+  }
+  VALUES ?sample { 
+    mm_s:e116-s2-prasad-2018 mm_s:e116-s3-prasad-2018 mm_s:e116-s5-prasad-2018 mm_s:e116-s6-prasad-2018
+    mm_s:e116-s7-prasad-2018 mm_s:e116-s8-prasad-2018 mm_s:e116-s9-prasad-2018
+  }
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.AttrType, /^.*.org.ns./, '')\",\"as\":\"AttrType\"},{\"pivot\":\"AttrType\",\"groupby\":[\"Sample ID\",\"T_C\"],\"value\":\"val\"},{\"calculate\":\"datum.LossModulus / datum.StorageModulus\",\"as\":\"TD_calc\"}],\"columns\":2,\"concat\":[{\"layer\":[{\"width\":250,\"mark\":{\"type\":\"line\",\"clip\":true},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"hover_sample\",\"value\":1},\"value\":0.1}}},{\"mark\":{\"type\":\"rule\",\"size\":2},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"hover_pt\",\"value\":1},\"value\":0}}}],\"encoding\":{\"y\":{\"field\":\"StorageModulus\",\"type\":\"quantitative\",\"title\":\"Storage Modulus (Pa)\"},\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false},\"title\":\"Temperature (C)\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\",\"legend\":null}}},{\"layer\":[{\"mark\":{\"type\":\"line\",\"strokeDash\":[6,6],\"clip\":true,\"color\":\"#aaa\"},\"encoding\":{\"y\":{\"datum\":1}}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"text\",\"color\":\"#aaa\",\"align\":\"left\",\"fontSize\":12},\"encoding\":{\"x\":{\"datum\":32},\"y\":{\"datum\":1.07},\"text\":{\"value\":\"Loss Modulus = Storage Modulus\"}}},{\"width\":250,\"mark\":{\"type\":\"point\",\"color\":\"#aaa\",\"opacity\":1,\"clip\":true},\"encoding\":{\"y\":{\"field\":\"TD_calc\",\"type\":\"quantitative\",\"title\":\"Tan Delta\"},\"opacity\":{\"condition\":{\"selection\":\"hover_sample\",\"value\":1},\"value\":0},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"T_C\",\"type\":\"quantitative\",\"title\":\"Temperature (C)\"},{\"field\":\"TanDelta\",\"type\":\"quantitative\",\"title\":\"Tan Delta\"},{\"field\":\"TD_calc\",\"type\":\"quantitative\",\"title\":\"Tan Delta (calculated)\"}]}},{\"mark\":{\"type\":\"line\",\"clip\":true},\"encoding\":{\"y\":{\"field\":\"TanDelta\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"hover_sample\",\"value\":1},\"value\":0.1}}},{\"mark\":{\"type\":\"rule\",\"size\":2},\"encoding\":{\"y\":{\"field\":\"TanDelta\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\",\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"hover_pt\",\"value\":1},\"value\":0}}}],\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false},\"title\":\"Temperature (C)\"}}},{\"layer\":[{\"width\":250,\"mark\":{\"type\":\"line\",\"clip\":true},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"hover_sample\",\"value\":1},\"value\":0.1}}},{\"mark\":{\"type\":\"rule\",\"size\":2},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"hover_pt\",\"value\":1},\"value\":0}}}],\"encoding\":{\"y\":{\"field\":\"LossModulus\",\"type\":\"quantitative\",\"title\":\"Loss Modulus (Pa)\"},\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false},\"title\":\"Temperature (C)\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\",\"legend\":null}}},{\"layer\":[{\"width\":250,\"data\":{\"sequence\":{\"start\":0,\"stop\":4000000000,\"step\":100000000,\"as\":\"x\"}},\"mark\":{\"type\":\"line\",\"strokeDash\":[6,6],\"clip\":true,\"color\":\"#aaa\"},\"encoding\":{\"x\":{\"field\":\"x\",\"type\":\"quantitative\"},\"y\":{\"field\":\"x\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,1000000000]}}}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"text\",\"color\":\"#aaa\",\"align\":\"left\",\"fontSize\":12},\"encoding\":{\"x\":{\"datum\":800000000},\"y\":{\"datum\":700000000},\"text\":{\"value\":\"Loss Modulus = Storage Modulus\"}}},{\"selection\":{\"zoom2\":{\"type\":\"interval\",\"bind\":\"scales\"},\"hover_pt\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"Sample ID\",\"T_C\"]},\"hover_sample\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"Sample ID\"]}},\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"StorageModulus\",\"type\":\"quantitative\",\"title\":\"Storage Modulus (Pa)\"},\"y\":{\"field\":\"LossModulus\",\"type\":\"quantitative\",\"title\":\"Loss Modulus (Pa)\"},\"color\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"size\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"domain\":[25,150],\"range\":[2,120],\"type\":\"pow\",\"exponent\":3},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"hover_sample\",\"value\":1},\"value\":0.1},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"T_C\",\"type\":\"quantitative\",\"title\":\"Temperature (C)\"},{\"field\":\"StorageModulus\",\"type\":\"quantitative\",\"title\":\"Storage Modulus\"},{\"field\":\"LossModulus\",\"type\":\"quantitative\",\"title\":\"Loss Modulus\"},{\"field\":\"TanDelta\",\"type\":\"quantitative\",\"title\":\"Tan Delta\"},{\"field\":\"TD_calc\",\"type\":\"quantitative\",\"title\":\"Tan Delta (calculated)\"}]}}]}],\"config\":{\"axis\":{\"titleFontSize\":12,\"format\":\"s\",\"labelBound\":true}}}" ;
+        ns6:depiction <http://nanomine.org/viz/e2c7c9816c563b62_depiction> .
+
+    <http://nanomine.org/viz/e2c7c9816c563b62_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-30T20:46:11.973000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "85fd217a-69b1-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:45ujtwq6bo_pubinfo {
+    ns1:45ujtwq6bo_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-30T20:46:11.974000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:45ujtwq6bo a ns8:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/e2c7c9816c563b62_depiction> ;
+        ns8:hasAssertion ns1:45ujtwq6bo_assertion ;
+        ns8:hasProvenance ns1:45ujtwq6bo_provenance ;
+        ns8:hasPublicationInfo ns1:45ujtwq6bo_pubinfo .
+
+    ns1:45ujtwq6bo_assertion a ns8:Assertion .
+
+    ns1:45ujtwq6bo_provenance a ns8:Provenance .
+
+    ns1:45ujtwq6bo_pubinfo a ns8:PublicationInfo .
+}
+

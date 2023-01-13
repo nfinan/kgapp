@@ -1,0 +1,81 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://vocab.rpi.edu/whyis/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ljgwpbu3gl_assertion {
+    <http://nanomine.org/viz/6b6eda345d672a73> a ns7:Chart ;
+        ns3:description "Stress-strain data from tensile tests are plotted for samples from the published work of Gao et al. (2012, Polymers, DOI: 10.3390/polym4010187), which studied DGEBA epoxy resin nanocomposites with silicon dioxide nanoparticles as a filler. The reported tensile modulus values (units of GPa) are displayed upon highlighting a given sample's stress-strain curve. Since the tensile modulus is determined by the slope of the linear elastic region of a stress-strain plot, a line segment with a slope corresponding to the tensile modulus is also displayed." ;
+        ns3:title "Stress-Strain Plot with Dynamic Highlighting" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.3390/polym4010187> sio:hasPart ?sample .
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:TensileProperty ] ,
+                           [ a nm:TensileModulus ;
+                             sio:hasValue ?TensModGPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] ] ,
+                           [ a nm:Stress ;
+                             sio:hasValue ?StressMPa ;
+                             sio:hasUnit [ rdfs:label "Megapascal" ] ;
+                             sio:inRelationTo [ a nm:Strain ;
+                                                sio:hasValue ?StrainPercent ;
+                                                sio:hasUnit [ rdfs:label "Percent" ] ]  
+                            ] .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] .
+  }
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":700,\"height\":495,\"transform\":[{\"calculate\":\"datum.Loading_vol\",\"as\":\"Filler Loading (vol%)\"},{\"calculate\":\"format(datum.TensModGPa, '.2f')+' GPa'\",\"as\":\"Tensile Modulus\"},{\"calculate\":\"5 / datum.TensModGPa\",\"as\":\"x2value\"}],\"layer\":[{\"selection\":{\"myhighlight\":{\"type\":\"single\",\"empty\":\"none\",\"on\":\"mouseover\",\"clear\":\"mouseout\"},\"myhighlight2\":{\"type\":\"single\",\"empty\":\"all\",\"on\":\"mouseover\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"line\"},\"encoding\":{\"x\":{\"field\":\"StrainPercent\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Strain (%)\",\"titleFontSize\":24,\"labelFontSize\":18,\"labelFlush\":false}},\"y\":{\"field\":\"StressMPa\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Stress (MPa)\",\"titleFontSize\":24,\"labelFontSize\":18}},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"myhighlight2\",\"field\":\"Filler Loading (vol%)\",\"type\":\"ordinal\",\"legend\":{\"format\":\".2p\",\"titleFontSize\":14,\"labelFontSize\":16,\"symbolSize\":200,\"symbolStrokeWidth\":4}},\"value\":\"#777\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Filler Loading (vol%)\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"StrainPercent\",\"type\":\"quantitative\"},{\"field\":\"StressMPa\",\"type\":\"quantitative\"},{\"field\":\"Tensile Modulus\",\"type\":\"nominal\"}],\"opacity\":{\"condition\":{\"selection\":\"myhighlight2\",\"value\":1},\"value\":0.2},\"strokeWidth\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":4},\"value\":2}}},{\"transform\":[{\"filter\":{\"selection\":\"myhighlight\"}}],\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\",\"strokeWidth\":3},\"encoding\":{\"x\":{\"field\":\"x2value\",\"type\":\"quantitative\"},\"y\":{\"datum\":50},\"x2\":{\"datum\":0},\"y2\":{\"datum\":0}}},{\"transform\":[{\"filter\":{\"selection\":\"myhighlight\"}}],\"mark\":{\"type\":\"text\",\"color\":\"firebrick\",\"fontSize\":22,\"align\":\"left\"},\"encoding\":{\"text\":{\"field\":\"Tensile Modulus\",\"type\":\"nominal\"},\"x\":{\"field\":\"x2value\",\"type\":\"quantitative\"},\"y\":{\"datum\":52}}}]}" ;
+        ns6:depiction <http://nanomine.org/viz/6b6eda345d672a73_depiction> .
+
+    <http://nanomine.org/viz/6b6eda345d672a73_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:03:02.589000+00:00"^^xsd:dateTime ;
+        ns2:hasFileID "d4283b68-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:ljgwpbu3gl_pubinfo {
+    ns1:ljgwpbu3gl_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:03:02.590000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:ljgwpbu3gl a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/6b6eda345d672a73_depiction> ;
+        ns8:hasAssertion ns1:ljgwpbu3gl_assertion ;
+        ns8:hasProvenance ns1:ljgwpbu3gl_provenance ;
+        ns8:hasPublicationInfo ns1:ljgwpbu3gl_pubinfo .
+
+    ns1:ljgwpbu3gl_assertion a ns8:Assertion .
+
+    ns1:ljgwpbu3gl_provenance a ns8:Provenance .
+
+    ns1:ljgwpbu3gl_pubinfo a ns8:PublicationInfo .
+}
+

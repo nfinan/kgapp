@@ -1,0 +1,47 @@
+@prefix ns1: <http://semanticscience.org/resource/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:5R65rHJbcFBE9sZBLmb7WR> a ns2:Nanopublication ;
+        ns1:isAbout <http://nanomine.org/nmr/xml/L308_S8_Demetrio_2013?format=xml> ;
+        ns2:hasAssertion <urn:5R65rHJbcFBE9sZBLmb7WR_assertion> ;
+        ns2:hasProvenance <urn:5R65rHJbcFBE9sZBLmb7WR_provenance> ;
+        ns2:hasPublicationInfo <urn:5R65rHJbcFBE9sZBLmb7WR_pubinfo> .
+
+    <urn:5R65rHJbcFBE9sZBLmb7WR_assertion> a ns2:Assertion .
+
+    <urn:5R65rHJbcFBE9sZBLmb7WR_provenance> a ns2:Provenance .
+
+    <urn:5R65rHJbcFBE9sZBLmb7WR_pubinfo> a ns2:PublicationInfo .
+}
+
+<urn:5R65rHJbcFBE9sZBLmb7WR_assertion> {
+    <http://nanomine.org/nmr/dataset/308> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/L308_S8_Demetrio_2013> .
+
+    <http://nanomine.org/nmr/xml/L308_S8_Demetrio_2013?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns5:hasContentType "text/xml" ;
+        ns3:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-23T01:00:04.140000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "508f9f6a-eb51-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns3:FileFormat .
+}
+
+<urn:5R65rHJbcFBE9sZBLmb7WR_pubinfo> {
+    <urn:5R65rHJbcFBE9sZBLmb7WR_assertion> ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-23T01:00:04.145000+00:00"^^xsd:dateTime .
+}
+

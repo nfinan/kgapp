@@ -1,0 +1,62 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:snpiytx52l_assertion {
+    <http://nanomine.org/viz/2a4d02ce6b8c9e09> a ns5:Chart ;
+        ns3:description "This chart shows a minimal example of an interactive dashboard in Vega-Lite using the \"concat\" operator. Selections, filters, and conditional encodings have been added to create the interactive elements. For example, create a brush selection in the top left histogram to adjust the remaining plots. To see a breakdown of material types, hover over the pie chart to view tooltips." ;
+        ns3:title "A Simple Interactive Dashboard" ;
+        ns7:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:created ?year ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Material ] ] ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg_C ; sio:hasUnit om-2:degreeCelsius ] .
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"concat\":[{\"selection\":{\"brush\":{\"type\":\"interval\"}},\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"aggregate\":\"distinct\",\"field\":\"doi\"}}},{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"transform\":[{\"filter\":{\"selection\":\"brush\"}}],\"mark\":\"arc\",\"encoding\":{\"theta\":{\"aggregate\":\"count\"},\"color\":{\"field\":\"Material\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":0.6},\"value\":1},\"tooltip\":[{\"field\":\"Material\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"title\":\"# samples\"}]},\"view\":{\"stroke\":null}},{\"mark\":{\"type\":\"tick\"},\"encoding\":{\"x\":{\"field\":\"year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"Tg_C\",\"type\":\"quantitative\"},\"color\":{\"condition\":{\"selection\":\"brush\",\"field\":\"Material\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"value\":\"#ddd\"}}},{\"layer\":[{\"mark\":{\"type\":\"bar\",\"orient\":\"horizontal\",\"color\":\"#ddd\"}},{\"transform\":[{\"filter\":{\"selection\":\"brush\"}}],\"mark\":{\"type\":\"bar\",\"orient\":\"horizontal\"}}],\"encoding\":{\"y\":{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":20}},\"x\":{\"aggregate\":\"count\"}}}],\"columns\":2}" ;
+        ns2:depiction <http://nanomine.org/viz/2a4d02ce6b8c9e09_depiction> .
+
+    <http://nanomine.org/viz/2a4d02ce6b8c9e09_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-22T15:49:14.168000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "b6713482-633e-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:snpiytx52l_pubinfo {
+    ns1:snpiytx52l_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-22T15:49:14.168000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:snpiytx52l a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/2a4d02ce6b8c9e09_depiction> ;
+        ns8:hasAssertion ns1:snpiytx52l_assertion ;
+        ns8:hasProvenance ns1:snpiytx52l_provenance ;
+        ns8:hasPublicationInfo ns1:snpiytx52l_pubinfo .
+
+    ns1:snpiytx52l_assertion a ns8:Assertion .
+
+    ns1:snpiytx52l_provenance a ns8:Provenance .
+
+    ns1:snpiytx52l_pubinfo a ns8:PublicationInfo .
+}
+

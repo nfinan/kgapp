@@ -1,0 +1,69 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:79vhozu6wz_pubinfo {
+    ns1:79vhozu6wz_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:06:15.126000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:79vhozu6wz a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/b62f51746c663f54_depiction> ;
+        ns3:hasAssertion ns1:79vhozu6wz_assertion ;
+        ns3:hasProvenance ns1:79vhozu6wz_provenance ;
+        ns3:hasPublicationInfo ns1:79vhozu6wz_pubinfo .
+
+    ns1:79vhozu6wz_assertion a ns3:Assertion .
+
+    ns1:79vhozu6wz_provenance a ns3:Provenance .
+
+    ns1:79vhozu6wz_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:79vhozu6wz_assertion {
+    <http://nanomine.org/viz/b62f51746c663f54> a ns4:Chart ;
+        ns2:description "Many real-world numerical datasets (utility bills, stock prices, lengths of rivers) display an anomalous frequency distribution of the leading digits of those numbers, where smaller leading digits are more common. The trend holds best for values spanning several orders of magnitude and when the underlying data are described by power-law behavior. Here, several distributions of NanoMine data are displayed as line charts above a reference bar chart with the expected probability values according to Benford's Law. Electrical conductivity data, whose values (from insulators to conductors) span over a dozen orders of magnitude, track this distribution quite closely are highlighted in red." ;
+        ns2:title "Benford's Law on NanoMine Data" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT ?attrlabel ?value WHERE {
+  ?subject sio:hasValue ?value ;
+           a ?attr .
+  ?attr rdfs:label ?attrlabel
+  FILTER(
+    ?attr = nm:GlassTransitionTemperature || 
+    ?attr = nm:TensileModulus || 
+    ?attr = nm:CrystallizationTemperature ||
+    ?attr = nm:ElongationAtBreak ||
+    ?attr = nm:TensileStressAtBreak ||
+    ?attr = nm:ElectricalConductivity ||
+    ?attr = nm:ThermalDecompositionTemperature ||
+    ?attr = nm:MeltingTemperature ||
+    ?attr = nm:TensileStressAtYield ||
+    ?attr = nm:DielectricRealPermittivity
+  )   
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"trim(datum.attrlabel)\",\"as\":\"attrLabel\"},{\"filter\":\"datum.attrLabel != 'Electric Conductivity'\"},{\"calculate\":\"replace(toString(datum.value),'-','')\",\"as\":\"noNeg\"},{\"calculate\":\"replace(datum.noNeg, '.', '')\",\"as\":\"noDec\"},{\"calculate\":\"replace(datum.noDec, 'e', '')\",\"as\":\"noExp\"},{\"calculate\":\"toString(toNumber(datum.noExp))\",\"as\":\"numString\"},{\"calculate\":\"truncate(datum.numString,1,'right','')\",\"as\":\"leadingDigit\"},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"allInGroup\"}],\"groupby\":[\"attrlabel\"]},{\"window\":[{\"op\":\"count\",\"as\":\"leadingDigitByAttribute\"}],\"groupby\":[\"attrlabel\",\"leadingDigit\"],\"frame\":[null,null]},{\"calculate\":\"datum.leadingDigitByAttribute / datum.allInGroup\",\"as\":\"leadingDigitProb\"}],\"width\":625,\"height\":425,\"layer\":[{\"data\":{\"values\":[{\"Digit\":\"1\",\"Probability\":0.301},{\"Digit\":\"2\",\"Probability\":0.176},{\"Digit\":\"3\",\"Probability\":0.125},{\"Digit\":\"4\",\"Probability\":0.097},{\"Digit\":\"5\",\"Probability\":0.079},{\"Digit\":\"6\",\"Probability\":0.067},{\"Digit\":\"7\",\"Probability\":0.058},{\"Digit\":\"8\",\"Probability\":0.051},{\"Digit\":\"9\",\"Probability\":0.046}]},\"mark\":{\"type\":\"bar\",\"color\":\"lightgray\",\"opacity\":0.7},\"encoding\":{\"x\":{\"field\":\"Digit\",\"type\":\"ordinal\",\"axis\":{\"title\":\"Leading Digit\",\"labelFont\":\"Courier New\",\"labelFontSize\":48,\"labelAngle\":0}},\"y\":{\"field\":\"Probability\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Probability\"}}}},{\"mark\":{\"type\":\"line\",\"color\":\"gray\",\"opacity\":0.3},\"encoding\":{\"x\":{\"field\":\"leadingDigit\",\"type\":\"ordinal\"},\"y\":{\"field\":\"leadingDigitProb\",\"type\":\"quantitative\"},\"detail\":{\"field\":\"attrlabel\",\"type\":\"nominal\"}}},{\"transform\":[{\"filter\":\"datum.attrLabel == 'Electrical conductivity'\"}],\"mark\":{\"type\":\"line\",\"stroke\":\"firebrick\",\"strokeWidth\":3},\"encoding\":{\"x\":{\"field\":\"leadingDigit\",\"type\":\"ordinal\"},\"y\":{\"field\":\"leadingDigitProb\",\"type\":\"quantitative\"}}},{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"line\",\"strokeWidth\":4},\"encoding\":{\"x\":{\"field\":\"leadingDigit\",\"type\":\"ordinal\"},\"y\":{\"field\":\"leadingDigitProb\",\"type\":\"quantitative\"},\"color\":{\"field\":\"attrLabel\",\"type\":\"nominal\",\"legend\":{\"title\":\"Attribute\",\"labelFontSize\":16,\"titleFontSize\":16}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0},\"tooltip\":[{\"field\":\"attrLabel\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"field\":\"leadingDigit\",\"type\":\"quantitative\",\"title\":\"Leading Digit\"},{\"field\":\"leadingDigitProb\",\"type\":\"quantitative\",\"title\":\"Probability\",\"format\":\".3f\"},{\"field\":\"leadingDigitByAttribute\",\"type\":\"quantitative\",\"title\":\"Total Observations\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":26,\"labelFontSize\":22}}}" ;
+        ns6:depiction <http://nanomine.org/viz/b62f51746c663f54_depiction> .
+
+    <http://nanomine.org/viz/b62f51746c663f54_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:06:15.125000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "46eaf140-f546-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

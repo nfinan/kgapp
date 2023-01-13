@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:0rxiagqsy5_assertion {
+    <http://nanomine.org/viz/adc6d4d30aab7457> a ns4:Chart ;
+        ns2:description "Resist the temptation to pop the bubbles... they might disappear forever if you do! (Just kidding, you can refresh the page to refresh the data). This scatter plot shows Young's modulus as a function of yield strain, with gradient color fills and randomized size encodings to give the appearance of soap bubbles, and a paintbrush type selection on mouseover to make the bubbles disappear." ;
+        ns2:title "Don't Pop the Bubbles!" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+    ?sample a nm:PolymerNanocomposite ;
+            sio:hasAttribute [ a nm:TensileModulus ;
+                               sio:hasValue ?YoungsModGPa ;
+                               sio:hasUnit ?YoungsModUnit ] ,
+                             [ a nm:ElongationAtYield ;
+                               sio:hasValue ?YieldStrainPercent ;
+                               sio:hasUnit ?ElongBreakUnit ] .
+   ?YoungsModUnit rdfs:label "Gigapascal" .
+   ?ElongBreakUnit rdfs:label "Percent" .
+}
+""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"selection\":{\"pop\":{\"type\":\"multi\",\"on\":\"mouseover\",\"empty\":\"none\",\"toggle\":false}},\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true,\"stroke\":\"rgb(162,208,193,0.5)\",\"strokeWidth\":1,\"opacity\":0.5,\"color\":{\"gradient\":\"radial\",\"stops\":[{\"color\":\"rgb(162,208,193,0.3)\",\"offset\":1},{\"color\":\"rgb(162,208,193,0.02)\",\"offset\":0.3}]}},\"transform\":[{\"calculate\":\"random()\",\"as\":\"randsize\"}],\"encoding\":{\"x\":{\"field\":\"YieldStrainPercent\",\"type\":\"quantitative\",\"title\":\"Yield Strain (%)\",\"scale\":{\"padding\":50}},\"y\":{\"field\":\"YoungsModGPa\",\"type\":\"quantitative\",\"title\":\"Young's Modulus (GPa)\",\"scale\":{\"padding\":50}},\"size\":{\"condition\":{\"selection\":\"pop\",\"value\":0},\"field\":\"randsize\",\"type\":\"quantitative\",\"scale\":{\"range\":[50,5000]},\"legend\":null}},\"config\":{\"axis\":{\"titleFontSize\":24,\"labelFontSize\":18,\"grid\":false,\"labelFlush\":false},\"view\":{\"stroke\":null}}}" ;
+        ns3:depiction <http://nanomine.org/viz/adc6d4d30aab7457_depiction> .
+
+    <http://nanomine.org/viz/adc6d4d30aab7457_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:23:58.825000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "c0ee979c-f548-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:0rxiagqsy5_pubinfo {
+    ns1:0rxiagqsy5_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:23:58.825000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:0rxiagqsy5 a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/adc6d4d30aab7457_depiction> ;
+        ns8:hasAssertion ns1:0rxiagqsy5_assertion ;
+        ns8:hasProvenance ns1:0rxiagqsy5_provenance ;
+        ns8:hasPublicationInfo ns1:0rxiagqsy5_pubinfo .
+
+    ns1:0rxiagqsy5_assertion a ns8:Assertion .
+
+    ns1:0rxiagqsy5_provenance a ns8:Provenance .
+
+    ns1:0rxiagqsy5_pubinfo a ns8:PublicationInfo .
+}
+

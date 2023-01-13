@@ -1,0 +1,78 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:4ye86xzdee_assertion {
+    <http://nanomine.org/viz/acb8b85a62d333e4> a ns7:Chart ;
+        ns2:description "Dielectric breakdown strength (DBS) is extracted from a Weibull plot via the scale parameter, which corresponds to the E-field value at which the cumulative probability of failure is (1 - 1/e), or roughly 63.2%. Hover over a point to display all points for that sample along with the linear regression and DBS value. In this plot, Vega-Lite calculates the ordinary least squares linear regression for a given data series and displays the resulting best-fit line. The slope of the line, the Weibull shape parameter (beta), can be a useful descriptor of the material's tendency to fail over time. The coefficient of determination (R^2) of the linear regression is also displayed. Here, a color encoding is used for Matrix material and a shape encoding is used for Filler material. Click-drag or scroll to pan or zoom along the x-axis." ;
+        ns2:title "DBS Calculator Using Weibull Plot and Linear Regression" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?doi sio:hasPart ?sample .
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ElectricalProperty ] ,
+                           [ a nm:ProbabilityOfFailure ;
+                             sio:hasValue ?probFailure ;
+                             sio:hasUnit [ rdfs:label "Percent" ] ;
+                             sio:inRelationTo [ a nm:BreakdownStrength ;
+                                                sio:hasValue ?breakdown ;
+                                                sio:hasUnit [ rdfs:label "Kilovolt per Millimeter" ] ]  
+                            ] .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] .
+  }
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":750,\"height\":495,\"transform\":[{\"calculate\":\"-log(1 - (datum.probFailure / 100))\",\"as\":\"Weibull_inner\"},{\"calculate\":\"log(datum.Weibull_inner)\",\"as\":\"Weibull\"},{\"calculate\":\"datum.probFailure / 100\",\"as\":\"Probability\"},{\"calculate\":\"format(datum.breakdown, '.4r')+' kV/mm'\",\"as\":\"Electric Field\"},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"}],\"layer\":[{\"data\":{\"values\":[{\"ProbLabel\":\"99\",\"WeibullLinear\":1.527},{\"ProbLabel\":\"90\",\"WeibullLinear\":0.834},{\"ProbLabel\":\"40\",\"WeibullLinear\":-0.672},{\"ProbLabel\":\"20\",\"WeibullLinear\":-1.5},{\"ProbLabel\":\"10\",\"WeibullLinear\":-2.25},{\"ProbLabel\":\"5\",\"WeibullLinear\":-2.97},{\"ProbLabel\":\"1\",\"WeibullLinear\":-4.6}]},\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#ddd\",\"strokeWidth\":1},\"encoding\":{\"y\":{\"field\":\"WeibullLinear\",\"type\":\"quantitative\"}}},{\"mark\":{\"type\":\"text\",\"x\":-3,\"align\":\"right\",\"fontSize\":16,\"clip\":false},\"encoding\":{\"y\":{\"field\":\"WeibullLinear\",\"type\":\"quantitative\"},\"text\":{\"field\":\"ProbLabel\",\"type\":\"nominal\"}}}]},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"fields\":[\"sample\"],\"empty\":\"all\",\"nearest\":true,\"clear\":\"mouseout\"},\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"fields\":[\"sample\"],\"empty\":\"none\",\"nearest\":true,\"clear\":\"mouseout\"},\"highlight_indiv\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":100},\"encoding\":{\"x\":{\"field\":\"breakdown\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Electric Field (kV/mm)\",\"titleFontSize\":20,\"labelFontSize\":16,\"labelFlush\":false}},\"y\":{\"field\":\"Weibull\",\"type\":\"quantitative\",\"axis\":{\"grid\":false,\"ticks\":false,\"labels\":false,\"title\":\"Cumulative Probability of Failure (%)\",\"titleFontSize\":20,\"titlePadding\":40}},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"shape\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Probability\",\"type\":\"quantitative\",\"format\":\".3p\"},{\"field\":\"Electric Field\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Loading_vol\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}],\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.1},\"stroke\":{\"condition\":{\"selection\":\"highlight_indiv\",\"value\":\"black\"},\"value\":\"#555\"}}},{\"data\":{\"values\":[{\"ProbLabel\":\"63.2\",\"WeibullLinear\":0}]},\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\",\"strokeWidth\":2},\"encoding\":{\"y\":{\"field\":\"WeibullLinear\",\"type\":\"quantitative\"}}},{\"mark\":{\"type\":\"text\",\"x\":-3,\"align\":\"right\",\"color\":\"firebrick\",\"fontSize\":16,\"clip\":false},\"encoding\":{\"y\":{\"field\":\"WeibullLinear\",\"type\":\"quantitative\"},\"text\":{\"field\":\"ProbLabel\",\"type\":\"nominal\"}}}]},{\"layer\":[{\"transform\":[{\"calculate\":\"log(datum.breakdown)\",\"as\":\"logbd\"},{\"regression\":\"Weibull\",\"on\":\"logbd\",\"params\":false,\"groupby\":[\"sample\"],\"as\":[\"lbd\",\"wb\"]},{\"calculate\":\"exp(datum.lbd)\",\"as\":\"Efield\"}],\"mark\":{\"type\":\"line\",\"color\":\"#555\"},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"x\":{\"field\":\"Efield\",\"type\":\"quantitative\"},\"y\":{\"field\":\"wb\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0}}},{\"transform\":[{\"filter\":{\"selection\":\"highlight2\"}},{\"calculate\":\"log(datum.breakdown)\",\"as\":\"logbd\"},{\"regression\":\"Weibull\",\"on\":\"logbd\",\"params\":true,\"groupby\":[\"sample\"]},{\"calculate\":\"- datum.coef[0] / datum.coef[1]\",\"as\":\"logxint\"},{\"calculate\":\"exp(datum.logxint)\",\"as\":\"xint\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"strokeWidth\":2,\"color\":\"firebrick\"},\"encoding\":{\"x\":{\"field\":\"xint\",\"type\":\"quantitative\"},\"y\":{\"datum\":0,\"type\":\"quantitative\"},\"y2\":{\"datum\":-5,\"type\":\"quantitative\"}}},{\"transform\":[{\"calculate\":\"'DBS = '+format(datum.xint, '.3r')+' kV/mm'\",\"as\":\"DBStext\"}],\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dy\":190,\"dx\":5,\"fontSize\":16,\"clip\":true},\"encoding\":{\"x\":{\"field\":\"xint\",\"type\":\"quantitative\"},\"text\":{\"field\":\"DBStext\",\"type\":\"nominal\"}}},{\"transform\":[{\"calculate\":\"'beta = '+format(datum.coef[1], '.3r')\",\"as\":\"shapeparam\"}],\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dy\":210,\"dx\":5,\"fontSize\":16,\"clip\":true},\"encoding\":{\"x\":{\"field\":\"xint\",\"type\":\"quantitative\"},\"text\":{\"field\":\"shapeparam\",\"type\":\"nominal\"}}},{\"transform\":[{\"calculate\":\"'R^2 = '+format(datum.rSquared, '.2f')\",\"as\":\"R2\"}],\"mark\":{\"type\":\"text\",\"fontSize\":16,\"align\":\"left\",\"dy\":232,\"dx\":5,\"clip\":true,\"color\":\"firebrick\"},\"encoding\":{\"x\":{\"field\":\"xint\",\"type\":\"quantitative\"},\"text\":{\"field\":\"R2\",\"type\":\"nominal\"}}}]}]}]}" ;
+        ns6:depiction <http://nanomine.org/viz/acb8b85a62d333e4_depiction> .
+
+    <http://nanomine.org/viz/acb8b85a62d333e4_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:01:04.860000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "8dfc1ccc-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:4ye86xzdee a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/acb8b85a62d333e4_depiction> ;
+        ns8:hasAssertion ns1:4ye86xzdee_assertion ;
+        ns8:hasProvenance ns1:4ye86xzdee_provenance ;
+        ns8:hasPublicationInfo ns1:4ye86xzdee_pubinfo .
+
+    ns1:4ye86xzdee_assertion a ns8:Assertion .
+
+    ns1:4ye86xzdee_provenance a ns8:Provenance .
+
+    ns1:4ye86xzdee_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:4ye86xzdee_pubinfo {
+    ns1:4ye86xzdee_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:01:04.861000+00:00"^^xsd:dateTime .
+}
+

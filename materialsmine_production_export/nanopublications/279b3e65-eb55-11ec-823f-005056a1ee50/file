@@ -1,0 +1,363 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L389_S14_natarajan_2013_assertion {
+    <http://materialsmine.org/compound/Octyldimethylmethoxysilane> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/Poly2VinylPyridine> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(2-vinyl pyridine)" ;
+        ns4:notation "P2VP" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan Inc." ] ;
+        ns4:altLabel "Silica" .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.4e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l389-s14-natarajan-2013> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 8e-02 .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0_surface_0> a <http://materialsmine.org/compound/Octyldimethylmethoxysilane> ;
+        rdfs:label "octyldimethylmethoxysilane" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Gelest Inc." ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l389-s14-natarajan-2013> ] ;
+        ns4:notation "ODMMS" .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 3.544865e-02 .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013_matrix_0> a <http://materialsmine.org/compound/Poly2VinylPyridine> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Sigma-Aldrich" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "P2VP" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.12e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l389-s14-natarajan-2013> ] .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Silica in poly(2-vinylpyridine)" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 9.407e+01 ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l389-s14-natarajan-2013_filler_0>,
+            <http://materialsmine.org/sample/l389-s14-natarajan-2013_matrix_0> .
+}
+
+ns1:L389_S14_natarajan_2013_pubinfo {
+    ns1:L389_S14_natarajan_2013_assertion ns3:created "2021-07-23T05:34:47.370000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NDYzNzg1LjA0Mjc5ODE1MjY/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/ma302281b> .
+
+    <http://dx.doi.org/10.1021/ma302281b> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Effect of Interfacial Energetics on Dispersion and Glass Transition Temperature in Polymer Nanocomposites" ;
+        ns3:created 2013 ;
+        ns3:creator <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/deng-hua>,
+            <http://materialsmine.org/author/li-yang>,
+            <http://materialsmine.org/author/natarajan-bharath>,
+            <http://materialsmine.org/author/schadler-linda-s> ;
+        ns3:isPartOf <http://materialsmine.org/publication/macromolecules> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Effect of Interfacial Energetics on Dispersion and Glass Transition Temperature in Polymer Nanocomposites" ;
+        ns6:authorList ( <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/brinson-l-catherine> <http://materialsmine.org/author/deng-hua> <http://materialsmine.org/author/li-yang> <http://materialsmine.org/author/natarajan-bharath> ) ;
+        ns6:volume 46 ;
+        ns2:hasPart <http://materialsmine.org/sample/l389-s14-natarajan-2013> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/ma302281b> .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/publication/macromolecules> ns3:title "Macromolecules" .
+
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013> ns5:wasAttributedTo <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/deng-hua>,
+            <http://materialsmine.org/author/li-yang>,
+            <http://materialsmine.org/author/natarajan-bharath>,
+            <http://materialsmine.org/author/schadler-linda-s> .
+
+    <http://materialsmine.org/author/brinson-l-catherine> a ns5:Agent ;
+        rdfs:label "Brinson, L. Catherine" ;
+        ns7:name "Brinson, L. Catherine" .
+
+    <http://materialsmine.org/author/deng-hua> a ns5:Agent ;
+        rdfs:label "Deng, Hua" ;
+        ns7:name "Deng, Hua" .
+
+    <http://materialsmine.org/author/li-yang> a ns5:Agent ;
+        rdfs:label "Li, Yang" ;
+        ns7:name "Li, Yang" .
+
+    <http://materialsmine.org/author/natarajan-bharath> a ns5:Agent ;
+        rdfs:label "Natarajan, Bharath" ;
+        ns7:name "Natarajan, Bharath" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns5:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns7:name "Schadler, Linda S." .
+}
+
+ns1:L389_S14_natarajan_2013_provenance {
+    <http://materialsmine.org/sample/l389-s14-natarajan-2013> ns5:wasGeneratedBy <http://materialsmine.org/entry/L389_S14_natarajan_2013_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_coolingrate> a <http://materialsmine.org/ns/CoolingRate>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/jeol-2010>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L389_S14_natarajan_2013_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5> .
+
+    <http://materialsmine.org/ns/jeol-2010> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-2010" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0> a <http://materialsmine.org/ns/Solvent> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_solvent>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_solventname> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns2:hasValue "Anhydrous THF" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixer>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixingmethod> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing_mixer>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing_description> a ns2:Description ;
+        ns2:hasValue "Mixed during 1min30 using a stepped microtip and a pulse of 2.0 s ON and 0.5 s OFF." .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "Sonics and Materials Vibracell VCX 600 W unit" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_ambientcondition>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_temperature> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation_temperature> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "atmosphere" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "The solvent was then driven off in an oven" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "80.0" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_ambientcondition>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_temperature>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_time> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "The solvent was then driven off in an oven" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "120.0" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "16.0" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_3_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_molding> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_molding_description> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_molding_description> a ns2:Description ;
+        ns2:hasValue "samples were peeled off and pressed into dogbone-shaped samples" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_4_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_temperature>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_time> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating_description>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating_temperature>,
+            <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating_time> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating_description> a ns2:Description ;
+        ns2:hasValue "annealed" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "140.0" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "24.0" .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L389_S14_natarajan_2013_solution_processing_step_5_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    ns1:L389_S14_natarajan_2013_assertion ns5:wasDerivedFrom ns1:L389_S14_natarajan_2013_assertion,
+            <http://nanomine.org/pub/MjEzOTkwLjI5NzE5NTkyMg_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NDYzNzg1LjA0Mjc5ODE1MjY/MaterialsmineXMLImport> ;
+                ns5:used ns1:L389_S14_natarajan_2013_assertion,
+                    <http://nanomine.org/pub/MjEzOTkwLjI5NzE5NTkyMg_assertion> ],
+            <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_coolingrate>,
+            <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_heatingrate>,
+            <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L389_S14_natarajan_2013_characterization_transmission-electron-microscopy> .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+

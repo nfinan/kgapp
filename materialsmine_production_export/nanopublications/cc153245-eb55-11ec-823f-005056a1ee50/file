@@ -1,0 +1,84 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:fkd8l68h5s_pubinfo {
+    ns1:fkd8l68h5s_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:12:02.232000+00:00"^^xsd:dateTime .
+}
+
+ns1:fkd8l68h5s_assertion {
+    <http://nanomine.org/viz/dafa90bbd1bcca80> a ns4:Chart ;
+        ns2:description "Interactivity within a data visualization can enhance understanding and decision making by providing deeper levels of user engagement. Using the same underlying dataset (based on a query of materials that have been used as a filler for polyethylene), this series of charts shows a progression from static chart to increasing levels of interactivity. Because the knowledge graph uses web-based identifiers, this chart has hyperlinks that enable the user to explore beyond the chart itself." ;
+        ns2:title "Evolution of Interactive Charts" ;
+        ns3:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?doi ?sample ?Title ?AuthorFormat ?Journal ?Year ?Filler ?MassFraction ?Density ?DensityUnit ?Width ?WidthUnit WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample ;
+       dct:title ?Title ;
+       dct:created ?Year ;
+       dct:isPartOf [ dct:title ?Journal ] ;
+       bibo:authorList/rdf:rest* [ rdf:first [ rdfs:label ?Author ] ;
+                                   rdf:rest rdf:nil ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 a [ rdfs:label ?Filler ] ; 
+                                 sio:hasAttribute [ a nm:MassFraction ; 
+                                                    sio:hasValue ?MassFraction ] ,
+                                                  [ a nm:Density ; 
+                                                    sio:hasValue ?Density ;
+                                                    sio:hasUnit [ rdfs:label ?DensityUnit ] ] ],
+                               [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label "Poly(ethylene)" ] ] .
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a sio:Width ;
+                                                      sio:hasValue ?Width ;
+                                                      sio:hasUnit [rdfs:label ?WidthUnit ] ] ]
+  
+  }
+  
+  BIND(REPLACE(?Author, ",.*", "") AS ?clippedAuth )
+  BIND(CONCAT(STR(?clippedAuth), " et al.") AS ?AuthorFormat)
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.doi,'http://dx.doi.org/','')\",\"as\":\"AbbrevDOI\"},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"AbbrevSampleID\"},{\"calculate\":\"(datum.WidthUnit == 'Micrometer') ? (datum.Width * 1000) : (datum.Width)\",\"as\":\"ConvWidthNM\"}],\"title\":{\"text\":\"Evolution of Interactive Charts\",\"fontSize\":40,\"offset\":-350,\"dy\":-85,\"font\":\"Georgia\",\"fontStyle\":\"italic\",\"color\":\"rgb(56,49,39,0.7)\",\"align\":\"left\",\"subtitle\":[\"From left to right, these charts about polyethylene-matrix nanocomposites take on increasing levels of interactivity.\"],\"subtitleFont\":\"Georgia\",\"subtitleFontStyle\":\"italic\",\"subtitleFontSize\":16,\"subtitleColor\":\"rgb(56,49,39,0.7)\"},\"hconcat\":[{\"title\":{\"text\":\"Static Chart\",\"subtitle\":[\"A simple donut chart\",\"with no interactivity.\"]},\"height\":90,\"width\":110,\"mark\":{\"type\":\"arc\",\"padAngle\":0.04,\"innerRadius\":20},\"encoding\":{\"theta\":{\"aggregate\":\"count\",\"field\":\"Filler\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"title\":{\"text\":\"Highlighting & Tooltips\",\"subtitle\":[\"A basic interactive chart\",\"with conditional opacity\",\"and tooltips on mouseover.\"]},\"height\":128,\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"bar\",\"width\":80},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"Filler\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.5},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\"}]},\"view\":{\"stroke\":null}},{\"title\":{\"text\":\"Multi-Select & Hyperlinks\",\"subtitle\":[\"L: Shift-click one or more filler\",\"materials, or hover for tooltips.\",\"R: Hover for DOI info, Ctrl-click\",\"to open DOI link in a new tab.\"]},\"hconcat\":[{\"height\":180,\"transform\":[{\"joinaggregate\":[{\"op\":\"mean\",\"field\":\"Density\",\"as\":\"FillerDensity\"}],\"groupby\":[\"Filler\"]}],\"selection\":{\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"},\"selected\":{\"type\":\"multi\",\"fields\":[\"Filler\"],\"empty\":\"all\"}},\"mark\":{\"type\":\"bar\",\"width\":70,\"strokeWidth\":2},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"Filler\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0.5},\"stroke\":{\"condition\":{\"selection\":\"selected\",\"value\":\"black\"},\"value\":null},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\",\"title\":\"Filler Material\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Number of Samples\"},{\"field\":\"FillerDensity\",\"type\":\"quantitative\",\"format\":\".2f\",\"title\":\"Mean Filler Density (g/cm^3)\"}]},\"view\":{\"stroke\":null}},{\"height\":180,\"transform\":[{\"filter\":{\"selection\":\"selected\"}}],\"selection\":{\"highlight2b\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"bar\",\"strokeWidth\":2,\"width\":30,\"strokeOpacity\":1},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"Filler\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"stroke\":{\"condition\":{\"selection\":\"highlight2b\",\"value\":\"black\"},\"value\":\"transparent\"},\"fillOpacity\":{\"field\":\"doi\",\"type\":\"nominal\",\"legend\":null},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"AbbrevDOI\",\"type\":\"nominal\",\"title\":\"DOI\"},{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"AuthorFormat\",\"type\":\"nominal\",\"title\":\"Author\"},{\"field\":\"Journal\",\"type\":\"nominal\"},{\"field\":\"Year\",\"type\":\"quantitative\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Number of Samples\"}]},\"view\":{\"stroke\":null}}]},{\"title\":{\"text\":\"Cross-Filter, Interval Selection, Drill-Down, Pan & Zoom\",\"subtitle\":[\"Select from the stacked bar to filter data by DOI. Ctrl-click a diamond to open\",\"the DOI link in a new tab. Use click-drag or mousewheel in the scatter plot to\",\"pan or zoom, and click-drag in the tick chart above to filter the scatter plot.\",\"Ctrl-click points in the scatter plot to visit the dedicated URL for a sample ID.\",\"To reset zoom or selections, double-click on the active area of interest.\"]},\"hconcat\":[{\"hconcat\":[{\"height\":245,\"width\":20,\"transform\":[{\"joinaggregate\":[{\"op\":\"mean\",\"field\":\"Density\",\"as\":\"FillerDensity\"}],\"groupby\":[\"Filler\"]}],\"selection\":{\"highlight3\":{\"type\":\"single\",\"fields\":[\"AbbrevDOI\"],\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"},\"highlight3b\":{\"type\":\"single\",\"fields\":[\"AbbrevDOI\"],\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"},\"selected2\":{\"type\":\"multi\",\"fields\":[\"AbbrevDOI\"],\"empty\":\"all\"}},\"mark\":{\"type\":\"bar\",\"width\":40,\"strokeWidth\":2},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"AbbrevDOI\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null,\"sort\":\"color\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight3\",\"value\":1},\"value\":0.5},\"stroke\":{\"condition\":{\"selection\":\"selected2\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"AbbrevDOI\",\"type\":\"nominal\",\"title\":\"DOI\"},{\"field\":\"AuthorFormat\",\"type\":\"nominal\",\"title\":\"Authors\"},{\"field\":\"Filler\",\"type\":\"nominal\",\"title\":\"Filler Material\"},{\"field\":\"Density\",\"type\":\"quantitative\",\"title\":\"Filler Density (g/cm^3)\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Number of Samples\"}]},\"view\":{\"stroke\":null}},{\"height\":243,\"width\":20,\"transform\":[{\"joinaggregate\":[{\"op\":\"mean\",\"field\":\"Density\",\"as\":\"FillerDensity\"}],\"groupby\":[\"Filler\"]}],\"selection\":{\"highlight3c\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"point\",\"shape\":\"diamond\",\"size\":100,\"filled\":true,\"strokeWidth\":2,\"dx\":20},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"nominal\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"selected2\",\"value\":1},\"value\":0},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"stroke\":{\"condition\":{\"selection\":\"highlight3c\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"AbbrevDOI\",\"type\":\"nominal\",\"title\":\"DOI\"},{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"AuthorFormat\",\"type\":\"nominal\",\"title\":\"Author\"},{\"field\":\"Journal\",\"type\":\"nominal\"},{\"field\":\"Year\",\"type\":\"quantitative\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Number of Samples\"}]},\"view\":{\"stroke\":null}}]},{\"vconcat\":[{\"width\":225,\"height\":20,\"transform\":[{\"filter\":{\"selection\":\"panzoom\"}}],\"selection\":{\"brush\":{\"type\":\"interval\",\"encodings\":[\"x\"]}},\"mark\":{\"type\":\"tick\",\"thickness\":2,\"clip\":true},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Mass Fraction (%)\",\"format\":\".2p\"},\"scale\":{\"zero\":false,\"nice\":false}},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"selected2\",\"value\":1},\"value\":0.5}}},{\"width\":226,\"height\":129,\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"brush\"},{\"selection\":\"selected2\"}]}}],\"selection\":{\"panzoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight4\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":50},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"title\":\"Mass Fraction\"},\"y\":{\"field\":\"ConvWidthNM\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Width (nm)\",\"orient\":\"right\"}},\"size\":{\"field\":\"ConvWidthNM\",\"type\":\"quantitative\",\"legend\":null,\"scale\":{\"type\":\"log\",\"range\":[40,500]}},\"fillOpacity\":{\"field\":\"Density\",\"type\":\"quantitative\",\"legend\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"stroke\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"highlight3b\"},{\"selection\":\"highlight4\"}]},\"value\":\"black\"},\"value\":null},\"href\":{\"field\":\"sample\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"AbbrevSampleID\",\"type\":\"nominal\",\"title\":\"Sample ID\"},{\"field\":\"Width\",\"type\":\"quantitative\",\"title\":\"Particle Width\"},{\"field\":\"WidthUnit\",\"type\":\"nominal\",\"title\":\"Unit of Measure\"}]}}]}]}],\"config\":{\"title\":{\"orient\":\"bottom\",\"dy\":20,\"anchor\":\"start\"},\"background\":\"rgb(252,245,234)\",\"padding\":20,\"axis\":{\"titleFontSize\":14,\"labelBound\":true},\"legend\":{\"labelFontSize\":12,\"orient\":\"none\",\"legendX\":20,\"legendY\":250,\"strokeColor\":\"gray\",\"padding\":18,\"fillColor\":\"rgb(247,237,217)\",\"title\":null,\"labelFont\":\"Georgia\",\"labelFontStyle\":\"italic\",\"labelColor\":\"rgb(56,49,39,0.8)\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/dafa90bbd1bcca80_depiction> .
+
+    <http://nanomine.org/viz/dafa90bbd1bcca80_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:12:02.230000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "15cee34a-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:fkd8l68h5s a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/dafa90bbd1bcca80_depiction> ;
+        ns8:hasAssertion ns1:fkd8l68h5s_assertion ;
+        ns8:hasProvenance ns1:fkd8l68h5s_provenance ;
+        ns8:hasPublicationInfo ns1:fkd8l68h5s_pubinfo .
+
+    ns1:fkd8l68h5s_assertion a ns8:Assertion .
+
+    ns1:fkd8l68h5s_provenance a ns8:Provenance .
+
+    ns1:fkd8l68h5s_pubinfo a ns8:PublicationInfo .
+}
+

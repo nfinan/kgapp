@@ -1,0 +1,73 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:azsf4kcglz_assertion {
+    <http://nanomine.org/viz/039aa47dd3c3e709> a ns4:Chart ;
+        ns6:description "The addition of filler particles to a polymer matrix can effect the glass transition temperature, Tg, compared to \"neat\" matrix. To express these changes in Tg as a function of mass fraction of filler, angle encodings are added to the point marks. Use the mousewheel to zoom, shift-click matrix material names in the legend to isolate one or more materials, and hover over point marks to display tooltips with additional information." ;
+        ns6:title "Showing Changes in Tg with Angle Encodings" ;
+        ns2:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?controlsample sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_control ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?MassFraction ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":550,\"height\":450,\"transform\":[{\"calculate\":\"datum.Tg - datum.Tg_control\",\"as\":\"Tg_delta\"},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"ID\"}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"legendselect\":{\"type\":\"multi\",\"bind\":\"legend\",\"fields\":[\"Matrix\"]}},\"mark\":{\"type\":\"point\",\"shape\":\"wedge\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"title\":\"Mass Fraction of Filler (%)\",\"axis\":{\"format\":\"p\"}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20c\"},\"legend\":{\"title\":\"Matrix Material\",\"titleFontSize\":14,\"labelFontSize\":12,\"labelLimit\":250}},\"angle\":{\"field\":\"Tg_delta\",\"type\":\"quantitative\",\"scale\":{\"domain\":[-40,40],\"range\":[135,45]}},\"size\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"scale\":{\"range\":[40,1000],\"type\":\"sqrt\"},\"legend\":null},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":null},\"opacity\":{\"condition\":{\"selection\":\"legendselect\",\"value\":1},\"value\":0.05},\"tooltip\":[{\"field\":\"ID\",\"type\":\"nominal\",\"title\":\"Sample ID\"},{\"field\":\"Tg_delta\",\"type\":\"quantitative\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Tg_control\",\"type\":\"quantitative\"}]},\"config\":{\"axis\":{\"titleFontSize\":24,\"labelFontSize\":16,\"labelFlush\":false},\"legend\":{\"symbolType\":\"square\"}}}" ;
+        ns3:depiction <http://nanomine.org/viz/039aa47dd3c3e709_depiction> .
+
+    <http://nanomine.org/viz/039aa47dd3c3e709_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T17:24:33.895000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "d5d5e62e-f548-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns6:FileFormat .
+}
+
+{
+    ns1:azsf4kcglz a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/039aa47dd3c3e709_depiction> ;
+        ns8:hasAssertion ns1:azsf4kcglz_assertion ;
+        ns8:hasProvenance ns1:azsf4kcglz_provenance ;
+        ns8:hasPublicationInfo ns1:azsf4kcglz_pubinfo .
+
+    ns1:azsf4kcglz_assertion a ns8:Assertion .
+
+    ns1:azsf4kcglz_provenance a ns8:Provenance .
+
+    ns1:azsf4kcglz_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:azsf4kcglz_pubinfo {
+    ns1:azsf4kcglz_assertion ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T17:24:33.896000+00:00"^^xsd:dateTime .
+}
+

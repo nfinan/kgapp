@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:60j99ju7o9 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/2640d49ac3c480a8_depiction> ;
+        ns2:hasAssertion ns1:60j99ju7o9_assertion ;
+        ns2:hasProvenance ns1:60j99ju7o9_provenance ;
+        ns2:hasPublicationInfo ns1:60j99ju7o9_pubinfo .
+
+    ns1:60j99ju7o9_assertion a ns2:Assertion .
+
+    ns1:60j99ju7o9_provenance a ns2:Provenance .
+
+    ns1:60j99ju7o9_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:60j99ju7o9_pubinfo {
+    ns1:60j99ju7o9_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:31:24.125000+00:00"^^xsd:dateTime .
+}
+
+ns1:60j99ju7o9_assertion {
+    <http://nanomine.org/viz/2640d49ac3c480a8> a ns3:Chart ;
+        ns4:description "This chart uses the facet encoding in Vega-Lite to create a series of donut charts, where each contains a subset of the data. In this case, a donut chart corresponds to a material used as a filler in nanocomposite materials (filtered from a pre-defined list), and segments correspond to the various matrix materials associated with that filler material in the knowledge graph. The cornerRadius, padAngle, and color scale range have been customized to resemble the petals of Gerbera daisies. Hover over a segment to display a tooltip and to highlight all other segments corresponding to that matrix material." ;
+        ns4:title "Daisies for Emily" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix ] ] .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"filter\":{\"field\":\"Filler\",\"oneOf\":[\"Silicon dioxide\",\"Titanium dioxide\",\"Graphene\",\"Multi-wall carbon nanotubes\",\"Barium titanate\",\"Graphene oxide\",\"Carbon black\",\"Graphite\",\"Montmorillonite\"]}}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"]}},\"mark\":{\"type\":\"arc\",\"innerRadius\":20,\"cornerRadius\":20,\"strokeWidth\":2,\"stroke\":\"#333\",\"padAngle\":0.02},\"encoding\":{\"facet\":{\"field\":\"Filler\",\"type\":\"nominal\",\"columns\":3,\"title\":null,\"sort\":{\"op\":\"count\",\"order\":\"descending\"}},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"range\":[\"rgb(234,195,214)\",\"rgb(225,72,180)\",\"rgb(253,179,6)\",\"rgb(231,234,225)\",\"rgb(185,1,3)\",\"rgb(254,134,120)\",\"rgb(252,143,16)\",\"rgb(233,222,166)\",\"rgb(214,106,132)\"]}},\"theta\":{\"aggregate\":\"count\",\"type\":\"quantitative\"},\"detail\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"fillOpacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.5},\"value\":1},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"type\":\"quantitative\",\"title\":\"Sample Count\"}]},\"resolve\":{\"scale\":{\"theta\":\"independent\"}},\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns7:depiction <http://nanomine.org/viz/2640d49ac3c480a8_depiction> .
+
+    <http://nanomine.org/viz/2640d49ac3c480a8_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:31:24.124000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "06d0ef9a-f539-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

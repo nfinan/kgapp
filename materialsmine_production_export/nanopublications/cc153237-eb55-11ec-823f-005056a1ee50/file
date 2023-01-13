@@ -1,0 +1,83 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:cznox7x52u_assertion {
+    <http://nanomine.org/viz/ff264a8f427960d6> a ns7:Chart ;
+        ns2:description "This dense heat map shows results from temperature-sweep dynamic mechanical analysis (DMA). Sample IDs are stacked and sorted by the mass fraction of filler. These data were curated from Gojny and Schulte (DOI: 10.1016/j.compscitech.2004.01.024), who studied functionalized and non-functionalized multi-wall carbon nanotubes in epoxy. Hover over a data series to display a vertical rule corresponding to the reported glass transition temperature (Tg) and a tooltip with more information about the sample. A log scale was applied to the quantitative color encoding to improve discernibility." ;
+        ns2:title "Lasagna Plot of Tan Delta and Tg Data" ;
+        ns4:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1016/j.compscitech.2004.01.024> sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] ;
+          sio:hasAttribute [ a nm:ViscoelasticProperty ] ,
+                           [ a nm:TanDelta ;
+                             sio:hasValue ?TanDelta ;
+                             sio:inRelationTo [ a nm:Temperature ;
+                                                sio:hasValue ?TempC ;
+                                                sio:hasUnit [ rdfs:label "Celsius" ] ]  
+                            ] 
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   a [ rdfs:label ?Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] 
+  }  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   sio:isSurroundedBy [ sio:hasRole [ a nm:SurfaceTreatment ] ;
+                                                        a [ rdfs:label ?SurfaceTreatment ] ]  ]
+  }  
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":700,\"height\":495,\"transform\":[{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"}],\"layer\":[{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"fields\":[\"sample\"],\"clear\":\"mouseout\"},\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"fields\":[\"sample\"],\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"rect\"},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"x\":{\"field\":\"TempC\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":40,\"extent\":{\"selection\":\"zoom\"}},\"scale\":{\"domain\":[-20,120]},\"axis\":{\"title\":\"Temperature (C)\",\"titleFontSize\":20,\"labelFontSize\":16,\"labelFlushOffset\":1,\"labelFlush\":false}},\"color\":{\"aggregate\":\"average\",\"field\":\"TanDelta\",\"type\":\"quantitative\",\"title\":\"Tan Delta\",\"legend\":{\"titleFontSize\":14,\"labelFontSize\":16},\"scale\":{\"type\":\"log\"}},\"y\":{\"field\":\"Sample ID\",\"type\":\"ordinal\",\"title\":\"NanoMine Sample ID\",\"sort\":{\"field\":\"Loading_mass\",\"order\":\"descending\"},\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.3},\"tooltip\":[{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"SurfaceTreatment\",\"type\":\"nominal\"}]}},{\"transform\":[{\"calculate\":\"'Tg: '+format(datum.Tg, '.1f')+' C'\",\"as\":\"Tgtext\"}],\"mark\":{\"type\":\"text\",\"color\":\"white\",\"align\":\"left\",\"fontSize\":20,\"dx\":5},\"encoding\":{\"x\":{\"field\":\"Tg\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Sample ID\",\"type\":\"ordinal\",\"sort\":{\"field\":\"Loading_mass\",\"order\":\"descending\"}},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0},\"text\":{\"field\":\"Tgtext\",\"type\":\"nominal\"}}},{\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\",\"thickness\":1},\"encoding\":{\"x\":{\"field\":\"Tg\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0}}}]}" ;
+        ns5:depiction <http://nanomine.org/viz/ff264a8f427960d6_depiction> .
+
+    <http://nanomine.org/viz/ff264a8f427960d6_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:00:10.914000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "6dd4b4ea-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:cznox7x52u a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/ff264a8f427960d6_depiction> ;
+        ns8:hasAssertion ns1:cznox7x52u_assertion ;
+        ns8:hasProvenance ns1:cznox7x52u_provenance ;
+        ns8:hasPublicationInfo ns1:cznox7x52u_pubinfo .
+
+    ns1:cznox7x52u_assertion a ns8:Assertion .
+
+    ns1:cznox7x52u_provenance a ns8:Provenance .
+
+    ns1:cznox7x52u_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:cznox7x52u_pubinfo {
+    ns1:cznox7x52u_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:00:10.916000+00:00"^^xsd:dateTime .
+}
+

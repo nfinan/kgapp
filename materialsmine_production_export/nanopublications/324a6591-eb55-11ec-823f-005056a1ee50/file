@@ -1,0 +1,73 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:4xquwojzx9_assertion {
+    <http://nanomine.org/viz/c283e80a14cb3e78> a ns2:Chart ;
+        ns4:description "This plot provides a quick way to view a list of the sample IDs curated from a given research article (linked to the DOI). Use the cross-filtered plots at the top to filter by year published or matrix and filler materials studied. Click a wedge within the \"DOI selection\" window to select an article and display the sample list below. This chart shows up to 20 sample IDs from a given research article and you may Ctrl-click the DOI link to visit the research article page on the journal website. Hover over a text mark to view a tooltip with the full label." ;
+        ns4:title "Sample List Viewer" ;
+        ns7:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:created ?Year ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          rdfs:label ?sample_label ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ; a [ rdfs:label ?Matrix ] ]
+  OPTIONAL{
+    ?sample sio:hasComponentPart ?filler_part .
+    ?filler_part sio:hasRole [ a mm:Filler ] ; a [ rdfs:label ?Filler ] ; 
+            sio:hasAttribute [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] , [ a mm:MassFraction ; sio:hasValue ?MassFrac ]  
+    OPTIONAL{
+      ?filler_part sio:isSurroundedBy ?pst .
+      ?pst rdfs:label ?SurfaceTreatment
+    }
+  }
+  FILTER(?Year>0)
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+  BIND(IF(BOUND(?MassFrac), ?MassFrac, 0) AS ?MassFrac)
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"}],\"vconcat\":[{\"hconcat\":[{\"selection\":{\"year_range\":{\"type\":\"interval\"}},\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"matrix_select\"},{\"selection\":\"filler_select\"}]}}],\"width\":350,\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"aggregate\":\"distinct\",\"field\":\"doi\"},\"opacity\":{\"condition\":{\"selection\":\"year_range\",\"value\":1},\"value\":0.3}}},{\"vconcat\":[{\"selection\":{\"matrix_select\":{\"type\":\"multi\",\"fields\":[\"Matrix\"]}},\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"year_range\"},{\"selection\":\"filler_select\"}]}}],\"width\":300,\"height\":50,\"title\":{\"text\":\"Matrix Materials\",\"offset\":-10},\"mark\":{\"type\":\"bar\",\"size\":30},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"scale\":{\"nice\":false},\"axis\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"opacity\":{\"condition\":{\"selection\":\"matrix_select\",\"value\":1},\"value\":0.3},\"tooltip\":{\"field\":\"Matrix\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"selection\":{\"filler_select\":{\"type\":\"multi\",\"fields\":[\"Filler\"]}},\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"matrix_select\"},{\"selection\":\"year_range\"}]}}],\"width\":300,\"height\":50,\"title\":{\"text\":\"Filler Materials\",\"offset\":-10},\"mark\":{\"type\":\"bar\",\"size\":30},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"scale\":{\"nice\":false},\"axis\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"filler_select\",\"value\":1},\"value\":0.3},\"tooltip\":{\"field\":\"Filler\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"year_range\"},{\"selection\":\"matrix_select\"},{\"selection\":\"filler_select\"}]}}],\"selection\":{\"doi_select\":{\"type\":\"single\",\"empty\":\"none\",\"fields\":[\"doi\"]}},\"title\":{\"text\":[\"DOI selection\",\"(click to show sample list)\"],\"offset\":-40},\"width\":300,\"height\":50,\"mark\":{\"type\":\"arc\",\"radius\":200,\"clip\":true},\"encoding\":{\"theta\":{\"aggregate\":\"distinct\",\"field\":\"doi\"},\"color\":{\"field\":\"doi\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"doi_select\",\"value\":1},\"value\":0.3},\"tooltip\":{\"field\":\"DOI\",\"type\":\"nominal\"}}}]}]},{\"transform\":[{\"filter\":{\"selection\":\"doi_select\"}},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"VolFrac\",\"order\":\"ascending\"}]}],\"hconcat\":[{\"transform\":[{\"sample\":1}],\"selection\":{\"hover_link\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"title\":[\"DOI (Ctrl-click to\",\"open in new tab)\"],\"height\":400,\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-50,\"dy\":-185,\"limit\":110},\"encoding\":{\"text\":{\"field\":\"DOI\",\"type\":\"nominal\"},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"tooltip\":{\"field\":\"DOI\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"hover_link\",\"value\":\"blue\"},\"value\":\"black\"}},\"view\":{\"stroke\":null}},{\"title\":\"Sample ID\",\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-30,\"limit\":100},\"encoding\":{\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"text\":{\"field\":\"Sample ID\",\"type\":\"nominal\"},\"tooltip\":{\"field\":\"Sample ID\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"title\":\"Matrix\",\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-30,\"limit\":100},\"encoding\":{\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"text\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"tooltip\":{\"field\":\"Matrix\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"title\":\"Filler\",\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-30,\"limit\":100},\"encoding\":{\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"text\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"tooltip\":{\"field\":\"Filler\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"title\":\"vol.%\",\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-20,\"limit\":100},\"encoding\":{\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"text\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"format\":\".3p\"},\"tooltip\":{\"field\":\"VolFrac\",\"type\":\"quantitative\"}},\"view\":{\"stroke\":null}},{\"title\":\"wt.%\",\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-20,\"limit\":100},\"encoding\":{\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"text\":{\"field\":\"MassFrac\",\"type\":\"quantitative\",\"format\":\".3p\"},\"tooltip\":{\"field\":\"MassFrac\",\"type\":\"quantitative\"}},\"view\":{\"stroke\":null}},{\"title\":\"Surface Treatment\",\"mark\":{\"type\":\"text\",\"align\":\"left\",\"dx\":-50,\"limit\":100},\"encoding\":{\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"text\":{\"field\":\"SurfaceTreatment\",\"type\":\"nominal\"},\"tooltip\":{\"field\":\"SurfaceTreatment\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}}]}]}" ;
+        ns3:depiction <http://nanomine.org/viz/c283e80a14cb3e78_depiction> .
+
+    <http://nanomine.org/viz/c283e80a14cb3e78_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-29T17:55:49.663000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "8e9a8dc2-68d0-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:4xquwojzx9_pubinfo {
+    ns1:4xquwojzx9_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-29T17:55:49.664000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:4xquwojzx9 a ns8:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/c283e80a14cb3e78_depiction> ;
+        ns8:hasAssertion ns1:4xquwojzx9_assertion ;
+        ns8:hasProvenance ns1:4xquwojzx9_provenance ;
+        ns8:hasPublicationInfo ns1:4xquwojzx9_pubinfo .
+
+    ns1:4xquwojzx9_assertion a ns8:Assertion .
+
+    ns1:4xquwojzx9_provenance a ns8:Provenance .
+
+    ns1:4xquwojzx9_pubinfo a ns8:PublicationInfo .
+}
+

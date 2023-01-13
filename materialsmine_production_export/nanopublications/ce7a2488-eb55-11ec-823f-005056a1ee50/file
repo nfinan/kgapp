@@ -1,0 +1,73 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:tg6lxv1w3a_pubinfo {
+    ns1:tg6lxv1w3a_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:36:28.706000+00:00"^^xsd:dateTime .
+}
+
+ns1:tg6lxv1w3a_assertion {
+    <http://nanomine.org/viz/7b983ea427ef37e5> a ns5:Chart ;
+        ns2:description "Curated data from Zhang et al. (DOI: 10.1039/C4RA14538K - Figure 8a) showing storage modulus as a function of temperature for nanocomposite samples of titanium dioxide in PLA matrix. Tooltips and pan/zoom interactions have been added." ;
+        ns2:title "Curated Data Example: Zhang et al. (2015) - Fig. 8a" ;
+        ns7:query """# Zhang et al (2015) - Fig 8a
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1039/C4RA14538K> a dct:BibliographicResource ;
+                                         sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:StorageModulus ; 
+                             sio:hasValue ?StorageModulus ; 
+                             sio:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ; 
+                             sio:inRelationTo [ a nm:Temperature ; 
+                                                sio:hasValue ?Temperature ; 
+                                                sio:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ] ] ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] ] .
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   a [ rdfs:label ?Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                   sio:hasValue ?MassFraction ] ]
+  }
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":300,\"width\":400,\"layer\":[{\"mark\":{\"type\":\"line\",\"interpolate\":\"monotone\"},\"encoding\":{\"detail\":{\"field\":\"MassFraction\",\"type\":\"ordinal\"}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"size\":100,\"filled\":true,\"opacity\":1},\"encoding\":{\"shape\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"scale\":{\"range\":[\"circle\",\"triangle-up\"]}}}}],\"encoding\":{\"x\":{\"field\":\"Temperature\",\"type\":\"quantitative\",\"scale\":{\"domain\":[10,100],\"nice\":false},\"axis\":{\"title\":\"Temperature (C)\"}},\"y\":{\"field\":\"StorageModulus\",\"type\":\"quantitative\",\"scale\":{\"domain\":[-60,3500],\"nice\":false},\"axis\":{\"title\":\"E' (MPa)\"}},\"stroke\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"scale\":{\"range\":[\"red\",\"darkblue\"]},\"legend\":{\"format\":\".1p\",\"symbolFillColor\":\"white\"}},\"color\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"scale\":{\"range\":[\"white\",\"darkblue\"]},\"legend\":null},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".1p\"},{\"field\":\"Temperature\",\"type\":\"quantitative\",\"title\":\"Temperature (C)\"},{\"field\":\"StorageModulus\",\"type\":\"quantitative\",\"title\":\"Storage Modulus (MPa)\"}]},\"config\":{\"axis\":{\"format\":\"2r\",\"labelFontSize\":14,\"titleFontSize\":16,\"grid\":false}}}" ;
+        ns4:depiction <http://nanomine.org/viz/7b983ea427ef37e5_depiction> .
+
+    <http://nanomine.org/viz/7b983ea427ef37e5_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:36:28.706000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "bc5c89f0-f539-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:tg6lxv1w3a a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/7b983ea427ef37e5_depiction> ;
+        ns8:hasAssertion ns1:tg6lxv1w3a_assertion ;
+        ns8:hasProvenance ns1:tg6lxv1w3a_provenance ;
+        ns8:hasPublicationInfo ns1:tg6lxv1w3a_pubinfo .
+
+    ns1:tg6lxv1w3a_assertion a ns8:Assertion .
+
+    ns1:tg6lxv1w3a_provenance a ns8:Provenance .
+
+    ns1:tg6lxv1w3a_pubinfo a ns8:PublicationInfo .
+}
+

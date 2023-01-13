@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:zrvh16go8s_pubinfo {
+    ns1:zrvh16go8s_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:13:58.211000+00:00"^^xsd:dateTime .
+}
+
+ns1:zrvh16go8s_assertion {
+    <http://nanomine.org/viz/0cc230f1beade7b6> a ns7:Chart ;
+        ns2:description "Trade names of material compounds, often determined by the manufacturer or supplier, are displayed in a stacked bar chart, grouped by material compound and ordered by the number of samples linked to a given trade name. Hover over a bar to display a tooltip with the Trade Name, Material Compound, Sample Count, and the aggregate percentage of samples of the material compound linked to that trade name." ;
+        ns2:title "Trade Names of Material Compounds" ;
+        ns6:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT DISTINCT ?material ?tradename (COUNT(DISTINCT ?sample) AS ?count) WHERE {
+  ?sample sio:hasComponentPart ?materialcomponent .
+  ?materialcomponent a [ rdfs:label ?material ] ;
+                         sio:hasAttribute [ a nm:TradeName ;
+                                            sio:hasValue ?tradename ] .
+}
+GROUP BY ?material ?tradename
+ORDER BY DESC (?count)""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"}},\"transform\":[{\"joinaggregate\":[{\"op\":\"sum\",\"field\":\"count\",\"as\":\"SumAcrossMaterial\"}],\"groupby\":[\"material\"]},{\"calculate\":\"datum.count / datum.SumAcrossMaterial\",\"as\":\"FractionOfMaterials\"}],\"width\":450,\"mark\":\"bar\",\"encoding\":{\"x\":{\"aggregate\":\"sum\",\"field\":\"count\",\"type\":\"quantitative\",\"title\":\"Count of Samples\"},\"order\":{\"aggregate\":\"sum\",\"field\":\"count\",\"type\":\"quantitative\",\"sort\":\"descending\"},\"y\":{\"field\":\"material\",\"type\":\"nominal\",\"title\":\"Material Compound\",\"sort\":\"-x\"},\"color\":{\"field\":\"tradename\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.2},\"tooltip\":[{\"field\":\"tradename\",\"type\":\"nominal\",\"title\":\"Trade Name\"},{\"field\":\"material\",\"type\":\"nominal\",\"title\":\"Material Compound\"},{\"field\":\"count\",\"type\":\"nominal\",\"title\":\"Sample Count\"},{\"field\":\"FractionOfMaterials\",\"type\":\"quantitative\",\"title\":\"% for this Material\",\"format\":\".2p\"}]},\"config\":{\"axis\":{\"titleFontSize\":20}}}" ;
+        ns3:depiction <http://nanomine.org/viz/0cc230f1beade7b6_depiction> .
+
+    <http://nanomine.org/viz/0cc230f1beade7b6_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:13:58.210000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "5aefff40-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:zrvh16go8s a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/0cc230f1beade7b6_depiction> ;
+        ns8:hasAssertion ns1:zrvh16go8s_assertion ;
+        ns8:hasProvenance ns1:zrvh16go8s_provenance ;
+        ns8:hasPublicationInfo ns1:zrvh16go8s_pubinfo .
+
+    ns1:zrvh16go8s_assertion a ns8:Assertion .
+
+    ns1:zrvh16go8s_provenance a ns8:Provenance .
+
+    ns1:zrvh16go8s_pubinfo a ns8:PublicationInfo .
+}
+

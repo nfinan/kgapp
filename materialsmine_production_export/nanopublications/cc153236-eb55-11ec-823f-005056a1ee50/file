@@ -1,0 +1,65 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:cqezij07lj_pubinfo {
+    ns1:cqezij07lj_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-04T16:30:57.412000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:cqezij07lj a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/0ef84722e52cacda_depiction> ;
+        ns3:hasAssertion ns1:cqezij07lj_assertion ;
+        ns3:hasProvenance ns1:cqezij07lj_provenance ;
+        ns3:hasPublicationInfo ns1:cqezij07lj_pubinfo .
+
+    ns1:cqezij07lj_assertion a ns3:Assertion .
+
+    ns1:cqezij07lj_provenance a ns3:Provenance .
+
+    ns1:cqezij07lj_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:cqezij07lj_assertion {
+    <http://nanomine.org/viz/0ef84722e52cacda> a ns4:Chart ;
+        ns2:description "Polymer nanocomposite processing metadata in MaterialsMine is curated by classifying the overall procedure (In-Situ Polymerization, Melt Mixing, Solution Processing, or Other) as well as individual processing steps and parameters from a controlled vocabulary. This interactive chart provides an overview of the adjacent pairs of process steps seen in the knowledge graph, broken down by procedure type, where the output of the first step is the input to the second. Click on a bar in the left plot to filter the adjacency matrix to the right, and hover over the adjacency matrix to view tooltips." ;
+        ns2:title "Breakdown of Processing Procedures and Steps" ;
+        ns7:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+SELECT ?sample ?ProcessType ?Part1Label ?Part2Label WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          prov:wasGeneratedBy ?Process .
+  ?Process sio:hasPart ?Part1, ?Part2 .
+  ?Part1 sio:hasOutput ?x .
+  ?Part2 sio:hasInput ?x .
+  ?Part1 a [ rdfs:label ?Part1Label ] .
+  ?Part2 a [ rdfs:label ?Part2Label ] .
+  ?Process a ?ProcessClass .
+  ?ProcessClass rdfs:label ?ProcessType .
+  FILTER(REGEX(STR(?ProcessClass),"materialsmine.org"))
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"height\":400,\"selection\":{\"highlight\":{\"type\":\"single\",\"fields\":[\"ProcessType\"]}},\"mark\":\"bar\",\"encoding\":{\"y\":{\"aggregate\":\"count\"},\"x\":{\"field\":\"ProcessType\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"highlight\",\"field\":\"ProcessType\",\"type\":\"nominal\",\"legend\":null},\"value\":\"#dddddd\"}}},{\"height\":400,\"width\":400,\"transform\":[{\"filter\":{\"selection\":\"highlight\"}}],\"mark\":\"rect\",\"encoding\":{\"x\":{\"field\":\"Part2Label\",\"type\":\"nominal\"},\"y\":{\"field\":\"Part1Label\",\"type\":\"nominal\"},\"color\":{\"aggregate\":\"count\"},\"tooltip\":[{\"field\":\"Part1Label\",\"type\":\"nominal\",\"title\":\"Step 1\"},{\"field\":\"Part2Label\",\"type\":\"nominal\",\"title\":\"Step 2\"},{\"aggregate\":\"count\"}]}}],\"config\":{\"axis\":{\"labelFontSize\":14,\"title\":null}}}" ;
+        ns8:depiction <http://nanomine.org/viz/0ef84722e52cacda_depiction> .
+
+    <http://nanomine.org/viz/0ef84722e52cacda_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-04T16:30:57.411000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "73db6ff8-2530-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

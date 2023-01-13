@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ty96jl2hfw_assertion {
+    <http://nanomine.org/viz/51581e6f2b16dacd> a ns2:Chart ;
+        ns3:description "A scatter plot of Young's modulus (GPa) as a function of elongation at yield (%) from tensile test data in the NanoMine knowledge graph. The SPARQL query that retrieved the raw data, as well as the Vega-Lite specification for the chart, each contain fewer than 15 lines of code." ;
+        ns3:title "Minimalist Scatter Plot" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+    ?sample a nm:PolymerNanocomposite ;
+            sio:hasAttribute [ a nm:TensileModulus ;
+                               sio:hasValue ?YoungsModGPa ;
+                               sio:hasUnit ?YoungsModUnit ] ,
+                             [ a nm:ElongationAtYield ;
+                               sio:hasValue ?YieldStrainPercent ;
+                               sio:hasUnit ?ElongBreakUnit ] .
+   ?YoungsModUnit rdfs:label "Gigapascal" .
+   ?ElongBreakUnit rdfs:label "Percent" .
+}
+""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"YieldStrainPercent\",\"type\":\"quantitative\"},\"y\":{\"field\":\"YoungsModGPa\",\"type\":\"quantitative\"}}}" ;
+        ns7:depiction <http://nanomine.org/viz/51581e6f2b16dacd_depiction> .
+
+    <http://nanomine.org/viz/51581e6f2b16dacd_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:01:37.145000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "a13a605a-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+{
+    ns1:ty96jl2hfw a ns8:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/51581e6f2b16dacd_depiction> ;
+        ns8:hasAssertion ns1:ty96jl2hfw_assertion ;
+        ns8:hasProvenance ns1:ty96jl2hfw_provenance ;
+        ns8:hasPublicationInfo ns1:ty96jl2hfw_pubinfo .
+
+    ns1:ty96jl2hfw_assertion a ns8:Assertion .
+
+    ns1:ty96jl2hfw_provenance a ns8:Provenance .
+
+    ns1:ty96jl2hfw_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:ty96jl2hfw_pubinfo {
+    ns1:ty96jl2hfw_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:01:37.146000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,55 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:upecu6hvop_assertion {
+    <http://nanomine.org/viz/82af38e2c00fee1f> a ns6:Chart ;
+        ns2:description "Using the \"order\" encoding in Vega-Lite enables the embedding of sequential variables into a scatter plot, for example time series data. This connected scatter plot shows the number of curated articles for a given year, as well as the average number of authors per article for that year, with line segments connecting neighboring years. Shift-click points in the series to recalculate means for a subset of years, and hover for tooltips." ;
+        ns2:title "Connected Scatterplot" ;
+        ns7:query """PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?year ?doi (COUNT(DISTINCT ?author) AS ?numAuthorsForDOI) WHERE {
+  ?doi dct:creator ?author ;
+       dct:created ?year .
+  FILTER( ?year > 0 )
+} GROUP BY ?year ?doi""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":495,\"width\":700,\"transform\":[{\"joinaggregate\":[{\"field\":\"numAuthorsForDOI\",\"op\":\"mean\",\"as\":\"AvgAuthorsInYear\"}],\"groupby\":[\"year\"]},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"ArticlesInYear\"}],\"groupby\":[\"year\"]}],\"layer\":[{\"selection\":{\"select\":{\"type\":\"multi\",\"fields\":[\"year\"]}},\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"x\":{\"field\":\"ArticlesInYear\",\"type\":\"quantitative\",\"title\":\"# Articles (grouped by Year)\"},\"y\":{\"field\":\"AvgAuthorsInYear\",\"type\":\"quantitative\",\"title\":\"Authors Per Article (grouped by Year)\",\"scale\":{\"zero\":false}},\"order\":{\"field\":\"year\",\"type\":\"quantitative\"},\"tooltip\":[{\"field\":\"year\",\"type\":\"quantitative\",\"title\":\"Year\"},{\"field\":\"ArticlesInYear\",\"type\":\"quantitative\",\"title\":\"# Articles\"},{\"field\":\"AvgAuthorsInYear\",\"type\":\"quantitative\",\"title\":\"Mean # Authors\",\"format\":\".3r\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"select\"}}],\"mark\":{\"type\":\"point\",\"size\":200,\"opacity\":1},\"encoding\":{\"x\":{\"field\":\"ArticlesInYear\",\"type\":\"quantitative\"},\"y\":{\"field\":\"AvgAuthorsInYear\",\"type\":\"quantitative\",\"scale\":{\"zero\":false}}}},{\"transform\":[{\"filter\":{\"selection\":\"select\"}},{\"joinaggregate\":[{\"field\":\"numAuthorsForDOI\",\"op\":\"mean\",\"as\":\"TotalMeanAuthors\"}]}],\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\"},\"encoding\":{\"y\":{\"field\":\"TotalMeanAuthors\",\"type\":\"quantitative\"},\"tooltip\":[{\"field\":\"TotalMeanAuthors\",\"type\":\"quantitative\",\"title\":\"Mean # Authors\",\"format\":\".3r\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"select\"}},{\"joinaggregate\":[{\"field\":\"ArticlesInYear\",\"op\":\"mean\",\"as\":\"MeanArticles\"}]}],\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\"},\"encoding\":{\"x\":{\"field\":\"MeanArticles\",\"type\":\"quantitative\"},\"tooltip\":[{\"field\":\"MeanArticles\",\"type\":\"quantitative\",\"title\":\"Mean # Articles\",\"format\":\".3r\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":18,\"labelFontSize\":14}}}" ;
+        ns5:depiction <http://nanomine.org/viz/82af38e2c00fee1f_depiction> .
+
+    <http://nanomine.org/viz/82af38e2c00fee1f_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:17:28.502000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "d8481112-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:upecu6hvop_pubinfo {
+    ns1:upecu6hvop_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:17:28.503000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:upecu6hvop a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/82af38e2c00fee1f_depiction> ;
+        ns8:hasAssertion ns1:upecu6hvop_assertion ;
+        ns8:hasProvenance ns1:upecu6hvop_provenance ;
+        ns8:hasPublicationInfo ns1:upecu6hvop_pubinfo .
+
+    ns1:upecu6hvop_assertion a ns8:Assertion .
+
+    ns1:upecu6hvop_provenance a ns8:Provenance .
+
+    ns1:upecu6hvop_pubinfo a ns8:PublicationInfo .
+}
+

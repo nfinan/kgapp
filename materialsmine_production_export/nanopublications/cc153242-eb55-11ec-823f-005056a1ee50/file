@@ -1,0 +1,73 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:f8y13g534n a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/f850eb20af50be9a_depiction> ;
+        ns2:hasAssertion ns1:f8y13g534n_assertion ;
+        ns2:hasProvenance ns1:f8y13g534n_provenance ;
+        ns2:hasPublicationInfo ns1:f8y13g534n_pubinfo .
+
+    ns1:f8y13g534n_assertion a ns2:Assertion .
+
+    ns1:f8y13g534n_provenance a ns2:Provenance .
+
+    ns1:f8y13g534n_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:f8y13g534n_assertion {
+    <http://nanomine.org/viz/f850eb20af50be9a> a ns3:Chart ;
+        ns5:description "When a curator provides a mass or volume fraction of filler in a nanocomposite, the other is computed based on the provided (or inferred, if not provided) density of the compounds within the nanocomposite. This slope chart compares the mass and volume fractions linked to nanocomposite samples in the knowledge graph. Those whose units of measure differ are shown as colored data marks. The width of the connecting lines are based on whether the difference between mass and volume fraction exceeds some threshold value." ;
+        ns5:title "Slope Chart for Mass and Volume Fraction" ;
+        ns8:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart ?mat, ?fil .
+  ?mat a [ rdfs:label ?Matrix ] ;
+       sio:hasRole [ a mm:Matrix ] ;
+       sio:hasAttribute [ a mm:Density ; sio:hasValue ?matrix_dens ; sio:hasUnit ?matrix_dens_unit ] .
+  ?fil a [ rdfs:label ?Filler ] ; 
+       sio:hasRole [ a mm:Filler ] ;
+       sio:hasAttribute [ a mm:Density ; sio:hasValue ?filler_dens ; sio:hasUnit ?filler_dens_unit ] ,
+                        [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] ,
+                        [ a mm:MassFraction ; sio:hasValue ?MassFrac ] .
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?fil, ?other_fil .
+    ?fil sio:hasRole [ a mm:Filler ] .
+    ?other_fil sio:hasRole [ a mm:Filler ] .
+    FILTER (?fil != ?other_fil)
+  }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"},{\"calculate\":\"abs((datum.VolFrac-datum.MassFrac)/(datum.VolFrac+datum.MassFrac))\",\"as\":\"value_diff\"},{\"calculate\":\"datum.value_diff > 0.8 ? 1 : 0\",\"as\":\"sig_diff\"},{\"calculate\":\"datum.matrix_dens_unit == datum.filler_dens_unit ? 1 : 0\",\"as\":\"same_units\"},{\"calculate\":\"datum.matrix_dens + ' ' + replace(datum.matrix_dens_unit, /^.*resource.om.2./,'')\",\"as\":\"dens_mat\"},{\"calculate\":\"datum.filler_dens + ' ' + replace(datum.filler_dens_unit, /^.*resource.om.2./,'')\",\"as\":\"dens_fil\"},{\"fold\":[\"MassFrac\",\"VolFrac\"]}],\"layer\":[{\"height\":300,\"mark\":{\"type\":\"line\",\"color\":\"#dddddd\"},\"width\":{\"step\":150},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"strokeWidth\":{\"field\":\"value_diff\",\"type\":\"quantitative\",\"legend\":null,\"scale\":{\"type\":\"pow\",\"exponent\":10}},\"opacity\":{\"field\":\"value_diff\",\"type\":\"quantitative\"}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"transform\":[{\"filter\":\"datum.same_units == 0\"}],\"mark\":{\"type\":\"line\"},\"width\":{\"step\":150},\"encoding\":{\"color\":{\"field\":\"doi\",\"type\":\"nominal\",\"legend\":null},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"strokeWidth\":{\"field\":\"sig_diff\",\"type\":\"quantitative\",\"legend\":null,\"scale\":{\"domain\":[0,1],\"range\":[0.4,4]}},\"opacity\":{\"field\":\"value_diff\",\"type\":\"quantitative\",\"legend\":null}}},{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"transform\":[{\"filter\":\"datum.same_units == 0\"}],\"mark\":{\"type\":\"point\",\"filled\":true},\"width\":{\"step\":150},\"encoding\":{\"color\":{\"field\":\"doi\",\"type\":\"nominal\",\"legend\":null},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"opacity\":{\"field\":\"value_diff\",\"type\":\"quantitative\"},\"stroke\":{\"condition\":{\"selection\":\"hover\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"dens_mat\",\"type\":\"nominal\",\"title\":\"Matrix Density\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"dens_fil\",\"type\":\"nominal\",\"title\":\"Filler Density\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}],\"encoding\":{\"x\":{\"field\":\"key\",\"type\":\"ordinal\",\"scale\":{\"padding\":0.1},\"axis\":{\"labelAngle\":0,\"labelExpr\":\"datum.label == 'MassFrac' ? 'Mass Fraction' : 'Volume Fraction'\"},\"title\":null},\"y\":{\"field\":\"value\",\"type\":\"quantitative\"}},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns6:depiction <http://nanomine.org/viz/f850eb20af50be9a_depiction> .
+
+    <http://nanomine.org/viz/f850eb20af50be9a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-11-18T19:41:33.153000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "88aea4c8-48a7-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+ns1:f8y13g534n_pubinfo {
+    ns1:f8y13g534n_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-11-18T19:41:33.153000+00:00"^^xsd:dateTime .
+}
+

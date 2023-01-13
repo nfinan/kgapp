@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:woao25uf1k_pubinfo {
+    ns1:woao25uf1k_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:38:17.052000+00:00"^^xsd:dateTime .
+}
+
+ns1:woao25uf1k_assertion {
+    <http://nanomine.org/viz/2a774b46a67ff7a6> a ns6:Chart ;
+        ns2:description "Capturing chart metadata (query, chart spec, title, description) within the knowledge graph not only enables chart reproducibility... the metadata itself can also be queried and analyzed. This scatterplot explores character lengths of the title, description, query, and chart specification for the various charts displayed in the gallery. Click on a point to visit that chart's page (hold Ctrl while clicking to open the chart in a new tab)." ;
+        ns2:title "Meta-Analysis of Charts Gallery" ;
+        ns4:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?chartURI ?Title 
+  (strlen(str(?Query)) AS ?QueryCharLength)
+  (strlen(str(?Title)) AS ?TitleCharLength)
+  (strlen(str(?Description)) AS ?DescriptionCharLength)
+  (strlen(str(?VLSpec)) AS ?VLSpecCharLength) 
+WHERE {
+  ?chartURI a sio:Chart ;
+            schema:query ?Query ;
+            dct:title ?Title ;
+            dct:description ?Description ;
+            sio:hasValue ?VLSpec .
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":400,\"height\":400,\"mark\":{\"type\":\"point\",\"filled\":true},\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"encoding\":{\"size\":{\"field\":\"QueryCharLength\",\"type\":\"quantitative\",\"title\":\"Query Length (# chars)\"},\"y\":{\"field\":\"VLSpecCharLength\",\"type\":\"quantitative\",\"title\":\"Vega-Lite Spec Length (# chars)\"},\"x\":{\"field\":\"DescriptionCharLength\",\"type\":\"quantitative\",\"title\":\"Description Length (# chars)\"},\"color\":{\"field\":\"TitleCharLength\",\"type\":\"quantitative\",\"title\":\"Title Length (# chars)\"},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"blue\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"}],\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"}},\"config\":{\"axis\":{\"titleFontSize\":16},\"legend\":{\"titleFontSize\":14}}}" ;
+        ns5:depiction <http://nanomine.org/viz/2a774b46a67ff7a6_depiction> .
+
+    <http://nanomine.org/viz/2a774b46a67ff7a6_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:38:17.052000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "c079a9a8-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:woao25uf1k a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/2a774b46a67ff7a6_depiction> ;
+        ns8:hasAssertion ns1:woao25uf1k_assertion ;
+        ns8:hasProvenance ns1:woao25uf1k_provenance ;
+        ns8:hasPublicationInfo ns1:woao25uf1k_pubinfo .
+
+    ns1:woao25uf1k_assertion a ns8:Assertion .
+
+    ns1:woao25uf1k_provenance a ns8:Provenance .
+
+    ns1:woao25uf1k_pubinfo a ns8:PublicationInfo .
+}
+

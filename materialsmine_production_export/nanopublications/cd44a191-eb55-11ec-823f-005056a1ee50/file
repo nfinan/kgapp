@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:n0bgbvcaxf a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/674a926638de798c_depiction> ;
+        ns2:hasAssertion ns1:n0bgbvcaxf_assertion ;
+        ns2:hasProvenance ns1:n0bgbvcaxf_provenance ;
+        ns2:hasPublicationInfo ns1:n0bgbvcaxf_pubinfo .
+
+    ns1:n0bgbvcaxf_assertion a ns2:Assertion .
+
+    ns1:n0bgbvcaxf_provenance a ns2:Provenance .
+
+    ns1:n0bgbvcaxf_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:n0bgbvcaxf_assertion {
+    <http://nanomine.org/viz/674a926638de798c> a ns3:Chart ;
+        ns4:description "Materials attributes are grouped into various property classes within the MaterialsMine ontology. This faceted pie chart shows three top-level materials property classes (Mechanical, Thermal, and Electrical) and the various breakdown of material property types within each category. Hover over a segment to display a tooltip with the material property type and the number of samples linked to it." ;
+        ns4:title "Classes and Superclasses of Materials Properties" ;
+        ns8:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT DISTINCT ?AttrClass ?AttrType (COUNT(distinct ?sample) AS ?SampleCount) WHERE {
+  ?sample sio:hasAttribute [ a ?AttrType ; sio:hasValue ?value ] .
+  ?AttrClass rdfs:subClassOf sio:Quantity .
+  ?AttrType rdfs:subClassOf+ ?AttrClass .
+  FILTER(regex(str(?AttrClass), "Property"))
+} 
+GROUP BY ?AttrClass ?AttrType
+ORDER BY DESC (?SampleCount)""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.AttrClass,/^.*.org.ns./,'')\",\"as\":\"TrimClass\"},{\"calculate\":\"replace(datum.AttrType,/^.*.org.ns./,'')\",\"as\":\"TrimType\"},{\"filter\":{\"field\":\"TrimClass\",\"oneOf\":[\"MechanicalProperty\",\"ThermalProperty\",\"ElectricalProperty\"]}}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"TrimType\"]}},\"mark\":{\"type\":\"arc\"},\"encoding\":{\"facet\":{\"field\":\"TrimClass\",\"type\":\"nominal\",\"columns\":3,\"title\":null,\"sort\":{\"op\":\"count\",\"order\":\"descending\"},\"header\":{\"labelFontSize\":20}},\"color\":{\"field\":\"TrimType\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20c\"}},\"theta\":{\"field\":\"SampleCount\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.7},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"TrimType\",\"type\":\"nominal\",\"title\":\"Materials Property\"},{\"field\":\"TrimClass\",\"type\":\"nominal\",\"title\":\"Property Class\"},{\"field\":\"SampleCount\",\"type\":\"quantitative\",\"title\":\"Sample Count\"}]},\"resolve\":{\"scale\":{\"theta\":\"independent\"}},\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns5:depiction <http://nanomine.org/viz/674a926638de798c_depiction> .
+
+    <http://nanomine.org/viz/674a926638de798c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:31:38.495000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "d2eab36c-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:n0bgbvcaxf_pubinfo {
+    ns1:n0bgbvcaxf_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:31:38.496000+00:00"^^xsd:dateTime .
+}
+

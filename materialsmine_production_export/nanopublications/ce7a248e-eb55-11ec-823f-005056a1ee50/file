@@ -1,0 +1,85 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:u4bzrsc99n_pubinfo {
+    ns1:u4bzrsc99n_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:36:34.679000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:u4bzrsc99n a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/fd44a2a8e87d7e7a_depiction> ;
+        ns3:hasAssertion ns1:u4bzrsc99n_assertion ;
+        ns3:hasProvenance ns1:u4bzrsc99n_provenance ;
+        ns3:hasPublicationInfo ns1:u4bzrsc99n_pubinfo .
+
+    ns1:u4bzrsc99n_assertion a ns3:Assertion .
+
+    ns1:u4bzrsc99n_provenance a ns3:Provenance .
+
+    ns1:u4bzrsc99n_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:u4bzrsc99n_assertion {
+    <http://nanomine.org/viz/fd44a2a8e87d7e7a> a ns4:Chart ;
+        ns2:description "When materials are curated into the knowledge graph, the ChemProps API parses the materials names, looks up nominal density values for these materials, and uses these values to calculate volume fraction of filler given a provided value for mass fraction (or vice versa). This query uses that inferred information to estimate the density of the overall nanocomposite. Here, the composite density is used to create a plot of glass transition temperature, Tg, versus specific stiffness. The chart is zoomable, and you can hover over a point to view a tooltip with additional information. Because this approach for estimating density only works for binary systems, the SPARQL query filters out any composites containing two or more matrix/filler materials." ;
+        ns2:title "Estimating Composite Density Using Inferred Information from ChemProps" ;
+        ns5:query """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT ?sample ?FillerMaterial ?MatrixMaterial ?FillerVolumeFraction ?CompositeDensity ?Tg_C ?TensileModulus_GPa WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 a [ rdfs:label ?FillerMaterial ] ;
+                                 sio:hasAttribute [ a nm:Density ;
+                                                    sio:hasValue ?FillerDensity ] ,
+                                                  [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?FillerVolumeFraction] ] ,
+                               [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?MatrixMaterial ] ;
+                                 sio:hasAttribute [ a nm:Density ;
+                                                    sio:hasValue ?MatrixDensity ] ] ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_C ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ,
+                           [ a nm:TensileModulus ;
+                             sio:hasValue ?TensileModulus_GPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] ]
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?filler1, ?filler2 .
+    ?filler1 sio:hasRole [ a nm:Filler ] .
+    ?filler2 sio:hasRole [ a nm:Filler ] .
+    FILTER ( ?filler1 != ?filler2 )
+  }
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?matrix1, ?matrix2 .
+    ?matrix1 sio:hasRole [ a nm:Filler ] .
+    ?matrix2 sio:hasRole [ a nm:Filler ] .
+    FILTER ( ?matrix1 != ?matrix2 )
+  }
+  BIND( (?FillerDensity * ?FillerVolumeFraction) + (?MatrixDensity * (1 - ?FillerVolumeFraction)) AS ?CompositeDensity)
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"transform\":[{\"calculate\":\"datum.TensileModulus_GPa / datum.CompositeDensity\",\"as\":\"SpecificStiffness\"}],\"mark\":{\"type\":\"point\",\"size\":200,\"filled\":true},\"encoding\":{\"x\":{\"field\":\"SpecificStiffness\",\"type\":\"quantitative\",\"title\":\"Specific Stiffness (E / density)\",\"scale\":{\"type\":\"log\",\"nice\":false,\"padding\":20}},\"y\":{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature (C)\",\"scale\":{\"nice\":false,\"padding\":20}},\"color\":{\"field\":\"MatrixMaterial\",\"type\":\"nominal\",\"title\":\"Matrix Material\"},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"sample\",\"type\":\"nominal\"},{\"field\":\"FillerMaterial\",\"type\":\"nominal\",\"title\":\"Filler Material\"},{\"field\":\"FillerVolumeFraction\",\"type\":\"quantitative\",\"title\":\"Filler Loading (vol.%)\",\"format\":\".3p\"},{\"field\":\"MatrixMaterial\",\"type\":\"nominal\",\"title\":\"Matrix Material\"},{\"field\":\"TensileModulus_GPa\",\"type\":\"quantitative\",\"format\":\".3f\",\"title\":\"Young's modulus (GPa)\"},{\"field\":\"CompositeDensity\",\"type\":\"quantitative\",\"format\":\".3f\",\"title\":\"Composite Density (g/cm^3)\"}]},\"config\":{\"axis\":{\"titleFontSize\":22,\"labelFontSize\":16,\"labelFlush\":false},\"legend\":{\"titleFontSize\":18,\"labelFontSize\":14,\"labelLimit\":200}}}" ;
+        ns7:depiction <http://nanomine.org/viz/fd44a2a8e87d7e7a_depiction> .
+
+    <http://nanomine.org/viz/fd44a2a8e87d7e7a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:36:34.679000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "8374ae36-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

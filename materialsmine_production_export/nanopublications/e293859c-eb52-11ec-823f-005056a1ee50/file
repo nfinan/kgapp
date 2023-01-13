@@ -1,0 +1,164 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://www.w3.org/ns/dcat#> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L190_S1_Putz_2008_provenance {
+    <http://materialsmine.org/entry/L190_S1_Putz_2008_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L190_S1_Putz_2008_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/mettler-toledo-dsc-822>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L190_S1_Putz_2008_description_attr_29>,
+                    <http://materialsmine.org/sample/L190_S1_Putz_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L190_S1_Putz_2008_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/ns/mettler-toledo-dsc-822> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Mettler Toledo DSC 822" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L190_S1_Putz_2008_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L190_S1_Putz_2008_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    ns1:L190_S1_Putz_2008_assertion ns2:wasDerivedFrom ns1:L190_S1_Putz_2008_assertion,
+            <http://nanomine.org/pub/NzIwOTM4LjE3ODcyNzc1NTI_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/Mjc0NjExLjIzMTY0MzUxMDU/MaterialsmineXMLImport> ;
+                ns2:used ns1:L190_S1_Putz_2008_assertion,
+                    <http://nanomine.org/pub/NzIwOTM4LjE3ODcyNzc1NTI_assertion> ],
+            <http://materialsmine.org/entry/L190_S1_Putz_2008_characterization_description>,
+            <http://materialsmine.org/entry/L190_S1_Putz_2008_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L190_S1_Putz_2008_characterization_equipment> .
+}
+
+ns1:L190_S1_Putz_2008_assertion {
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" .
+
+    <http://materialsmine.org/sample/l190-s1-putz-2008_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l190-s1-putz-2008> .
+
+    <http://materialsmine.org/sample/l190-s1-putz-2008_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.13e+00 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l190-s1-putz-2008> ] .
+
+    <http://materialsmine.org/sample/l190-s1-putz-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label " in epoxy" ;
+        ns3:hasAttribute [ ns3:hasValue 4.346154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5e-01 ] ],
+            [ a <file:///apps/whyis/nan> ],
+            [ ns3:hasValue 4.634615e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.5e-01 ] ],
+            [ ns3:hasValue 3.951923e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1e+00 ] ],
+            [ a <file:///apps/whyis/nan> ],
+            [ ns3:hasValue 4.192308e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.5e-01 ] ],
+            [ ns3:hasValue 4.192308e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.5e-01 ] ],
+            [ ns3:hasValue 4.634615e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.5e-01 ] ],
+            [ ns3:hasValue 4.346154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5e-01 ] ],
+            [ ns3:hasValue 4.836538e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/RheologicalProperty> ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ ns3:hasValue 3.951923e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1e+00 ] ],
+            [ ns3:hasValue 4.836538e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 0e+00 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l190-s1-putz-2008_matrix_0> ;
+        ns3:hasRole <http://materialsmine.org/sample/l190-s1-putz-2008_control_role> .
+}
+
+ns1:L190_S1_Putz_2008_pubinfo {
+    ns1:L190_S1_Putz_2008_assertion ns4:created "2021-07-22T13:19:39.827000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/Mjc0NjExLjIzMTY0MzUxMDU/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1021/nn202040c> .
+
+    <http://dx.doi.org/10.1021/nn202040c> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Evolution of Order During Vacuum-Assisted Self-Assembly of Graphene Oxide Paper and Associated Polymer Nanocomposites" ;
+        ns4:created 2011 ;
+        ns4:creator <http://materialsmine.org/author/an-zhi>,
+            <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/compton-owen-c>,
+            <http://materialsmine.org/author/nguyen-sonbinh-t>,
+            <http://materialsmine.org/author/putz-karl-w>,
+            <http://materialsmine.org/author/segar-claire> ;
+        ns4:isPartOf <http://materialsmine.org/publication/acs-nano> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Evolution of Order During Vacuum-Assisted Self-Assembly of Graphene Oxide Paper and Associated Polymer Nanocomposites" ;
+        ns7:authorList ( <http://materialsmine.org/author/brinson-l-catherine> <http://materialsmine.org/author/nguyen-sonbinh-t> <http://materialsmine.org/author/an-zhi> <http://materialsmine.org/author/segar-claire> <http://materialsmine.org/author/compton-owen-c> <http://materialsmine.org/author/putz-karl-w> ) ;
+        ns7:volume 5 ;
+        ns3:hasPart <http://materialsmine.org/sample/l190-s1-putz-2008> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/nn202040c> ;
+        ns6:keyword "Graphene Oxide",
+            "Hierarchical Structure",
+            "Nanostructures",
+            "Polymer Nanocomposite",
+            "Self Assembly" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-mechanical-engineering-department-of-chemistry-and-department-of-materials-science-and-engineering-northwestern-university-2145-sheridan-road-evanston-illinois-60208-usa> a ns4:Location ;
+        rdfs:label "Department of Mechanical Engineering,  Department of Chemistry, and  Department of Materials Science and Engineering, Northwestern University, 2145 Sheridan Road, Evanston, Illinois 60208, USA" .
+
+    <http://materialsmine.org/publication/acs-nano> ns4:publisher <publisher:american-chemical-society> ;
+        ns4:title "ACS Nano" .
+
+    <http://materialsmine.org/sample/l190-s1-putz-2008> ns2:wasAttributedTo <http://materialsmine.org/author/an-zhi>,
+            <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/compton-owen-c>,
+            <http://materialsmine.org/author/nguyen-sonbinh-t>,
+            <http://materialsmine.org/author/putz-karl-w>,
+            <http://materialsmine.org/author/segar-claire> .
+
+    <publisher:american-chemical-society> rdfs:label "American Chemical Society" ;
+        ns2:atLocation <http://materialsmine.org/location/department-of-mechanical-engineering-department-of-chemistry-and-department-of-materials-science-and-engineering-northwestern-university-2145-sheridan-road-evanston-illinois-60208-usa> .
+
+    <http://materialsmine.org/author/an-zhi> a ns2:Agent ;
+        rdfs:label "An, Zhi" ;
+        ns5:name "An, Zhi" .
+
+    <http://materialsmine.org/author/brinson-l-catherine> a ns2:Agent ;
+        rdfs:label "Brinson, L. Catherine" ;
+        ns5:name "Brinson, L. Catherine" .
+
+    <http://materialsmine.org/author/compton-owen-c> a ns2:Agent ;
+        rdfs:label "Compton, Owen C." ;
+        ns5:name "Compton, Owen C." .
+
+    <http://materialsmine.org/author/nguyen-sonbinh-t> a ns2:Agent ;
+        rdfs:label "Nguyen, SonBinh T." ;
+        ns5:name "Nguyen, SonBinh T." .
+
+    <http://materialsmine.org/author/putz-karl-w> a ns2:Agent ;
+        rdfs:label "Putz, Karl W." ;
+        ns5:name "Putz, Karl W." .
+
+    <http://materialsmine.org/author/segar-claire> a ns2:Agent ;
+        rdfs:label "Segar, Claire" ;
+        ns5:name "Segar, Claire" .
+}
+

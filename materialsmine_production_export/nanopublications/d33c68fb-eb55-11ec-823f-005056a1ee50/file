@@ -1,0 +1,47 @@
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://vocab.rpi.edu/whyis/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://www.nanopub.org/nschema#> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:4AgLJb3V4Gfnc8Mc6rXpYV_assertion> {
+    <http://nanomine.org/nmr/dataset/203> a ns3:Dataset ;
+        ns3:distribution <http://nanomine.org/nmr/xml/L203_S7_Ma_2009> .
+
+    <http://nanomine.org/nmr/xml/L203_S7_Ma_2009?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns3:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns4:hasContentType "text/xml" ;
+        ns1:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns1:contributor <http://nanomine.org/user/9999999999> ;
+        ns1:created "2021-07-22T13:56:00.120000+00:00"^^xsd:dateTime ;
+        ns2:hasFileID "8baca816-eaf4-11eb-9f8d-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns1:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns1:FileFormat .
+}
+
+{
+    <urn:4AgLJb3V4Gfnc8Mc6rXpYV> a ns5:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/nmr/xml/L203_S7_Ma_2009?format=xml> ;
+        ns5:hasAssertion <urn:4AgLJb3V4Gfnc8Mc6rXpYV_assertion> ;
+        ns5:hasProvenance <urn:4AgLJb3V4Gfnc8Mc6rXpYV_provenance> ;
+        ns5:hasPublicationInfo <urn:4AgLJb3V4Gfnc8Mc6rXpYV_pubinfo> .
+
+    <urn:4AgLJb3V4Gfnc8Mc6rXpYV_assertion> a ns5:Assertion .
+
+    <urn:4AgLJb3V4Gfnc8Mc6rXpYV_provenance> a ns5:Provenance .
+
+    <urn:4AgLJb3V4Gfnc8Mc6rXpYV_pubinfo> a ns5:PublicationInfo .
+}
+
+<urn:4AgLJb3V4Gfnc8Mc6rXpYV_pubinfo> {
+    <urn:4AgLJb3V4Gfnc8Mc6rXpYV_assertion> ns1:contributor <http://nanomine.org/user/9999999999> ;
+        ns1:created "2021-07-22T13:56:00.121000+00:00"^^xsd:dateTime .
+}
+

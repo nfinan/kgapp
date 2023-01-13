@@ -1,0 +1,87 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:fsl1fg5sb3 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/9209c4172e51ea8e_depiction> ;
+        ns2:hasAssertion ns1:fsl1fg5sb3_assertion ;
+        ns2:hasProvenance ns1:fsl1fg5sb3_provenance ;
+        ns2:hasPublicationInfo ns1:fsl1fg5sb3_pubinfo .
+
+    ns1:fsl1fg5sb3_assertion a ns2:Assertion .
+
+    ns1:fsl1fg5sb3_provenance a ns2:Provenance .
+
+    ns1:fsl1fg5sb3_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:fsl1fg5sb3_pubinfo {
+    ns1:fsl1fg5sb3_assertion ns4:contributor <http://nanomine.org/user/0971684> ;
+        ns4:created "2022-05-05T10:05:42.484000+00:00"^^xsd:dateTime .
+}
+
+ns1:fsl1fg5sb3_assertion {
+    <http://nanomine.org/viz/9209c4172e51ea8e> a ns3:Chart ;
+        ns4:description """Specific stiffness versus the glass transition temperature for a variety of nanocomposite materials. This chart is useful for identifying performant matrix materials for components that require high/low stiffness or glass transition temperature combined with low weight. Samples are color-coded by matrix material type.
+Tags: Property vs. Property, Ashby Plot, Thermal, Mechanical, Material selection
+""" ;
+        ns4:title "Specific Stiffness vs. Glass Transition Temperature" ;
+        ns8:query """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT ?sample ?FillerMaterial ?MatrixMaterial ?FillerVolumeFraction ?CompositeDensity ?Tg_C ?TensileModulus_GPa WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 a [ rdfs:label ?FillerMaterial ] ;
+                                 sio:hasAttribute [ a nm:Density ;
+                                                    sio:hasValue ?FillerDensity ] ,
+                                                  [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?FillerVolumeFraction] ] ,
+                               [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?MatrixMaterial ] ;
+                                 sio:hasAttribute [ a nm:Density ;
+                                                    sio:hasValue ?MatrixDensity ] ] ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_C ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ,
+                           [ a nm:TensileModulus ;
+                             sio:hasValue ?TensileModulus_GPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] ]
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?filler1, ?filler2 .
+    ?filler1 sio:hasRole [ a nm:Filler ] .
+    ?filler2 sio:hasRole [ a nm:Filler ] .
+    FILTER ( ?filler1 != ?filler2 )
+  }
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?matrix1, ?matrix2 .
+    ?matrix1 sio:hasRole [ a nm:Filler ] .
+    ?matrix2 sio:hasRole [ a nm:Filler ] .
+    FILTER ( ?matrix1 != ?matrix2 )
+  }
+  BIND( (?FillerDensity * ?FillerVolumeFraction) + (?MatrixDensity * (1 - ?FillerVolumeFraction)) AS ?CompositeDensity)
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":500,\"height\":300,\"transform\":[{\"calculate\":\"datum.TensileModulus_GPa / datum.CompositeDensity\",\"as\":\"SpecificStiffness\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":100},\"encoding\":{\"x\":{\"field\":\"SpecificStiffness\",\"title\":\"Specific Stiffness [MPa/(kg/m��)]\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Tg_C\",\"title\":\"Glass Transition Temperature [��C]\",\"type\":\"quantitative\"},\"color\":{\"field\":\"MatrixMaterial\",\"type\":\"nominal\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/9209c4172e51ea8e_depiction> .
+
+    <http://nanomine.org/viz/9209c4172e51ea8e_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0971684> ;
+        ns4:created "2022-05-05T10:05:42.484000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "ec469536-cc5a-11ec-be75-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

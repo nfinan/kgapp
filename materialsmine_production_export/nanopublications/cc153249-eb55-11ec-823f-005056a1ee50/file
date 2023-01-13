@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:g067xiiw0u_assertion {
+    <http://nanomine.org/viz/5ecaa7401c64b96e> a ns4:Chart ;
+        ns2:description "Glass transition temperature (Tg) data were normalized by subtracting the Tg of the neat matrix from the Tg of the nanocomposite. Selecting a symbol in the legend highlights all corresponding points in the scatterplot. SHIFT+click allows selection of multiple series." ;
+        ns2:title "Delta-Tg Scatter Plot" ;
+        ns3:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?controlTg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?Loading_mass ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datum.Tg - datum.controlTg\",\"as\":\"deltaTg\"},{\"filter\":{\"and\":[{\"field\":\"Loading_mass\",\"valid\":true},{\"field\":\"deltaTg\",\"valid\":true},{\"field\":\"deltaTg\",\"range\":[-60,60]}]}}],\"selection\":{\"myselect\":{\"type\":\"multi\",\"fields\":[\"Matrix\"],\"bind\":\"legend\"},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"stroke\":\"black\",\"filled\":true,\"size\":200},\"width\":800,\"height\":495,\"encoding\":{\"y\":{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Loading (mass fraction)\",\"titleFontSize\":20,\"labelFontSize\":20},\"scale\":{\"type\":\"log\"}},\"x\":{\"field\":\"deltaTg\",\"type\":\"quantitative\",\"axis\":{\"title\":\"delta Tg (Celsius)\",\"titleFontSize\":20,\"labelFontSize\":20},\"scale\":{\"domain\":[-40,50]}},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"},\"legend\":{\"titleFontSize\":16}},\"opacity\":{\"condition\":[{\"selection\":\"myselect\",\"value\":1}],\"value\":0.15}},\"config\":{\"view\":{\"stroke\":\"transparent\"}}}" ;
+        ns6:depiction <http://nanomine.org/viz/5ecaa7401c64b96e_depiction> .
+
+    <http://nanomine.org/viz/5ecaa7401c64b96e_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:49:06.847000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "803f9294-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:g067xiiw0u_pubinfo {
+    ns1:g067xiiw0u_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:49:06.847000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:g067xiiw0u a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/5ecaa7401c64b96e_depiction> ;
+        ns8:hasAssertion ns1:g067xiiw0u_assertion ;
+        ns8:hasProvenance ns1:g067xiiw0u_provenance ;
+        ns8:hasPublicationInfo ns1:g067xiiw0u_pubinfo .
+
+    ns1:g067xiiw0u_assertion a ns8:Assertion .
+
+    ns1:g067xiiw0u_provenance a ns8:Provenance .
+
+    ns1:g067xiiw0u_pubinfo a ns8:PublicationInfo .
+}
+

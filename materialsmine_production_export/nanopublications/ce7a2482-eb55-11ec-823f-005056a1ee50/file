@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:s17w9bfld_pubinfo {
+    ns1:s17w9bfld_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-09T00:23:22.884000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:s17w9bfld a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/9fe46d046f5dc486_depiction> ;
+        ns3:hasAssertion ns1:s17w9bfld_assertion ;
+        ns3:hasProvenance ns1:s17w9bfld_provenance ;
+        ns3:hasPublicationInfo ns1:s17w9bfld_pubinfo .
+
+    ns1:s17w9bfld_assertion a ns3:Assertion .
+
+    ns1:s17w9bfld_provenance a ns3:Provenance .
+
+    ns1:s17w9bfld_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:s17w9bfld_assertion {
+    <http://nanomine.org/viz/9fe46d046f5dc486> a ns4:Chart ;
+        ns2:description "A Gantt chart can be a useful tool for displaying temporal information that spans ranges, such as a sequence of processes. In this example, we query curated processing steps for a nanocomposite sample involving a reported time interval and display as ranged bar marks colored by the type of sub-process. Because the units of time vary, values are converted into minutes using Vega-Lite's calculate transform. The window transform is used for computing the cumulative duration, which assumes that the process steps occur immediately after one another and in a serial fashion. In this case, the steps get progressively longer in duration, so a symlog scale is used along the x-axis (Gantt charts almost always use a linear scale). Hover over a bar to view a tooltip with the actual duration. These data were curated from Goertzen et al. (2007, doi: 10.1016/j.compositesa.2008.02.006)." ;
+        ns2:title "Visualizing Process Steps with a Gantt Chart (Ranged Bar Marks)" ;
+        ns8:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?sample ?ProcessType ?ParamType ?stepNo ?duration
+  (MIN(?unit_label) AS ?units)
+WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          prov:wasGeneratedBy [ a ?ProcessType ; sio:hasPart ?step ] .
+  ?step sio:hasParameter [ a ?ParamType ; sio:hasAttribute [ a sio:TimeInterval ; sio:hasValue ?duration ; sio:hasUnit ?unit ] ] .
+  ?unit rdfs:label ?unit_label .
+  FILTER(?ProcessType != sio:Procedure && ?ParamType != sio:Parameter)
+  BIND(REPLACE(STR(?step), "http://materialsmine.org/sample/L223_S2_Goertzen_2008_solution_processing_step_", "") AS ?stepNo)
+  VALUES ?sample { <http://materialsmine.org/sample/l223-s2-goertzen-2008> }
+} GROUP BY ?sample ?ProcessType ?ParamType ?stepNo ?duration""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"toNumber(datum.stepNo)\",\"as\":\"stepNo\"},{\"calculate\":\"datum.units == 'Second' ? datum.duration / 60 : datum.units == 'Hour' ? datum.duration * 60 : datum.units == 'Minute' ? datum.duration : '0'\",\"as\":\"duration_min\"},{\"window\":[{\"op\":\"sum\",\"field\":\"duration_min\",\"as\":\"end\"}],\"sort\":[{\"field\":\"stepNo\"}],\"frame\":[null,0]},{\"calculate\":\"datum.end - datum.duration_min\",\"as\":\"start\"},{\"calculate\":\"replace(datum.ParamType, /^.*org.ns./, '')\",\"as\":\"ParamLabel\"}],\"width\":400,\"mark\":{\"type\":\"bar\",\"cornerRadius\":2},\"encoding\":{\"y\":{\"field\":\"stepNo\",\"type\":\"ordinal\",\"title\":\"Step Number\"},\"x\":{\"field\":\"start\",\"type\":\"quantitative\",\"scale\":{\"type\":\"symlog\",\"nice\":false,\"padding\":2},\"title\":\"Time (minutes)\"},\"x2\":{\"field\":\"end\"},\"color\":{\"field\":\"ParamLabel\",\"type\":\"nominal\",\"title\":\"Step Type\"},\"tooltip\":[{\"field\":\"stepNo\",\"type\":\"quantitative\",\"title\":\"Step\"},{\"field\":\"duration_min\",\"type\":\"quantitative\",\"title\":\"Duration (min.)\"},{\"field\":\"ParamLabel\",\"type\":\"nominal\",\"title\":\"Step Type\"},{\"field\":\"duration\",\"type\":\"quantitative\",\"title\":\"Reported Duration\"},{\"field\":\"units\",\"type\":\"nominal\",\"title\":\"Reported Units\"}]},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns5:depiction <http://nanomine.org/viz/9fe46d046f5dc486_depiction> .
+
+    <http://nanomine.org/viz/9fe46d046f5dc486_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-09T00:23:22.883000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "37ed4a32-5886-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

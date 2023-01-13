@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:76dpd012d9 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/3d795cb4d1f5b206_depiction> ;
+        ns2:hasAssertion ns1:76dpd012d9_assertion ;
+        ns2:hasProvenance ns1:76dpd012d9_provenance ;
+        ns2:hasPublicationInfo ns1:76dpd012d9_pubinfo .
+
+    ns1:76dpd012d9_assertion a ns2:Assertion .
+
+    ns1:76dpd012d9_provenance a ns2:Provenance .
+
+    ns1:76dpd012d9_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:76dpd012d9_pubinfo {
+    ns1:76dpd012d9_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-06T19:00:48.282000+00:00"^^xsd:dateTime .
+}
+
+ns1:76dpd012d9_assertion {
+    <http://nanomine.org/viz/3d795cb4d1f5b206> a ns3:Chart ;
+        ns4:description "Nanocomposite materials often comprise a matrix and a filler component. This interactive chart displays common matrix-filler combinations as a heatmap containing the associated number of samples, and the scatter plot on the right shows glass transition temperature, Tg, as a function of volume fraction of filler. Click or shift-click on one or more squares in the heatmap to filter the scatterplot, and double-click to reset the selection. Hover over a point to display the tooltip with the sample ID." ;
+        ns4:title "Selectable Heatmap for Cross-Filtering Materials Combinations" ;
+        ns5:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_C ; 
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] ] ,
+                               [ sio:hasRole [ a mm:Filler ] ;
+                                 a [ rdfs:label ?Filler ] ;
+                                 sio:hasAttribute [ a mm:VolumeFraction ; 
+                                                    sio:hasValue ?VolumeFraction] ]
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"sample_count\"}],\"groupby\":[\"Filler\",\"Matrix\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"Filler\",\"Matrix\"]},{\"filter\":\"datum.sample_count > 5\"},{\"joinaggregate\":[{\"op\":\"max\",\"field\":\"sample_count\",\"as\":\"sample_max\"}]},{\"calculate\":\"datum.sample_max / 2 + 1\",\"as\":\"half_sample_max\"},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"Sample ID\"}],\"hconcat\":[{\"layer\":[{\"transform\":[{\"filter\":\"datum.rank < 2\"}],\"selection\":{\"select\":{\"type\":\"multi\",\"fields\":[\"Matrix\",\"Filler\"]},\"select2\":{\"type\":\"multi\",\"fields\":[\"Matrix\",\"Filler\"],\"empty\":\"none\"},\"highlight\":{\"type\":\"single\",\"fields\":[\"Matrix\",\"Filler\"],\"empty\":\"none\"},\"hover_combo\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\",\"Filler\"]},\"hover_combo2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\",\"Filler\"]}},\"mark\":{\"type\":\"rect\",\"stroke\":\"firebrick\",\"strokeWidth\":3},\"encoding\":{\"color\":{\"condition\":{\"selection\":\"select\",\"field\":\"sample_count\",\"type\":\"quantitative\",\"legend\":null},\"value\":\"#ddd\"},\"opacity\":{\"condition\":{\"selection\":\"select\",\"value\":1},\"value\":0.4},\"strokeOpacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"sample_count\",\"type\":\"quantitative\",\"title\":\"# Samples\"}]}},{\"transform\":[{\"filter\":\"datum.rank < 2\"}],\"mark\":\"text\",\"encoding\":{\"text\":{\"field\":\"sample_count\",\"type\":\"quantitative\"},\"color\":{\"condition\":{\"test\":\"datum.sample_count < datum.half_sample_max\",\"value\":\"black\"},\"value\":\"white\"},\"opacity\":{\"condition\":{\"selection\":\"select\",\"value\":1},\"value\":0}}}],\"encoding\":{\"y\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"x\":{\"field\":\"Filler\",\"type\":\"nominal\"}}},{\"transform\":[{\"filter\":{\"selection\":\"select\"}}],\"selection\":{\"hover_point\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"height\":450,\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true},\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"hover_combo\"},{\"selection\":\"select2\"}]},\"field\":\"Filler\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"value\":\"#dddddd\"},\"shape\":{\"condition\":{\"selection\":\"select2\",\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null},\"value\":\"circle\"},\"opacity\":{\"condition\":{\"selection\":\"hover_combo2\",\"value\":1},\"value\":0.1},\"size\":{\"condition\":{\"selection\":\"hover_point\",\"value\":100},\"value\":30},\"tooltip\":[{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"format\":\".3p\"},{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"format\":\".4r\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}]}}],\"config\":{\"axis\":{\"grid\":false,\"tickBand\":\"extent\",\"titleFontSize\":16,\"labelFontSize\":12,\"labelLimit\":160}}}" ;
+        ns8:depiction <http://nanomine.org/viz/3d795cb4d1f5b206_depiction> .
+
+    <http://nanomine.org/viz/3d795cb4d1f5b206_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-06T19:00:48.281000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "b7a97df8-26d7-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

@@ -1,0 +1,55 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:0md7uturgv a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/1441449bdf0cb480_depiction> ;
+        ns3:hasAssertion ns1:0md7uturgv_assertion ;
+        ns3:hasProvenance ns1:0md7uturgv_provenance ;
+        ns3:hasPublicationInfo ns1:0md7uturgv_pubinfo .
+
+    ns1:0md7uturgv_assertion a ns3:Assertion .
+
+    ns1:0md7uturgv_provenance a ns3:Provenance .
+
+    ns1:0md7uturgv_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:0md7uturgv_pubinfo {
+    ns1:0md7uturgv_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-06T10:53:24.977000+00:00"^^xsd:dateTime .
+}
+
+ns1:0md7uturgv_assertion {
+    <http://nanomine.org/viz/1441449bdf0cb480> a ns2:Chart ;
+        ns4:description "This chart of curated articles per year published is compact, with a SPARQL query and Vega-Lite specification (and this description) each having fewer than 200 characters... that's less than a Tweet!" ;
+        ns4:title "Minimalist Histogram" ;
+        ns7:query """PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?DOI a dct:BibliographicResource ;
+       dct:created ?Year
+  FILTER(?Year > 0)
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"aggregate\":\"count\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/1441449bdf0cb480_depiction> .
+
+    <http://nanomine.org/viz/1441449bdf0cb480_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-06T10:53:24.976000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "a14b33ba-2693-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

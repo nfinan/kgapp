@@ -1,0 +1,62 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:9bushshyag a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/a8491f8a9e24fb2c_depiction> ;
+        ns3:hasAssertion ns1:9bushshyag_assertion ;
+        ns3:hasProvenance ns1:9bushshyag_provenance ;
+        ns3:hasPublicationInfo ns1:9bushshyag_pubinfo .
+
+    ns1:9bushshyag_assertion a ns3:Assertion .
+
+    ns1:9bushshyag_provenance a ns3:Provenance .
+
+    ns1:9bushshyag_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:9bushshyag_assertion {
+    <http://nanomine.org/viz/a8491f8a9e24fb2c> a ns2:Chart ;
+        ns5:description "The boxplot mark in Vega-Lite calculates the quartiles and displays these as box-and-whisker plots. Data outside 1.5*IQR are displayed as points. This chart shows glass transition temperature across the various matrix materials found in the knowledge graph. " ;
+        ns5:title "Tukey Box Plots with Tg Data" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":600,\"mark\":{\"type\":\"boxplot\"},\"encoding\":{\"x\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"title\":\"Matrix\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20\"}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transtition Temperature, Tg (C)\"}},\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14}}}" ;
+        ns6:depiction <http://nanomine.org/viz/a8491f8a9e24fb2c_depiction> .
+
+    <http://nanomine.org/viz/a8491f8a9e24fb2c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T17:26:16.765000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "13269046-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+ns1:9bushshyag_pubinfo {
+    ns1:9bushshyag_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T17:26:16.765000+00:00"^^xsd:dateTime .
+}
+

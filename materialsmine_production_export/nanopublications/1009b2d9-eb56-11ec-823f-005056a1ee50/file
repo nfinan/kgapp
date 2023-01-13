@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.nanopub.org/nschema#> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:w1uwhRkf6u6HZRP2HxxfEw> a ns1:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/nmr/xml/E116_S24_Prasad_2018?format=xml> ;
+        ns1:hasAssertion <urn:w1uwhRkf6u6HZRP2HxxfEw_assertion> ;
+        ns1:hasProvenance <urn:w1uwhRkf6u6HZRP2HxxfEw_provenance> ;
+        ns1:hasPublicationInfo <urn:w1uwhRkf6u6HZRP2HxxfEw_pubinfo> .
+
+    <urn:w1uwhRkf6u6HZRP2HxxfEw_assertion> a ns1:Assertion .
+
+    <urn:w1uwhRkf6u6HZRP2HxxfEw_provenance> a ns1:Provenance .
+
+    <urn:w1uwhRkf6u6HZRP2HxxfEw_pubinfo> a ns1:PublicationInfo .
+}
+
+<urn:w1uwhRkf6u6HZRP2HxxfEw_pubinfo> {
+    <urn:w1uwhRkf6u6HZRP2HxxfEw_assertion> ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T04:46:14.429000+00:00"^^xsd:dateTime .
+}
+
+<urn:w1uwhRkf6u6HZRP2HxxfEw_assertion> {
+    <http://nanomine.org/nmr/dataset/116> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/E116_S24_Prasad_2018> .
+
+    <http://nanomine.org/nmr/xml/E116_S24_Prasad_2018?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns6:hasContentType "text/xml" ;
+        ns3:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T04:46:14.428000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "beab87c0-eaa7-11eb-9f8b-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns3:FileFormat .
+}
+

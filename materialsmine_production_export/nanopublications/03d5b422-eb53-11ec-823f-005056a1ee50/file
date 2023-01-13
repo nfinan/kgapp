@@ -1,0 +1,382 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://www.w3.org/ns/prov#> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L221_S3_Dai_2008_assertion {
+    <http://materialsmine.org/sample/l221-s1-dai-2008> ns2:hasRole <http://materialsmine.org/sample/l221-s1-dai-2008_control_role> .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" ;
+        ns4:notation "EPR" .
+
+    <http://materialsmine.org/compound/Montmorillonite> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Montmorillonite" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Pai-Kong Ceramic Company, Taiwan" ] ;
+        ns4:altLabel "montmorillonite" .
+
+    <http://materialsmine.org/sample/l221-s1-dai-2008_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l221-s3-dai-2008> .
+
+    <http://materialsmine.org/sample/l221-s3-dai-2008_filler_0> a <http://materialsmine.org/compound/Montmorillonite> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.35e+00 ],
+            <http://materialsmine.org/sample/l221-s3-dai-2008_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l221-s3-dai-2008_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l221-s3-dai-2008> ] .
+
+    <http://materialsmine.org/sample/l221-s3-dai-2008_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 3e-02 .
+
+    <http://materialsmine.org/sample/l221-s3-dai-2008_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 1.465376e-02 .
+
+    <http://materialsmine.org/sample/l221-s3-dai-2008_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "EPR" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.13e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l221-s3-dai-2008> ] .
+
+    <http://materialsmine.org/sample/l221-s3-dai-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "montmorillonite in epoxy resin" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ThermalDecompositionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 3.539e+02 ],
+            [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.0559e+02 ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l221-s3-dai-2008_filler_0>,
+            <http://materialsmine.org/sample/l221-s3-dai-2008_matrix_0> .
+}
+
+ns1:L221_S3_Dai_2008_pubinfo {
+    ns1:L221_S3_Dai_2008_assertion ns3:created "2021-07-22T16:10:26.850000+00:00"^^xsd:dateTime ;
+        ns6:wasAttributedTo <http://nanomine.org/setl/Mjk0MzUxLjMxMzEwMzUyNjQ/MaterialsmineXMLImport> ;
+        ns6:wasQuotedFrom <http://dx.doi.org/10.1016/j.eurpolymj.2008.06.015> .
+
+    <http://dx.doi.org/10.1016/j.eurpolymj.2008.06.015> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Comparative studies for the effect of intercalating agent on the physical properties of epoxy resin-clay based nanocomposite materials" ;
+        ns3:created 2008 ;
+        ns3:creator <http://materialsmine.org/author/dai-chung-feng>,
+            <http://materialsmine.org/author/li-pei-ru>,
+            <http://materialsmine.org/author/yeh-jui-ming> ;
+        ns3:isPartOf <http://materialsmine.org/publication/european-polymer-journal> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Comparative studies for the effect of intercalating agent on the physical properties of epoxy resin-clay based nanocomposite materials" ;
+        ns5:authorList ( <http://materialsmine.org/author/yeh-jui-ming> <http://materialsmine.org/author/li-pei-ru> <http://materialsmine.org/author/dai-chung-feng> ) ;
+        ns5:volume 44 ;
+        ns2:hasPart <http://materialsmine.org/sample/l221-s3-dai-2008> ;
+        rdfs:seeAlso <http://linkinghub.elsevier.com/retrieve/pii/S0014305708002772> ;
+        ns8:keyword "Clay",
+            "Epoxy Resin",
+            "Intercalating Agent",
+            "Nanocomposite",
+            "Physical Properties" .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-chemistry-center-for-nanotechnology-at-cycu-and-r-d-center-for-membrane-technology-chung-yuan-christian-university-chung-li-32023-taiwan-roc> a ns3:Location ;
+        rdfs:label "Department of Chemistry, Center for Nanotechnology at CYCU and R&D Center for Membrane Technology, Chung-Yuan Christian University, Chung Li 32023, Taiwan, ROC" .
+
+    <http://materialsmine.org/publication/european-polymer-journal> ns3:publisher <publisher:elsevier> ;
+        ns3:title "European Polymer Journal" .
+
+    <http://materialsmine.org/sample/l221-s3-dai-2008> ns6:wasAttributedTo <http://materialsmine.org/author/dai-chung-feng>,
+            <http://materialsmine.org/author/li-pei-ru>,
+            <http://materialsmine.org/author/yeh-jui-ming> .
+
+    <publisher:elsevier> rdfs:label "Elsevier" ;
+        ns6:atLocation <http://materialsmine.org/location/department-of-chemistry-center-for-nanotechnology-at-cycu-and-r-d-center-for-membrane-technology-chung-yuan-christian-university-chung-li-32023-taiwan-roc> .
+
+    <http://materialsmine.org/author/dai-chung-feng> a ns6:Agent ;
+        rdfs:label "Dai, Chung-Feng" ;
+        ns7:name "Dai, Chung-Feng" .
+
+    <http://materialsmine.org/author/li-pei-ru> a ns6:Agent ;
+        rdfs:label "Li, Pei-Ru" ;
+        ns7:name "Li, Pei-Ru" .
+
+    <http://materialsmine.org/author/yeh-jui-ming> a ns6:Agent ;
+        rdfs:label "Yeh, Jui-Ming" ;
+        ns7:name "Yeh, Jui-Ming" .
+}
+
+ns1:L221_S3_Dai_2008_provenance {
+    <http://materialsmine.org/sample/l221-s3-dai-2008> ns6:wasGeneratedBy <http://materialsmine.org/entry/L221_S3_Dai_2008_material_in-situ_polymerization_procedure> .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_coolingrate> a <http://materialsmine.org/ns/CoolingRate>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/dupont-ta-q10-differential-scanning-calorimeter>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_cooling_rate_attr_25>,
+                    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_attr_30>,
+                    <http://materialsmine.org/sample/L221_S3_Dai_2008_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/dupont-ta-q800-analyzer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_description_attr_29>,
+                    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/bio-rad-fts-7>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_description_attr_29>,
+                    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/dupont-ta-q50>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_description_attr_29>,
+                    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/jeol-200fx>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/panalytical-x0-pert-pro-x-ray-diffractometer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L221_S3_Dai_2008_material_in-situ_polymerization_procedure> a <http://materialsmine.org/ns/In-SituPolymerization>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5> .
+
+    <http://materialsmine.org/ns/bio-rad-fts-7> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "BIO-RAD FTS-7" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/dupont-ta-q10-differential-scanning-calorimeter> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DuPont TA Q10 differential scanning calorimeter" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/dupont-ta-q50> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DuPont TA Q50" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/dupont-ta-q800-analyzer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DuPont TA Q800 analyzer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/jeol-200fx> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-200FX" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/panalytical-x0-pert-pro-x-ray-diffractometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Panalytical X0 Pert Pro X-ray diffractometer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns2:hasValue 1.2e+02 .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_cooling_rate_attr_25> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_description>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_time> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> ;
+        ns2:hasValue "1",
+            "12" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "1 g of TGTPM was dissolved in 12 g of DMAc under stirring" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "6" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_description>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixingmethod>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_time> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing_description>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing_time> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing_description> a ns2:Description ;
+        ns2:hasValue "0.54 g of T-403 was added to the mixture and stirring continued for 12 hrs at rt." .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "12" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_4_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_description>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_temperature>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_time> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding_description>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding_temperature>,
+            <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding_time> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding_description> a ns2:Description ;
+        ns2:hasValue "After drop-wisely casting, the sample was cured." .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "140" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_molding_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "6" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_in-situ_polymerization_step_5_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    ns1:L221_S3_Dai_2008_assertion ns6:wasDerivedFrom ns1:L221_S3_Dai_2008_assertion,
+            <http://nanomine.org/pub/NjQ3ODU4LjA2NDQ5ODA2MTU_assertion> ;
+        ns6:wasGeneratedBy [ a <http://nanomine.org/setl/Mjk0MzUxLjMxMzEwMzUyNjQ/MaterialsmineXMLImport> ;
+                ns6:used ns1:L221_S3_Dai_2008_assertion,
+                    <http://nanomine.org/pub/NjQ3ODU4LjA2NDQ5ODA2MTU_assertion> ],
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_coolingrate>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_description>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_equipment>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_heatingrate>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_transmission-electron-microscopy>,
+            <http://materialsmine.org/entry/L221_S3_Dai_2008_characterization_xray-diffraction-and-scattering> .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> rdfs:label "C/min" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://materialsmine.org/sample/L221_S3_Dai_2008_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+

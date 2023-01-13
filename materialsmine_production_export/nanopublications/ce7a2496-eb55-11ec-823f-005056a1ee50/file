@@ -1,0 +1,67 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:v6fkhzwy3h_assertion {
+    <http://nanomine.org/viz/e4e9764da6b32245> a ns5:Chart ;
+        ns4:description "This scatter plot shows the top-ranked Matrix/Filler combinations in terms of the number of DOIs linked to each combination that report glass transition temperature data. When you hover over a point to display a tooltip, all points with the same Matrix/Filler combination will be highlighted in color, and all points from the same DOI will be outlined in black." ;
+        ns4:title "Glass Transition Temperatures of Commonly Studied Matrix/Filler Combinations" ;
+        ns6:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?VolumeFraction] ] ,
+                               [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] ;
+          sio:hasAttribute ?attr .
+  ?attr a nm:GlassTransitionTemperature ; 
+        sio:hasValue ?value ;
+        sio:hasUnit [ rdfs:label "Celsius" ] .
+  ?doi sio:hasPart ?sample .
+  FILTER(!regex(str(?doi),"unpublished"))
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"transform\":[{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"doi\",\"as\":\"combo_count\"}],\"groupby\":[\"Matrix\",\"Filler\"]},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"combo_rank\"}],\"sort\":[{\"field\":\"combo_count\",\"order\":\"descending\"}]},{\"filter\":{\"field\":\"combo_rank\",\"lt\":3}},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi,/^.*.doi.org./,'')\",\"as\":\"DOI\"}],\"selection\":{\"highlight_thisDOI\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Filler\",\"Matrix\",\"doi\"]},\"highlight_thiscombo\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"Filler\",\"Matrix\"]}},\"mark\":{\"type\":\"point\",\"size\":200,\"filled\":true},\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Volume Fraction (%)\",\"format\":\"p\"},\"scale\":{\"type\":\"log\",\"padding\":10,\"nice\":false}},\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\",\"scale\":{\"padding\":10,\"nice\":false}},\"color\":{\"condition\":{\"selection\":\"highlight_thiscombo\",\"field\":\"Matrix\",\"type\":\"nominal\"},\"value\":\"#bbb\"},\"shape\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"stroke\":{\"condition\":{\"selection\":\"highlight_thisDOI\",\"value\":\"black\"},\"value\":\"transparent\"},\"fillOpacity\":{\"condition\":{\"selection\":\"highlight_thiscombo\",\"value\":0.7},\"value\":0.3},\"tooltip\":[{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Tg (C)\",\"format\":\".4r\"},{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"title\":\"vol %\",\"format\":\".3p\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]},\"config\":{\"axis\":{\"titleFontSize\":22,\"labelFontSize\":16,\"labelFlush\":false}}}" ;
+        ns2:depiction <http://nanomine.org/viz/e4e9764da6b32245_depiction> .
+
+    <http://nanomine.org/viz/e4e9764da6b32245_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:32:33.228000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "f38a16d0-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:v6fkhzwy3h_pubinfo {
+    ns1:v6fkhzwy3h_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:32:33.228000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:v6fkhzwy3h a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/e4e9764da6b32245_depiction> ;
+        ns8:hasAssertion ns1:v6fkhzwy3h_assertion ;
+        ns8:hasProvenance ns1:v6fkhzwy3h_provenance ;
+        ns8:hasPublicationInfo ns1:v6fkhzwy3h_pubinfo .
+
+    ns1:v6fkhzwy3h_assertion a ns8:Assertion .
+
+    ns1:v6fkhzwy3h_provenance a ns8:Provenance .
+
+    ns1:v6fkhzwy3h_pubinfo a ns8:PublicationInfo .
+}
+

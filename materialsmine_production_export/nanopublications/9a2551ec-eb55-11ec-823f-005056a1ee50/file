@@ -1,0 +1,2780 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://www.w3.org/2002/07/owl#> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://materialsmine.org/ns/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://www.w3.org/ns/prov#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:NTQxNC40MzQwMTg3NzE0MDM a ns2:Nanopublication ;
+        ns2:hasAssertion ns1:NTQxNC40MzQwMTg3NzE0MDM_assertion ;
+        ns2:hasProvenance ns1:NTQxNC40MzQwMTg3NzE0MDM_provenance ;
+        ns2:hasPublicationInfo ns1:NTQxNC40MzQwMTg3NzE0MDM_pubinfo .
+
+    ns1:NTQxNC40MzQwMTg3NzE0MDM_assertion a ns2:Assertion .
+
+    ns1:NTQxNC40MzQwMTg3NzE0MDM_provenance a ns2:Provenance .
+
+    ns1:NTQxNC40MzQwMTg3NzE0MDM_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:NTQxNC40MzQwMTg3NzE0MDM_assertion {
+    <file:///apps/whyis/nan> a ns3:Class ;
+        rdfs:label "nan" .
+
+    <http://materialsmine.org/ns> a ns3:Ontology ;
+        rdfs:label "Materialsmine Ontology" ;
+        ns6:contributor <https://tw.rpi.edu/instances/AlexanderOgren>,
+            <https://tw.rpi.edu/instances/BingyinYu>,
+            <https://tw.rpi.edu/instances/BoranMa>,
+            <https://tw.rpi.edu/instances/CateBrinson>,
+            <https://tw.rpi.edu/instances/ChiaraDaraio>,
+            <https://tw.rpi.edu/instances/CynthiaRudin>,
+            <https://tw.rpi.edu/instances/Deborah_L_McGuinness>,
+            <https://tw.rpi.edu/instances/ErikDaughtrey>,
+            <https://tw.rpi.edu/instances/JamesMcCusker>,
+            <https://tw.rpi.edu/instances/KeLiu>,
+            <https://tw.rpi.edu/instances/LindaSchadler>,
+            <https://tw.rpi.edu/instances/LiweiWang>,
+            <https://tw.rpi.edu/instances/MarkPalmeri>,
+            <https://tw.rpi.edu/instances/MichaelDeagan>,
+            <https://tw.rpi.edu/instances/NehaKeshan>,
+            <https://tw.rpi.edu/instances/PurnaBoddapati>,
+            <https://tw.rpi.edu/instances/SabbirRashid>,
+            <https://tw.rpi.edu/instances/TolulomoFateye>,
+            <https://tw.rpi.edu/instances/UmarGhumman>,
+            <https://tw.rpi.edu/instances/VipulaRawte>,
+            <https://tw.rpi.edu/instances/WeiChen>,
+            <https://tw.rpi.edu/instances/YuChinChan> ;
+        rdfs:comment "A materials ontology to support data publication involving nanomaterials." ;
+        ns3:imports <http://purl.org/ontology/bibo/>,
+            <http://semanticscience.org/ontology/sio-subset-labels.owl>,
+            ns2: .
+
+    ns5:AC_DielectricConstant a ns3:Class ;
+        rdfs:label "AC Dielectric Constant" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "A frequency-dependent measure of the electric polarizability of a dielectric material under an oscillating electric field." .
+
+    ns5:AC_DielectricDispersion a ns3:Class ;
+        rdfs:label "AC Dielectric Dispersion" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "Frequency dependence of dielectric permittivity under an oscillating electric field." .
+
+    ns5:Abbreviation a ns3:Class ;
+        rdfs:label "Abbreviation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Name> ;
+        ns4:definition "a shortened form of a word or phrase. It consists of a group of letters taken from the word or phrase." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Abbreviation" .
+
+    ns5:Air a ns3:Class ;
+        rdfs:label "Air" ;
+        rdfs:subClassOf ns5:AmbientCondition ;
+        ns4:definition "Gaseous medium surrounding the solid boundaries of a material." .
+
+    ns5:ArcResistance a ns3:Class ;
+        rdfs:label "Arc Resistance" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/s> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "A measure of the durability of an insulating or dielectric material against the formation of conductive paths along thesurface by arc discharges." .
+
+    ns5:AspectRatio a ns3:Class ;
+        rdfs:label "Aspect Ratio" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Ratio> ;
+        ns4:definition "is the ratio of its sizes in different dimensions. For example, the aspect ratio of a rectangle is the ratio of its longer side to its shorter side ��� the ratio of width to height, when the rectangle is oriented as a \"landscape\"." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Aspect_ratio" .
+
+    ns5:Atactic a ns3:Class ;
+        rdfs:label "Atactic" ;
+        rdfs:subClassOf ns5:Tacticity ;
+        ns4:definition "In atactic macromolecules the substituents are placed randomly along the chain. The percentage of meso diads is between 1 and 99%. With the aid of spectroscopic techniques such as NMR it is possible to pinpoint the composition of a polymer in terms of the percentages for each triad." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Tacticity#Atactic_polymers" .
+
+    ns5:AtomicForceMicroscopy a ns3:Class ;
+        rdfs:label "Atomic Force Microscopy" ;
+        ns5:hasSelector "//Atomic_Force_Microscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:MechanicalProperty ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Nanoscale probing of material surface characteristics" .
+
+    ns5:BallMilling a ns3:Class ;
+        rdfs:label "Ball Milling" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            ns5:Mixing ;
+        ns4:definition "Grinding process with rotating cylindrical shells and ball " .
+
+    ns5:BandGapIndex a ns3:Class ;
+        rdfs:label "Band Gap Index" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "Integer rank of a band gap." .
+
+    ns5:BandGapLocation a ns3:Class ;
+        rdfs:label "Band Gap Location" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Position> ;
+        ns4:definition "The center of the band gap. This can be computed as the average of the upper bound and lower bound of the bandgap." .
+
+    ns5:BandGapSize a ns3:Class ;
+        rdfs:label "Band Gap Size" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Width> ;
+        ns4:definition "The width of the band gap. This can be computed as the upper bound of the bandgap minus the lower bound of the bandgap." .
+
+    ns5:BandGapType a ns3:Class ;
+        rdfs:label "Band Gap Type" ;
+        rdfs:subClassOf ns5:BandGap ;
+        ns4:definition "If the band gap is particular to a specific type of mode, which type of mode?" .
+
+    ns5:BarrelTemperature a ns3:Class ;
+        rdfs:label "Barrel Temperature" ;
+        rdfs:subClassOf <obo:PATO_0000146> .
+
+    ns5:Book a ns3:Class ;
+        rdfs:label "Book" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Document> .
+
+    ns5:BreakdownStrength a ns3:Class ;
+        rdfs:label "Breakdown Strength" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "The electric field at which the probability of failure is ln(-ln(1-p)) = 0, or approximately p = 0.632." .
+
+    ns5:BrittleTemperature a ns3:Class ;
+        rdfs:label "Brittle Temperature" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty,
+            <obo:PATO_0000146> ;
+        ns4:definition "Brittleness temperature is the temperature at which 50% of the tested specimens exhibit brittle failure at specified impact conditions" .
+
+    ns5:C11 a ns3:Class ;
+        rdfs:label "C11" ;
+        rdfs:subClassOf ns5:CMatrixElement ;
+        ns4:definition "C matrix element with indices 1 and 1" .
+
+    ns5:C12 a ns3:Class ;
+        rdfs:label "C12" ;
+        rdfs:subClassOf ns5:CMatrixElement ;
+        ns4:definition "C matrix element with indices 1 and 2" .
+
+    ns5:C16 a ns3:Class ;
+        rdfs:label "C16" ;
+        rdfs:subClassOf ns5:CMatrixElement ;
+        ns4:definition "C matrix element with indices 1 and 6" .
+
+    ns5:C22 a ns3:Class ;
+        rdfs:label "C22" ;
+        rdfs:subClassOf ns5:CMatrixElement ;
+        ns4:definition "C matrix element with indices 2 and 2" .
+
+    ns5:C26 a ns3:Class ;
+        rdfs:label "C26" ;
+        rdfs:subClassOf ns5:CMatrixElement ;
+        ns4:definition "C matrix element with indices 2 and 6" .
+
+    ns5:C66 a ns3:Class ;
+        rdfs:label "C66" ;
+        rdfs:subClassOf ns5:CMatrixElement ;
+        ns4:definition "C matrix element with indices 6 and 6" .
+
+    ns5:CMatrix a ns3:Class ;
+        rdfs:label "Material Stiffness Matrix" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Matrix> ;
+        ns4:definition "The material stiffness matrix of a linear elastic material defines the relationship between the stress and strain vector such that $\\sigma = C\\epsilon$, where $\\sigma$ = ..." .
+
+    ns5:CMatrixIndexI a ns3:Class ;
+        rdfs:label "C Matrix Index I" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "The corresponding row of an element within a stiffness matrix (Voigt notation)." .
+
+    ns5:CMatrixIndexJ a ns3:Class ;
+        rdfs:label "C Matrix Index J" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "The corresponding column of an element within a stiffness matrix (Voigt notation)." .
+
+    ns5:CMatrixIndicesIJ a ns3:Class ;
+        rdfs:label "C Matrix Indices I J" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "The location of an element within a material stiffness matrix, in the form of the full string IJ (Voigt notation)." .
+
+    ns5:CTensor a ns3:Class ;
+        rdfs:label "Material Stiffness Tensor" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Tensor> ;
+        ns4:definition "The material stiffness tensor of a linear elastic material defines the relationship between the stress and strain tensors such that $\\sigma = C\\epsilon$, where $\\sigma$ is the Cauchy stress tensor (a second order tensor), and $\\epsilon$ is the infinitesimal strain tensor (a second order tensor)." .
+
+    ns5:CTensorElement a ns3:Class ;
+        rdfs:label "C Tensor Element" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "An element within a material stiffness tensor." .
+
+    ns5:CTensorIndexI a ns3:Class ;
+        rdfs:label "C Tensor Index I" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "The i component of an element's location within a material stiffness tensor." .
+
+    ns5:CTensorIndexJ a ns3:Class ;
+        rdfs:label "C Tensor Index J" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "The j component of an element's location within a material stiffness tensor." .
+
+    ns5:CTensorIndexK a ns3:Class ;
+        rdfs:label "C Tensor Index K" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "The k component of an element's location within a material stiffness tensor." .
+
+    ns5:CTensorIndexL a ns3:Class ;
+        rdfs:label "C Tensor Index L" ;
+        rdfs:subClassOf ns5:Index ;
+        ns4:definition "The l component of an element's location within a material stiffness tensor." .
+
+    ns5:CTensorIndicesIJKL a ns3:Class ;
+        rdfs:label "C Tensor Indices I J K L" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "The location of an element within a material stiffness tensor, in the form of the full string IJKL." .
+
+    ns5:CU_Formula a ns3:Class ;
+        rdfs:label "Constitutional Unit Formula" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Name> ;
+        ns4:definition "a way of expressing information about the proportions of atoms that constitute a particular chemical compound, using a single line of chemical element symbols, numbers, and sometimes also other symbols, such as parentheses, dashes, brackets, commas and plus (+) and minus (���) signs. " ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Chemical_formula" .
+
+    ns5:Casting a ns3:Class ;
+        rdfs:label "Casting" ;
+        rdfs:subClassOf ns5:Molding .
+
+    ns5:Centrifugation a ns3:Class ;
+        rdfs:label "Centrifugation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "process which involves the application of the centripetal force for the sedimentation of heterogeneous mixtures with a centrifuge" .
+
+    ns5:CharpyImpactEnergy a ns3:Class ;
+        rdfs:label "Charpy Impact Energy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:MechanicalProperty ;
+        ns4:definition "Energy absorbed by the sample during Charpy impact testing" .
+
+    ns5:ChemicalUsed a ns3:Class ;
+        rdfs:label "Chemical Used" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/ChemicalEntity> .
+
+    ns5:CoRotation a ns3:Class ;
+        rdfs:label "Co-Rotation" ;
+        rdfs:subClassOf ns5:RotationMode .
+
+    ns5:Communication a ns3:Class ;
+        rdfs:label "Communication" ;
+        rdfs:subClassOf <http://purl.org/ontology/bibo/AcademicArticle> .
+
+    ns5:Compression a ns3:Class ;
+        rdfs:label "Compression" ;
+        rdfs:subClassOf ns5:ViscoelasticProperty ;
+        ns4:definition "Describing countervailing forces applied inward along the central axis of a material." .
+
+    ns5:CompressionModulus a ns3:Class ;
+        rdfs:label "Compression Modulus" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:CompressionProperty ;
+        ns4:definition "The ratio of compressive stress to compressive strain" .
+
+    ns5:CompressionStressAtBreak a ns3:Class ;
+        rdfs:label "Compression Stress At Break" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:CompressionProperty ;
+        ns4:definition "Compression stress when specimen breaks" .
+
+    ns5:CompressionStressAtYield a ns3:Class ;
+        rdfs:label "Compression Stress At Yield" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:CompressionProperty ;
+        ns4:definition "Compression stress at yield point" .
+
+    ns5:CompressiveCreepRuptureStrength a ns3:Class ;
+        rdfs:label "Compressive Creep Rupture Strength" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:CompressiveCreep ;
+        ns4:definition "Material strength at rupture during a compressive creep test" .
+
+    ns5:CompressiveCreepRuptureTime a ns3:Class ;
+        rdfs:label "Compressive Creep Rupture Time" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/s> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:CompressiveCreep ;
+        ns4:definition "Time taken to rupture from applying load during a compressive creep test" .
+
+    ns5:CompressiveCreepStrain a ns3:Class ;
+        rdfs:label "Compressive Creep Strain" ;
+        rdfs:subClassOf ns5:CompressiveCreep ;
+        ns4:definition "Profile of strain as a function of time during a compressive creep test" .
+
+    ns5:CompressiveLoadingProfile a ns3:Class ;
+        rdfs:label "Compressive Loading Profile" ;
+        rdfs:subClassOf ns5:CompressionProperty ;
+        ns4:definition "Stress vs. strain curve of during compressive loading and/or unloading test" .
+
+    ns5:CompressiveToughness a ns3:Class ;
+        rdfs:label "Compressive Toughness" ;
+        rdfs:subClassOf ns5:CompressionProperty ;
+        ns4:definition "The amount of energy a material can absorb prior to fracture under an applied compressive load." .
+
+    ns5:ConePlateRheometery a ns3:Class ;
+        rdfs:label "Cone-Plate Rheometry" ;
+        ns5:hasSelector "//Rheometery[RheometerType='cone-plate']" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            ns5:Rheometery ;
+        ns4:definition "The liquid is placed on horizontal plate and a shallow cone placed into it. The angle between the surface of the cone and the plate is around 1���2 degrees but can vary depending on the types of tests being run. Typically the plate is rotated and the torque on the cone measured." .
+
+    ns5:Constituent a ns3:Class ;
+        rdfs:label "Constituent" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MaterialEntity> .
+
+    ns5:ConstitutionalUnit a ns3:Class ;
+        rdfs:label "Constitutional Unit" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/UnitOfMeasurement> .
+
+    ns5:Cooling a ns3:Class ;
+        rdfs:label "Cooling" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/TimeInterval> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0000146> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0001025> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:AmbientCondition ],
+            <http://semanticscience.org/resource/Procedure> .
+
+    ns5:Copolymer a ns3:Class ;
+        rdfs:label "Copolymer" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Polymer> ;
+        ns4:definition "polymers containing a mixture of repeat units" ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Polymer#Monomers_and_repeat_units" .
+
+    ns5:CounterRotation a ns3:Class ;
+        rdfs:label "Counter-Rotation" ;
+        rdfs:subClassOf ns5:RotationMode .
+
+    ns5:CrystalPhase a ns3:Class ;
+        rdfs:label "Crystal Phase" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/CrystalStructure> ;
+        ns4:definition "A single material may have several distinct solid states capable of forming separate phases. Water is a well-known example of such a material. For example, water ice is ordinarily found in the hexagonal form ice Ih, but can also exist as the cubic ice Ic, the rhombohedral ice II, and many other forms. Polymorphism is the ability of a solid to exist in more than one crystal form. For pure chemical elements, polymorphism is known as allotropy. For example, diamond, graphite, and fullerenes are different allotropes of carbon." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Phase_(matter)#Crystal_phases" .
+
+    ns5:CrystallizationTemperature a ns3:Class ;
+        rdfs:label "Crystallization Temperature" ;
+        rdfs:subClassOf ns5:ThermalProperty,
+            <obo:PATO_0000146> ;
+        ns4:definition "It is the temperature at which a solid phase begins to form, resulting in a mixture of solid particles and solution" .
+
+    ns5:Curing a ns3:Class ;
+        rdfs:label "Curing" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> .
+
+    ns5:CurrentDensity a ns3:Class ;
+        rdfs:label "Current Density" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/c-m-2> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "the amount of electric current flowing per unit cross-sectional area of a material." .
+
+    ns5:CycleInformation a ns3:Class ;
+        rdfs:label "Cycle Information" ;
+        ns5:hasSelector "//CycleInformation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> .
+
+    ns5:DC_DielectricConstant a ns3:Class ;
+        rdfs:label "DC Dielectric Constant" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "A measure of the electric polarizability of a dielectric material" .
+
+    ns5:DSC_Profile a ns3:Class ;
+        rdfs:label "DSC Profile" ;
+        rdfs:subClassOf ns5:ThermalProperty ;
+        ns4:definition "Heat flow vs temperature out of a differential scanning calorimetry experiment" .
+
+    ns5:DateOfCitation a ns3:Class ;
+        rdfs:label "Date of Citation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/TimeInstant> .
+
+    ns5:DateOfMeasurement a ns3:Class ;
+        rdfs:label "Date of Measurement" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/TimeInstant> .
+
+    ns5:DateOfSampleMade a ns3:Class ;
+        rdfs:label "Date of Sample Made" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/TimeInstant> .
+
+    ns5:DegreeOfCrystallization a ns3:Class ;
+        rdfs:label "Degree of Crystallinity" ;
+        rdfs:subClassOf ns5:Crystallinity ;
+        ns4:definition "The percentage of the crystallized region in a polymer/material. It describes the extent of the crystallization process" .
+
+    ns5:Density a ns3:Class ;
+        rdfs:label "Density" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilogramPerCubicmetre> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/kg-m-3> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:VolumetricProperty,
+            <http://semanticscience.org/resource/3DExtentQuantity> ;
+        ns4:definition "The density, or more precisely, the volumetric mass density, of a substance is its mass per unit volume.",
+            "degree of consistency measured by the quantity of mass per unit volume" ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Density" .
+
+    ns5:DieDiameter a ns3:Class ;
+        rdfs:label "Die Diameter" ;
+        rdfs:subClassOf <obo:PATO_0001334> .
+
+    ns5:DielectricLossPermittivity a ns3:Class ;
+        rdfs:label "Dielectric Loss Permittivity" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "The imaginary component of the frequency-dependent complex permittivity of a material under an oscillating electric field." .
+
+    ns5:DielectricLossTangent a ns3:Class ;
+        rdfs:label "Dielectric Loss Tangent" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "The ratio of the imaginary to real components of permittivity, representing the dissipation of electromagnetic energy in the presence of an oscillating electric field." .
+
+    ns5:DielectricRealPermittivity a ns3:Class ;
+        rdfs:label "Dielectric Real Permittivity" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "The real component of the frequency-dependent complex permittivity of a material under an oscillating electric field." .
+
+    ns5:DielectricandImpedanceSpectroscopyAnalysis a ns3:Class ;
+        rdfs:label "Dielectric and Impedance Spectroscopy Analysis" ;
+        ns5:hasSelector "//Dielectric_and_Impedance_Spectroscopy_Analysis" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ElectricalProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Measurement of dielectric spectroscopy (variation of dielectric constant with frequency) " .
+
+    ns5:DifferentialScanningCalorimetry a ns3:Class ;
+        rdfs:label "Differential Scanning Calorimetry" ;
+        ns5:hasSelector "//Differential_Scanning_Calorimetry" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ThermalProperty ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:HeatingRate ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:CoolingRate ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Measurement of heat required to increase unit temperature in a material" .
+
+    ns5:DispersionRelation1D a ns3:Class ;
+        rdfs:label "1D Dispersion Relation" ;
+        rdfs:subClassOf ns5:DispersionRelation ;
+        ns4:definition "Frequency-wavevector pairs that represent the propogation of wave modes found in a specific 1D geometry." .
+
+    ns5:DispersionRelation2D a ns3:Class ;
+        rdfs:label "2D Dispersion Relation" ;
+        rdfs:subClassOf ns5:DispersionRelation ;
+        ns4:definition "Frequency-wavevector pairs that represent the propogation of wave modes found in a specific 2D geometry." .
+
+    ns5:DispersionRelation3D a ns3:Class ;
+        rdfs:label "3D Dispersion Relation" ;
+        rdfs:subClassOf ns5:DispersionRelation ;
+        ns4:definition "Frequency-wavevector pairs that represent the propogation of wave modes found in a specific 3D geometry." .
+
+    ns5:Dissolving a ns3:Class ;
+        rdfs:label "Dissolving" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Solvent ],
+            <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Dissolving into solution without external force" .
+
+    ns5:Drying-Evaporation a ns3:Class ;
+        rdfs:label "Drying Evaporation" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:AmbientCondition ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/TimeInterval> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0001025> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0000146> ],
+            <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Process for drying and evaporation of liquid solutions" .
+
+    ns5:DynamicMechanicalAnalysis a ns3:Class ;
+        rdfs:label "Dynamic Mechanical Analysis" ;
+        ns5:hasSelector "//Dynamic_Mechanical_Analysis" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Method to get viscoelastic behavior of materials with controlled temperature and frequency" .
+
+    ns5:DynamicProperty a ns3:Class ;
+        rdfs:label "Dynamic Property" ;
+        rdfs:subClassOf ns5:ViscoelasticProperty ;
+        ns4:definition "A materials property representing the behavior of the material under some dynamic environmental force." .
+
+    ns5:DynamicPropertyProfile a ns3:Class ;
+        rdfs:label "Dynamic Property Profile" ;
+        rdfs:subClassOf ns5:Profile ;
+        ns4:definition "A profile describing a dynamic property measurement (e.g., in dynamic mechanical analysis)." .
+
+    ns5:DynamicViscosity a ns3:Class ;
+        rdfs:label "Dynamic Viscosity" ;
+        rdfs:subClassOf ns5:RheologicalViscosity ;
+        ns4:definition "A measure of a fluid's resistance to flow." .
+
+    ns5:Editor a ns3:Class ;
+        rdfs:label "Editor" ;
+        rdfs:subClassOf ns7:Agent .
+
+    ns5:Eigenfrequency a ns3:Class ;
+        rdfs:label "Eigenfrequency" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Frequency> ;
+        ns4:definition "The eigenvalue associated with a solution to the wave equation. This is the inverse time component of the dispersion relation." .
+
+    ns5:Eigenvector a ns3:Class ;
+        rdfs:label "Eigenvector" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Vector> ;
+        ns4:definition "The mode shape associated a solution to the wave equation for a particular eigenvalue." .
+
+    ns5:Elastomer a ns3:Class ;
+        rdfs:label "Elastomer" ;
+        rdfs:subClassOf ns5:Plastic ;
+        ns4:definition "a polymer with viscoelasticity (having both viscosity and elasticity) and very weak inter-molecular forces, generally having low Young's modulus and high failure strain compared with other materials." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Elastomer" .
+
+    ns5:ElectricPercolationThreshold a ns3:Class ;
+        rdfs:label "Electric Percolation Threshold" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "minimum filler content in the polymer matrix after which there is no significant change in the electrical properties of the composites." .
+
+    ns5:ElectricalConductivity a ns3:Class ;
+        rdfs:label "Electric Conductivity" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/siemensPerMetre> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/s-m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "ability of electric current to flow through a material" .
+
+    ns5:Electrometry a ns3:Class ;
+        rdfs:label "Electrometry" ;
+        ns5:hasSelector "//Electrometry" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ElectricalProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Measurement of electric charge or electrical potential difference" .
+
+    ns5:ElongationAtBreak a ns3:Class ;
+        rdfs:label "Elongation At Break" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Elongation of specimen when breaks" .
+
+    ns5:ElongationAtYield a ns3:Class ;
+        rdfs:label "Elongation At Yield" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Tensile elongation corresponding to the yield (an increase in strain does not result in an increase in stress)." .
+
+    ns5:EnergyDensity a ns3:Class ;
+        rdfs:label "Energy Density" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j-m-3> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "amount of energy stored in a given system or region of space per unit volume or mass" .
+
+    ns5:Equipment a ns3:Class ;
+        rdfs:label "Equipment",
+            "Equipment Used" ;
+        ns5:hasSelector "//Equipment",
+            "//EquipmentUsed" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Device> .
+
+    ns5:EssentialWorkOfFracture a ns3:Class ;
+        rdfs:label "Essential Work Of Fracture" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:FractureToughnessProperty ;
+        ns4:definition "Energy associated with cracking at the process zone" .
+
+    ns5:Eutactic a ns3:Class ;
+        rdfs:label "Eutactic" ;
+        rdfs:subClassOf ns5:Tacticity ;
+        ns4:definition "In eutactic macromolecules, substituents may occupy any specific (but potentially complex) sequence of positions along the chain. Isotactic and syndiotactic polymers are instances of the more general class of eutactic polymers, which also includes heterogeneous macromolecules in which the sequence consists of substituents of different kinds (for example, the side-chains in proteins and the bases in nucleic acids)." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Tacticity#Eutactic_polymers" .
+
+    ns5:ExperimentalProcedure a ns3:Class ;
+        rdfs:label "Experimental Procedure" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> .
+
+    ns5:Experimenter a ns3:Class ;
+        rdfs:label "Experimenter" ;
+        rdfs:subClassOf ns7:Agent .
+
+    ns5:Extrusion a ns3:Class ;
+        rdfs:label "Extrusion" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Extruder ],
+            <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Process used to create objects of a fixed cross-sectional profile. A material is pushed through a die of the desired cross-section." .
+
+    ns5:FiberTensileElongation a ns3:Class ;
+        rdfs:label "Fiber Tensile Elongation" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Elongation along grain direction in fibers" .
+
+    ns5:FiberTensileModulus a ns3:Class ;
+        rdfs:label "Fiber Tensile Modulus" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Tensile modulus along grain direction in fibers" .
+
+    ns5:FiberTensileStrength a ns3:Class ;
+        rdfs:label "Fiber Tensile Strength" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/n> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Tensile Stress along grain direction in fibers" .
+
+    ns5:Filler a ns3:Class ;
+        rdfs:label "Filler" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Role> .
+
+    ns5:FillerComponentComposition a ns3:Class ;
+        rdfs:label "Filler Component Composition" ;
+        rdfs:subClassOf ns5:Composition .
+
+    ns5:FillerComponentInComposite a ns3:Class ;
+        rdfs:label "Filler Component in Composite" ;
+        rdfs:subClassOf ns5:FillerComponent .
+
+    ns5:FillerComposition a ns3:Class ;
+        rdfs:label "Filler Composition" ;
+        rdfs:subClassOf ns5:Composition .
+
+    ns5:FillerProcessing a ns3:Class ;
+        rdfs:label "Filler Processing" ;
+        rdfs:subClassOf ns5:Processing .
+
+    ns5:FlexuralCreepRuptureStrength a ns3:Class ;
+        rdfs:label "Flexural Creep Rupture Strength" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:FlexuralCreep ;
+        ns4:definition "Material strength at rupture during a flexural creep test" .
+
+    ns5:FlexuralCreepRuptureTime a ns3:Class ;
+        rdfs:label "Flexural Creep Rupture Time" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/s> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:FlexuralCreep ;
+        ns4:definition "Time taken to rupture from applying load during a flexural creep test" .
+
+    ns5:FlexuralCreepStrain a ns3:Class ;
+        rdfs:label "Flexural Creep Strain" ;
+        rdfs:subClassOf ns5:FlexuralCreep ;
+        ns4:definition "Profile of strain as a function of time during a flexural creep test" .
+
+    ns5:FlexuralLoadingProfile a ns3:Class ;
+        rdfs:label "Flexural Loading Profile" ;
+        rdfs:subClassOf ns5:FlexuralProperty ;
+        ns4:definition "Stress vs. strain curve of during flexural loading and/or unloading test" .
+
+    ns5:FlexuralModulus a ns3:Class ;
+        rdfs:label "Flexural Modulus" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:FlexuralProperty ;
+        ns4:definition "Ratio of stress to strain in flexural deformation, or the tendency for a material to bend" .
+
+    ns5:FlexuralStressAtBreak a ns3:Class ;
+        rdfs:label "Flexural Stress At Break" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:FlexuralProperty ;
+        ns4:definition "Flexural stress at the moment at which a test specimen tears" .
+
+    ns5:FlexuralStressAtYield a ns3:Class ;
+        rdfs:label "Flexural Stress At Yield" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:FlexuralProperty ;
+        ns4:definition "Flexural stress corresponding to the yield point" .
+
+    ns5:FlexuralToughness a ns3:Class ;
+        rdfs:label "Flexural Toughness" ;
+        rdfs:subClassOf ns5:FlexuralProperty ;
+        ns4:definition "The amount of energy a material can absorb prior to fracture under an applied flexural load." .
+
+    ns5:FourierTransformInfraredSpectroscopy a ns3:Class ;
+        rdfs:label "Fourier Transform Infrared Spectroscopy" ;
+        ns5:hasSelector "//Fourier_Transform_Infrared_Spectroscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:Spectroscopy ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Measurement of infrared spectrum of absorption or emission of a solid, liquid or gas" .
+
+    ns5:FractureEnergy a ns3:Class ;
+        rdfs:label "Fracture Energy" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "The energy required to create a new surface in the material, measured by the energy absorbed by the material during fracture." .
+
+    ns5:FrequencySweep a ns3:Class ;
+        rdfs:label "Frequency Sweep" ;
+        rdfs:subClassOf ns5:MeasurementMethod ;
+        ns4:definition "A continuous variation of frequency within a pre-defined range." .
+
+    ns5:Geometry a ns3:Class ;
+        rdfs:label "Geometry" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/GeometricEntity> ;
+        ns4:definition "Representation of the spatial extent and form of an object." .
+
+    ns5:GeometryEncoding a ns3:Class ;
+        rdfs:label "Geometry Encoding" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "The string-based representation scheme for a geometric arrangement." .
+
+    ns5:GlassTransitionTemperature a ns3:Class ;
+        rdfs:label "Glass Transition Temperature" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty,
+            <obo:PATO_0000146> ;
+        ns4:definition "is the temperature region where the polymer transitions from a hard, glassy material to a soft, rubbery material." .
+
+    ns5:GraftDensity a ns3:Class ;
+        rdfs:label "Graft Density" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Density> ;
+        ns4:definition "A result of surface treatment process, the graft density quantifies the area density of surface-treatment molecules on the surface of the filler, typically in units of chains/nm^2." .
+
+    ns5:GroupVelocity a ns3:Class ;
+        rdfs:label "Group Velocity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Velocity> ;
+        ns4:definition "The group velocity associated with a solution to the wave equation. This can be computed as the gradient of the eigenfrequency with respect to the wavevector." .
+
+    ns5:GrowthRateOfCrystal a ns3:Class ;
+        rdfs:label "Growth Rate Of Crystal" ;
+        rdfs:subClassOf ns5:Crystallinity ;
+        ns4:definition "Rate of the crystallization process" .
+
+    ns5:GrowthRateParameterOfAvramiEquation a ns3:Class ;
+        rdfs:label "Growth Rate Parameter Of Avrami Equation" ;
+        rdfs:subClassOf ns5:Crystallinity ;
+        ns4:definition "Growth Rate Parameter in Avrami Equation" .
+
+    ns5:HalflifeOfCrystallization a ns3:Class ;
+        rdfs:label "Halflife Of Crystallization" ;
+        rdfs:subClassOf ns5:Crystallinity ;
+        ns4:definition "The time required for half of a material to form a crystalline structure under some condition." .
+
+    ns5:Hardener a ns3:Class ;
+        rdfs:label "Hardener" ;
+        rdfs:subClassOf ns5:Additive ;
+        ns4:definition "A chemical additive that increases the viscosity of a polymer." .
+
+    ns5:HardnessScale a ns3:Class ;
+        rdfs:label "Hardness Scale" ;
+        rdfs:subClassOf ns5:HardnessProperty ;
+        ns4:definition "A standard numerical scale associated with a particular hardness test tip geometry." .
+
+    ns5:HardnessTestStandard a ns3:Class ;
+        rdfs:label "Hardness Test Standard" ;
+        rdfs:subClassOf ns5:HardnessProperty ;
+        ns4:definition "A materials testing standard, created by a standards body such as ASTM, defining test parameters such as pre-load, load, and tip geometry of the testing apparatus." .
+
+    ns5:HardnessValue a ns3:Class ;
+        rdfs:label "Hardness Value" ;
+        rdfs:subClassOf ns5:HardnessProperty ;
+        ns4:definition "The numerical value of hardness output by the testing apparatus, given a particular hardness scale as input." .
+
+    ns5:HeatOfCrystallization a ns3:Class ;
+        rdfs:label "Heat Of Crystallization" ;
+        ns5:hasPreferredUnit <http://qudt.org/vocab/unit/j-per-gm> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty ;
+        ns4:definition "The amount of heat that must be removed from one gram of a liquid at its freezing point to freeze it with no change in temperature." .
+
+    ns5:HeatOfFusion a ns3:Class ;
+        rdfs:label "Heat Of Fusion" ;
+        ns5:hasPreferredUnit <http://qudt.org/vocab/unit/j-per-gm> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty ;
+        ns4:definition "change in enthalpy with energy dissipation" .
+
+    ns5:Heating a ns3:Class ;
+        rdfs:label "Heating" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0001025> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/TimeInterval> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:AmbientCondition ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0000146> ],
+            <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Process for applying heat" .
+
+    ns5:HeatingZone a ns3:Class ;
+        rdfs:label "Heating Zone" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/SpatialRegion> .
+
+    ns5:HeatingZoneNumber a ns3:Class ;
+        rdfs:label "Heating Zone Number" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Number> .
+
+    ns5:HighPressureCapillaryRheometery a ns3:Class ;
+        rdfs:label "High Pressure Capillary Rheometry" ;
+        ns5:hasSelector "//Rheometery[RheometerType='high pressure capillary']" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            ns5:Rheometery .
+
+    ns5:HighShearMixing a ns3:Class ;
+        rdfs:label "High Shear Mixing" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            ns5:Mixing ;
+        ns4:definition "A stator-rotator setup that disperses substance into continuous phase through high shear" .
+
+    ns5:Homopolymer a ns3:Class ;
+        rdfs:label "Homopolymer" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Polymer> ;
+        ns4:definition "polymers that contain only a single type of repeat unit" ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Polymer#Monomers_and_repeat_units" .
+
+    ns5:HotPressing a ns3:Class ;
+        rdfs:label "Hot-Processing (Compression Molding)" ;
+        rdfs:subClassOf ns5:Molding ;
+        ns4:definition "Applying heat and pressure" .
+
+    ns5:ISBN a ns3:Class ;
+        rdfs:label "ISBN" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationalEntityIdentifier> .
+
+    ns5:ISSN a ns3:Class ;
+        rdfs:label "ISSN" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationalEntityIdentifier> .
+
+    ns5:IZOD_Area a ns3:Class ;
+        rdfs:label "IZOD Area" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m-2> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:MechanicalProperty ;
+        ns4:definition "Area associated in Izod impact testing" .
+
+    ns5:IZOD_ImpactEnergy a ns3:Class ;
+        rdfs:label "IZOD Impact Energy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:MechanicalProperty ;
+        ns4:definition "Energy absorbed by the sample during Izod impact testing, as calculated by the height of swing arm" .
+
+    ns5:ImpactToughness a ns3:Class ;
+        rdfs:label "Impact Toughness" ;
+        rdfs:subClassOf ns5:Impact ;
+        ns4:definition "The amount of impact energy a material can absorb prior to fracture." .
+
+    ns5:Impedance a ns3:Class ;
+        rdfs:label "Impedance" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "The effective resistance to an alternating current." .
+
+    ns5:In-SituPolymerization a ns3:Class ;
+        rdfs:label "In-Situ Polymerization" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Mixing of nanoparticles within liquid monomer so that polymer formation results in embedding of particles" .
+
+    ns5:Inert a ns3:Class ;
+        rdfs:label "Inert" ;
+        rdfs:subClassOf ns5:AmbientCondition .
+
+    ns5:InjectionMolding a ns3:Class ;
+        rdfs:label "nan" ;
+        rdfs:subClassOf ns5:Molding .
+
+    ns5:Institution a ns3:Class ;
+        rdfs:label "Institution or Lab" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Institute> .
+
+    ns5:InterfacialTension a ns3:Class ;
+        rdfs:label "Interfacial Tension" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/n> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:VolumetricProperty ;
+        ns4:definition "Interfacial tension is the force that holds the surfaceof a particular phase together" .
+
+    ns5:InterphaseThickness a ns3:Class ;
+        rdfs:label "Interphase Thickness" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/nm> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:VolumetricProperty ;
+        ns4:definition "Thickness of matrix-particle interaction area with a gradient property as a function of distance from particle surface" .
+
+    ns5:IrreducibleBrillouinZone a ns3:Class ;
+        rdfs:label "Irreducible Brillouin Zone" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/SpatialRegion> ;
+        ns4:definition "The smallest subspace of wavevector space that can be tesselated to form the dispersion relation over the entire wavevector space. Also the largest subspace of wavevector space that does not contain redundant information. The shape and size of this subspace depends on the geometry and symmetry of the unit cell." .
+
+    ns5:IrreducibleBrillouinZoneContour a ns3:Class ;
+        rdfs:label "Irreducible Brillouin Zone Contour" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/SpatialBoundary> ;
+        ns4:definition "A contour in wavevector space that traverses the perimeter of the Irreducible Brillouin Zone." .
+
+    ns5:Isotactic a ns3:Class ;
+        rdfs:label "Isotactic" ;
+        rdfs:subClassOf ns5:Tacticity ;
+        ns4:definition """Isotactic polymers are composed of isotactic macromolecules (IUPAC definition). In isotactic macromolecules all the substituents are located on the same side of the macromolecular backbone. An isotactic macromolecule consists of 100% meso diads. Polypropylene formed by Ziegler-Natta catalysis is an isotactic polymer. Isotactic polymers are usually semicrystalline and often form a helix configuration.
+
+""" ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Tacticity#Isotactic_polymers" .
+
+    ns5:JIntegral a ns3:Class ;
+        rdfs:label "J Integral" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Equation> ;
+        ns4:definition "In fracture mechanics, the J-integral represents the energy required to advance a crack in a material (related to the fracture toughness)." .
+
+    ns5:KFactor a ns3:Class ;
+        rdfs:label "K Factor" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Ratio> ;
+        ns4:definition "In fracture mechanics, the Stress Intensity Factor, K, describes the stress state at the tip of a crack in a material." .
+
+    ns5:LC_PhaseTransitionTemperature a ns3:Class ;
+        rdfs:label "LC Phase Transition Temperature" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty,
+            <obo:PATO_0000146> ;
+        ns4:definition "temperature of transition to liquid crystal phase" .
+
+    ns5:LengthOfHeatingZone a ns3:Class ;
+        rdfs:label "Length Of Heating Zone" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Length> .
+
+    ns5:LinearElastic a ns3:Class ;
+        rdfs:label "Linear Elastic" ;
+        rdfs:subClassOf ns5:FractureToughnessProperty ;
+        ns4:definition "If a material is linear elastic, it means that it can be well-modeled by the theory of linear elasiticity. This means that deformations and strains are linearly proportional to loads. It also means that the technique of superposition can be applied.",
+            "Infinitesimal material deformation or deformation within the linear regime" .
+
+    ns5:LinearExpansionCoefficient a ns3:Class ;
+        rdfs:label "Linear Expansion Coefficient" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m-k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:VolumetricProperty ;
+        ns4:definition "It is the fractional change in length per degree of temperature change" .
+
+    ns5:ManufacturerOrSourceName a ns3:Class ;
+        rdfs:label "Manufacturer Or Source Name" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Organization> ;
+        ns4:definition "An organization that enages in the value added production of merchandise for use or sale using labour and machines, tools, chemical and biological processing, or formulation." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Manufacturing" .
+
+    ns5:MassFraction a ns3:Class ;
+        rdfs:label "Mass Fraction" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Concentration> .
+
+    ns5:MasterCurve a ns3:Class ;
+        rdfs:label "Master Curve" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Curve> ;
+        ns4:definition "see Rheological Master Curve" .
+
+    ns5:Matrix a ns3:Class ;
+        rdfs:label "Matrix" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Role> .
+
+    ns5:MatrixComponent a ns3:Class ;
+        rdfs:label "Matrix Component" ;
+        rdfs:subClassOf ns5:Component .
+
+    ns5:MatrixComponentComposition a ns3:Class ;
+        rdfs:label "Matrix Component Composition" ;
+        rdfs:subClassOf ns5:Composition .
+
+    ns5:MatrixProcessing a ns3:Class ;
+        rdfs:label "Matrix Processing" ;
+        rdfs:subClassOf ns5:Processing .
+
+    ns5:MechanicalMixing a ns3:Class ;
+        rdfs:label "Mechanical Mixing" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            ns5:Mixing ;
+        ns4:definition "Manual mixing" .
+
+    ns5:MeltMixing a ns3:Class ;
+        rdfs:label "Melt Mixing" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            ns5:Mixing ;
+        ns4:definition "Mixing of polymer and nanoparticles in molten state" .
+
+    ns5:MeltProcessing a ns3:Class ;
+        rdfs:label "Melt Processing" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Mixing of polymer and nanoparticles in molten state" .
+
+    ns5:MeltViscosity a ns3:Class ;
+        rdfs:label "Melt Viscosity" ;
+        rdfs:subClassOf ns5:RheologicalViscosity ;
+        ns4:definition "The viscosity of a polymer in its melt (liquid) state." .
+
+    ns5:MeltingTemperature a ns3:Class ;
+        rdfs:label "Melting Temperature" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty,
+            <obo:PATO_0000146> ;
+        ns4:definition "the temperature at which a solid turns into a liquid" .
+
+    ns5:Metamaterial a ns3:Class ;
+        rdfs:label "Metamaterial" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MaterialEntity> ;
+        ns4:definition "A material which has a structure above the atomic scale, but below the macroscopic scale." .
+
+    ns5:Mixer a ns3:Class ;
+        rdfs:label "Mixer" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Device> .
+
+    ns5:MixingMethod a ns3:Class ;
+        rdfs:label "Mixing Method" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> .
+
+    ns5:MolecularWeight_Mn a ns3:Class ;
+        rdfs:label "Molecular Weight" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Mass> ;
+        ns4:altLabel "Number Average Molar Mass" ;
+        ns4:definition "Mn, the number averaged molecular weight, typically in units g/mol, kg/mol, or kDa, describes the arithmetic mean of the matrix polymer chains." .
+
+    ns5:MolecularWeight_Mw a ns3:Class ;
+        rdfs:label "Molecular Weight" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Mass> ;
+        ns4:altLabel "Mass Average Molar Mass" ;
+        ns4:definition "Mw, the weight averaged molecular weight, typically in units g/mol, kg/mol, or kDa, describes the average size of the matrix polymer chains." .
+
+    ns5:NonSpherical a ns3:Class ;
+        rdfs:label "Non-spherical Shape" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Shape> .
+
+    ns5:Notched a ns3:Class ;
+        rdfs:label "Notched" ;
+        rdfs:subClassOf ns5:MechanicalProperty,
+            <http://semanticscience.org/resource/Quality> ;
+        ns4:definition "Property of a material sample, in which a uniform notch has been created for the purpose of concentrating stress in a region of interest." .
+
+    ns5:NuclearMagneticResonance a ns3:Class ;
+        rdfs:label "Nuclear Magnetic Resonance" ;
+        ns5:hasSelector "//Nuclear_Magnetic_Resonance" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:Spectroscopy ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Molecular analysis due to observed NMR under applied magnetic field" .
+
+    ns5:NucleationParameterOfAvramiEquation a ns3:Class ;
+        rdfs:label "Nucleation Parameter Of Avrami Equation" ;
+        rdfs:subClassOf ns5:Crystallinity ;
+        ns4:definition "Nucleation Parameter in Avrami Equation" .
+
+    ns5:OpticalMicroscopy a ns3:Class ;
+        rdfs:label "Optical Microscopy" ;
+        ns5:hasSelector "//OpticalMicroscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:MechanicalProperty ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Magnification of small objects with visible light" .
+
+    ns5:Other a ns3:Class ;
+        rdfs:label "Other Processing Parameter" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> .
+
+    ns5:OtherProcessing a ns3:Class ;
+        rdfs:label "Other Processing" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> .
+
+    ns5:Other_Processing a ns3:Class ;
+        rdfs:label "Other Processing" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> .
+
+    ns5:Output a ns3:Class ;
+        rdfs:label "Output" .
+
+    ns5:Particle a ns3:Class ;
+        rdfs:label "Particle" ;
+        rdfs:subClassOf ns5:Nanomaterial ;
+        ns4:definition "particles between 1 and 100 nanometers in size. In nanotechnology, a particle is defined as a small object that behaves as a whole unit with respect to its transport and properties." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Nanoparticle" .
+
+    ns5:ParticleDiameter a ns3:Class ;
+        rdfs:label "Particle Diameter" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MeasurementValue> ;
+        ns4:definition "Assuming sphere-like particles comprising the filler, the particle diameter is the \"average\" diameter of those particles." .
+
+    ns5:ParticleSurfaceTreatmentComposition a ns3:Class ;
+        rdfs:label "Particle Surface Treatment Composition" ;
+        rdfs:subClassOf ns5:Composition .
+
+    ns5:PhaseVelocity a ns3:Class ;
+        rdfs:label "Phase Velocity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Velocity> ;
+        ns4:definition "The phase velocity associated with a solution to the wave equation. This can be computed as the eigenfrequency divided by each component of the wavevector." .
+
+    ns5:Pixel a ns3:Class ;
+        rdfs:label "Pixel" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "A discretized, symbolic representation of a material substance in 2D space." .
+
+    ns5:PlaneStrain a ns3:Class ;
+        rdfs:label "Plane Strain" ;
+        rdfs:subClassOf ns5:Strain ;
+        ns4:definition "A state of strain where the out of plane component of strain is zero." .
+
+    ns5:PlaneStress a ns3:Class ;
+        rdfs:label "Plane Stress" ;
+        rdfs:subClassOf ns5:Stress ;
+        ns4:definition "A state of stress where the out of plane component of stress is zero." .
+
+    ns5:PlasticElastic a ns3:Class ;
+        rdfs:label "Plastic Elastic" ;
+        rdfs:subClassOf ns5:FractureToughnessProperty ;
+        ns4:definition "Material deformation that undergoes both elastic and plastic deformation" .
+
+    ns5:PlateRheometery a ns3:Class ;
+        rdfs:label "Plate Rheometry" ;
+        ns5:hasSelector "//Rheometery[RheometerType='plate']" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            ns5:Rheometery ;
+        ns4:definition "The falling plate rheometer sandwiches liquid between two solid surfaces. The top plate is fixed, and bottom plate falls under the influence of gravity, drawing out a string of the liquid" .
+
+    ns5:PoissonsRatio a ns3:Class ;
+        rdfs:label "Poissons Ratio" ;
+        rdfs:subClassOf ns5:TensileProperty ;
+        ns4:definition "Negative ratio of traverse to axial strain" .
+
+    ns5:Polydispersity a ns3:Class ;
+        rdfs:label "Polydispersity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/SpatialQuantity> ;
+        ns4:altLabel "Dispersity" .
+
+    ns5:PolymerBlend a ns3:Class ;
+        rdfs:label "Polymer Blend" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Polymer> ;
+        ns4:definition "a member of a class of materials analogous to metal alloys, in which at least two polymers are blended together to create a new material with different physical properties." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Polymer_blend" .
+
+    ns5:PolymerNanocomposite a ns3:Class ;
+        rdfs:label "Polymer Nanocomposite" ;
+        rdfs:subClassOf ns5:Nanocomposite ;
+        ns4:altLabel "PNC" ;
+        ns4:definition "Polymer nanocomposites (PNC) consist of a polymer or copolymer having nanoparticles or nanofillers dispersed in the polymer matrix. These may be of different shape (e.g., platelets, fibers, spheroids), but at least one dimension must be in the range of 1���50 nm." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Polymer_nanocomposite" .
+
+    ns5:Power a ns3:Class ;
+        rdfs:label "Power" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    ns5:PreCrackingProcess a ns3:Class ;
+        rdfs:label "Precracking Process" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "The process of establishing an initiator crack or groove in a test specimen such that the failure of the test specimen deterministically begins at the established location." .
+
+    ns5:PreLoad a ns3:Class ;
+        rdfs:label "Pre-Load" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:Condition ;
+        ns4:definition "Pre-stress or pre-strain before testing" .
+
+    ns5:ProbabilityOfFailure a ns3:Class ;
+        rdfs:label "Probability of Failure" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "As the electric field is intensified, the probability of failure is the likelihood that a breakdown channel forms across the test specimen." .
+
+    ns5:ProceedingsArticle a ns3:Class ;
+        rdfs:label "Conference Proceedings Article" ;
+        rdfs:subClassOf <http://purl.org/ontology/bibo/AcademicArticle> ;
+        ns4:definition "An article published in the proceedings of a conference." .
+
+    ns5:PubChemReference a ns3:Class ;
+        rdfs:label "PubChem Reference" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Reference> .
+
+    ns5:PublicationYear a ns3:Class ;
+        rdfs:label "Publication Year" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Year> .
+
+    ns5:PulsedElectroAcoustic a ns3:Class ;
+        rdfs:label "Pulsed Electro Acoustic" ;
+        ns5:hasSelector "//Pulsed_Electro_Acoustic" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ElectricalProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Measurement of space charge in dielectric materials" .
+
+    ns5:RadialClearence a ns3:Class ;
+        rdfs:label "Radial Clearence" ;
+        rdfs:subClassOf ns5:Dimension,
+            <http://semanticscience.org/resource/Height> .
+
+    ns5:RamanSpectroscopy a ns3:Class ;
+        rdfs:label "Raman Spectroscopy" ;
+        ns5:hasSelector "//Raman_Spectroscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:Spectroscopy ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Molecular analysis with spectroscopic techniques that observe low-frequency modes in a material" .
+
+    ns5:RelatedDOI a ns3:Class ;
+        rdfs:label "related DOI" ;
+        rdfs:subClassOf ns5:DOI .
+
+    ns5:ResearchArticle a ns3:Class ;
+        rdfs:label "Research Article" ;
+        rdfs:subClassOf <http://purl.org/ontology/bibo/AcademicArticle> .
+
+    ns5:ReviewArticle a ns3:Class ;
+        rdfs:label "Review Article" ;
+        rdfs:subClassOf <http://purl.org/ontology/bibo/AcademicArticle> .
+
+    ns5:RheologicalLossModulus a ns3:Class ;
+        rdfs:label "Rheological Loss Modulus" ;
+        rdfs:subClassOf ns5:RheologicalComplexModulus ;
+        ns4:definition "The deformation energy dissipated within a material when subject to shear; the viscous component of the complex modulus." .
+
+    ns5:RheologicalLossTangent a ns3:Class ;
+        rdfs:label "Rheological Loss Tangent" ;
+        rdfs:subClassOf ns5:RheologicalComplexModulus ;
+        ns4:definition "The damping factor, or the ratio of storage to loss moduli; for ideally elastic materials, the damping factor is zero; for ideally viscous materials, the damping factor is infinite." .
+
+    ns5:RheologicalMasterCurve a ns3:Class ;
+        rdfs:label "Rheological Master Curve" ;
+        rdfs:subClassOf ns5:RheologicalComplexModulus ;
+        ns4:definition "The superposition of rheological data taken at different temperatures in a given frequency range, where the curves are horizontally shifted to form a continuous master curve spanning a much larger frequency range that would otherwise be experimentally intractable or infeasible." .
+
+    ns5:RheologicalStorageModulus a ns3:Class ;
+        rdfs:label "Rheological Storage Modulus" ;
+        rdfs:subClassOf ns5:RheologicalComplexModulus ;
+        ns4:definition "The deformation energy stored within a material when subject to shear; the elastic component of the complex modulus." .
+
+    ns5:RheometerMode a ns3:Class ;
+        rdfs:label "Rheometer Mode" ;
+        rdfs:subClassOf ns5:RheologicalComplexModulus,
+            ns5:RheologicalViscosity ;
+        ns4:definition "The type of condition (e.g., temperature sweep or frequency sweep) under which a material's rheological response is measured." .
+
+    ns5:RollMilling a ns3:Class ;
+        rdfs:label "Roll Milling" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            ns5:Mixing ;
+        ns4:definition "Grinding process with a roller and flat plate" .
+
+    ns5:RotationSpeed a ns3:Class ;
+        rdfs:label "Rotation Speed" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Speed> .
+
+    ns5:RotationalMolding a ns3:Class ;
+        rdfs:label "nan" ;
+        rdfs:subClassOf ns5:Molding .
+
+    ns5:SMILES a ns3:Class ;
+        rdfs:label "SMILES" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Representation> .
+
+    ns5:SampleShape a ns3:Class ;
+        rdfs:label "Sample Shape" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Shape> ;
+        ns4:definition "The geometric form of a test specimen." .
+
+    ns5:ScanningElectronMicroscopy a ns3:Class ;
+        rdfs:label "Scanning Electron Microscopy" ;
+        ns5:hasSelector "//Scanning_Electron_Microscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:AcceleratingVoltage ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:ExposureTime ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:WorkingDistance ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ElectricalProperty ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:EmissionCurrent ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:Magnification ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Scanning electron microscopy for obtaining microstructure at microscale" .
+
+    ns5:ScrewChannelDiameter a ns3:Class ;
+        rdfs:label "Screw Channel Diameter" ;
+        rdfs:subClassOf <obo:PATO_0001334> .
+
+    ns5:Shear a ns3:Class ;
+        rdfs:label "Shear" ;
+        rdfs:subClassOf ns5:ViscoelasticProperty ;
+        ns4:definition "Describing opposing in-plane forces on a material." .
+
+    ns5:ShearLoadingProfile a ns3:Class ;
+        rdfs:label "Shear Loading Profile" ;
+        rdfs:subClassOf ns5:ShearProperty ;
+        ns4:definition "Stress vs. strain curve of during shear loading and/or unloading test" .
+
+    ns5:ShearModulus a ns3:Class ;
+        rdfs:label "Shear Modulus" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ShearProperty ;
+        ns4:definition "Ratio of shear stress to shear strain" .
+
+    ns5:ShearStressAtBreak a ns3:Class ;
+        rdfs:label "Shear Stress At Break" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ShearProperty ;
+        ns4:definition "Shear stress when specimen breaks" .
+
+    ns5:ShearStressAtYield a ns3:Class ;
+        rdfs:label "Shear Stress At Yield" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ShearProperty ;
+        ns4:definition "Shear stress at yield point" .
+
+    ns5:SingleScrew a ns3:Class ;
+        rdfs:label "Single Screw Extruder" ;
+        rdfs:subClassOf ns5:Extruder .
+
+    ns5:SolutionProcessing a ns3:Class ;
+        rdfs:label "Solution Processing" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Mixing of dissolvable polymer with nanoparticles" .
+
+    ns5:SolventAmount a ns3:Class ;
+        rdfs:label "Solvent Amount" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    ns5:SolventName a ns3:Class ;
+        rdfs:label "Solvent Name" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Name> .
+
+    ns5:SpecificHeatCapacity_Cp a ns3:Class ;
+        rdfs:label "Specific Heat Capacity Cp" ;
+        ns5:hasPreferredUnit <http://materialsmine.org/ns/unit/j-gk> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j-k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty ;
+        ns4:definition "Cp for a gas is the change in the enthalpy (H) of the system with respect to change in temperature at a fixed pressure of the system" .
+
+    ns5:SpecificHeatCapacity_Cv a ns3:Class ;
+        rdfs:label "Specific Heat Capacity Cv" ;
+        ns5:hasPreferredUnit <http://materialsmine.org/ns/unit/j-gk> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/j-k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty ;
+        ns4:definition "Cv for a gas is the change in internal energy (U) of a system with respect to change in temperature at a fixed volume of the system" .
+
+    ns5:SpecificSurfaceArea a ns3:Class ;
+        rdfs:label "Specific Surface Area" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/SurfaceArea> .
+
+    ns5:StdChemicalName a ns3:Class ;
+        rdfs:label "StdChemicalName" ;
+        rdfs:subClassOf ns5:ChemicalName .
+
+    ns5:Stirring a ns3:Class ;
+        rdfs:label "Stirring" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Solvent ],
+            ns5:Mixing ;
+        ns4:definition "Manual stirring of liquid solutions" .
+
+    ns5:StrainAmplitude a ns3:Class ;
+        rdfs:label "Strain Amplitude" ;
+        rdfs:subClassOf ns5:Condition ;
+        ns4:definition "The magnitude of forced displacement of a material sample.",
+            "The maximum magnitude of forced displacement under oscillatory loading conditions." .
+
+    ns5:StrainAtBreak a ns3:Class ;
+        rdfs:label "Strain at Break" ;
+        rdfs:subClassOf ns5:Strain ;
+        ns4:definition "The strain at which the material fractures (e.g. during a tensile test)" .
+
+    ns5:StrainRate a ns3:Class ;
+        rdfs:label "Strain Rate" ;
+        ns5:hasPreferredUnit <http://materialsmine.org/ns/unit/1-s> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/1-s> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:Condition ;
+        ns4:definition "Rate of strain change",
+            "see Strain Rate" .
+
+    ns5:StrainSweep a ns3:Class ;
+        rdfs:label "Strain Sweep" ;
+        rdfs:subClassOf ns5:MeasurementMethod ;
+        ns4:definition "A continuous variation of strain (amplitude) within a pre-defined range." .
+
+    ns5:StressRelaxation a ns3:Class ;
+        rdfs:label "Stress Relaxation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/RateOfChange> ;
+        ns4:definition "Stress relaxation, which occurs when a viscoelastic test specimen is brought to a fixed strain and held, is the gradual release of internal stress due to the viscous nature of the test specimen. " .
+
+    ns5:SurfaceChemistryProcessing a ns3:Class ;
+        rdfs:label "Surface Chemistry Processing" ;
+        rdfs:subClassOf ns5:Processing .
+
+    ns5:SurfaceResistivity a ns3:Class ;
+        rdfs:label "Surface Resistivity" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/ohmMetre> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/ohm-m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "Ability to resist leakage current along the surface of an insulating material" .
+
+    ns5:SurfaceTension a ns3:Class ;
+        rdfs:label "Surface Tension" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/n> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:VolumetricProperty ;
+        ns4:definition "the force that causes the molecules on the surface of a liquid to be pushed together and form a layer" .
+
+    ns5:SurfaceTreatment a ns3:Class ;
+        rdfs:label "Surface Treatment" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Role> .
+
+    ns5:Symmetry a ns3:Class ;
+        rdfs:label "Symmetry" ;
+        ns4:definition "Symmetry group? Bravais lattice? (wondering if we need to separate out into more specific terms)" .
+
+    ns5:Syndiotactic a ns3:Class ;
+        rdfs:label "Syndiotactic" ;
+        rdfs:subClassOf ns5:Tacticity ;
+        ns4:definition "In syndiotactic or syntactic macromolecules the substituents have alternate positions along the chain. The macromolecule consists 100% of racemo diads. Syndiotactic polystyrene, made by metallocene catalysis polymerization, is crystalline with a melting point of 161 ��C. Gutta percha is also an example for Syndiotactic polymer." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Tacticity#Syndiotactic_polymers" .
+
+    ns5:TangoBlack a ns3:Class ;
+        rdfs:label "Tango Black" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MaterialEntity> ;
+        ns4:definition "A specific 3D printable material." .
+
+    ns5:TechnicalComment a ns3:Class ;
+        rdfs:label "Technical Comment" ;
+        rdfs:subClassOf <http://purl.org/ontology/bibo/Document> .
+
+    ns5:TemperatureSweep a ns3:Class ;
+        rdfs:label "Temperature Sweep" ;
+        rdfs:subClassOf ns5:DMA_Mode ;
+        ns4:definition "A continuous variation of temperature within a pre-defined range." .
+
+    ns5:Tensile a ns3:Class ;
+        rdfs:label "Tensile" ;
+        rdfs:subClassOf ns5:ViscoelasticProperty ;
+        ns4:definition "Describing countervailing forces applied outward along the central axis of a material." .
+
+    ns5:TensileCreepCompliance a ns3:Class ;
+        rdfs:label "Tensile Creep Compliance" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/1-pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileCreep ;
+        ns4:definition "Inverse of tensile creep modulus  " .
+
+    ns5:TensileCreepModulus a ns3:Class ;
+        rdfs:label "Tensile Creep Modulus" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileCreep ;
+        ns4:definition "Elastic modulus during creep test" .
+
+    ns5:TensileCreepRecovery a ns3:Class ;
+        rdfs:label "Tensile Creep Recovery" ;
+        rdfs:subClassOf ns5:TensileCreep ;
+        ns4:definition "Ability of material to recover to original state after creep" .
+
+    ns5:TensileCreepRuptureStrength a ns3:Class ;
+        rdfs:label "Tensile Creep Rupture Strength" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/n> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileCreep ;
+        ns4:definition "Material strength at rupture during a tensile creep test" .
+
+    ns5:TensileCreepRuptureTime a ns3:Class ;
+        rdfs:label "Tensile Creep Rupture Time" ;
+        rdfs:subClassOf ns5:TensileCreep ;
+        ns4:definition "Time taken to rupture from applying load during a tensile creep test" .
+
+    ns5:TensileCreepStrain a ns3:Class ;
+        rdfs:label "Tensile Creep Strain" ;
+        rdfs:subClassOf ns5:TensileCreep ;
+        ns4:definition "Profile of strain as a function of time during a tensile creep test" .
+
+    ns5:TensileLoadingProfile a ns3:Class ;
+        rdfs:label "Tensile Loading Profile" ;
+        rdfs:subClassOf ns5:TensileProperty ;
+        ns4:definition "Stress vs. strain curve of during tensile loading and/or unloading test" .
+
+    ns5:TensileModulus a ns3:Class ;
+        rdfs:label "Tensile Modulus" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Young's modulus, or elastic modulus, describes tensile elasticity, or the tendency of an object to deform along an axis when opposing forces are applied along that axis; it is defined as the ratio of tensile stress to tensile strain." .
+
+    ns5:TensileStrength a ns3:Class ;
+        rdfs:label "Tensile Strength" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf ns5:TensileProperty ;
+        ns4:definition "The maximum engineering stress experienced by a test specimen during a tensile test, at which point the material begins to fail catastrophically." .
+
+    ns5:TensileStressAtBreak a ns3:Class ;
+        rdfs:label "Tensile Stress At Break" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Tensile stress at the moment at which a test specimen tears" .
+
+    ns5:TensileStressAtYield a ns3:Class ;
+        rdfs:label "Tensile Stress At Yield" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/pa> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:TensileProperty ;
+        ns4:definition "Tensile stress corresponding to the yield point (an increase in strain does not result in an increase in stress)." .
+
+    ns5:TensileToughness a ns3:Class ;
+        rdfs:label "Tensile Toughness" ;
+        rdfs:subClassOf ns5:TensileProperty ;
+        ns4:definition "The amount of energy a material can absorb prior to fracture under an applied tensile load." .
+
+    ns5:ThermalConductivity a ns3:Class ;
+        rdfs:label "Thermal Conductivity" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/wattPerMetreKelvin> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/w-m-k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty ;
+        ns4:definition "a measure of the ability of a substance to conduct heat, determined by the rate of heat flownormally through an area in the substance divided by the area and by minus the component of the temperaturegradient in the direction of flow" .
+
+    ns5:ThermalDecompositionTemperature a ns3:Class ;
+        rdfs:label "Thermal Decomposition Temperature" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty,
+            <obo:PATO_0000146> ;
+        ns4:definition "Thermal decomposition temperature of a substance is the temperature at which the substance chemically decomposes by heat" .
+
+    ns5:ThermalDiffusivity a ns3:Class ;
+        rdfs:label "Thermal Diffusivity" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m-2-s> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ThermalProperty ;
+        ns4:definition "thermal diffusivity is the thermal conductivity divided by density and specific heat capacity at constant pressure. It measures the rate of transfer of heat of a material from the hot side to the cold side" .
+
+    ns5:ThermogravimetricAnalysis a ns3:Class ;
+        rdfs:label "Thermogravimetric Analysis" ;
+        ns5:hasSelector "//Thermogravimetric_Analysis" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ThermalProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Thermal analysis of material properties as function of temperature and time" .
+
+    ns5:Thermoplastic a ns3:Class ;
+        rdfs:label "Thermoplastic" ;
+        rdfs:subClassOf ns5:Plastic ;
+        ns4:definition "a plastic material, a polymer, that becomes pliable or moldable above a specific temperature and solidifies upon cooling." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Thermoplastic" .
+
+    ns5:Thermoset a ns3:Class ;
+        rdfs:label "Thermoset" ;
+        rdfs:subClassOf ns5:Plastic ;
+        ns4:definition "a cured thermosetting resin. A thermosetting resin is a prepolymer in a soft solid or viscous liquid state that changes irreversibly into an infusible, insoluble polymer network by curing." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Thermosetting_polymer" .
+
+    ns5:Torsion a ns3:Class ;
+        rdfs:label "Torsion" ;
+        rdfs:subClassOf ns5:ViscoelasticProperty ;
+        ns4:definition "Describing countervailing rotational forces about the central axis of a material, separated by some distance along the central axis of the material; \"twisting\" force" .
+
+    ns5:Total a ns3:Class ;
+        rdfs:label "Total" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    ns5:TradeName a ns3:Class ;
+        rdfs:label "Trade Name" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Name> ;
+        ns4:definition "The common, non-chemical name for a chemical substance." .
+
+    ns5:TransmissionElectronMicroscopy a ns3:Class ;
+        rdfs:label "Transmission Electron Microscopy" ;
+        ns5:hasSelector "//Transmission_Electron_Microscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:Magnification ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:EmissionCurrent ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:ExposureTime ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:AcceleratingVoltage ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:WorkingDistance ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ElectricalProperty ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Transmission electron microscopy for obtaining microstructure at nanoscale" .
+
+    ns5:TwinScrew a ns3:Class ;
+        rdfs:label "Twin Screw Extruder" ;
+        rdfs:subClassOf ns5:Extruder .
+
+    ns5:Ultra-sonication a ns3:Class ;
+        rdfs:label "Ultra Sonication" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            ns5:Mixing ;
+        ns4:definition "The irradiation of a liquid sample with ultrasonic (>20 kHz) waves resulting in agitation" .
+
+    ns5:UnitCellExtent_X a ns3:Class ;
+        rdfs:label "Unit Cell Extent X" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/1DExtentQuantity> ;
+        ns4:definition "Extent of the unit cell in the x direction (requires units, such as mm:Pixel)" .
+
+    ns5:UnitCellExtent_Y a ns3:Class ;
+        rdfs:label "Unit Cell Extent Y" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/1DExtentQuantity> ;
+        ns4:definition "Extent of the unit cell in the y direction (requires units, such as mm:Pixel)" .
+
+    ns5:UnitCellExtent_Z a ns3:Class ;
+        rdfs:label "Unit Cell Extent Z" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/1DExtentQuantity> ;
+        ns4:definition "Extent of the unit cell in the z direction (requires units, such as mm:Pixel)" .
+
+    ns5:Vacuum a ns3:Class ;
+        rdfs:label "Vacuum" ;
+        rdfs:subClassOf ns5:AmbientCondition .
+
+    ns5:VacuumMolding a ns3:Class ;
+        rdfs:label "nan" ;
+        rdfs:subClassOf ns5:Molding .
+
+    ns5:VeroWhite a ns3:Class ;
+        rdfs:label "Vero White" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MaterialEntity> ;
+        ns4:definition "A specific 3D printable material." .
+
+    ns5:Viscosity a ns3:Class ;
+        rdfs:label "Viscosity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/3DExtentQuantity> ;
+        ns4:definition "a measure of its resistance to gradual deformation by shear stress or tensile stress." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Viscosity" .
+
+    ns5:VolumeExpansionCoefficient a ns3:Class ;
+        rdfs:label "Volume Expansion Coefficient" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/m-3-k> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:VolumetricProperty ;
+        ns4:definition "volumetric coefficient of thermal expansion" .
+
+    ns5:VolumeFraction a ns3:Class ;
+        rdfs:label "Volume Fraction" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Concentration> ;
+        ns4:definition "The volume of a constituent divided by the volume of all constituents of the mixture prior to mixing." .
+
+    ns5:VolumeResistivity a ns3:Class ;
+        rdfs:label "Volume Resistivity" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/ohmMetre> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/ohm-m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "Ability to oppose the flow of electric current." .
+
+    ns5:Voxel a ns3:Class ;
+        rdfs:label "Voxel" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "A discretized, symbolic representation of a material substance in 3D space." .
+
+    ns5:WaterAbsorption a ns3:Class ;
+        rdfs:label "Water Absorption" ;
+        rdfs:subClassOf ns5:VolumetricProperty ;
+        ns4:definition "The amount of weight gain (%) experienced in a polymer after immersion in water for a specific length of time under controlled environment." .
+
+    ns5:Wavenumber a ns3:Class ;
+        rdfs:label "Wavenumber" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MeasurementValue> ;
+        ns4:definition "The wavenumber of a wave is the inverse of the wavelength. This is the inverse space component of the dispersion relation for a one-dimensional analysis." .
+
+    ns5:Wavevector a ns3:Class ;
+        rdfs:label "Wavevector" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Vector> ;
+        ns4:definition "The wavevector is the multi-dimensional generalization of wavenumber. The wavevector of a wave is the inverse of the wavelength in each of the spatial directions. It also points in the same direction as the phase velocity of the wave." .
+
+    ns5:WeibullPlot a ns3:Class ;
+        rdfs:label "Weilbull Plot" ;
+        rdfs:subClassOf ns5:DielectricBreakdownStrength ;
+        ns4:definition "A plot of failure probability versus electric field, typically with the probability y-axis scaled according to the Weibull distribution as ln(-ln(1-p))." .
+
+    ns5:WeightLoss a ns3:Class ;
+        rdfs:label "Weight Loss" ;
+        rdfs:subClassOf ns5:VolumetricProperty ;
+        ns4:definition "The loss of mass of a material under some condition (e.g., increasing temperature during thermogravimetric analysis)" .
+
+    ns5:XRayDiffractionAndScattering a ns3:Class ;
+        rdfs:label "XRay Diffraction and Scattering" ;
+        ns5:hasSelector "//XRay_Diffraction_and_Scattering" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:Spectroscopy ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Non-destructive X-ray measurement for crystal structure, chemical composition, and physical properties" .
+
+    ns5:XRayPhotoelectronSpectroscopy a ns3:Class ;
+        rdfs:label "X-Ray Photoelectron Spectroscopy" ;
+        ns5:hasSelector "//XRay_Photoelectron_Spectroscopy" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:Spectroscopy ],
+            <http://semanticscience.org/resource/Measuring> .
+
+    ns5:XRay_Photoelectron_Spectroscopy a ns3:Class ;
+        rdfs:label "nan" ;
+        ns5:hasSelector "//XRay_Photoelectron_Spectroscopy" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "XRay_Photoelectron_Spectroscopy (abbr. XPS) is a spectroscopy for material characterization;" .
+
+    ns5:uSMILES a ns3:Class ;
+        rdfs:label "uSMILES" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Representation> .
+
+    <http://materialsmine.org/ns/unit/j-cm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Joule per Centimeter" ;
+        ns4:notation "J/cm" .
+
+    <http://materialsmine.org/ns/unit/j-g-degc> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Joule per Gram-Celsius" ;
+        ns4:notation "J/gC" .
+
+    <http://materialsmine.org/ns/unit/kj-m-2> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilojoule per Square Meter" ;
+        ns4:notation "kJ/m^2" .
+
+    <http://materialsmine.org/ns/unit/kv-cm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilovolt per Centimeter" ;
+        ns4:notation "kV/cm" .
+
+    <http://materialsmine.org/ns/unit/log-hz> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Log Hertz" ;
+        ns4:notation "log(Hz)" .
+
+    <http://materialsmine.org/ns/unit/mm-2-s> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Square Millimeter per Second" ;
+        ns4:notation "mm^2/s" .
+
+    <http://materialsmine.org/ns/unit/mm-mm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Millimeters per millimeter" ;
+        ns4:notation "mm/mm" .
+
+    <http://materialsmine.org/ns/unit/ohm-cm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Ohm Centimeter" ;
+        ns4:notation "�� cm" .
+
+    <http://materialsmine.org/ns/unit/ppm-c> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Parts per million per degree centigrade" ;
+        ns4:notation "ppm/C" .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Rotation per Minute" ;
+        ns4:notation "rpm" .
+
+    <http://qudt.org/vocab/unit/MegaV-PER-M> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Megavolt per Meter" ;
+        ns4:notation "MV/m" .
+
+    <http://qudt.org/vocab/unit/RAD-PER-MIN> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Radian per Minute" ;
+        ns4:notation "rad/min" .
+
+    <http://qudt.org/vocab/unit/S-PER-CentiM> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Siemens per Centimeter" ;
+        ns4:notation "S/cm" .
+
+    <http://qudt.org/vocab/unit/V-PER-CentiM> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Volt per Centimeter" ;
+        ns4:notation "V/cm" .
+
+    <http://qudt.org/vocab/unit/k-per-min> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kelvin per Minute" ;
+        ns4:notation "K/min" .
+
+    <http://qudt.org/vocab/unit/per-k> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "per Kelvin" ;
+        ns4:notation "1/K" .
+
+    <http://semanticscience.org/resource/AspectRatio> a ns3:Class ;
+        rdfs:label "Aspect Ratio" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Ratio> ;
+        ns4:definition "The aspect ratio of a geometric shape is the ratio of its sizes in different dimensions." .
+
+    <http://semanticscience.org/resource/AuthorRole> a ns3:Class ;
+        rdfs:label "Author" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/PublishingRole> .
+
+    <http://semanticscience.org/resource/Chapter> a ns3:Class ;
+        rdfs:label "Chapter" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/DocumentSection> .
+
+    <http://semanticscience.org/resource/Citation> a ns3:Class ;
+        rdfs:label "Citation Type" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/DocumentComponent> .
+
+    <http://semanticscience.org/resource/Day> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Day" ;
+        ns4:notation "dy" .
+
+    <http://semanticscience.org/resource/Description> a ns3:Class ;
+        rdfs:label "Description" ;
+        ns5:hasSelector "//Description" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/LanguageEntity> .
+
+    <http://semanticscience.org/resource/EditionNumber> a ns3:Class ;
+        rdfs:label "Edition" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Count> .
+
+    <http://semanticscience.org/resource/Hour> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Hour" ;
+        ns4:notation "Hr" .
+
+    <http://semanticscience.org/resource/Issue> a ns3:Class ;
+        rdfs:label "Issue" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/EditedPublication> .
+
+    <http://semanticscience.org/resource/Journal> a ns3:Class ;
+        rdfs:label "Journal" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Periodical> .
+
+    <http://semanticscience.org/resource/Keyword> a ns3:Class ;
+        rdfs:label "Keyword" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Descriptor> .
+
+    <http://semanticscience.org/resource/Language> a ns3:Class ;
+        rdfs:label "Language" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/LanguageEntity> .
+
+    <http://semanticscience.org/resource/Publication> a ns3:Class ;
+        rdfs:label "Publication" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Document> .
+
+    <http://semanticscience.org/resource/PublisherRole> a ns3:Class ;
+        rdfs:label "Publisher" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/PublishingRole> .
+
+    <http://semanticscience.org/resource/Rotation> a ns3:Class ;
+        rdfs:label "Rotation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    <http://semanticscience.org/resource/Title> a ns3:Class ;
+        rdfs:label "Title" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Label> .
+
+    <http://semanticscience.org/resource/URL> a ns3:Class ;
+        rdfs:label "URL" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationalEntityIdentifier> ;
+        ns4:definition "A Uniform Resource Locator or Universal Resource Locator (URL) is a specific character string that constitutes a reference to an Internet resource." ;
+        ns7:wasQuotedFrom "https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/sio-release.owl" .
+
+    <http://semanticscience.org/resource/VolumeNumber> a ns3:Class ;
+        rdfs:label "Volume" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Count> .
+
+    <http://semanticscience.org/resource/Week> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Week" ;
+        ns4:notation "wk" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/amperePerSquareMetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Ampere per Square Meter" ;
+        ns4:notation "A/m^2" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Celsius per Minute" ;
+        ns4:notation "C/min" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Gram per Cubic Centimeter" ;
+        ns4:notation "g/cm^3" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin> a ns5:AbsoluteUnitOfMeasurement,
+            <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kelvin" ;
+        ns4:notation "K" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kiloelectronvolt> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kiloelectronvolt" ;
+        ns4:notation "keV" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilogramPerLitre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilogram per Liter" ;
+        ns4:notation "kg/L" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilohertz> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilohertz" ;
+        ns4:notation "kHz" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilopascal> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilopascal" ;
+        ns4:notation "kPa" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilovolt" ;
+        ns4:notation "kV" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/micrometre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Micrometer" ;
+        ns4:notation "��m" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Millimeter" ;
+        ns4:notation "mm" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Minute" ;
+        ns4:notation "min" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/molePerCubicmetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Mole per Cubic Meter" ;
+        ns4:notation "mol/m^3" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Pascal" ;
+        ns4:notation "Pa" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Radian per Second" ;
+        ns4:notation "rad/s" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Second" ;
+        ns4:notation "s" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/squareMetrePerGram> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Square Meter per Gram" ;
+        ns4:notation "m^2/g" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/strain> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "nan" .
+
+    ns5:Amperage a ns3:Class ;
+        rdfs:label "Amperage" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    ns5:BandGap a ns3:Class ;
+        rdfs:label "Band Gap" ;
+        rdfs:subClassOf ns5:ElectricalProperty ;
+        ns4:definition "A band of frequencies for which there do not exist eigenfrequency solutions in the dispersion relation (for any wavevector)." .
+
+    ns5:CapillarySize a ns3:Class ;
+        rdfs:label "Capillar Size" ;
+        ns5:hasSelector "//CapillarySize" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:ChannelDepth a ns3:Class ;
+        rdfs:label "Channel Depth" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Depth> .
+
+    ns5:ChannelsPerScrew a ns3:Class ;
+        rdfs:label "Channels per Screw" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    ns5:ChemicalName a ns3:Class ;
+        rdfs:label "Chemical Name" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Name> .
+
+    ns5:CoolingRate a ns3:Class ;
+        rdfs:label "Cooling Rate" ;
+        ns5:hasSelector "//CoolingRate" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:DLRatio a ns3:Class ;
+        rdfs:label "Screw Diameter/Length Ratio" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Ratio> .
+
+    ns5:DMA_Mode a ns3:Class ;
+        rdfs:label "Dynamic Mechanical Analysis" ;
+        rdfs:subClassOf ns5:DynamicProperties,
+            <obo:ID_0000061> ;
+        ns4:definition "The type of condition (e.g., temperature sweep or frequency sweep) under which a material's dynamic mechanical response is measured." .
+
+    ns5:DOI a ns3:Class ;
+        rdfs:label "DOI" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationalEntityIdentifier> .
+
+    ns5:DielectricBreakdownStrength a ns3:Class ;
+        rdfs:label "Dielectric Breakdown Strength" ;
+        ns5:hasPreferredUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/v-m> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            ns5:ElectricalProperty ;
+        ns4:definition "Maximum voltage required to produce a dielectric breakdown through the material and is expressed as Volts per unit thickness." .
+
+    ns5:ExtrusionTemperature a ns3:Class ;
+        rdfs:label "Extrusion Temperature" ;
+        rdfs:subClassOf <obo:PATO_0000146> .
+
+    ns5:FillerComponent a ns3:Class ;
+        rdfs:label "Filler Component" ;
+        rdfs:subClassOf ns5:Component .
+
+    ns5:FlightClearance a ns3:Class ;
+        rdfs:label "Flight Clearance" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Height> ;
+        ns4:altLabel "Radial Flight Clearance" .
+
+    ns5:FlightWidth a ns3:Class ;
+        rdfs:label "Flight Width" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Width> .
+
+    ns5:HeatingRate a ns3:Class ;
+        rdfs:label "Heating Rate" ;
+        ns5:hasSelector "//HeatingRate" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:Impact a ns3:Class ;
+        rdfs:label "Impact" ;
+        rdfs:subClassOf ns5:FractureToughnessProperty ;
+        ns4:definition "Izod impact resistance of materials" .
+
+    ns5:InnerBarrelDiameter a ns3:Class ;
+        rdfs:label "Inner Barrel Diameter" ;
+        rdfs:subClassOf <obo:PATO_0001334> .
+
+    ns5:MeltTemperature a ns3:Class ;
+        rdfs:label "Melt Temperature" ;
+        rdfs:subClassOf <obo:PATO_0000146> .
+
+    ns5:Nanocomposite a ns3:Class ;
+        rdfs:label "Nanocomposite" ;
+        rdfs:subClassOf ns5:Nanomaterial ;
+        ns4:definition "a multiphase solid material where one of the phases has one, two or three dimensions of less than 100 nanometers (nm), or structures having nano-scale repeat distances between the different phases that make up the material. In the broadest sense this definition can include porous media, colloids, gels and copolymers, but is more usually taken to mean the solid combination of a bulk matrix and nano-dimensional phase(s) differing in properties due to dissimilarities in structure and chemistry." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Nanocomposite" .
+
+    ns5:PressureAtDie a ns3:Class ;
+        rdfs:label "Pressure at Die" ;
+        rdfs:subClassOf <obo:PATO_0001025> .
+
+    ns5:ProcessingCondition a ns3:Class ;
+        rdfs:label "Processing Condition" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quality> .
+
+    ns5:Profile a ns3:Class ;
+        rdfs:label "Profile" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/DataSeries> ;
+        ns4:definition "A data series." .
+
+    ns5:ResidenceTime a ns3:Class ;
+        rdfs:label "Residence Time" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/TimeInterval> .
+
+    ns5:RotationalFrequency a ns3:Class ;
+        rdfs:label "Rotational Frequency" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:hasValue <http://materialsmine.org/ns/unit/materialsmine-revolutions-per-minute> ;
+                ns3:onProperty <http://semanticscience.org/resource/hasUnit> ],
+            <http://semanticscience.org/resource/Frequency> ;
+        ns4:definition """The number of rotations of an object around an axis per unit time.
+""" .
+
+    ns5:ScrewChannelWidth a ns3:Class ;
+        rdfs:label "Screw Channel Width" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Width> .
+
+    ns5:ScrewDiameter a ns3:Class ;
+        rdfs:label "Screw Diameter" ;
+        rdfs:subClassOf <obo:PATO_0001334> .
+
+    ns5:ScrewLead a ns3:Class ;
+        rdfs:label "Screw Lead" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Length> .
+
+    ns5:ScrewLength a ns3:Class ;
+        rdfs:label "Screw Length" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Length> .
+
+    ns5:Stress a ns3:Class ;
+        rdfs:label "Stress" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "When a material is loaded with a force, it produces a stress, which then causes a material to deform. " .
+
+    ns5:Throughput a ns3:Class ;
+        rdfs:label "Throughput" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    ns5:Torque a ns3:Class ;
+        rdfs:label "Torque" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/1DExtentQuantity> .
+
+    ns5:Voltage a ns3:Class ;
+        rdfs:label "Voltage" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+
+    <http://materialsmine.org/ns/unit/1-pa> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "1/Pa" .
+
+    <http://materialsmine.org/ns/unit/c-m-2> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "C/m^2" .
+
+    <http://materialsmine.org/ns/unit/j-m-3> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "J/m^3" .
+
+    <http://materialsmine.org/ns/unit/kg-m-3> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "kg/m^3" .
+
+    <http://materialsmine.org/ns/unit/kv-mm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilovolt per Millimeter" ;
+        ns4:notation "kV/mm" .
+
+    <http://materialsmine.org/ns/unit/m-2> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "m^2" .
+
+    <http://materialsmine.org/ns/unit/m-2-s> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "m^2/s" .
+
+    <http://materialsmine.org/ns/unit/m-3-k> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "m^3/K" .
+
+    <http://materialsmine.org/ns/unit/m-k> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "m/K" .
+
+    <http://materialsmine.org/ns/unit/materialsmine-revolutions-per-minute> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "materialsmine:revolutions_per_minute" .
+
+    <http://materialsmine.org/ns/unit/nm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "nm" .
+
+    <http://materialsmine.org/ns/unit/s-m> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "S/m" .
+
+    <http://materialsmine.org/ns/unit/v-m> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "V/m" .
+
+    <http://materialsmine.org/ns/unit/w-m-k> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "W/(m*K)" .
+
+    <http://purl.org/ontology/bibo/> rdfs:label "BIBO" .
+
+    <http://semanticscience.org/ontology/sio-subset-labels.owl> rdfs:label "SIO" .
+
+    <http://semanticscience.org/resource/Depth> a ns3:Class ;
+        rdfs:label "Depth" ;
+        rdfs:subClassOf ns5:Dimension,
+            <http://semanticscience.org/resource/1DExtentQuantity> .
+
+    <http://semanticscience.org/resource/DimensionalQuantity> a ns3:Class ;
+        rdfs:label "Dimensional Quantity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "A dimensional quantity is a quantity that has an associated unit." ;
+        ns7:wasQuotedFrom "https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/sio-release.owl" .
+
+    <http://semanticscience.org/resource/SurfaceArea> a ns3:Class ;
+        rdfs:label "Surface Area" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Area> .
+
+    ns2: rdfs:label "Nanopub" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> a ns5:AbsoluteUnitOfMeasurement,
+            <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Hertz" ;
+        ns4:notation "Hz" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilogramPerCubicmetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Kilogram per Cubic Meter" ;
+        ns4:notation "kg/m^3" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Nanometer" ;
+        ns4:notation "nm" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/siemensPerMetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Siemens per Meter" ;
+        ns4:notation "S/m" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/wattPerMetreKelvin> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Watt per Meter-Kelvin" ;
+        ns4:notation "W/mK" .
+
+    ns5:AcceleratingVoltage a ns3:Class ;
+        rdfs:label "Accelerating Voltage" ;
+        ns5:hasSelector "//AcceleratingVoltage" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:EmissionCurrent a ns3:Class ;
+        rdfs:label "Emission Current" ;
+        ns5:hasSelector "//EmissionCurrent" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:ExposureTime a ns3:Class ;
+        rdfs:label "Exposure Time" ;
+        ns5:hasSelector "//ExposureTime" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:Magnification a ns3:Class ;
+        rdfs:label "Magnification" ;
+        ns5:hasSelector "//Magnification" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    ns5:MeasurementMethod a ns3:Class ;
+        rdfs:label "Measurement Method" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "A method or process used to obtain a measure of some property." .
+
+    ns5:Nanomaterial a ns3:Class ;
+        rdfs:label "Nanomaterial" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MaterialEntity> ;
+        ns4:definition "materials of which a single unit is sized (in at least one dimension) between 1 and 1000 nanometres (10���9 meter) but is usually 1���100 nm" ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Nanomaterials" .
+
+    ns5:RheologicalProperty a ns3:Class ;
+        rdfs:label "Rheological Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "A property related to the flow of a material." .
+
+    ns5:RotationMode a ns3:Class ;
+        rdfs:label "Rotation Mode" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quality> .
+
+    ns5:Strain a ns3:Class ;
+        rdfs:label "Strain" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "Engineering strain is defined as the amount of deformation in the direction of the applied force divided by the initial length of the material." .
+
+    ns5:WorkingDistance a ns3:Class ;
+        rdfs:label "Working Distance" ;
+        ns5:hasSelector "//WorkingDistance" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Parameter> .
+
+    <http://materialsmine.org/ns/unit/1-s> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "1/s",
+            "Per Second" ;
+        ns4:notation "1/s" .
+
+    <http://materialsmine.org/ns/unit/j-gk> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Joule per Gram-Kelvin" ;
+        ns4:notation "J/gK" .
+
+    <http://materialsmine.org/ns/unit/j-k> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "J/K" .
+
+    <http://materialsmine.org/ns/unit/ohm-m> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Ohm*m" .
+
+    <http://qudt.org/vocab/unit/j-per-gm> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Joule per Gram" ;
+        ns4:notation "J/gm" .
+
+    <http://semanticscience.org/resource/Frequency> a ns3:Class ;
+        rdfs:label "Frequency" ;
+        ns5:hasPreferredUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+        rdfs:subClassOf <http://semanticscience.org/resource/RateOfChange> ;
+        ns4:definition "The rate of occurrence of some periodic event." .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/ohmMetre> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Ohm Meter" ;
+        ns4:notation "�� m" .
+
+    ns5:CompressiveCreep a ns3:Class ;
+        rdfs:label "Compressive Creep" ;
+        rdfs:subClassOf ns5:Creep ;
+        ns4:definition "creep during compressive test" .
+
+    ns5:Condition a ns3:Class ;
+        rdfs:label "Condition" ;
+        rdfs:subClassOf ns5:CompressionProperty ;
+        ns4:definition "Description of the material's environment (e.g., during characterization)",
+            "The approximation, such as Plane Stress or Plane Strain, used to calculate the stress state of the material.",
+            "see Condition" .
+
+    ns5:Creep a ns3:Class ;
+        rdfs:label "Creep" ;
+        rdfs:subClassOf ns5:ViscoelasticProperty ;
+        ns4:definition "creep is the tendency of material to move slowly or deform permanently under the influence of mechanical stresses" .
+
+    ns5:DispersionRelation a ns3:Class ;
+        rdfs:label "Dispersion Relation" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Function> ;
+        ns4:definition "Frequency-wavevector pairs that represent the propogation of wave modes" .
+
+    ns5:Extruder a ns3:Class ;
+        rdfs:label "Extruder" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:FlightClearance ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:DLRatio ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ExtrusionTemperature ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:Amperage ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:InnerBarrelDiameter ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:Voltage ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ChannelsPerScrew ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:PressureAtDie ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ChannelDepth ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:FlightWidth ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ResidenceTime ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ScrewLength ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ScrewDiameter ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:Throughput ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ScrewLead ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:Torque ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:MeltTemperature ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:Dimension ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:ScrewChannelWidth ],
+            <http://semanticscience.org/resource/Device> .
+
+    ns5:FlexuralCreep a ns3:Class ;
+        rdfs:label "Flexural Creep" ;
+        rdfs:subClassOf ns5:Creep ;
+        ns4:definition "creep during flexural or bending test" .
+
+    ns5:HardnessProperty a ns3:Class ;
+        rdfs:label "Hardness Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "Materials property representing the material's resistance to deformation under an applied compressive load from a test fixture of known tip geometry." .
+
+    ns5:Plastic a ns3:Class ;
+        rdfs:label "Plastic" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Polymer> ;
+        ns4:definition "a material consisting of any of a wide range of synthetic or semi-synthetic organic compounds that are malleable and can be molded into solid objects. Plastics are typically organic polymers of high molecular mass, but they often contain other substances." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Plastic" .
+
+    ns5:RheologicalViscosity a ns3:Class ;
+        rdfs:label "Rheological Viscosity" ;
+        rdfs:subClassOf ns5:RheologicalProperty ;
+        ns4:definition "The resistance of a fluid to flow." .
+
+    ns5:Rheometery a ns3:Class ;
+        rdfs:label "Rheometry" ;
+        ns5:hasSelector "//Rheometery" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty ns7:generated ;
+                ns3:someValuesFrom ns5:ViscoelasticProperty ],
+            [ a ns3:Restriction ;
+                ns3:onProperty ns7:used ;
+                ns3:someValuesFrom ns5:CapillarySize ],
+            <http://semanticscience.org/resource/Measuring> ;
+        ns4:definition "Measurement of the quantitative and qualitative relationships between deformations and stresses and their derivatives" .
+
+    ns5:Solvent a ns3:Class ;
+        rdfs:label "Solvent" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/Quantity> ],
+            <http://semanticscience.org/resource/ChemicalEntity> ;
+        ns4:definition "Solvent used in composite synthesis" .
+
+    <http://materialsmine.org/ns/unit/m> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "m" .
+
+    <http://materialsmine.org/ns/unit/s> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "s" .
+
+    <http://semanticscience.org/resource/Length> a ns3:Class ;
+        rdfs:label "Length" ;
+        rdfs:subClassOf ns5:Dimension,
+            <http://semanticscience.org/resource/1DExtentQuantity> .
+
+    <http://semanticscience.org/resource/Width> a ns3:Class ;
+        rdfs:label "Width" ;
+        rdfs:subClassOf ns5:Dimension .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Percent" ;
+        ns4:notation "%" .
+
+    ns5:FractureToughnessProperty a ns3:Class ;
+        rdfs:label "Fracture Toughness Property" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "Ability of material containing a crack to resist fracture" .
+
+    ns5:ShearProperty a ns3:Class ;
+        rdfs:label "Shear Property" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "Properties of how the material will react to forces being applied in shear" .
+
+    ns5:Tacticity a ns3:Class ;
+        rdfs:label "Tacticity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/ChemicalQuality> ;
+        ns4:definition "the relative stereochemistry of adjacent chiral centers within a macromolecule." ;
+        ns7:wasQuotedFrom "https://en.wikipedia.org/wiki/Tacticity" .
+
+    <http://materialsmine.org/ns/unit/n> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "N" .
+
+    <http://semanticscience.org/resource/Polymer> a ns3:Class ;
+        rdfs:label "Polymer" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Molecule> .
+
+    <http://semanticscience.org/resource/Ratio> a ns3:Class ;
+        rdfs:label "Fraction" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/DimensionlessQuantity> .
+
+    <obo:PATO_0001334> a ns3:Class ;
+        rdfs:label "Diameter" ;
+        rdfs:subClassOf ns5:Dimension,
+            <http://semanticscience.org/resource/1DExtentQuantity> .
+
+    ns5:Crystallinity a ns3:Class ;
+        rdfs:label "Crystallinity" ;
+        rdfs:subClassOf ns5:ThermalProperty ;
+        ns4:definition "degree of structural order in a solid" .
+
+    ns5:FlexuralProperty a ns3:Class ;
+        rdfs:label "Flexural Property" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "Properties of how the material will react to forces being applied in bending" .
+
+    ns5:Molding a ns3:Class ;
+        rdfs:label "Molding" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:AmbientCondition ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0000146> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/TimeInterval> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0001025> ],
+            <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Methods to shape final composite" .
+
+    ns5:RheologicalComplexModulus a ns3:Class ;
+        rdfs:label "Rheological Complex Modulus" ;
+        rdfs:subClassOf ns5:RheologicalProperty ;
+        ns4:definition "The ratio of shear-stress amplitude to strain amplitude of a material under oscillating shear stress." .
+
+    ns5:Spectroscopy a ns3:Class ;
+        rdfs:label "Spectroscopy" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "The chemical composition ,composition variation ,crystal structure & photo-electric properties of the materials." .
+
+    <http://materialsmine.org/ns/unit/j> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "J" .
+
+    <http://materialsmine.org/ns/unit/k> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "K" .
+
+    <http://semanticscience.org/resource/MaterialEntity> a ns3:Class ;
+        rdfs:label "Material Entity" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Object> ;
+        ns4:definition "A material entity is a physical entity that is spatially extended, exists as a whole at any point in time and has mass." ;
+        ns7:wasQuotedFrom "https://raw.githubusercontent.com/micheldumontier/semanticscience/master/ontology/sio/release/sio-release.owl" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Celsius" ;
+        ns4:notation "C" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Gigapascal" ;
+        ns4:notation "GPa" .
+
+    ns5:CMatrixElement a ns3:Class ;
+        rdfs:label "C Matrix Element" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> ;
+        ns4:definition "An element within a material stiffness matrix." .
+
+    ns5:CompressionProperty a ns3:Class ;
+        rdfs:label "Compression Property" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "Properties of how the material will react to forces being applied in compression" .
+
+    ns5:Dimension a ns3:Class ;
+        rdfs:label "Dimension" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/DimensionalQuantity> .
+
+    ns5:TensileCreep a ns3:Class ;
+        rdfs:label "Tensile Creep" ;
+        rdfs:subClassOf ns5:Creep ;
+        ns4:definition "creep during tensile test" .
+
+    <obo:PATO_0001025> a ns3:Class ;
+        rdfs:label "Pressure" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/2DExtentQuantity> .
+
+    ns5:AmbientCondition a ns3:Class ;
+        rdfs:label "Ambient Condition" ;
+        rdfs:subClassOf ns5:ProcessingCondition ;
+        ns4:definition "Ambient conditions" .
+
+    ns5:Index a ns3:Class ;
+        rdfs:label "Index" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/InformationContentEntity> .
+
+    ns5:Mixing a ns3:Class ;
+        rdfs:label "Mixing" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0000146> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom ns5:RotationalFrequency ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/TimeInterval> ],
+            <http://semanticscience.org/resource/Procedure> ;
+        ns4:definition "Processes for mixing of multiple substances" .
+
+    <http://semanticscience.org/resource/TimeInterval> a ns3:Class ;
+        rdfs:label "Time" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/TimeMeasurement> .
+
+    ns5:Additive a ns3:Class ;
+        rdfs:label "Additive" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/Quantity> ],
+            <http://semanticscience.org/resource/ChemicalEntity>,
+            <http://semanticscience.org/resource/ChemicalSubstance> ;
+        ns4:definition "A chemical substance that is blended in to a polymer to acheive a desired effect.",
+            "Additive used in composite synthesis" .
+
+    ns5:VolumetricProperty a ns3:Class ;
+        rdfs:label "Volumetric Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/3DExtentQuantity> ;
+        ns4:definition "A property related to the three-dimensional volume of a material." .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Megapascal" ;
+        ns4:notation "MPa" .
+
+    ns5:TensileProperty a ns3:Class ;
+        rdfs:label "Tensile Property" ;
+        rdfs:subClassOf ns5:MechanicalProperty ;
+        ns4:definition "Properties of how the material will react to forces being applied in tension." .
+
+    ns5:ViscoelasticProperty a ns3:Class ;
+        rdfs:label "Viscoelastic Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "Properties of materials that exhibit both viscous and elastic behaviors" .
+
+    ns5:MechanicalProperty a ns3:Class ;
+        rdfs:label "Mechanical Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "A materials property related to the response of a material under some external applied load." .
+
+    <obo:PATO_0000146> a ns3:Class ;
+        rdfs:label "Temperature" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "The average kinetic energy of all constituents within a materials system" .
+
+    ns5:ThermalProperty a ns3:Class ;
+        rdfs:label "Thermal Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "A material's property describing the materials ability to absorb, conduct, or otherwise interact with energy in the form of heat." .
+
+    <http://materialsmine.org/ns/unit/pa> a <http://semanticscience.org/resource/UnitOfMeasurement> ;
+        rdfs:label "Pa" .
+
+    <http://semanticscience.org/resource/Procedure> a ns3:Class ;
+        rdfs:label "nan" ;
+        rdfs:subClassOf [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0001025> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <http://semanticscience.org/resource/TimeInterval> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Solvent ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasAttribute> ;
+                ns3:someValuesFrom <obo:PATO_0000146> ],
+            [ a ns3:Restriction ;
+                ns3:onProperty <http://semanticscience.org/resource/hasInput> ;
+                ns3:someValuesFrom ns5:Additive ],
+            <http://semanticscience.org/resource/Process> .
+
+    <http://semanticscience.org/resource/Quantity> a ns3:Class ;
+        rdfs:label "Amount" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/MeasurementValue> .
+
+    ns5:ElectricalProperty a ns3:Class ;
+        rdfs:label "Electrical Property" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> ;
+        ns4:definition "A materials property describing the material's behavior under some applied electrical field." .
+
+    <http://semanticscience.org/resource/UnitOfMeasurement> a ns3:Class ;
+        rdfs:label "unit of measurement" ;
+        rdfs:subClassOf <http://semanticscience.org/resource/Quantity> .
+}
+
+ns1:NTQxNC40MzQwMTg3NzE0MDM_pubinfo {
+    ns1:NTQxNC40MzQwMTg3NzE0MDM_assertion ns6:created "2021-07-22T02:10:37.238000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,82 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:13du69e504 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/d7411193387e53d0_depiction> ;
+        ns2:hasAssertion ns1:13du69e504_assertion ;
+        ns2:hasProvenance ns1:13du69e504_provenance ;
+        ns2:hasPublicationInfo ns1:13du69e504_pubinfo .
+
+    ns1:13du69e504_assertion a ns2:Assertion .
+
+    ns1:13du69e504_provenance a ns2:Provenance .
+
+    ns1:13du69e504_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:13du69e504_assertion {
+    <http://nanomine.org/viz/d7411193387e53d0> a ns3:Chart ;
+        ns6:description "The glass transition temperature (Tg) of a polymer can be measured through dynamic mechanical analysis (DMA), characterized by a drop in storage modulus and a peak in both the loss modulus and tan delta curves. While the glass transition occurs across a range of temperatures, the single Tg value assigned to a test specimen from DMA data is guided by standards such as ASTM E1640. Here, DMA results are shown, and the storage modulus curves have been shifted by the reported value of Tg in NanoMine." ;
+        ns6:title "Determining Tg from DMA, Part III: Storage Modulus" ;
+        ns8:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ,
+                           [ a nm:ViscoelasticProperty ] ,
+                           [ a nm:StorageModulus ;
+                             sio:hasValue ?StorModMPa ;
+                             sio:hasUnit [ rdfs:label "Megapascal" ] ;
+                             sio:inRelationTo [ a nm:Temperature ;
+                                                sio:hasValue ?TemperatureC ;
+                                                sio:hasUnit [ rdfs:label "Celsius" ] ]
+                           ]  .
+  ?doi sio:hasPart ?sample .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] .
+  }
+
+  BIND((?TemperatureC - ?Tg) AS ?offsetTemp )
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":800,\"height\":495,\"transform\":[{\"joinaggregate\":[{\"op\":\"argmax\",\"field\":\"StorModMPa\",\"as\":\"SMargmax\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"}],\"layer\":[{\"mark\":{\"type\":\"line\"},\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"y\"]},\"myhighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"y\":{\"field\":\"StorModMPa\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Storage Modulus (MPa)\",\"titleFontSize\":20,\"labelFontSize\":20},\"scale\":{\"type\":\"linear\",\"domain\":[0,4000]}},\"x\":{\"field\":\"offsetTemp\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Temperature (shifted by reported Tg value) [Celsius]\",\"titleFontSize\":20,\"labelFontSize\":20,\"labelFlush\":false},\"scale\":{\"domain\":[-100,100]}},\"color\":{\"field\":\"SMargmax.offsetTemp\",\"type\":\"quantitative\",\"scale\":{\"scheme\":\"plasma\",\"domainMid\":0},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":1},\"value\":0.2},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Tg\",\"type\":\"quantitative\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"format\":\".3p\"},{\"field\":\"Loading_vol\",\"type\":\"quantitative\",\"format\":\".3p\"},{\"field\":\"StorModMPa\",\"type\":\"quantitative\",\"format\":\".3r\"}],\"strokeWidth\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":3},\"value\":1}}},{\"mark\":{\"type\":\"rule\",\"color\":\"#777\"},\"encoding\":{\"x\":{\"datum\":0}}}]}" ;
+        ns4:depiction <http://nanomine.org/viz/d7411193387e53d0_depiction> .
+
+    <http://nanomine.org/viz/d7411193387e53d0_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T15:44:17.217000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "d39d9ae0-f53a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns6:FileFormat .
+}
+
+ns1:13du69e504_pubinfo {
+    ns1:13du69e504_assertion ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T15:44:17.218000+00:00"^^xsd:dateTime .
+}
+

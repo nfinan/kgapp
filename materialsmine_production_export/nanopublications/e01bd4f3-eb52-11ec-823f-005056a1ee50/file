@@ -1,0 +1,241 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L186_S2_Wakabayashi_2008_assertion {
+    <http://materialsmine.org/sample/l186-s1-wakabayashi-2008> ns3:hasRole <http://materialsmine.org/sample/l186-s1-wakabayashi-2008_control_role> .
+
+    <http://localhost/nmr/blob?id=5942e3c0e74a1d5e0d1477c1> a ns3:Image ;
+        ns5:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    ns5:Activity ;
+                ns5:used <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5942e3c0e74a1d5e0d1477c1" .
+
+    <http://materialsmine.org/compound/Graphite> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Graphite" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Asbury Carbons" ] ;
+        ns2:altLabel "graphite nanoplatelets" ;
+        ns2:notation "ARG" .
+
+    <http://materialsmine.org/compound/PolyPropylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(propylene)" ;
+        ns2:notation "PP" .
+
+    <http://materialsmine.org/sample/l186-s1-wakabayashi-2008_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> .
+
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_filler_0> a <http://materialsmine.org/compound/Graphite> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.266e+00 ],
+            <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> ] .
+
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns6:description "reported" ;
+        ns3:hasValue 2.8e-02 .
+
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns6:description "computed by NanoMine" ;
+        ns3:hasValue 1.093891e-02 .
+
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_matrix_0> a <http://materialsmine.org/compound/PolyPropylene> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PP" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Total Petrochemicals" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 8.7e-01 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> ] .
+
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "graphite nanoplatelets in polypropylene" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Crystallinity> ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns3:hasAttribute [ a ns3:StandardDeviation,
+                            ns3:UncertaintyValue ;
+                        ns3:hasValue 5e+01 ] ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns3:hasValue 1.3e+03 ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ a <http://materialsmine.org/ns/IZOD_ImpactEnergy> ;
+                ns3:hasAttribute [ a ns3:StandardDeviation,
+                            ns3:UncertaintyValue ;
+                        ns3:hasValue 2e-01 ] ;
+                ns3:hasUnit <http://materialsmine.org/ns/unit/j-cm> ;
+                ns3:hasValue 8.4e-01 ],
+            [ a <http://materialsmine.org/ns/ElongationAtBreak> ;
+                ns3:hasAttribute [ a ns3:StandardDeviation,
+                            ns3:UncertaintyValue ;
+                        ns3:hasValue 1e+00 ] ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns3:hasValue 8e+00 ],
+            [ a <http://materialsmine.org/ns/HalflifeOfCrystallization> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+                ns3:hasValue 9.5e+00 ],
+            [ a <http://materialsmine.org/ns/Impact> ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ a <http://materialsmine.org/ns/CrystallizationTemperature> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin> ;
+                ns3:hasValue 4.02e+02 ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_filler_0>,
+            <http://materialsmine.org/sample/l186-s2-wakabayashi-2008_matrix_0> ;
+        ns3:isRepresentedBy <http://localhost/nmr/blob?id=5942e3c0e74a1d5e0d1477c1> .
+}
+
+ns1:L186_S2_Wakabayashi_2008_pubinfo {
+    ns1:L186_S2_Wakabayashi_2008_assertion ns6:created "2021-07-22T13:00:41.656000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NzA5MTg0LjcwMTYxNDgxNTU/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/ma071687b> .
+
+    <http://dx.doi.org/10.1021/ma071687b> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns6:BibliographicResource ;
+        rdfs:label "Polymer-Graphite Nanocomposites:���Effective Dispersion and Major Property Enhancement via Solid-State Shear Pulverization" ;
+        ns6:created 2008 ;
+        ns6:creator <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/dikin-dmitriy-a>,
+            <http://materialsmine.org/author/pierre-cynthia>,
+            <http://materialsmine.org/author/ramanathan-thillaiyan>,
+            <http://materialsmine.org/author/ruoff-rodney-s>,
+            <http://materialsmine.org/author/torkelson-john-m>,
+            <http://materialsmine.org/author/wakabayashi-katsuyuki> ;
+        ns6:isPartOf <http://materialsmine.org/publication/macromolecules> ;
+        ns6:language <http://materialsmine.org/language/english> ;
+        ns6:title "Polymer-Graphite Nanocomposites:���Effective Dispersion and Major Property Enhancement via Solid-State Shear Pulverization" ;
+        ns7:authorList ( <http://materialsmine.org/author/torkelson-john-m> <http://materialsmine.org/author/brinson-l-catherine> <http://materialsmine.org/author/ramanathan-thillaiyan> <http://materialsmine.org/author/ruoff-rodney-s> <http://materialsmine.org/author/dikin-dmitriy-a> <http://materialsmine.org/author/pierre-cynthia> <http://materialsmine.org/author/wakabayashi-katsuyuki> ) ;
+        ns7:volume 41 ;
+        ns3:hasPart <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/abs/10.1021/ma071687b> .
+
+    <http://materialsmine.org/language/english> a ns6:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-chemical-and-biological-engineering-department-of-materials-science-and-engineering-and-department-of-mechanical-engineering-northwestern-university-evanston-illinois-60208-usa> a ns6:Location ;
+        rdfs:label "Department of Chemical and Biological Engineering, Department of Materials Science and Engineering, and Department of Mechanical Engineering, Northwestern University, Evanston, Illinois 60208, USA" .
+
+    <http://materialsmine.org/publication/macromolecules> ns6:publisher <publisher:american-chemical-society> ;
+        ns6:title "Macromolecules" .
+
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> ns5:wasAttributedTo <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/dikin-dmitriy-a>,
+            <http://materialsmine.org/author/pierre-cynthia>,
+            <http://materialsmine.org/author/ramanathan-thillaiyan>,
+            <http://materialsmine.org/author/ruoff-rodney-s>,
+            <http://materialsmine.org/author/torkelson-john-m>,
+            <http://materialsmine.org/author/wakabayashi-katsuyuki> .
+
+    <publisher:american-chemical-society> rdfs:label "American Chemical Society" ;
+        ns5:atLocation <http://materialsmine.org/location/department-of-chemical-and-biological-engineering-department-of-materials-science-and-engineering-and-department-of-mechanical-engineering-northwestern-university-evanston-illinois-60208-usa> .
+
+    <http://materialsmine.org/author/brinson-l-catherine> a ns5:Agent ;
+        rdfs:label "Brinson, L. Catherine" ;
+        ns4:name "Brinson, L. Catherine" .
+
+    <http://materialsmine.org/author/dikin-dmitriy-a> a ns5:Agent ;
+        rdfs:label "Dikin, Dmitriy A." ;
+        ns4:name "Dikin, Dmitriy A." .
+
+    <http://materialsmine.org/author/pierre-cynthia> a ns5:Agent ;
+        rdfs:label "Pierre, Cynthia" ;
+        ns4:name "Pierre, Cynthia" .
+
+    <http://materialsmine.org/author/ramanathan-thillaiyan> a ns5:Agent ;
+        rdfs:label "Ramanathan, Thillaiyan" ;
+        ns4:name "Ramanathan, Thillaiyan" .
+
+    <http://materialsmine.org/author/ruoff-rodney-s> a ns5:Agent ;
+        rdfs:label "Ruoff, Rodney S." ;
+        ns4:name "Ruoff, Rodney S." .
+
+    <http://materialsmine.org/author/torkelson-john-m> a ns5:Agent ;
+        rdfs:label "Torkelson, John M." ;
+        ns4:name "Torkelson, John M." .
+
+    <http://materialsmine.org/author/wakabayashi-katsuyuki> a ns5:Agent ;
+        rdfs:label "Wakabayashi, Katsuyuki" ;
+        ns4:name "Wakabayashi, Katsuyuki" .
+}
+
+ns1:L186_S2_Wakabayashi_2008_provenance {
+    <http://materialsmine.org/sample/l186-s2-wakabayashi-2008> ns5:wasGeneratedBy <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/hitachi-s3500n>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_description_attr_29>,
+                    <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/rigaku-atx-g>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_melt_mixing_step_0> .
+
+    <http://materialsmine.org/ns/hitachi-s3500n> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Hitachi S3500N" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/rigaku-atx-g> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Rigaku ATX-G" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_melt_mixing_step_0> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_melt_mixing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_melt_mixing_step_0_molding> .
+
+    <http://materialsmine.org/sample/L186_S2_Wakabayashi_2008_melt_mixing_step_0_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    ns1:L186_S2_Wakabayashi_2008_assertion ns5:wasDerivedFrom ns1:L186_S2_Wakabayashi_2008_assertion,
+            <http://nanomine.org/pub/ODEzNy41ODUyODIyNDg5MDI_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NzA5MTg0LjcwMTYxNDgxNTU/MaterialsmineXMLImport> ;
+                ns5:used ns1:L186_S2_Wakabayashi_2008_assertion,
+                    <http://nanomine.org/pub/ODEzNy41ODUyODIyNDg5MDI_assertion> ],
+            <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_description>,
+            <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_equipment>,
+            <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L186_S2_Wakabayashi_2008_characterization_xray-diffraction-and-scattering> .
+}
+

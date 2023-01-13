@@ -1,0 +1,408 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L324_S3_Zhu_2017_assertion {
+    <http://materialsmine.org/sample/l324-s1-zhu-2017> ns2:hasRole <http://materialsmine.org/sample/l324-s1-zhu-2017_control_role> .
+
+    <http://localhost/nmr/blob?id=5b8813dae74a1d30127df3b9> a ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/l324-s3-zhu-2017> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b8813dae74a1d30127df3b9" .
+
+    <http://materialsmine.org/compound/Graphene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Graphene" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Xiamen Knano Graphene Technology Co., Ltd., China" ] ;
+        ns3:altLabel "KNGCZ030",
+            "graphene nanoplatelets" ;
+        ns3:notation "GNPs" .
+
+    <http://materialsmine.org/compound/Nylon12> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Nylon 12" ;
+        ns3:altLabel "VESTAMID L1940" ;
+        ns3:notation "PA12" .
+
+    <http://materialsmine.org/sample/l324-s1-zhu-2017_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l324-s3-zhu-2017> .
+
+    <http://materialsmine.org/sample/l324-s3-zhu-2017_filler_0> a <http://materialsmine.org/compound/Graphene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.267e+00 ],
+            <http://materialsmine.org/sample/l324-s3-zhu-2017_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l324-s3-zhu-2017_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l324-s3-zhu-2017> ] .
+
+    <http://materialsmine.org/sample/l324-s3-zhu-2017_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns5:description "reported" ;
+        ns2:hasValue 4e-02 .
+
+    <http://materialsmine.org/sample/l324-s3-zhu-2017_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns5:description "computed by NanoMine" ;
+        ns2:hasValue 1.822513e-02 .
+
+    <http://materialsmine.org/sample/l324-s3-zhu-2017_matrix_0> a <http://materialsmine.org/compound/Nylon12> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Evonik Degussa Co., Germany" ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "VESTAMID L1940" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.01e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PA12" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l324-s3-zhu-2017> ] .
+
+    <http://materialsmine.org/sample/l324-s3-zhu-2017> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "graphene nanoplatelets in polyamide 12" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/FiberTensileStrength> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.159e+01 ],
+            [ a <http://materialsmine.org/ns/CrystallizationTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.569e+02 ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ a <http://materialsmine.org/ns/ElongationAtBreak> ;
+                ns2:hasValue 2.18e-01 ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l324-s3-zhu-2017_filler_0>,
+            <http://materialsmine.org/sample/l324-s3-zhu-2017_matrix_0> ;
+        ns2:isRepresentedBy <http://localhost/nmr/blob?id=5b8813dae74a1d30127df3b9> .
+}
+
+ns1:L324_S3_Zhu_2017_provenance {
+    <http://materialsmine.org/sample/l324-s3-zhu-2017> ns4:wasGeneratedBy <http://materialsmine.org/entry/L324_S3_Zhu_2017_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/dimond-dsc-perkinelmer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_attr_30>,
+                    <http://materialsmine.org/sample/L324_S3_Zhu_2017_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/dma-q800-ta>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/quanta-250-fei-field-emission-scanning-electron-microscope>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/dimond-tg-dta-perkinelmer-usa>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/d8-advance-diffractometer-bruker-germany>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L324_S3_Zhu_2017_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3> .
+
+    <http://materialsmine.org/ns/d8-advance-diffractometer-bruker-germany> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "D8 Advance diffractometer (Bruker, Germany)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/dimond-dsc-perkinelmer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Dimond DSC (PerkinElmer)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/dimond-tg-dta-perkinelmer-usa> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Dimond TG/DTA (PerkinElmer, USA)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/dma-q800-ta> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DMA Q800 (TA)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/quanta-250-fei-field-emission-scanning-electron-microscope> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Quanta 250 (FEI) field emission scanning electron microscope" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_description>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_mixing> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_mixing_description> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "hand-blended" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_chemicalused>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixer>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixing> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixing_mixer> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "co-rotating twin screw extruder, Brabender GmbH and Co. KG Germany" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_ambientcondition>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_temperature>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_time> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "80" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "12" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_description>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_pressure>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_temperature>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_time> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_description>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_pressure>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_temperature>,
+            <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_time> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_description> a ns2:Description ;
+        ns2:hasValue "a vulcanizing press (XLB-D, Huzhou Shunli Rubber Machinery Co., Ltd., China)" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_pressure> a <obo:PATO_0001025> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        ns2:hasValue "7.5" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "240" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_molding_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "15" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_pressure> a ns2:Parameter,
+            <obo:PATO_0001025> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_melt_mixing_step_3_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> rdfs:label "MPa" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L324_S3_Zhu_2017_assertion ns4:wasDerivedFrom ns1:L324_S3_Zhu_2017_assertion,
+            <http://nanomine.org/pub/MTc5NDcuMzQyNjc2NjY4NDE_assertion> ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/NTQ3ODQ2LjM0MTc0ODE5Nzc/MaterialsmineXMLImport> ;
+                ns4:used ns1:L324_S3_Zhu_2017_assertion,
+                    <http://nanomine.org/pub/MTc5NDcuMzQyNjc2NjY4NDE_assertion> ],
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_equipment>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_heatingrate>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L324_S3_Zhu_2017_characterization_xray-diffraction-and-scattering> .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://materialsmine.org/sample/L324_S3_Zhu_2017_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+
+ns1:L324_S3_Zhu_2017_pubinfo {
+    ns1:L324_S3_Zhu_2017_assertion ns5:created "2021-07-23T02:10:52.025000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/NTQ3ODQ2LjM0MTc0ODE5Nzc/MaterialsmineXMLImport> ;
+        ns4:wasQuotedFrom <http://dx.doi.org/10.1002/app.45332> .
+
+    <http://dx.doi.org/10.1002/app.45332> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns5:BibliographicResource ;
+        rdfs:label "Thermal and mechanical properties of polyamide 12/graphene nanoplatelets nanocomposites and parts fabricated by fused deposition modeling" ;
+        ns5:created 2017 ;
+        ns5:creator <http://materialsmine.org/author/guo-jianjun>,
+            <http://materialsmine.org/author/jiang-shenglong>,
+            <http://materialsmine.org/author/liao-guangxin>,
+            <http://materialsmine.org/author/liu-fenghua>,
+            <http://materialsmine.org/author/ren-yuanyuan>,
+            <http://materialsmine.org/author/xu-gaojie>,
+            <http://materialsmine.org/author/zhu-dingchun> ;
+        ns5:isPartOf <http://materialsmine.org/publication/journal-of-applied-polymer-science> ;
+        ns5:language <http://materialsmine.org/language/english> ;
+        ns5:title "Thermal and mechanical properties of polyamide 12/graphene nanoplatelets nanocomposites and parts fabricated by fused deposition modeling" ;
+        ns8:authorList ( <http://materialsmine.org/author/xu-gaojie> <http://materialsmine.org/author/guo-jianjun> <http://materialsmine.org/author/liu-fenghua> <http://materialsmine.org/author/jiang-shenglong> <http://materialsmine.org/author/liao-guangxin> <http://materialsmine.org/author/ren-yuanyuan> <http://materialsmine.org/author/zhu-dingchun> ) ;
+        ns8:volume 134 ;
+        ns2:hasPart <http://materialsmine.org/sample/l324-s3-zhu-2017> ;
+        rdfs:seeAlso <http://doi.wiley.com/10.1002/app.45332> ;
+        ns7:keyword "Extrusion",
+            "Mechanical Properties",
+            "Nanostructured Polymers",
+            "Structure���Property Relationships",
+            "Thermal Properties" .
+
+    <http://materialsmine.org/language/english> a ns5:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/school-of-materials-science-and-engineering-shanghai-university-baoshan-district-shanghai-200444-china-zhejiang-key-laboratory-of-additive-manufacturing-materials-ningbo-institute-of-materials-technology-and-engineering-chinese-academy-of-science-ningbo-315201-china> a ns5:Location ;
+        rdfs:label "School of Materials Science and Engineering; Shanghai University; Baoshan District Shanghai 200444 China, Zhejiang Key Laboratory of Additive Manufacturing Materials, Ningbo Institute of Materials Technology and Engineering; Chinese Academy of Science; Ningbo 315201 China" .
+
+    <http://materialsmine.org/publication/journal-of-applied-polymer-science> ns5:publisher <publisher:wiley-blackwell-john-wiley-sons> ;
+        ns5:title "Journal of Applied Polymer Science" .
+
+    <http://materialsmine.org/sample/l324-s3-zhu-2017> ns4:wasAttributedTo <http://materialsmine.org/author/guo-jianjun>,
+            <http://materialsmine.org/author/jiang-shenglong>,
+            <http://materialsmine.org/author/liao-guangxin>,
+            <http://materialsmine.org/author/liu-fenghua>,
+            <http://materialsmine.org/author/ren-yuanyuan>,
+            <http://materialsmine.org/author/xu-gaojie>,
+            <http://materialsmine.org/author/zhu-dingchun> .
+
+    <publisher:wiley-blackwell-john-wiley-sons> rdfs:label "Wiley Blackwell (John Wiley & Sons)" ;
+        ns4:atLocation <http://materialsmine.org/location/school-of-materials-science-and-engineering-shanghai-university-baoshan-district-shanghai-200444-china-zhejiang-key-laboratory-of-additive-manufacturing-materials-ningbo-institute-of-materials-technology-and-engineering-chinese-academy-of-science-ningbo-315201-china> .
+
+    <http://materialsmine.org/author/guo-jianjun> a ns4:Agent ;
+        rdfs:label "Guo, Jianjun" ;
+        ns6:name "Guo, Jianjun" .
+
+    <http://materialsmine.org/author/jiang-shenglong> a ns4:Agent ;
+        rdfs:label "Jiang, Shenglong" ;
+        ns6:name "Jiang, Shenglong" .
+
+    <http://materialsmine.org/author/liao-guangxin> a ns4:Agent ;
+        rdfs:label "Liao, Guangxin" ;
+        ns6:name "Liao, Guangxin" .
+
+    <http://materialsmine.org/author/liu-fenghua> a ns4:Agent ;
+        rdfs:label "Liu, Fenghua" ;
+        ns6:name "Liu, Fenghua" .
+
+    <http://materialsmine.org/author/ren-yuanyuan> a ns4:Agent ;
+        rdfs:label "Ren, Yuanyuan" ;
+        ns6:name "Ren, Yuanyuan" .
+
+    <http://materialsmine.org/author/xu-gaojie> a ns4:Agent ;
+        rdfs:label "Xu, Gaojie" ;
+        ns6:name "Xu, Gaojie" .
+
+    <http://materialsmine.org/author/zhu-dingchun> a ns4:Agent ;
+        rdfs:label "Zhu, Dingchun" ;
+        ns6:name "Zhu, Dingchun" .
+}
+

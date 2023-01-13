@@ -1,0 +1,46 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://materialsmine.org/nanpub/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:NDA4MjUyLjU2MTU3ODE2NDM a ns2:Nanopublication ;
+        ns2:hasAssertion ns3:L300_S1_Nakane_1999 ;
+        ns2:hasProvenance ns1:NDA4MjUyLjU2MTU3ODE2NDM_provenance ;
+        ns2:hasPublicationInfo ns1:NDA4MjUyLjU2MTU3ODE2NDM_pubinfo .
+
+    ns1:NDA4MjUyLjU2MTU3ODE2NDM_provenance a ns2:Provenance .
+
+    ns1:NDA4MjUyLjU2MTU3ODE2NDM_pubinfo a ns2:PublicationInfo .
+
+    [] a ns2:Assertion .
+}
+
+ns3:L300_S1_Nakane_1999 {
+    ns3:L300_S1_Nakane_1999_nanopub a ns2:Nanopublication ;
+        ns2:hasAssertion ns3:L300_S1_Nakane_1999_assertion ;
+        ns2:hasProvenance ns3:L300_S1_Nakane_1999_provenance ;
+        ns2:hasPublicationInfo ns3:L300_S1_Nakane_1999_pubinfo .
+
+    ns3:L300_S1_Nakane_1999_assertion a ns2:Assertion .
+
+    ns3:L300_S1_Nakane_1999_provenance a ns2:Provenance .
+
+    ns3:L300_S1_Nakane_1999_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:NDA4MjUyLjU2MTU3ODE2NDM_pubinfo {
+    ns3:L300_S1_Nakane_1999 ns5:created "2021-07-23T00:24:37.759000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/NjY3NTc3Ljg3ODg5MzA4NQ/MaterialsmineXMLImport> .
+}
+
+ns1:NDA4MjUyLjU2MTU3ODE2NDM_provenance {
+    ns3:L300_S1_Nakane_1999 ns4:wasDerivedFrom ns3:L300_S1_Nakane_1999,
+            ns1:NDA3ODQ1LjYzODk2NDMzMjY_assertion ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/NjY3NTc3Ljg3ODg5MzA4NQ/MaterialsmineXMLImport> ;
+                ns4:used ns3:L300_S1_Nakane_1999,
+                    ns1:NDA3ODQ1LjYzODk2NDMzMjY_assertion ] .
+}
+

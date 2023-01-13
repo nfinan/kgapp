@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.nanopub.org/nschema#> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:rGkjn8PqQZWoEGcfvd2b9i> a ns1:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/nmr/xml/L171_S7_Rittigstein_2006?format=xml> ;
+        ns1:hasAssertion <urn:rGkjn8PqQZWoEGcfvd2b9i_assertion> ;
+        ns1:hasProvenance <urn:rGkjn8PqQZWoEGcfvd2b9i_provenance> ;
+        ns1:hasPublicationInfo <urn:rGkjn8PqQZWoEGcfvd2b9i_pubinfo> .
+
+    <urn:rGkjn8PqQZWoEGcfvd2b9i_assertion> a ns1:Assertion .
+
+    <urn:rGkjn8PqQZWoEGcfvd2b9i_provenance> a ns1:Provenance .
+
+    <urn:rGkjn8PqQZWoEGcfvd2b9i_pubinfo> a ns1:PublicationInfo .
+}
+
+<urn:rGkjn8PqQZWoEGcfvd2b9i_assertion> {
+    <http://nanomine.org/nmr/dataset/171> a ns3:Dataset ;
+        ns3:distribution <http://nanomine.org/nmr/xml/L171_S7_Rittigstein_2006> .
+
+    <http://nanomine.org/nmr/xml/L171_S7_Rittigstein_2006?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns3:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns5:hasContentType "text/xml" ;
+        ns4:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns4:contributor <http://nanomine.org/user/9999999999> ;
+        ns4:created "2021-07-22T11:42:26.111000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "e2f3da94-eae1-11eb-9f8d-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns4:FileFormat .
+}
+
+<urn:rGkjn8PqQZWoEGcfvd2b9i_pubinfo> {
+    <urn:rGkjn8PqQZWoEGcfvd2b9i_assertion> ns4:contributor <http://nanomine.org/user/9999999999> ;
+        ns4:created "2021-07-22T11:42:26.112000+00:00"^^xsd:dateTime .
+}
+

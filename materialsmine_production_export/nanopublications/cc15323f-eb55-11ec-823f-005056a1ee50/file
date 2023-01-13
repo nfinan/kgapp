@@ -1,0 +1,72 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ejsro2jzh5_pubinfo {
+    ns1:ejsro2jzh5_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-29T20:18:42.667000+00:00"^^xsd:dateTime .
+}
+
+ns1:ejsro2jzh5_assertion {
+    <http://nanomine.org/viz/d7895c41d76aaf56> a ns4:Chart ;
+        ns2:description "The term \"big data\" evokes images of large tables with thousands or millions of entries. In most cases, each entry has only a few attributes or features. The notion of \"broad data\" considers data points with many attributes. Although the quantity of entries is often smaller than when dealing with big data, each entry is typically more well-described. This plot attempts to convey the variety of attributes which may be linked to a given sample in MaterialsMine. Here, points in the scatter plot are sized based on the number of distinct attributes linked to the sample. Hover over a sample to highlight all others from the same research article (colored by Matrix material) and view a tooltip with additional sample information including the list of curated attributes." ;
+        ns2:title "Big Data vs. Broad Data" ;
+        ns5:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT ?doi ?sample ?Filler ?VolFrac ?Tg (COUNT(DISTINCT ?Attribute) AS ?AttrCount) 
+  (GROUP_CONCAT(DISTINCT ?Matrix; SEPARATOR="; ") AS ?Matrix)
+  (GROUP_CONCAT(DISTINCT ?Attribute; SEPARATOR="; ") AS ?AttrList) 
+WHERE {
+  {
+    SELECT DISTINCT ?doi ?sample ?Matrix ?Filler ?VolFrac ?Tg ?Attribute WHERE {
+      ?doi a dct:BibliographicResource ;
+           sio:hasPart ?sample .
+      ?sample a mm:PolymerNanocomposite ;
+              sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ; a [ rdfs:label ?Matrix ] ] ,
+                                   [ sio:hasRole [ a mm:Filler ] ; a [ rdfs:label ?Filler ] ; 
+                                     sio:hasAttribute [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] ] ;
+              sio:hasAttribute [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg ; sio:hasUnit om-2:degreeCelsius ], [ a ?OtherAttrType ; sio:hasValue ?v2 ] .
+      FILTER(REGEX(STR(?OtherAttrType), "materialsmine"))
+      BIND(REPLACE(STR(?OtherAttrType), "http://materialsmine.org/ns/", "") AS ?Attribute)
+    } ORDER BY ?sample ?Attribute
+  }
+} GROUPBY ?doi ?sample ?Filler ?VolFrac ?Tg ORDER BY DESC (?AttrCount)""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":500,\"height\":300,\"transform\":[{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"},{\"calculate\":\"replace(datum.sample, /^.*org.sample./, '')\",\"as\":\"Sample ID\"}],\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"DOI\"],\"init\":{\"DOI\":\"10.1002/pola.21650\"}}},\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Filler Amt. (vol.%)\",\"axis\":{\"format\":\"p\",\"labelFlush\":false}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"size\":{\"field\":\"AttrCount\",\"type\":\"quantitative\",\"scale\":{\"domain\":[1,10],\"range\":[20,500]},\"legend\":null},\"color\":{\"condition\":{\"selection\":\"hover\",\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"value\":\"#888\"},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"AttrList\",\"type\":\"nominal\",\"title\":\"Attributes\"}]},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns7:depiction <http://nanomine.org/viz/d7895c41d76aaf56_depiction> .
+
+    <http://nanomine.org/viz/d7895c41d76aaf56_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-29T20:18:42.667000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "8482d934-68e4-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:ejsro2jzh5 a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/d7895c41d76aaf56_depiction> ;
+        ns8:hasAssertion ns1:ejsro2jzh5_assertion ;
+        ns8:hasProvenance ns1:ejsro2jzh5_provenance ;
+        ns8:hasPublicationInfo ns1:ejsro2jzh5_pubinfo .
+
+    ns1:ejsro2jzh5_assertion a ns8:Assertion .
+
+    ns1:ejsro2jzh5_provenance a ns8:Provenance .
+
+    ns1:ejsro2jzh5_pubinfo a ns8:PublicationInfo .
+}
+

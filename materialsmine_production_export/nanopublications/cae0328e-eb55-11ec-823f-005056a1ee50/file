@@ -1,0 +1,70 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:adwrp8eoyh a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/e420980952a5c05a_depiction> ;
+        ns2:hasAssertion ns1:adwrp8eoyh_assertion ;
+        ns2:hasProvenance ns1:adwrp8eoyh_provenance ;
+        ns2:hasPublicationInfo ns1:adwrp8eoyh_pubinfo .
+
+    ns1:adwrp8eoyh_assertion a ns2:Assertion .
+
+    ns1:adwrp8eoyh_provenance a ns2:Provenance .
+
+    ns1:adwrp8eoyh_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:adwrp8eoyh_assertion {
+    <http://nanomine.org/viz/e420980952a5c05a> a ns3:Chart ;
+        ns4:description "Materials properties are often impacted by the microstructural arrangement of the material, in addition to the composition. When depictions of nanocomposite samples are stored as PNG images in the knowledge graph, we can access them interactively inside Vega-Lite charts using the image mark. Hover over a point in the plot to the right to display a thumbnail image of the microstructure in the area to the left. Use the mouse to zoom within the scatter plot. These data were curated from Natarajan et al., 2013 (DOI: 10.1021/ma302281b)." ;
+        ns4:title "Visualizing Structure-Property Relationships" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?doi sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:isRepresentedBy ?image ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg ; sio:hasUnit ?unit ] .
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ; sio:hasRole [ a mm:Matrix ] ] .
+  ?image a sio:Image ; 
+         foaf:depiction ?thumbnail .
+  OPTIONAL {
+    ?sample sio:hasComponentPart/sio:isSurroundedBy [ rdfs:label ?SurfaceTreatment ]
+  }
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; sio:hasRole [ a mm:Filler ] ; sio:hasAttribute [ a mm:MassFraction ; sio:hasValue ?MassFraction ] ] .
+  }
+
+} VALUES ?doi { <http://dx.doi.org/10.1021/ma302281b> }""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace()\",\"as\":\"randX\"},{\"calculate\":\"random()\",\"as\":\"randY\"},{\"calculate\":\"replace(datum.sample,'http://materialsmine.org/sample/','')\",\"as\":\"sample ID\"}],\"hconcat\":[{\"transform\":[{\"filter\":{\"selection\":\"highlight\"}}],\"height\":300,\"width\":400,\"mark\":\"image\",\"encoding\":{\"url\":{\"field\":\"thumbnail\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"y\"]}},\"height\":270,\"width\":100,\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"axis\":{\"format\":\"p\",\"labelFlush\":false},\"title\":\"Filler Composition (wt%)\",\"scale\":{\"padding\":5}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"shape\":{\"field\":\"SurfaceTreatment\",\"type\":\"nominal\"},\"size\":{\"condition\":{\"selection\":\"highlight\",\"value\":100},\"value\":30},\"tooltip\":[{\"field\":\"sample ID\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"SurfaceTreatment\",\"type\":\"nominal\"},{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\"}]}}]}" ;
+        ns6:depiction <http://nanomine.org/viz/e420980952a5c05a_depiction> .
+
+    <http://nanomine.org/viz/e420980952a5c05a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-05T16:26:38.719000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "0414781c-25f9-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:adwrp8eoyh_pubinfo {
+    ns1:adwrp8eoyh_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-05T16:26:38.720000+00:00"^^xsd:dateTime .
+}
+

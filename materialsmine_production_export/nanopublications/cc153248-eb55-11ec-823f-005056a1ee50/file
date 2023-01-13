@@ -1,0 +1,70 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:fzo52jcbb7_assertion {
+    <http://nanomine.org/viz/52f9656e62586dc9> a ns7:Chart ;
+        ns2:description "Dielectric permittivity as a function of frequency and filler loading. Click and drag in the bottom right chart to select a frequency range and filter the data in the scatter plots. These data in the NanoMine knowledge graph were curated from Fig. 6 of He et al. (2009, Adv. Mater., DOI: 10.1002/adma.200801758), which performed dielectric spectroscopy on samples of poly(vinylidene fluoride) with graphite nanoplates (GnP) as a filler." ;
+        ns2:title "Interactive Dielectric Spectra" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX om2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1002/adma.200801758> sio:hasPart ?sample .
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:DielectricPermittivity ;
+                             sio:hasValue ?DielPermValue; 
+                             sio:inRelationTo [ a nm:Frequency ;
+                                                sio:hasValue ?FreqValue ;
+                                                sio:hasUnit om2:hertz ] ] ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 a [ rdfs:label ?Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                 sio:hasValue ?VolumeFraction ] ] ,
+                               [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] ]   .
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"height\":495,\"width\":495,\"encoding\":{\"x\":{\"field\":\"FreqValue\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Frequency (Hz)\",\"titleFontSize\":18,\"labelFontSize\":14,\"format\":\"e\"}},\"y\":{\"field\":\"DielPermValue\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Dielectric Permittivity\",\"titleFontSize\":18,\"labelFontSize\":14,\"format\":\"e\"}}},\"layer\":[{\"mark\":{\"type\":\"line\",\"strokeWidth\":3,\"color\":\"#ddd\",\"opacity\":0.7},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"}}},{\"mark\":{\"type\":\"line\",\"strokeWidth\":4},\"transform\":[{\"filter\":{\"selection\":\"freqselect\"}}],\"encoding\":{\"color\":{\"field\":\"sample\",\"type\":\"nominal\",\"legend\":null}}}]},{\"vconcat\":[{\"width\":305,\"height\":305,\"transform\":[{\"filter\":{\"selection\":\"freqselect\"}}],\"layer\":[{\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true,\"size\":100,\"opacity\":0.2},\"selection\":{\"zoom\":{\"type\":\"interval\",\"encodings\":[\"y\"],\"bind\":\"scales\"}},\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"scale\":{\"type\":\"linear\"},\"axis\":{\"title\":\"Filler Loading (vol %)\",\"titleFontSize\":16,\"labelFontSize\":12,\"format\":\"p\"}},\"y\":{\"field\":\"DielPermValue\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Dielectric Permittivity\",\"titleFontSize\":16,\"labelFontSize\":12,\"format\":\"e\"}},\"color\":{\"field\":\"sample\",\"type\":\"nominal\"}}},{\"mark\":{\"type\":\"text\"}}]},{\"width\":305,\"height\":130,\"encoding\":{\"x\":{\"field\":\"FreqValue\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Frequency (Hz)\",\"titleFontSize\":16,\"labelFontSize\":12,\"format\":\"e\"}}},\"layer\":[{\"title\":{\"text\":[\"(Click-and-drag here to\",\"select frequency range)\"],\"dy\":85,\"fontSize\":14,\"fontWeight\":\"normal\"},\"mark\":{\"type\":\"tick\",\"size\":50,\"opacity\":0.2,\"color\":\"#ddd\"}},{\"mark\":{\"type\":\"tick\",\"size\":50},\"selection\":{\"freqselect\":{\"type\":\"interval\",\"encodings\":[\"x\"]}},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"freqselect\",\"value\":0.1},\"value\":0}}}]}]}]}" ;
+        ns6:depiction <http://nanomine.org/viz/52f9656e62586dc9_depiction> .
+
+    <http://nanomine.org/viz/52f9656e62586dc9_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T16:59:08.785000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "48cc9776-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:fzo52jcbb7 a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/52f9656e62586dc9_depiction> ;
+        ns8:hasAssertion ns1:fzo52jcbb7_assertion ;
+        ns8:hasProvenance ns1:fzo52jcbb7_provenance ;
+        ns8:hasPublicationInfo ns1:fzo52jcbb7_pubinfo .
+
+    ns1:fzo52jcbb7_assertion a ns8:Assertion .
+
+    ns1:fzo52jcbb7_provenance a ns8:Provenance .
+
+    ns1:fzo52jcbb7_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:fzo52jcbb7_pubinfo {
+    ns1:fzo52jcbb7_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T16:59:08.786000+00:00"^^xsd:dateTime .
+}
+

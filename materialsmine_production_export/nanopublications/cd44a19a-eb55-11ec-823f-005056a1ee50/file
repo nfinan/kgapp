@@ -1,0 +1,62 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:o8yqjz6us3_pubinfo {
+    ns1:o8yqjz6us3_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:18:01.968000+00:00"^^xsd:dateTime .
+}
+
+ns1:o8yqjz6us3_assertion {
+    <http://nanomine.org/viz/e206ba8e5dc82cee> a ns5:Chart ;
+        ns2:description "As datasets become dense, point marks tend to overlap and occlude one another, making the data difficult to discern. Click-drag in the scatter plot on the left to define a brush selection that filters the plots on the right. In the upper left scatter plot, hover over points to isolate them and display a tooltip, or use the mouse to pan/zoom. The tree marks are defined by a custom SVG path." ;
+        ns2:title "Forest for the Trees" ;
+        ns6:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ; a [ rdfs:label ?Matrix] ] ,
+                               [ sio:hasRole [ a nm:Filler ] ; a [ rdfs:label ?Filler] ; 
+                                 sio:hasAttribute [ a nm:MassFraction ; sio:hasValue ?MassFraction] 
+                               ] ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ; sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ]
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"sampleID\"}],\"hconcat\":[{\"height\":450,\"width\":450,\"selection\":{\"brush\":{\"type\":\"interval\"}},\"mark\":{\"type\":\"point\",\"stroke\":null,\"clip\":true,\"filled\":true,\"xOffset\":-50,\"yOffset\":-50},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"scale\":{\"domain\":[-0.1,1.1]},\"title\":\"Mass Fraction\"},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"domain\":[-100,500]},\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"scheme\":{\"name\":\"greens\",\"extent\":[1,0.4]}},\"legend\":null},\"size\":{\"value\":4},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0.05},\"shape\":{\"value\":\"m 50 10 l 10 20 h -5 l 10 20 h -5 l 10 20 h -15 v 15 h -10 v -15 h -15 l 10 -20 h -5 l 10 -20 h -5 l 10 -20\"}}},{\"vconcat\":[{\"height\":230,\"width\":250,\"transform\":[{\"filter\":{\"selection\":\"brush\"}}],\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"},\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"all\"}},\"mark\":{\"type\":\"point\",\"clip\":true,\"filled\":true,\"color\":\"green\",\"size\":50},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10,\"type\":\"log\"},\"title\":\"Mass Fraction\"},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Tg (C)\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.4},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":null},\"tooltip\":[{\"field\":\"sampleID\",\"type\":\"nominal\",\"title\":\"Sample ID\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"title\":\"Mass Fraction\"},{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"}]}},{\"height\":150,\"width\":250,\"transform\":[{\"filter\":{\"selection\":\"brush\"}},{\"density\":\"MassFraction\",\"extent\":[0,1]}],\"mark\":{\"type\":\"area\",\"color\":\"green\"},\"encoding\":{\"x\":{\"field\":\"value\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"title\":\"Mass Fraction\"},\"y\":{\"field\":\"density\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"title\":\"Kernel Density\"}}}]}],\"config\":{\"axis\":{\"titleFontSize\":18,\"labelFontSize\":14,\"labelBound\":true}}}" ;
+        ns4:depiction <http://nanomine.org/viz/e206ba8e5dc82cee_depiction> .
+
+    <http://nanomine.org/viz/e206ba8e5dc82cee_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:18:01.967000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "ec3a386c-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:o8yqjz6us3 a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/e206ba8e5dc82cee_depiction> ;
+        ns8:hasAssertion ns1:o8yqjz6us3_assertion ;
+        ns8:hasProvenance ns1:o8yqjz6us3_provenance ;
+        ns8:hasPublicationInfo ns1:o8yqjz6us3_pubinfo .
+
+    ns1:o8yqjz6us3_assertion a ns8:Assertion .
+
+    ns1:o8yqjz6us3_provenance a ns8:Provenance .
+
+    ns1:o8yqjz6us3_pubinfo a ns8:PublicationInfo .
+}
+

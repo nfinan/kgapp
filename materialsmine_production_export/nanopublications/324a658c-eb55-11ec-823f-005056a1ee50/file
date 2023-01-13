@@ -1,0 +1,52 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:40iyxsis60_assertion {
+    <http://nanomine.org/viz/ff4739287ab638ad> a ns7:Chart ;
+        ns3:description "Class are special types of URIs that specify categories that resources in a knowledge graph can be classified into. When encountering a new knowledge graph, it may be useful to look at the number of instances of a given class. An assertion that an instance is a member of a class takes the form of ?instance rdf:type ?Class (or \"a\" instead of \"rdf:type\" if writing shorthand TTL syntax). This Vega-Lite chart shows the classes in the MaterialsMine knowledge graph, ranked by the count of instances of the particular class. Hover over a bar to view a tooltip with the URI of the Class and its count." ;
+        ns3:title "Classes to Know..." ;
+        ns2:query """SELECT ?Class (COUNT(?Class) AS ?Count) WHERE {
+  ?sub a ?Class .
+} GROUP BY ?Class ORDER BY DESC (?Count)""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"Rank\"}]},{\"calculate\":\"datum.Rank < 10 ? datum.Rank : '>10'\",\"as\":\"Rank\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Rank\",\"type\":\"ordinal\",\"axis\":{\"labelAngle\":0}},\"y\":{\"field\":\"Count\",\"type\":\"quantitative\",\"axis\":{\"format\":\"s\"}},\"color\":{\"field\":\"Class\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"set1\"}},\"order\":{\"field\":\"Count\",\"type\":\"quantitative\",\"sort\":\"descending\"},\"tooltip\":[{\"field\":\"Class\",\"type\":\"nominal\"},{\"field\":\"Count\",\"type\":\"quantitative\"}]}}" ;
+        ns5:depiction <http://nanomine.org/viz/ff4739287ab638ad_depiction> .
+
+    <http://nanomine.org/viz/ff4739287ab638ad_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-30T21:53:59.174000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "fe384990-69ba-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:40iyxsis60_pubinfo {
+    ns1:40iyxsis60_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-30T21:53:59.174000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:40iyxsis60 a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/ff4739287ab638ad_depiction> ;
+        ns8:hasAssertion ns1:40iyxsis60_assertion ;
+        ns8:hasProvenance ns1:40iyxsis60_provenance ;
+        ns8:hasPublicationInfo ns1:40iyxsis60_pubinfo .
+
+    ns1:40iyxsis60_assertion a ns8:Assertion .
+
+    ns1:40iyxsis60_provenance a ns8:Provenance .
+
+    ns1:40iyxsis60_pubinfo a ns8:PublicationInfo .
+}
+

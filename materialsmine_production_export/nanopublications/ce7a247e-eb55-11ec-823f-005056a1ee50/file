@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:rhbamtf51m_assertion {
+    <http://nanomine.org/viz/6b35d2a1aff9456a> a ns2:Chart ;
+        ns5:description "Getting its name from an 1979 album cover by rock band Joy Division, a \"Joy Plot\" (also known as a \"Ridgeline Plot\") shows multiple data series aligned along the horizontal axis and offset with slight overlap along the vertical axis. This interactive Vega-Lite version of a joy plot with MaterialsMine data displays representative Tan Delta versus Temperature curves from dynamic mechanical analysis (DMA) experiments. Hover over a data series to display the reported glass transition temperature, Tg, and standard deviation (solid line and colored band) as well as the computed Tg of the representative curve (dashed line) based on the peak position of Tan Delta. Data were curated from Ramanathan et al. (2012, doi: 10.1002/polb.23037)." ;
+        ns5:title "Joy Plot with Dynamic Mechanical Analysis Data" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          rdfs:label ?sample_label ;
+          sio:hasAttribute [ a mm:TanDelta ; sio:hasValue ?TanDelta ;
+                             sio:inRelationTo [ a mm:Temperature ; sio:hasValue ?T_C ; sio:hasUnit om-2:degreeCelsius ] ] ,
+                           [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg_recorded ; sio:hasUnit om-2:degreeCelsius ;
+                             sio:hasAttribute [ a sio:StandardDeviation ; sio:hasValue ?Tg_SD ] ] .
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a mm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a mm:Filler ] ;
+                                   sio:hasAttribute [ a mm:VolumeFraction ;
+                                                      sio:hasValue ?VolFrac ] ] .
+  }
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+  VALUES ?doi { <http://dx.doi.org/10.1002/polb.21187> }
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"},{\"calculate\":\"replace(datum.sample_label, /^.in/,'neat')\",\"as\":\"sample_label2\"},{\"joinaggregate\":[{\"op\":\"argmax\",\"field\":\"TanDelta\",\"as\":\"TDpeak\"}],\"groupby\":[\"sample\"]},{\"joinaggregate\":[{\"op\":\"min\",\"field\":\"TanDelta\",\"as\":\"TDmin\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.TDpeak['T_C']\",\"as\":\"Tg_computed\"},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"Tg_computed\",\"order\":\"ascending\"}]},{\"calculate\":\"datum.rank / 1.5 - 0.5\",\"as\":\"TD_offset\"},{\"calculate\":\"datum.TanDelta + datum.TD_offset\",\"as\":\"TD_plot\"},{\"calculate\":\"datum.TDmin + datum.TD_offset\",\"as\":\"TD_plot_min\"}],\"layer\":[{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"sample\"]},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]}},\"width\":500,\"height\":300,\"mark\":{\"type\":\"area\",\"stroke\":\"black\",\"fillOpacity\":0.6},\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":5},\"title\":\"Temperature (Celsius)\"},\"y\":{\"field\":\"TD_plot_min\",\"type\":\"quantitative\",\"title\":\"Tan Delta (offset)\",\"scale\":{\"nice\":false,\"padding\":5},\"axis\":{\"labels\":false,\"ticks\":false}},\"y2\":{\"field\":\"TD_plot\"},\"color\":{\"field\":\"sample_label2\",\"type\":\"nominal\",\"title\":\"Sample Composition\",\"legend\":{\"orient\":\"none\",\"legendX\":5,\"legendY\":5,\"fillColor\":\"rgb(255,255,255,0.9)\",\"strokeColor\":\"black\",\"padding\":10,\"labelLimit\":250}},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"sample_label2\",\"type\":\"nominal\",\"title\":\"Composition\"},{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"title\":\"Filler vol.%\",\"format\":\".2p\"},{\"field\":\"Tg_recorded\",\"type\":\"quantitative\",\"title\":\"Tg, C (recorded)\",\"format\":\".4r\"},{\"field\":\"Tg_SD\",\"type\":\"quantitative\",\"title\":\"Std. Dev. (recorded)\",\"format\":\".4r\"},{\"field\":\"Tg_computed\",\"type\":\"quantitative\",\"title\":\"Tg, C (computed)\",\"format\":\".4r\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"hover\"}},{\"calculate\":\"datum.Tg_recorded - datum.Tg_SD\",\"as\":\"Tg_lowerbound\"},{\"calculate\":\"datum.Tg_recorded + datum.Tg_SD\",\"as\":\"Tg_upperbound\"}],\"layer\":[{\"transform\":[{\"filter\":\"(datum.T_C > datum.Tg_lowerbound) && (datum.T_C < datum.Tg_upperbound)\"}],\"mark\":{\"type\":\"area\",\"fillOpacity\":0.5},\"encoding\":{\"x\":{\"field\":\"T_C\",\"type\":\"quantitative\"},\"color\":{\"field\":\"sample_label2\",\"type\":\"nominal\"}}},{\"transform\":[{\"calculate\":\"abs(datum.T_C - datum.Tg_recorded)\",\"as\":\"T_diff\"},{\"window\":[{\"op\":\"rank\",\"as\":\"T_nearest\"}],\"sort\":[{\"field\":\"T_diff\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"filter\":\"datum.T_nearest == 1\"}],\"mark\":{\"type\":\"rule\",\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"Tg_recorded\",\"type\":\"quantitative\"}}},{\"transform\":[{\"calculate\":\"abs(datum.T_C - datum.Tg_recorded)\",\"as\":\"T_diff\"},{\"window\":[{\"op\":\"rank\",\"as\":\"T_nearest\"}],\"sort\":[{\"field\":\"T_diff\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"filter\":\"datum.T_nearest == 1\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"Tg_recorded\",\"type\":\"quantitative\"},\"color\":{\"field\":\"sample_label2\",\"type\":\"nominal\"}}},{\"transform\":[{\"filter\":\"datum.TanDelta == datum.TDpeak['TanDelta']\"}],\"mark\":{\"type\":\"rule\",\"color\":\"black\",\"strokeDash\":[6,6]},\"encoding\":{\"x\":{\"field\":\"Tg_computed\",\"type\":\"quantitative\"}}},{\"transform\":[{\"filter\":\"datum.TanDelta == datum.TDpeak['TanDelta']\"}],\"mark\":{\"type\":\"point\",\"stroke\":\"black\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"Tg_computed\",\"type\":\"quantitative\"},\"color\":{\"field\":\"sample_label2\",\"type\":\"nominal\"}}}],\"encoding\":{\"y\":{\"field\":\"TD_plot\",\"type\":\"quantitative\"}}}],\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":14}}}" ;
+        ns4:depiction <http://nanomine.org/viz/6b35d2a1aff9456a_depiction> .
+
+    <http://nanomine.org/viz/6b35d2a1aff9456a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-11-19T22:55:54.252000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "d9a6d492-498b-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+{
+    ns1:rhbamtf51m a ns8:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/6b35d2a1aff9456a_depiction> ;
+        ns8:hasAssertion ns1:rhbamtf51m_assertion ;
+        ns8:hasProvenance ns1:rhbamtf51m_provenance ;
+        ns8:hasPublicationInfo ns1:rhbamtf51m_pubinfo .
+
+    ns1:rhbamtf51m_assertion a ns8:Assertion .
+
+    ns1:rhbamtf51m_provenance a ns8:Provenance .
+
+    ns1:rhbamtf51m_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:rhbamtf51m_pubinfo {
+    ns1:rhbamtf51m_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-11-19T22:55:54.252000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,73 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:bnxwe9u6la_assertion {
+    <http://nanomine.org/viz/b02ca3de3b9012ff> a ns5:Chart ;
+        ns2:description "These randomly positioned points represent various terms from the NanoMine ontology. The size of each point corresponds to the number of subclasses associated with it. Hover over a point to view a tooltip with the term, its definition, and other information. Ctrl-click on a point to explore a term further by visiting its URL in a new tab." ;
+        ns2:title "Terms and Definitions in the NanoMine Ontology" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+SELECT ?term ?definition ?SuperClass ?Source 
+  (GROUP_CONCAT(DISTINCT ?TermLabel; SEPARATOR='; ') AS ?Label)
+  (COUNT(DISTINCT ?SubClass) AS ?NumSubClasses) 
+WHERE {
+  ?term skos:definition ?definition ; 
+        rdfs:label ?TermLabel .
+  OPTIONAL {
+    ?term rdfs:subClassOf ?SuperClass 
+    FILTER(REGEX(STR(?SuperClass),"http"))
+  }
+  OPTIONAL {
+    ?term prov:wasQuotedFrom ?Source
+  }
+  OPTIONAL {
+    ?SubClass rdfs:subClassOf ?term
+    FILTER(REGEX(STR(?SubClass),"http"))
+  }
+} 
+GROUP BY ?term ?definition ?SuperClass ?Source
+ORDER BY DESC (?NumSubClasses)""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":600,\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"transform\":[{\"calculate\":\"random()\",\"as\":\"rand_x\"},{\"calculate\":\"random()\",\"as\":\"rand_y\"},{\"calculate\":\"random() * 360\",\"as\":\"rand_angle\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"shape\":\"triangle\",\"opacity\":0.5},\"encoding\":{\"x\":{\"field\":\"rand_x\",\"type\":\"quantitative\",\"axis\":null},\"y\":{\"field\":\"rand_y\",\"type\":\"quantitative\",\"axis\":null},\"angle\":{\"field\":\"rand_angle\",\"type\":\"quantitative\"},\"color\":{\"field\":\"SuperClass\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20c\"}},\"size\":{\"field\":\"NumSubClasses\",\"type\":\"quantitative\",\"legend\":null,\"scale\":{\"range\":[200,10000]}},\"href\":{\"field\":\"term\",\"type\":\"nominal\"},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Label\",\"type\":\"nominal\",\"title\":\"Term\"},{\"field\":\"definition\",\"type\":\"nominal\",\"title\":\"Definition\"},{\"field\":\"Source\",\"type\":\"nominal\",\"title\":\"Quoted from\"},{\"field\":\"NumSubClasses\",\"type\":\"quantitative\",\"title\":\"# Subclasses\"},{\"field\":\"SuperClass\",\"type\":\"nominal\",\"title\":\"Superclass\"}]},\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns4:depiction <http://nanomine.org/viz/b02ca3de3b9012ff_depiction> .
+
+    <http://nanomine.org/viz/b02ca3de3b9012ff_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:36:03.900000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "711c32a4-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:bnxwe9u6la_pubinfo {
+    ns1:bnxwe9u6la_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:36:03.902000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:bnxwe9u6la a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/b02ca3de3b9012ff_depiction> ;
+        ns8:hasAssertion ns1:bnxwe9u6la_assertion ;
+        ns8:hasProvenance ns1:bnxwe9u6la_provenance ;
+        ns8:hasPublicationInfo ns1:bnxwe9u6la_pubinfo .
+
+    ns1:bnxwe9u6la_assertion a ns8:Assertion .
+
+    ns1:bnxwe9u6la_provenance a ns8:Provenance .
+
+    ns1:bnxwe9u6la_pubinfo a ns8:PublicationInfo .
+}
+

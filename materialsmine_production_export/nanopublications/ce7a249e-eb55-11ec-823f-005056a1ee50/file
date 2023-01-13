@@ -1,0 +1,69 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:xcimv3ljtn a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/6e09cb764c0351e5_depiction> ;
+        ns2:hasAssertion ns1:xcimv3ljtn_assertion ;
+        ns2:hasProvenance ns1:xcimv3ljtn_provenance ;
+        ns2:hasPublicationInfo ns1:xcimv3ljtn_pubinfo .
+
+    ns1:xcimv3ljtn_assertion a ns2:Assertion .
+
+    ns1:xcimv3ljtn_provenance a ns2:Provenance .
+
+    ns1:xcimv3ljtn_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:xcimv3ljtn_pubinfo {
+    ns1:xcimv3ljtn_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-15T16:59:50.645000+00:00"^^xsd:dateTime .
+}
+
+ns1:xcimv3ljtn_assertion {
+    <http://nanomine.org/viz/6e09cb764c0351e5> a ns3:Chart ;
+        ns4:description "Vega offers a variety of continuous and discrete color schemes (https://vega.github.io/vega/docs/schemes/), but did you know that you can specify an array of color values that get interpolated to form a continuous custom scale? This chart was inspired by XKCD's \"Painbow Award\" comic (https://xkcd.com/2537/). A heatmap shows the count of samples in the knowledge graph that fall within a particular range by employing the artfully bad color scheme." ;
+        ns4:title "Specifying Custom Color Scheme to Mimic XKCD's Painbow" ;
+        ns8:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ;
+          sio:hasComponentPart ?matrix_comp , ?filler_comp .
+  ?matrix_comp sio:hasRole [ a mm:Matrix ] ;
+                             a [ rdfs:label ?Matrix ] .
+  ?filler_comp sio:hasRole [ a mm:Filler ] ;
+                             a [ rdfs:label ?Filler ] ;
+               sio:hasAttribute [ a mm:VolumeFraction ; 
+                                  sio:hasValue ?VolFrac ] .
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]}},\"width\":500,\"height\":300,\"mark\":{\"type\":\"rect\",\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":50,\"extent\":{\"selection\":\"zoom\"}},\"title\":\"Filler Loading (vol.%)\",\"axis\":{\"format\":\"p\",\"labelFlush\":false}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":25},\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"aggregate\":\"count\",\"scale\":{\"range\":[\"#ffffff\",\"#b3b5c6\",\"#555562\",\"#000000\",\"#232f5d\",\"#5f738a\",\"#177941\",\"#fd0003\",\"#f20b01\",\"#d02101\",\"#9e4102\",\"#6a6403\",\"#3c860a\",\"#1da510\",\"#0ebe1b\",\"#3cd830\",\"#89e84b\",\"#c4f26a\",\"#e1f2a6\",\"#e6e7df\"]}}},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":14}}}" ;
+        ns7:depiction <http://nanomine.org/viz/6e09cb764c0351e5_depiction> .
+
+    <http://nanomine.org/viz/6e09cb764c0351e5_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-15T16:59:50.644000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "724ba66e-4635-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

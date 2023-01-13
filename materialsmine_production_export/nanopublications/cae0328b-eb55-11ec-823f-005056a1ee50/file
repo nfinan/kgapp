@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:a03zmrlo86 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/3df41d6d2fb71489_depiction> ;
+        ns2:hasAssertion ns1:a03zmrlo86_assertion ;
+        ns2:hasProvenance ns1:a03zmrlo86_provenance ;
+        ns2:hasPublicationInfo ns1:a03zmrlo86_pubinfo .
+
+    ns1:a03zmrlo86_assertion a ns2:Assertion .
+
+    ns1:a03zmrlo86_provenance a ns2:Provenance .
+
+    ns1:a03zmrlo86_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:a03zmrlo86_pubinfo {
+    ns1:a03zmrlo86_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-12T21:08:00.525000+00:00"^^xsd:dateTime .
+}
+
+ns1:a03zmrlo86_assertion {
+    <http://nanomine.org/viz/3df41d6d2fb71489> a ns3:Chart ;
+        ns4:description "Several types of resources in the knowledge graph have text semantically linked to them, such as through dct:description or skos:definition predicates. This chart shows the counts of these types of resources and the predicates linking them to the text strings. The log-log plot on the right shows the number of occurrences and rank order of word tokens within these bodies of text. Click a bar (or shift-click for multiple) to filter the text analyzed in the log-log plot. A red line corresponds to the Zipf's empirical law. Use the mouse to zoom inside the scatter plot, and hover over points to view tooltips." ;
+        ns4:title "Analysis of Text Snippets in the Knowledge Graph" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT * WHERE {
+  ?resource a ?Class ;
+            ?predicate ?Text .
+  VALUES ( ?Class ?predicate ) {
+    ( sio:Chart dct:description )
+    ( owl:Class skos:definition )
+    ( dct:BibliographicResource dct:title )
+    ( sio:Chart dct:title )
+    ( sio:Procedure dct:description )
+  }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.Class, /^.*science.org.resource./,'sio:')\",\"as\":\"Class0\"},{\"calculate\":\"replace(datum.Class0, /^.*purl.org.dc.terms./,'dct:')\",\"as\":\"Class1\"},{\"calculate\":\"replace(datum.Class1, /^.*org.2002.07.owl./,'owl:')\",\"as\":\"Class_CURIE\"},{\"calculate\":\"replace(datum.predicate, /^.*org.2004.02.skos.core./,'skos:')\",\"as\":\"Pred0\"},{\"calculate\":\"replace(datum.Pred0, /^.*purl.org.dc.terms./,'dct:')\",\"as\":\"Pred1\"},{\"calculate\":\"replace(datum.Pred1, /^.*org.2002.07.owl./,'owl:')\",\"as\":\"Predicate_CURIE\"}],\"hconcat\":[{\"selection\":{\"select\":{\"type\":\"multi\",\"fields\":[\"Class_CURIE\",\"Predicate_CURIE\"]}},\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Class_CURIE\",\"type\":\"nominal\",\"title\":null},\"y\":{\"aggregate\":\"count\"},\"color\":{\"field\":\"Predicate_CURIE\",\"type\":\"nominal\",\"title\":\"predicate\"},\"opacity\":{\"condition\":{\"selection\":\"select\",\"value\":1},\"value\":0.3}}},{\"transform\":[{\"filter\":{\"selection\":\"select\"}},{\"calculate\":\"split(datum.Text, ' ')\",\"as\":\"Text_Tokenized\"},{\"flatten\":[\"Text_Tokenized\"]},{\"calculate\":\"lower(datum.Text_Tokenized)\",\"as\":\"Word_Token_specialchars\"},{\"calculate\":\"replace(datum.Word_Token_specialchars, /^[^a-zA-Z]+|[^a-zA-Z]+$/g, '')\",\"as\":\"Word_Token\"},{\"filter\":\"length(datum.Word_Token) > 0\"},{\"aggregate\":[{\"op\":\"count\",\"as\":\"Word_count\"}],\"groupby\":[\"Word_Token\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"Word_count\",\"order\":\"descending\"}]},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"Word_count\",\"order\":\"descending\"}]}],\"layer\":[{\"transform\":[{\"regression\":\"Word_count\",\"on\":\"row_number\",\"method\":\"pow\"}],\"mark\":{\"type\":\"line\",\"color\":\"firebrick\"}},{\"selection\":{\"zoom1\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":\"point\",\"encoding\":{\"tooltip\":[{\"field\":\"Word_Token\",\"type\":\"nominal\",\"title\":\"Word\"},{\"field\":\"Word_count\",\"type\":\"quantitative\",\"title\":\"Count\"}]}}],\"encoding\":{\"x\":{\"field\":\"row_number\",\"type\":\"quantitative\",\"sort\":{\"order\":\"descending\",\"encoding\":\"y\"},\"title\":\"Rank Order\",\"scale\":{\"type\":\"log\",\"padding\":5,\"nice\":false}},\"y\":{\"field\":\"Word_count\",\"type\":\"quantitative\",\"title\":\"Count of Occurrences\",\"scale\":{\"type\":\"log\",\"padding\":5,\"nice\":false}}}}],\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12},\"legend\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns6:depiction <http://nanomine.org/viz/3df41d6d2fb71489_depiction> .
+
+    <http://nanomine.org/viz/3df41d6d2fb71489_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-12T21:08:00.524000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "7b4d93d0-2ba0-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

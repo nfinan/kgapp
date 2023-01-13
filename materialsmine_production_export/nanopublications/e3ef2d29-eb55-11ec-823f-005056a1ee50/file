@@ -1,0 +1,47 @@
+@prefix ns1: <http://semanticscience.org/resource/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:agorrjEs23DhMNhZZHNUR2> a ns2:Nanopublication ;
+        ns1:isAbout <http://nanomine.org/nmr/xml/L141_S13_Gao_2013?format=xml> ;
+        ns2:hasAssertion <urn:agorrjEs23DhMNhZZHNUR2_assertion> ;
+        ns2:hasProvenance <urn:agorrjEs23DhMNhZZHNUR2_provenance> ;
+        ns2:hasPublicationInfo <urn:agorrjEs23DhMNhZZHNUR2_pubinfo> .
+
+    <urn:agorrjEs23DhMNhZZHNUR2_assertion> a ns2:Assertion .
+
+    <urn:agorrjEs23DhMNhZZHNUR2_provenance> a ns2:Provenance .
+
+    <urn:agorrjEs23DhMNhZZHNUR2_pubinfo> a ns2:PublicationInfo .
+}
+
+<urn:agorrjEs23DhMNhZZHNUR2_assertion> {
+    <http://nanomine.org/nmr/dataset/141> a ns5:Dataset ;
+        ns5:distribution <http://nanomine.org/nmr/xml/L141_S13_Gao_2013> .
+
+    <http://nanomine.org/nmr/xml/L141_S13_Gao_2013?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns5:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns3:hasContentType "text/xml" ;
+        ns6:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns6:contributor <http://nanomine.org/user/9999999999> ;
+        ns6:created "2021-07-22T09:43:57.853000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "5619be50-ead1-11eb-9f8d-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns6:FileFormat .
+}
+
+<urn:agorrjEs23DhMNhZZHNUR2_pubinfo> {
+    <urn:agorrjEs23DhMNhZZHNUR2_assertion> ns6:contributor <http://nanomine.org/user/9999999999> ;
+        ns6:created "2021-07-22T09:43:57.853000+00:00"^^xsd:dateTime .
+}
+

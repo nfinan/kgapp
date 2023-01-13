@@ -1,0 +1,74 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:0g9l18c9x2_pubinfo {
+    ns1:0g9l18c9x2_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-02T20:53:33.855000+00:00"^^xsd:dateTime .
+}
+
+ns1:0g9l18c9x2_assertion {
+    <http://nanomine.org/viz/9316ed4a6947cebb> a ns6:Chart ;
+        ns2:description "Oftentimes, optimizing a material involves weighing among tradeoffs, such as mechanical stiffness versus ductility. This Vega-Lite chart shows one way to compare more than one property along the vertical axis using a layered plot with points connected by rule marks. One way to use this plot would be to define the quadrant or region of interest (e.g. high-strength, high-stiffness, high-ductility) and compare existing materials samples with the target. These data have been curated from Ye et al. (2006, DOI: 10.1002/pola.21650)." ;
+        ns2:title "Tradeoff Plot" ;
+        ns4:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:TensileModulus ; sio:hasValue ?TensMod_GPa ; sio:hasUnit om-2:gigapascal ] ,
+                           [ a mm:ElongationAtBreak ; sio:hasValue ?Elong_Pct ; sio:hasUnit om-2:percent ] ,
+                           [ a mm:TensileStressAtBreak ; sio:hasValue ?TensStrength_MPa ; sio:hasUnit om-2:megapascal ] .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a mm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a mm:Filler ] ;
+                                   sio:hasAttribute [ a mm:VolumeFraction ;
+                                                      sio:hasValue ?VolFrac ] ] .
+  }
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+  VALUES ?doi { <http://dx.doi.org/10.1002/pola.21650> }
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"layer\":[{\"height\":300,\"width\":300,\"mark\":{\"type\":\"rule\",\"color\":\"black\",\"strokeWidth\":2,\"strokeDash\":[6,6],\"opacity\":0.5},\"encoding\":{\"y\":{\"field\":\"TensMod_GPa\",\"type\":\"quantitative\",\"title\":[\"Tensile Modulus, GPa (red);\",\"Elongation at Break, % (blue)\"]},\"y2\":{\"field\":\"Elong_Pct\"}}},{\"mark\":{\"type\":\"point\",\"filled\":true,\"color\":\"firebrick\",\"size\":100},\"encoding\":{\"y\":{\"field\":\"TensMod_GPa\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":20}}}},{\"mark\":{\"type\":\"point\",\"filled\":true,\"color\":\"steelblue\",\"size\":100},\"encoding\":{\"y\":{\"field\":\"Elong_Pct\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":20}}}}],\"encoding\":{\"x\":{\"field\":\"TensStrength_MPa\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":20},\"axis\":{\"grid\":false},\"title\":\"Tensile Strength, MPa\"}},\"resolve\":{\"scale\":{\"y\":\"shared\"}},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns7:depiction <http://nanomine.org/viz/9316ed4a6947cebb_depiction> .
+
+    <http://nanomine.org/viz/9316ed4a6947cebb_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-02T20:53:33.855000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "e9cdb888-53b1-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:0g9l18c9x2 a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/9316ed4a6947cebb_depiction> ;
+        ns8:hasAssertion ns1:0g9l18c9x2_assertion ;
+        ns8:hasProvenance ns1:0g9l18c9x2_provenance ;
+        ns8:hasPublicationInfo ns1:0g9l18c9x2_pubinfo .
+
+    ns1:0g9l18c9x2_assertion a ns8:Assertion .
+
+    ns1:0g9l18c9x2_provenance a ns8:Provenance .
+
+    ns1:0g9l18c9x2_pubinfo a ns8:PublicationInfo .
+}
+

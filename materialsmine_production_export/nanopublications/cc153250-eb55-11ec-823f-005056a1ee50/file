@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:h9cy4gpt1d_assertion {
+    <http://nanomine.org/viz/f7a1ac825b90c15f> a ns7:Chart ;
+        ns3:description "Property groups and top 15 properties currently in the graph, by sample." ;
+        ns3:title "Property Summary" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT (MIN(?class) AS ?Property) (min (?superClass) as ?Group) (COUNT(distinct ?x) AS ?Samples)
+WHERE {
+  ?x a <http://materialsmine.org/ns/PolymerNanocomposite>;
+     sio:hasAttribute [a ?c].
+  ?c rdfs:subClassOf ?groupClass.
+  ?groupClass rdfs:label ?superClass.
+  ?c rdfs:label ?class.
+  minus {
+    ?groupClass rdfs:isDefinedBy <http://semanticscience.org/ontology/sio/v1.43/sio-subset-labels.owl>.
+  }
+}
+GROUP BY ?c
+ORDER BY DESC(?count)""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"encoding\":{\"x\":{\"field\":\"Samples\",\"type\":\"quantitative\",\"aggregate\":\"sum\",\"title\":\"Samples\"},\"y\":{\"field\":\"Group\",\"title\":\"Property Group\",\"type\":\"ordinal\",\"sort\":{\"op\":\"sum\",\"field\":\"Samples\",\"order\":\"descending\"}}},\"layer\":[{\"mark\":\"bar\"},{\"mark\":{\"type\":\"text\",\"align\":\"left\",\"baseline\":\"middle\",\"dx\":3},\"encoding\":{\"text\":{\"field\":\"Samples\",\"type\":\"quantitative\",\"aggregate\":\"sum\"}}}]},{\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"Samples\",\"order\":\"descending\"}]},{\"calculate\":\"datum.rank < 14 ? datum.Property : 'Other'\",\"as\":\"ranked_property\"}],\"encoding\":{\"x\":{\"field\":\"Samples\",\"type\":\"quantitative\",\"aggregate\":\"sum\",\"title\":\"Samples\"},\"y\":{\"title\":\"Property\",\"field\":\"ranked_property\",\"type\":\"ordinal\",\"sort\":{\"op\":\"sum\",\"field\":\"Samples\",\"order\":\"descending\"}}},\"layer\":[{\"mark\":\"bar\"},{\"mark\":{\"type\":\"text\",\"align\":\"left\",\"baseline\":\"middle\",\"dx\":3},\"encoding\":{\"text\":{\"aggregate\":\"sum\",\"field\":\"Samples\",\"type\":\"quantitative\"}}}]}]}" ;
+        ns2:depiction <http://nanomine.org/viz/f7a1ac825b90c15f_depiction> .
+
+    <http://nanomine.org/viz/f7a1ac825b90c15f_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T15:40:43.039000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "53f4bbf2-f53a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:h9cy4gpt1d_pubinfo {
+    ns1:h9cy4gpt1d_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T15:40:43.040000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:h9cy4gpt1d a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/f7a1ac825b90c15f_depiction> ;
+        ns8:hasAssertion ns1:h9cy4gpt1d_assertion ;
+        ns8:hasProvenance ns1:h9cy4gpt1d_provenance ;
+        ns8:hasPublicationInfo ns1:h9cy4gpt1d_pubinfo .
+
+    ns1:h9cy4gpt1d_assertion a ns8:Assertion .
+
+    ns1:h9cy4gpt1d_provenance a ns8:Provenance .
+
+    ns1:h9cy4gpt1d_pubinfo a ns8:PublicationInfo .
+}
+

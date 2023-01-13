@@ -1,0 +1,89 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://vocab.rpi.edu/whyis/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:7egzb3rc9n_assertion {
+    <http://nanomine.org/viz/d91ff130050a56c2> a ns6:Chart ;
+        ns3:description "An interactive scatterplot matrix (SPLOM) shows mechanical property data from tensile tests. Click-drag or scroll to pan or zoom in one of the sub-plots, and hold Shift to activate brush selection. Point marks have a color encoding based on the Matrix material and a size encoding based on the Filler volume fraction." ;
+        ns3:title "Interactive Scatterplot Matrix of Tensile Test Data" ;
+        ns4:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT * WHERE {
+  ?doi sio:hasPart ?sample.
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] 
+                               ] ;
+          sio:hasAttribute [ a nm:TensileModulus ;
+                             sio:hasValue ?TensModGPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ]
+                           ] .
+ 
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   a [ rdfs:label ?Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] 
+                                 ]
+  }
+  
+  OPTIONAL {
+    ?sample sio:hasAttribute [ a nm:TensileStressAtBreak ;
+                               sio:hasValue ?TensStressBreakMPa ;
+                               sio:hasUnit [ rdfs:label "Megapascal" ]
+                             ]
+  }
+  
+  OPTIONAL {
+    ?sample sio:hasAttribute [ a nm:ElongationAtBreak ;
+                               sio:hasValue ?ElongBreakPercent ;
+                               sio:hasUnit [ rdfs:label "Percent" ]
+                             ]
+  }
+} """ ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datum.TensModGPa\",\"as\":\"Tensile Modulus (GPa)\"},{\"calculate\":\"datum.TensStressBreakMPa\",\"as\":\"Stress at Break (MPa)\"},{\"calculate\":\"datum.ElongBreakPercent / 100\",\"as\":\"Strain at Break\"},{\"calculate\":\"replace(datum.doi,/.*doi.org./,'')\",\"as\":\"DOI\"},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"}],\"repeat\":{\"row\":[\"Tensile Modulus (GPa)\",\"Stress at Break (MPa)\",\"Strain at Break\"],\"column\":[\"Strain at Break\",\"Stress at Break (MPa)\",\"Tensile Modulus (GPa)\"]},\"spec\":{\"height\":125,\"mark\":{\"type\":\"point\"},\"selection\":{\"brush\":{\"type\":\"interval\",\"resolve\":\"union\",\"on\":\"[mousedown[event.shiftKey], window:mouseup] > window:mousemove!\",\"translate\":\"[mousedown[event.shiftKey], window:mouseup] > window:mousemove!\",\"zoom\":\"wheel![event.shiftKey]\"},\"grid\":{\"type\":\"interval\",\"resolve\":\"global\",\"bind\":\"scales\",\"translate\":\"[mousedown[!event.shiftKey], window:mouseup] > window:mousemove!\",\"zoom\":\"wheel![!event.shiftKey]\"}},\"encoding\":{\"x\":{\"field\":{\"repeat\":\"column\"},\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"}},\"y\":{\"field\":{\"repeat\":\"row\"},\"type\":\"quantitative\",\"axis\":{\"minExtent\":30},\"scale\":{\"type\":\"log\"}},\"color\":{\"condition\":{\"selection\":\"brush\",\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"value\":\"grey\"},\"opacity\":{\"condition\":{\"selection\":\"brush\",\"value\":1},\"value\":0.2},\"size\":{\"field\":\"Loading_vol\",\"type\":\"quantitative\",\"legend\":{\"title\":\"Filler Loading (vol%)\",\"format\":\".1p\"},\"scale\":{\"type\":\"threshold\",\"domain\":[0.005,0.05,0.1,0.3,0.6],\"range\":[10,50,100,200,400,800]}},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Tensile Modulus (GPa)\",\"type\":\"quantitative\"},{\"field\":\"Stress at Break (MPa)\",\"type\":\"quantitative\"},{\"field\":\"Strain at Break\",\"type\":\"quantitative\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}}" ;
+        ns7:depiction <http://nanomine.org/viz/d91ff130050a56c2_depiction> .
+
+    <http://nanomine.org/viz/d91ff130050a56c2_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:00:38.942000+00:00"^^xsd:dateTime ;
+        ns2:hasFileID "7e8957aa-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:7egzb3rc9n_pubinfo {
+    ns1:7egzb3rc9n_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:00:38.942000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:7egzb3rc9n a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/d91ff130050a56c2_depiction> ;
+        ns8:hasAssertion ns1:7egzb3rc9n_assertion ;
+        ns8:hasProvenance ns1:7egzb3rc9n_provenance ;
+        ns8:hasPublicationInfo ns1:7egzb3rc9n_pubinfo .
+
+    ns1:7egzb3rc9n_assertion a ns8:Assertion .
+
+    ns1:7egzb3rc9n_provenance a ns8:Provenance .
+
+    ns1:7egzb3rc9n_pubinfo a ns8:PublicationInfo .
+}
+

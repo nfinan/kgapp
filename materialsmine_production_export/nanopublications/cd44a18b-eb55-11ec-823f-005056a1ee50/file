@@ -1,0 +1,79 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:lu5ev51upz_assertion {
+    <http://nanomine.org/viz/04ce6c7e2c1a4cd6> a ns6:Chart ;
+        ns4:description "Electrical conductivity data are binned on a logarithmic scale as a stacked histogram, and adjacent scatter plots display the same electrical conductivity in addition to the underlying filler loading information. To see how these plots are linked, click and drag a selection brush along the histogram, and the x-axes of the scatter plots will automatically adjust to the selected electrical conductivity interval." ;
+        ns4:title "Electrical Conductivity Histogram and Linked Scatter Plots" ;
+        ns2:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ElectricalConductivity ;
+                             sio:hasValue ?Conductivity ;
+                             sio:hasUnit [ rdfs:label "Siemens per Meter" ] 
+                           ] .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:ElectricalConductivity ;
+                             sio:hasValue ?controlConductivity ;
+                             sio:hasUnit [ rdfs:label "Siemens per Meter" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?Loading_mass ],
+                                                  [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?Loading_vol ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+  MINUS {?sample sio:hasAttribute [ a nm:ElectricalConductivity ;
+                                    sio:inRelationTo ?otherproperty] }
+} """ ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"filter\":\"datum.Conductivity > 0\"},{\"filter\":\"datum.Filler != null\"},{\"filter\":\"datum.Loading_mass > 0\"},{\"calculate\":\"log(datum.Conductivity)/log(10)\",\"as\":\"logCond\"},{\"bin\":{\"step\":1},\"field\":\"logCond\",\"as\":\"bin_logCond\"},{\"calculate\":\"pow(10, datum.bin_logCond)\",\"as\":\"x1\"},{\"calculate\":\"pow(10, datum.bin_logCond_end)\",\"as\":\"x2\"},{\"calculate\":\"replace(datum.sample,/.*sample./,'')\",\"as\":\"Sample ID\"}],\"hconcat\":[{\"width\":375,\"height\":495,\"selection\":{\"selectfillermatls\":{\"type\":\"multi\",\"fields\":[\"Filler\"],\"bind\":\"legend\"},\"mybrush\":{\"type\":\"interval\",\"encodings\":[\"x\"]}},\"mark\":{\"type\":\"bar\",\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"x1\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"tickCount\":5,\"title\":\"Electrical Conductivity (S/m)\",\"titleFontSize\":16,\"labelFontSize\":16}},\"x2\":{\"field\":\"x2\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Number of Samples\",\"titleFontSize\":16,\"labelFontSize\":16}},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":{\"titleFontSize\":16,\"title\":\"Filler Type\",\"orient\":\"left\",\"offset\":-1030}},\"opacity\":{\"condition\":{\"selection\":\"selectfillermatls\",\"value\":0.95},\"value\":0.05}}},{\"vconcat\":[{\"width\":345,\"height\":210,\"mark\":{\"type\":\"point\",\"opacity\":0.8,\"size\":150,\"filled\":true,\"clip\":true,\"shape\":\"circle\",\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"Conductivity\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\",\"domain\":{\"selection\":\"mybrush\"}},\"axis\":{\"tickCount\":5,\"title\":\"Electrical Conductivity (S/m)\",\"titleFontSize\":16,\"labelFontSize\":16}},\"y\":{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Loading (mass fraction)\",\"titleFontSize\":16,\"labelFontSize\":16}},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":{\"titleFontSize\":16,\"title\":\"Filler Type\"}},\"opacity\":{\"condition\":{\"selection\":\"selectfillermatls\",\"value\":0.8},\"value\":0.01},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Loading_mass\",\"type\":\"nominal\"}]}},{\"width\":345,\"height\":210,\"mark\":{\"type\":\"point\",\"opacity\":0.8,\"size\":150,\"filled\":true,\"clip\":true,\"shape\":\"circle\",\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"Conductivity\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\",\"domain\":{\"selection\":\"mybrush\"}},\"axis\":{\"tickCount\":5,\"title\":\"Electrical Conductivity (S/m)\",\"titleFontSize\":16,\"labelFontSize\":16}},\"y\":{\"field\":\"Loading_vol\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Loading (volume fraction)\",\"titleFontSize\":16,\"labelFontSize\":16}},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":{\"titleFontSize\":16,\"title\":\"Filler Type\"}},\"opacity\":{\"condition\":{\"selection\":\"selectfillermatls\",\"value\":0.8},\"value\":0.01},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Loading_vol\",\"type\":\"nominal\"}]}}]}]}" ;
+        ns7:depiction <http://nanomine.org/viz/04ce6c7e2c1a4cd6_depiction> .
+
+    <http://nanomine.org/viz/04ce6c7e2c1a4cd6_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:46:54.676000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "3178117c-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+{
+    ns1:lu5ev51upz a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/04ce6c7e2c1a4cd6_depiction> ;
+        ns8:hasAssertion ns1:lu5ev51upz_assertion ;
+        ns8:hasProvenance ns1:lu5ev51upz_provenance ;
+        ns8:hasPublicationInfo ns1:lu5ev51upz_pubinfo .
+
+    ns1:lu5ev51upz_assertion a ns8:Assertion .
+
+    ns1:lu5ev51upz_provenance a ns8:Provenance .
+
+    ns1:lu5ev51upz_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:lu5ev51upz_pubinfo {
+    ns1:lu5ev51upz_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:46:54.677000+00:00"^^xsd:dateTime .
+}
+

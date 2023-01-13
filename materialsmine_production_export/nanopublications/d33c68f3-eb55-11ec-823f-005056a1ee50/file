@@ -1,0 +1,47 @@
+@prefix ns1: <http://semanticscience.org/resource/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:41eYJqJyQofKWPQJUeAgS4> a ns2:Nanopublication ;
+        ns1:isAbout <http://nanomine.org/nmr/xml/L237_S10_Wang_2012?format=xml> ;
+        ns2:hasAssertion <urn:41eYJqJyQofKWPQJUeAgS4_assertion> ;
+        ns2:hasProvenance <urn:41eYJqJyQofKWPQJUeAgS4_provenance> ;
+        ns2:hasPublicationInfo <urn:41eYJqJyQofKWPQJUeAgS4_pubinfo> .
+
+    <urn:41eYJqJyQofKWPQJUeAgS4_assertion> a ns2:Assertion .
+
+    <urn:41eYJqJyQofKWPQJUeAgS4_provenance> a ns2:Provenance .
+
+    <urn:41eYJqJyQofKWPQJUeAgS4_pubinfo> a ns2:PublicationInfo .
+}
+
+<urn:41eYJqJyQofKWPQJUeAgS4_assertion> {
+    <http://nanomine.org/nmr/dataset/237> a ns3:Dataset ;
+        ns3:distribution <http://nanomine.org/nmr/xml/L237_S10_Wang_2012> .
+
+    <http://nanomine.org/nmr/xml/L237_S10_Wang_2012?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns3:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns4:hasContentType "text/xml" ;
+        ns6:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns6:contributor <http://nanomine.org/user/9999999999> ;
+        ns6:created "2021-07-22T17:32:17.821000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "c2fc9a38-eb12-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns6:FileFormat .
+}
+
+<urn:41eYJqJyQofKWPQJUeAgS4_pubinfo> {
+    <urn:41eYJqJyQofKWPQJUeAgS4_assertion> ns6:contributor <http://nanomine.org/user/9999999999> ;
+        ns6:created "2021-07-22T17:32:17.821000+00:00"^^xsd:dateTime .
+}
+

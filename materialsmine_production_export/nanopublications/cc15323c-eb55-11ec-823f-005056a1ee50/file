@@ -1,0 +1,73 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:du6eil5z29_assertion {
+    <http://nanomine.org/viz/0104c62672884dc9> a ns7:Chart ;
+        ns2:description "Quantitative data can be encoded through mark position (x, y) or as mark properties (color, opacity, angle, etc.), and a data field can be encoded using one or more of these attributes. This chart captures three data fields: glass transition temperature, mass fraction, and the shift in Tg (Tg_delta) compared to control sample (neat matrix). Glass transition temperature is encoded by y position, mass fraction is encoded by x position and opacity, and Tg_delta is encoded by color and angle. Hover over a point to display a tooltip." ;
+        ns2:title "Redundant Visual Encodings" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?controlsample sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_control ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?MassFraction ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":550,\"height\":450,\"transform\":[{\"calculate\":\"datum.Tg - datum.Tg_control\",\"as\":\"Tg_delta\"},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"ID\"}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"shape\":\"wedge\",\"filled\":true,\"stroke\":\"black\",\"strokeWidth\":1},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"title\":\"Mass Fraction of Filler (%)\",\"axis\":{\"format\":\"p\"}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"field\":\"Tg_delta\",\"type\":\"quantitative\",\"scale\":{\"domainMid\":0,\"scheme\":{\"name\":\"redblue\",\"extent\":[1,0]}}},\"angle\":{\"field\":\"Tg_delta\",\"type\":\"quantitative\",\"scale\":{\"domain\":[-40,40],\"range\":[135,45]}},\"size\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"scale\":{\"range\":[250,5000]},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"field\":\"MassFraction\",\"type\":\"quantitative\",\"scale\":{\"range\":[0.2,1]}},\"value\":0},\"tooltip\":[{\"field\":\"ID\",\"type\":\"nominal\",\"title\":\"Sample ID\"},{\"field\":\"Tg_delta\",\"type\":\"quantitative\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Tg_control\",\"type\":\"quantitative\"}]},\"config\":{\"axis\":{\"titleFontSize\":24,\"labelFontSize\":16,\"labelFlush\":false},\"legend\":{\"titleFontSize\":16,\"labelFontSize\":14}}}" ;
+        ns6:depiction <http://nanomine.org/viz/0104c62672884dc9_depiction> .
+
+    <http://nanomine.org/viz/0104c62672884dc9_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:31:12.547000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "c3735754-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:du6eil5z29_pubinfo {
+    ns1:du6eil5z29_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:31:12.547000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:du6eil5z29 a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/0104c62672884dc9_depiction> ;
+        ns8:hasAssertion ns1:du6eil5z29_assertion ;
+        ns8:hasProvenance ns1:du6eil5z29_provenance ;
+        ns8:hasPublicationInfo ns1:du6eil5z29_pubinfo .
+
+    ns1:du6eil5z29_assertion a ns8:Assertion .
+
+    ns1:du6eil5z29_provenance a ns8:Provenance .
+
+    ns1:du6eil5z29_pubinfo a ns8:PublicationInfo .
+}
+

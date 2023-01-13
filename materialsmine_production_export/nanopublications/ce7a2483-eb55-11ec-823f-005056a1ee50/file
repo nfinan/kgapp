@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:sc9v5hqu1o_assertion {
+    <http://nanomine.org/viz/45f9a74ceeefab76> a ns5:Chart ;
+        ns4:description "Where do some of the data in MaterialsMine originate? This map shows the locations from which a subset of the curated articles were published. The SPARQL query filters those whose institution address includes \"USA\", and regex patterns are used in Vega-Lite to extract a consecutive 5-digit number string assumed to be the zip code. The Lookup transform then uses the zipcodes.csv dataset from the vega-datasets Github repo to extract the city name and geographic coordinates. The size of each point corresponds to the count of records corresponding to each location. (Note: This methodology underestimates the true counts due to address string formatting, international works, and multi-institution collaborations.)" ;
+        ns4:title "Referencing an External CSV Dataset with Lookup Transform" ;
+        ns7:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?publabel ?placelabel ?TotalDOIs WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:isPartOf [ dct:publisher ?pub ] .
+  ?pub prov:atLocation [ rdfs:label ?placelabel ] ;
+       rdfs:label ?publabel .
+  FILTER(regex(str(?placelabel),"USA"))
+  {
+    SELECT (count(distinct ?doi) as ?TotalDOIs) WHERE {
+      ?doi a dct:BibliographicResource
+    }
+  }
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.placelabel,/.*(?=[0-9][0-9][0-9][0-9][0-9])/,'')\",\"as\":\"zip0\"},{\"calculate\":\"replace(datum.zip0,/(?<=[0-9][0-9][0-9][0-9][0-9]).*/,'')\",\"as\":\"zip1\"},{\"calculate\":\"replace(datum.zip1,/[^0-9]/g,'')\",\"as\":\"zip2\"},{\"filter\":\"datum.zip2 > 0\"},{\"lookup\":\"zip2\",\"from\":{\"data\":{\"url\":\"https://raw.githubusercontent.com/vega/vega-datasets/master/data/zipcodes.csv\"},\"key\":\"zip_code\",\"fields\":[\"latitude\",\"longitude\",\"city\",\"state\"]}},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"CountInZip\"}],\"groupby\":[\"zip2\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"zip2\"]},{\"filter\":\"datum.rank < 2\"},{\"joinaggregate\":[{\"op\":\"sum\",\"field\":\"CountInZip\",\"as\":\"TotalCounted\"}]},{\"calculate\":\"datum.TotalDOIs - datum.TotalCounted\",\"as\":\"Uncounted\"},{\"calculate\":\"datum.city + ', ' + datum.state\",\"as\":\"Location\"}],\"height\":500,\"width\":700,\"layer\":[{\"data\":{\"url\":\"https://raw.githubusercontent.com/vega/vega-datasets/master/data/us-10m.json\",\"format\":{\"type\":\"topojson\",\"feature\":\"states\"}},\"projection\":{\"type\":\"albersUsa\"},\"mark\":{\"type\":\"geoshape\",\"fill\":\"lightgray\",\"fillOpacity\":0.1,\"stroke\":\"black\",\"strokeOpacity\":0.15}},{\"projection\":{\"type\":\"albersUsa\"},\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"opacity\":0.4,\"strokeWidth\":3},\"encoding\":{\"longitude\":{\"field\":\"longitude\",\"type\":\"quantitative\"},\"latitude\":{\"field\":\"latitude\",\"type\":\"quantitative\"},\"size\":{\"field\":\"CountInZip\",\"type\":\"quantitative\",\"scale\":{\"range\":[25,500]},\"legend\":null},\"stroke\":{\"condition\":{\"selection\":\"hover\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Location\",\"type\":\"nominal\"},{\"field\":\"zip2\",\"type\":\"nominal\",\"title\":\"Zip Code\"},{\"field\":\"CountInZip\",\"type\":\"quantitative\",\"title\":\"Count\"}]}},{\"height\":200,\"width\":800,\"layer\":[{\"selection\":{\"hover2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"bar\",\"yOffset\":-230,\"color\":\"#ddd\"},\"encoding\":{\"x\":{\"field\":\"TotalCounted\",\"type\":\"quantitative\",\"axis\":null,\"scale\":{\"padding\":10,\"nice\":false}},\"x2\":{\"field\":\"Uncounted\"},\"opacity\":{\"condition\":{\"selection\":\"hover2\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"Uncounted\",\"type\":\"quantitative\"}]}},{\"selection\":{\"hover3\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"bar\",\"yOffset\":-230},\"encoding\":{\"x\":{\"field\":\"CountInZip\",\"type\":\"quantitative\",\"axis\":null},\"color\":{\"field\":\"zip2\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20\"}},\"opacity\":{\"condition\":{\"selection\":\"hover3\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"Location\",\"type\":\"nominal\"},{\"field\":\"zip2\",\"type\":\"nominal\",\"title\":\"Zip Code\"},{\"field\":\"CountInZip\",\"type\":\"quantitative\",\"title\":\"Count\"}]}}]}],\"config\":{\"view\":{\"stroke\":null},\"concat\":{\"spacing\":0}}}" ;
+        ns2:depiction <http://nanomine.org/viz/45f9a74ceeefab76_depiction> .
+
+    <http://nanomine.org/viz/45f9a74ceeefab76_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:34:22.328000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "3491ac56-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+{
+    ns1:sc9v5hqu1o a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/45f9a74ceeefab76_depiction> ;
+        ns8:hasAssertion ns1:sc9v5hqu1o_assertion ;
+        ns8:hasProvenance ns1:sc9v5hqu1o_provenance ;
+        ns8:hasPublicationInfo ns1:sc9v5hqu1o_pubinfo .
+
+    ns1:sc9v5hqu1o_assertion a ns8:Assertion .
+
+    ns1:sc9v5hqu1o_provenance a ns8:Provenance .
+
+    ns1:sc9v5hqu1o_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:sc9v5hqu1o_pubinfo {
+    ns1:sc9v5hqu1o_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:34:22.329000+00:00"^^xsd:dateTime .
+}
+

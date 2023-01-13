@@ -1,0 +1,2066 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L311_S6_Lou_2009_assertion {
+    <http://materialsmine.org/sample/l311-s1-lou-2009> ns2:hasRole <http://materialsmine.org/sample/l311-s1-lou-2009_control_role> .
+
+    <http://materialsmine.org/compound/ChloroaceticAcid> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/PolyVinylAlcohol> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(vinyl alcohol)" ;
+        ns3:notation "PVA" .
+
+    <http://materialsmine.org/compound/TitaniumDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Titanium dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "HISUN Inc., China" ] ;
+        ns3:altLabel "titanium dioxide" ;
+        ns3:notation "nano-TiO2" .
+
+    <http://materialsmine.org/sample/l311-s1-lou-2009_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l311-s6-lou-2009> .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0> a <http://materialsmine.org/compound/TitaniumDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 4.23e+00 ],
+            <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l311-s6-lou-2009> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 1.5e-02 .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0_surface_0> a <http://materialsmine.org/compound/ChloroaceticAcid> ;
+        rdfs:label "chloroacetic acid" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Shanghai Chemicals Co." ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l311-s6-lou-2009> ] ;
+        ns3:notation "AR" .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 4.337228e-03 .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009_matrix_0> a <http://materialsmine.org/compound/PolyVinylAlcohol> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Shanghai Chemicals Co." ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.21e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PVA" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l311-s6-lou-2009> ] .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "titanium dioxide in polyvinyl alcohol" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.735041e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.005941e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.990731e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.432343e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.820961e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.750534e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.636332e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.564831e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.729258e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.092527e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.598253e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.025623e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.082969e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.546263e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.101839e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.264654e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.818991e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.322442e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.80293e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.323632e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.357016e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.92498e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.930728e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.348276e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.323432e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.548272e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.446444e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.209591e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.375176e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.618152e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.323632e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.357016e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.475983e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.329537e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.209179e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.722112e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.617005e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.486469e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.082969e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.546263e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.0131e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.623488e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.789628e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.149175e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.735041e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.005941e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.25074e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.531353e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.348276e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.323432e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.818991e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.322442e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.729258e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.092527e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.786026e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.846975e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.446444e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.209591e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.606987e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.683274e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.519651e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.811388e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.641484e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.020426e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.789628e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.149175e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.275109e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.429181e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.789628e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.149175e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.641484e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.020426e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.764953e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.391749e+02 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.641484e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.020426e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.588231e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.605684e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.260252e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.730018e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.0131e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.697509e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.497924e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.562706e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.585892e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.001776e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.25074e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.531353e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.585892e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.001776e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.741739e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.0033e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.209179e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.722112e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.598253e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.025623e+02 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ a <http://materialsmine.org/ns/TemperatureSweep> ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.416885e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.069307e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.417925e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.017762e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.540306e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.539964e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.764953e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.391749e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.846344e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.171617e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.275109e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.429181e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.07013e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.970297e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.833234e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.239274e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.956332e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.619217e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.617005e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.486469e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.540306e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.539964e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.764953e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.391749e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.757455e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.865009e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.818991e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.322442e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.720386e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.29703e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.351743e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.385435e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.81939e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.930728e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.682524e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.262877e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.685578e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.447195e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.543925e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.35524e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.519651e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.811388e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.475983e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.329537e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.893307e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.660746e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.416885e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.069307e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.416885e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.069307e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.998455e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.325044e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.900477e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.848185e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.615721e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.565836e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.428174e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.397869e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.893307e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.660746e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.703057e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.127758e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.68559e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.219929e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.510917e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.862633e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.636332e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.564831e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.790393e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.174377e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.19214e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.395018e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.042287e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.193606e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.20524e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.548043e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.585892e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.001776e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.153209e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.762376e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.757455e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.865009e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.162281e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.756766e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.375176e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.618152e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.313826e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.655116e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.900477e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.848185e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.684918e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.998455e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.325044e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.415884e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.598579e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.564555e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.996448e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.415884e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.598579e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.475983e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.329537e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.375546e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.220641e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.122635e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.80066e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.209607e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.805338e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.209179e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.722112e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.641921e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.882562e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.0131e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.623488e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.998455e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.325044e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.502267e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.062167e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.846344e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.171617e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.046958e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.888449e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.222676e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.595027e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.606987e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.683274e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.668122e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.180071e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.482707e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.065719e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.786026e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.846975e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.729258e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.092527e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.263307e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.687459e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.542028e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.500888e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.510917e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.862633e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.554585e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.088968e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.08661e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.846865e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.375546e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.220641e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.0131e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.697509e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.263307e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.687459e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.804616e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.354785e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.344978e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.379359e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.375176e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.618152e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.790393e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.174377e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.821475e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.028419e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.428174e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.397869e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.804616e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.354785e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.668122e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.180071e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.749666e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.070627e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.615721e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.565836e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.580786e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.359431e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.735041e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.005941e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.122635e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.80066e+02 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.153209e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.762376e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.588231e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.605684e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.685578e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.447195e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.948545e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.065719e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.101839e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.264654e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.042287e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.193606e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.260252e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.730018e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.042287e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.193606e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.08661e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.846865e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.122635e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.80066e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.92498e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.930728e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.351743e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.385435e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.111536e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.598579e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.543925e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.35524e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.441048e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.398577e+01 ] ],
+            [ a <http://materialsmine.org/ns/MeasurementMethod> ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.443773e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.588119e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.564555e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.996448e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.20524e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.548043e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.81939e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.930728e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.60262e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.996441e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.80293e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.348276e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.323432e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.519651e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.811388e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.162281e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.756766e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.548272e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.641921e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.882562e+01 ] ],
+            [ a ns2:Frequency ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                ns2:hasValue 1e+00 ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 9.606987e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.683274e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.81939e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.930728e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.497924e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.562706e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.0131e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.623488e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.723792e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.488449e+01 ] ],
+            [ a <http://materialsmine.org/ns/ViscoelasticProperty> ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.111536e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.598579e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.417925e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.017762e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.685578e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.447195e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.821475e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.028419e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.598253e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.025623e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.723792e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.488449e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.510917e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.862633e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.19214e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.395018e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.617005e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.486469e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.111536e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.598579e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.684918e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.720386e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.29703e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.082969e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.546263e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.68559e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.219929e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.790393e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.174377e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.703057e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.127758e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.446444e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.209591e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.833234e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.239274e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.542028e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.500888e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.580786e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.359431e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.323632e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.357016e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.540306e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 7.539964e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.162281e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.756766e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.893307e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.660746e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.20524e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.548043e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.209607e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.805338e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.749666e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.070627e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.60262e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.996441e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.956332e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.619217e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.757455e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.865009e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.170306e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.479004e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.676856e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.080427e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.07013e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.970297e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.676856e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.080427e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.741739e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.0033e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.375546e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.220641e+01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.170306e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.479004e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.777782e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.610561e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.68559e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.219929e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.641921e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.882562e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.615721e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.565836e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.209607e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.805338e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.846344e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.171617e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.786026e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.846975e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.555666e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.528053e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.948545e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.065719e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.415884e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.598579e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.08661e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.846865e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.588231e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 8.605684e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.741739e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.0033e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.046958e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.888449e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.900477e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.848185e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.948545e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.065719e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.777782e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.610561e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.542028e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 6.500888e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.572052e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.279715e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.502267e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.062167e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.990731e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.432343e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.723792e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.488449e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.351743e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.385435e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.313826e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.655116e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.555666e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.528053e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.564555e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.996448e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.260252e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 3.730018e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.222676e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.595027e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.482707e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.065719e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.074236e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.9e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.572052e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.279715e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.555666e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.528053e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.749666e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.070627e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.580786e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.359431e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.990731e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.432343e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.820961e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.750534e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.344978e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.379359e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.275109e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.429181e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.074236e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.9e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.313826e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.655116e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.554585e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.088968e+01 ] ],
+            [ a <http://materialsmine.org/ns/TemperatureSweep> ],
+            [ a <http://materialsmine.org/ns/MeasurementMethod> ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.074236e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.9e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.443773e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.588119e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 5.548272e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.820961e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.750534e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.046958e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.888449e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.101839e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.264654e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.684918e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.263307e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.687459e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.428174e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.397869e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.703057e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.127758e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.668122e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.180071e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.956332e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.619217e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.19214e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 6.395018e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.60262e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.996441e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.170306e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.479004e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.441048e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.398577e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.777782e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 7.610561e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.497924e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.562706e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 2.482707e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.065719e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.92498e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 2.930728e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.682524e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.262877e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.0131e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.697509e+01 ] ],
+            [ a ns2:Frequency ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                ns2:hasValue 1e+00 ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 4.80293e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.023091e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.153209e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.762376e+01 ] ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.417925e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.017762e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.821475e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 1.028419e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.720386e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 9.29703e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 6.682524e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 4.262877e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.554585e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 8.088968e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.676856e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.080427e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.804616e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.354785e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 8.222676e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.595027e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.502267e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.062167e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.543925e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 5.35524e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.07013e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.970297e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7.636332e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                        ns2:hasValue 9.564831e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.443773e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.588119e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 2.25074e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.531353e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.572052e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.279715e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 3.441048e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 5.398577e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 1.344978e+02 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.379359e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns2:hasValue 1.833234e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Temperature> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                        ns2:hasValue 1.239274e+02 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l311-s6-lou-2009_filler_0>,
+            <http://materialsmine.org/sample/l311-s6-lou-2009_matrix_0> .
+
+    <http://materialsmine.org/ns/StorageModulus> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Storage Modulus" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Strain> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Strain" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Stress> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Stress" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/TanDelta> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "tan delta" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Temperature> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Temperature" ;
+        rdfs:subClassOf ns2:Quantity .
+}
+
+ns1:L311_S6_Lou_2009_provenance {
+    <http://materialsmine.org/sample/l311-s6-lou-2009> ns5:wasGeneratedBy <http://materialsmine.org/entry/L311_S6_Lou_2009_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/pyrise-diamond-dynamic-mechanical-analyzer-perkin-elmer-co-usa>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_description_attr_29>,
+                    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/nicolet-avatar-370-ftir-instrument>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_description_attr_29>,
+                    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/jeol-jsm-820-scanning-electron-microscope>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/ta-q600-tga-analyzer-ta-instruments-co-usa>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_description_attr_29>,
+                    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/jeol-jem-1230-microscope>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_xray-photoelectron-spectroscopy> a <http://materialsmine.org/ns/XRayPhotoelectronSpectroscopy>,
+            <http://materialsmine.org/ns/XRay_Photoelectron_Spectroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/phi5000c-esca-system-perkin-elmer-co-usa>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_description_attr_29>,
+                    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_attr_30> ],
+            [ a <http://materialsmine.org/ns/phi5000c-esca-system-perkin-elmer-co-usa>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_description_attr_29>,
+                    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L311_S6_Lou_2009_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3> .
+
+    <http://materialsmine.org/ns/jeol-jem-1230-microscope> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JEM-1230 microscope" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/jeol-jsm-820-scanning-electron-microscope> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JSM 820 scanning electron microscope" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/nicolet-avatar-370-ftir-instrument> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Nicolet Avatar 370 FTIR instrument" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/pyrise-diamond-dynamic-mechanical-analyzer-perkin-elmer-co-usa> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Pyrise Diamond dynamic mechanical analyzer (Perkin Elmer Co., USA)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ta-q600-tga-analyzer-ta-instruments-co-usa> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Q600 TGA analyzer (TA Instruments Co., USA)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns2:hasValue 2e+02 .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "30" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_temperature>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "45" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Day ;
+        ns2:hasValue "2" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_temperature>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "80" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "1" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_ambientcondition>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_temperature>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "45" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Day ;
+        ns2:hasValue "2" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_solution_processing_step_3_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L311_S6_Lou_2009_assertion ns5:wasDerivedFrom ns1:L311_S6_Lou_2009_assertion,
+            <http://nanomine.org/pub/NDA0ODMxLjc1MjAxNzM5MDI_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NjY5MDk2LjIwMTU4NTU2OTE/MaterialsmineXMLImport> ;
+                ns5:used ns1:L311_S6_Lou_2009_assertion,
+                    <http://nanomine.org/pub/NDA0ODMxLjc1MjAxNzM5MDI_assertion> ],
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_description>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_equipment>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_transmission-electron-microscopy>,
+            <http://materialsmine.org/entry/L311_S6_Lou_2009_characterization_xray-photoelectron-spectroscopy> .
+
+    <http://materialsmine.org/ns/phi5000c-esca-system-perkin-elmer-co-usa> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "PHI5000C ESCA System (Perkin Elmer Co., USA)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns2:Day rdfs:label "days" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L311_S6_Lou_2009_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+
+ns1:L311_S6_Lou_2009_pubinfo {
+    ns1:L311_S6_Lou_2009_assertion ns4:created "2021-07-23T01:21:31.464000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NjY5MDk2LjIwMTU4NTU2OTE/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1002/pc.20905> .
+
+    <http://dx.doi.org/10.1002/pc.20905> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label """
+              Improvement of the mechanical properties of nano-TiO
+              """ ;
+        ns4:created 2009 ;
+        ns4:creator <http://materialsmine.org/author/liu-meihong>,
+            <http://materialsmine.org/author/lou-yuanhua>,
+            <http://materialsmine.org/author/miao-xiaowei>,
+            <http://materialsmine.org/author/wang-xinping>,
+            <http://materialsmine.org/author/zhang-li> ;
+        ns4:isPartOf <http://materialsmine.org/publication/polymer-composites> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title """
+              Improvement of the mechanical properties of nano-TiO
+              """ ;
+        ns6:authorList ( <http://materialsmine.org/author/wang-xinping> <http://materialsmine.org/author/zhang-li> <http://materialsmine.org/author/miao-xiaowei> <http://materialsmine.org/author/liu-meihong> <http://materialsmine.org/author/lou-yuanhua> ) ;
+        ns6:volume 31 ;
+        ns2:hasPart <http://materialsmine.org/sample/l311-s6-lou-2009> ;
+        rdfs:seeAlso <http://doi.wiley.com/10.1002/pc.20905> .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-chemistry-key-laboratory-of-advanced-textile-materials-and-manufacturing-technology-of-education-ministry-zhejiang-sci-tech-university-xiasha-higher-education-zone-hangzhou-310018-china> a ns4:Location ;
+        rdfs:label "Department of Chemistry, Key Laboratory of Advanced Textile Materials and Manufacturing Technology of Education Ministry, Zhejiang Sci���Tech University, XiaSha Higher Education Zone, Hangzhou 310018, China" .
+
+    <http://materialsmine.org/publication/polymer-composites> ns4:publisher <publisher:wiley-blackwell-john-wiley-sons> ;
+        ns4:title "Polymer Composites" .
+
+    <http://materialsmine.org/sample/l311-s6-lou-2009> ns5:wasAttributedTo <http://materialsmine.org/author/liu-meihong>,
+            <http://materialsmine.org/author/lou-yuanhua>,
+            <http://materialsmine.org/author/miao-xiaowei>,
+            <http://materialsmine.org/author/wang-xinping>,
+            <http://materialsmine.org/author/zhang-li> .
+
+    <publisher:wiley-blackwell-john-wiley-sons> rdfs:label "Wiley Blackwell (John Wiley & Sons)" ;
+        ns5:atLocation <http://materialsmine.org/location/department-of-chemistry-key-laboratory-of-advanced-textile-materials-and-manufacturing-technology-of-education-ministry-zhejiang-sci-tech-university-xiasha-higher-education-zone-hangzhou-310018-china> .
+
+    <http://materialsmine.org/author/liu-meihong> a ns5:Agent ;
+        rdfs:label "Liu, Meihong" ;
+        ns7:name "Liu, Meihong" .
+
+    <http://materialsmine.org/author/lou-yuanhua> a ns5:Agent ;
+        rdfs:label "Lou, Yuanhua" ;
+        ns7:name "Lou, Yuanhua" .
+
+    <http://materialsmine.org/author/miao-xiaowei> a ns5:Agent ;
+        rdfs:label "Miao, Xiaowei" ;
+        ns7:name "Miao, Xiaowei" .
+
+    <http://materialsmine.org/author/wang-xinping> a ns5:Agent ;
+        rdfs:label "Wang, Xinping" ;
+        ns7:name "Wang, Xinping" .
+
+    <http://materialsmine.org/author/zhang-li> a ns5:Agent ;
+        rdfs:label "Zhang, Li" ;
+        ns7:name "Zhang, Li" .
+}
+

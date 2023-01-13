@@ -1,0 +1,702 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:E408_S6_prasad_2021_assertion {
+    <http://materialsmine.org/sample/e408-s28-prasad-2021> ns2:hasRole <http://materialsmine.org/sample/e408-s28-prasad-2021_control_role> .
+
+    <http://materialsmine.org/compound/Chloropropyledimethylethoxysilane> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/Polystyrene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Polystyrene" ;
+        ns6:notation "PS" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan" ] ;
+        ns6:altLabel "MEKST",
+            "Silica" .
+
+    <http://materialsmine.org/ns/Amorphous> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "amorphous" ;
+        rdfs:subClassOf <http://materialsmine.org/ns/CrystalPhase> .
+
+    <http://materialsmine.org/sample/e408-s28-prasad-2021_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/e408-s6-prasad-2021> .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.4e+01 ],
+            [ a <http://materialsmine.org/ns/Amorphous>,
+                    <http://materialsmine.org/ns/CrystalPhase> ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns5:description "reported" ;
+        ns2:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0_surface_0> a <http://materialsmine.org/compound/Chloropropyledimethylethoxysilane> ;
+        rdfs:label "chloropropyledimethylethoxysilane" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Gelest Inc." ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns6:notation "CPDMES" .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns5:description "computed by NanoMine" ;
+        ns2:hasValue 7.945603e-03 .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021_matrix_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Sigma Aldrich" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PS" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.04e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e408-s6-prasad-2021> ] .
+
+    <https://nanomine.org/nmr/blob?id=60c4f685b79e168a08dc62ab> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f685b79e168a08dc62ab" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62b9> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62b9" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62c7> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62c7" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62d5> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62d5" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f687b79e168a08dc62e3> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f687b79e168a08dc62e3" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f687b79e168a08dc62f1> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f687b79e168a08dc62f1" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc62ff> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc62ff" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc630d> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc630d" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc631b> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc631b" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6329> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6329" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6337> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6337" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6345> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6345" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc6353> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc6353" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc6361> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc6361" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc636f> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc636f" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc637d> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc637d" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc638b> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc638b" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc6399> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc6399" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63a7> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63a7" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63b5> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63b5" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63c3> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63c3" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63d1> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63d1" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63df> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63df" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63ed> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63ed" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc63fb> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc63fb" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc6409> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc6409" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc6417> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc6417" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68fb79e168a08dc6425> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68fb79e168a08dc6425" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f68fb79e168a08dc6433> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f68fb79e168a08dc6433" .
+
+    <https://nanomine.org/nmr/blob?id=60c4f690b79e168a08dc6441> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns2:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/e408-s6-prasad-2021> ] ;
+        ns3:depiction "https://nanomine.org/nmr/blob?id=60c4f690b79e168a08dc6441" .
+
+    <http://materialsmine.org/ns/GrayscaleImage> rdfs:label "Grayscale Image" .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Silica in Polystyrene" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns5:description "scale parameter" ],
+            [ a <file:///apps/whyis/nan> ;
+                ns5:description "shape parameter" ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/e408-s6-prasad-2021_filler_0>,
+            <http://materialsmine.org/sample/e408-s6-prasad-2021_matrix_0> ;
+        ns2:isRepresentedBy <https://nanomine.org/nmr/blob?id=60c4f685b79e168a08dc62ab>,
+            <https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62b9>,
+            <https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62c7>,
+            <https://nanomine.org/nmr/blob?id=60c4f686b79e168a08dc62d5>,
+            <https://nanomine.org/nmr/blob?id=60c4f687b79e168a08dc62e3>,
+            <https://nanomine.org/nmr/blob?id=60c4f687b79e168a08dc62f1>,
+            <https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc62ff>,
+            <https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc630d>,
+            <https://nanomine.org/nmr/blob?id=60c4f688b79e168a08dc631b>,
+            <https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6329>,
+            <https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6337>,
+            <https://nanomine.org/nmr/blob?id=60c4f689b79e168a08dc6345>,
+            <https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc6353>,
+            <https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc6361>,
+            <https://nanomine.org/nmr/blob?id=60c4f68ab79e168a08dc636f>,
+            <https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc637d>,
+            <https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc638b>,
+            <https://nanomine.org/nmr/blob?id=60c4f68bb79e168a08dc6399>,
+            <https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63a7>,
+            <https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63b5>,
+            <https://nanomine.org/nmr/blob?id=60c4f68cb79e168a08dc63c3>,
+            <https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63d1>,
+            <https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63df>,
+            <https://nanomine.org/nmr/blob?id=60c4f68db79e168a08dc63ed>,
+            <https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc63fb>,
+            <https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc6409>,
+            <https://nanomine.org/nmr/blob?id=60c4f68eb79e168a08dc6417>,
+            <https://nanomine.org/nmr/blob?id=60c4f68fb79e168a08dc6425>,
+            <https://nanomine.org/nmr/blob?id=60c4f68fb79e168a08dc6433>,
+            <https://nanomine.org/nmr/blob?id=60c4f690b79e168a08dc6441> .
+}
+
+ns1:E408_S6_prasad_2021_pubinfo {
+    ns1:E408_S6_prasad_2021_assertion ns5:created "2021-07-23T06:56:47.555000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/ODU3NDEuNDIxNjc4Nzc0Njg/MaterialsmineXMLImport> ;
+        ns4:wasQuotedFrom <http://dx.doi.org/unpublished-> .
+
+    <http://dx.doi.org/unpublished-> a <file:///apps/whyis/>,
+            ns5:BibliographicResource ;
+        rdfs:label "" ;
+        ns5:created ""^^xsd:integer ;
+        ns5:creator <http://materialsmine.org/author/prasad-aditya-shanker> ;
+        ns5:title "" ;
+        ns7:authorList ( <http://materialsmine.org/author/prasad-aditya-shanker> ) ;
+        ns2:hasPart <http://materialsmine.org/sample/e408-s6-prasad-2021> ;
+        rdfs:seeAlso <https://search.proquest.com/openview/eb63d4d6b84b1252971b3e3eec53b97c/1?pq-origsite=gscholar&cbl=51922&diss=y> .
+
+    <http://materialsmine.org/sample/e408-s6-prasad-2021> ns4:wasAttributedTo <http://materialsmine.org/author/prasad-aditya-shanker> .
+
+    <http://materialsmine.org/author/prasad-aditya-shanker> a ns4:Agent ;
+        rdfs:label "Prasad, Aditya Shanker" ;
+        ns3:name "Prasad, Aditya Shanker" .
+}
+
+ns1:E408_S6_prasad_2021_provenance {
+    <http://materialsmine.org/sample/e408-s6-prasad-2021> ns4:wasGeneratedBy <http://materialsmine.org/entry/E408_S6_prasad_2021_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_magnification> a <http://materialsmine.org/ns/Magnification>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/jeol-2010>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/E408_S6_prasad_2021_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/E408_S6_prasad_2021_description_attr_29>,
+                    <http://materialsmine.org/sample/E408_S6_prasad_2021_equipment_used_attr_28>,
+                    <http://materialsmine.org/sample/E408_S6_prasad_2021_magnification_attr_19> ] .
+
+    <http://materialsmine.org/entry/E408_S6_prasad_2021_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns2:Procedure ;
+        ns5:description "Sample mixing at 100 RPM, specific energy input 4000 kJ/kg" ;
+        ns2:hasPart <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3> .
+
+    <http://materialsmine.org/ns/jeol-2010> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-2010" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns2:hasValue 2e+02 .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_magnification_attr_19> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue 6e+04 .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_description>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "The nanoparticles were precipitated out in DI water and were mixed with polymer." .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "dissolving" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_ambientcondition>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_description>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_temperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_time> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_description>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "This solution was dried in a vacuum oven at 90��C for 12 hours to ensure the removal of any remnants" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "90.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "12.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_1_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3> a <http://materialsmine.org/ns/Extrusion> ;
+        ns2:hasInput <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extruder>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusiontemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_melttemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_pressureatdie>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_residencetime>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_rotationmode>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_rotationspeed>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_screwchanneldiameter>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_screwdiameter>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_torque>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extruder> a <http://materialsmine.org/ns/Extruder>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion> a <http://materialsmine.org/ns/Extrusion>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_extruder>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_melttemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_output>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_pressureatdie>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_residencetime>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_rotationmode>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_rotationspeed>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_screwchanneldiameter>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_screwdiameter>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_torque>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns2:hasValue "Thermo Haake Minilab" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "150.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_melttemperature> a <http://materialsmine.org/ns/MeltTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "150.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_output> a <http://materialsmine.org/ns/Output> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        ns2:hasValue "8.8" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns2:hasValue "1580.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_rotationmode> a <http://materialsmine.org/ns/RotationMode> ;
+        ns2:hasValue "CounterRotation" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns2:hasValue "100.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_screwchanneldiameter> a <http://materialsmine.org/ns/ScrewChannelDiameter> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns2:hasValue "0.56" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_screwdiameter> a <http://materialsmine.org/ns/ScrewDiameter> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns2:hasValue "12.7" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_torque> a <http://materialsmine.org/ns/Torque> ;
+        ns2:hasValue "1.45" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusion_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_melttemperature> a <http://materialsmine.org/ns/MeltTemperature>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_melttemperature> a <http://materialsmine.org/ns/MeltTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "150.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        ns2:hasValue "8.8" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns2:hasValue "1580.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_torque> a <http://materialsmine.org/ns/Torque> ;
+        ns2:hasValue "1.45" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_residencetime> a <http://materialsmine.org/ns/ResidenceTime>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_rotationmode> a <http://materialsmine.org/ns/RotationMode>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_screwchanneldiameter> a <http://materialsmine.org/ns/ScrewChannelDiameter>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_screwdiameter> a <http://materialsmine.org/ns/ScrewDiameter>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_torque> a <http://materialsmine.org/ns/Torque>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_extruder>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_melttemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_output>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_pressureatdie>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_residencetime>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_rotationmode>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_rotationspeed>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_screwchanneldiameter>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_screwdiameter>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_torque> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns2:hasValue "Thermo Haake Minilab" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "150.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_melttemperature> a <http://materialsmine.org/ns/MeltTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "150.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_output> a <http://materialsmine.org/ns/Output> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        ns2:hasValue "8.8" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns2:hasValue "1580.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_rotationmode> a <http://materialsmine.org/ns/RotationMode> ;
+        ns2:hasValue "CounterRotation" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns2:hasValue "100.0" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_screwchanneldiameter> a <http://materialsmine.org/ns/ScrewChannelDiameter> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns2:hasValue "0.56" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_screwdiameter> a <http://materialsmine.org/ns/ScrewDiameter> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns2:hasValue "12.7" .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_twinscrewextrusion_torque> a <http://materialsmine.org/ns/Torque> ;
+        ns2:hasValue "1.45" .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    ns1:E408_S6_prasad_2021_assertion ns4:wasDerivedFrom ns1:E408_S6_prasad_2021_assertion,
+            <http://nanomine.org/pub/NzE4MDU0LjgzMDYzOTEyNTg_assertion> ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/ODU3NDEuNDIxNjc4Nzc0Njg/MaterialsmineXMLImport> ;
+                ns4:used ns1:E408_S6_prasad_2021_assertion,
+                    <http://nanomine.org/pub/NzE4MDU0LjgzMDYzOTEyNTg_assertion> ],
+            <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_description>,
+            <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_equipmentused>,
+            <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_magnification>,
+            <http://materialsmine.org/entry/E408_S6_prasad_2021_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output> a <http://materialsmine.org/ns/Output>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_melttemperature>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_pressureatdie>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_residencetime>,
+            <http://materialsmine.org/sample/E408_S6_prasad_2021_melt_mixing_step_3_output_torque> .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> rdfs:label "MPa" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> rdfs:label "seconds" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> rdfs:label "mm" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+

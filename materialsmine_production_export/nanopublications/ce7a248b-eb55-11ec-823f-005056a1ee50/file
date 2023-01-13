@@ -1,0 +1,62 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:tlgpktps4z_pubinfo {
+    ns1:tlgpktps4z_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:11:33.677000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:tlgpktps4z a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/48a59d05f9684cb8_depiction> ;
+        ns3:hasAssertion ns1:tlgpktps4z_assertion ;
+        ns3:hasProvenance ns1:tlgpktps4z_provenance ;
+        ns3:hasPublicationInfo ns1:tlgpktps4z_pubinfo .
+
+    ns1:tlgpktps4z_assertion a ns3:Assertion .
+
+    ns1:tlgpktps4z_provenance a ns3:Provenance .
+
+    ns1:tlgpktps4z_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:tlgpktps4z_assertion {
+    <http://nanomine.org/viz/48a59d05f9684cb8> a ns4:Chart ;
+        ns2:description "A grammar of graphics (Leland Wilkinson et al.) provides numerous advantages when creating reproducible data visualizations. By articulating the underlying structure of a visualization, one can readily explore alternate approaches to visually encoding a dataset. This composite chart takes a dataset (based on a query of matrix materials that have been filled with graphene) and explores six different ways of encoding these data." ;
+        ns2:title "Same Data, Different Encodings" ;
+        ns8:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 a [ rdfs:label "Graphene" ] ],
+                               [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] ] .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"joinaggregate\":[{\"op\":\"count\",\"field\":\"sample\",\"as\":\"MatrixGroupCount\"}],\"groupby\":[\"Matrix\"]},{\"joinaggregate\":[{\"op\":\"count\",\"field\":\"sample\",\"as\":\"TotalSamples\"}]},{\"calculate\":\"datum.MatrixGroupCount / datum.TotalSamples\",\"as\":\"MatrixProportion\"}],\"vconcat\":[{\"hconcat\":[{\"mark\":{\"type\":\"arc\"},\"encoding\":{\"theta\":{\"aggregate\":\"count\",\"field\":\"Matrix\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Sample Count\"},{\"field\":\"MatrixProportion\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"% of Total\"}]},\"view\":{\"stroke\":null}},{\"mark\":{\"type\":\"arc\",\"innerRadius\":50},\"encoding\":{\"theta\":{\"aggregate\":\"count\",\"field\":\"Matrix\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Sample Count\"},{\"field\":\"MatrixProportion\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"% of Total\"}]},\"view\":{\"stroke\":null}},{\"mark\":{\"type\":\"bar\",\"height\":60},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\"},{\"field\":\"MatrixProportion\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"% of Total\"}]},\"view\":{\"stroke\":null}}]},{\"hconcat\":[{\"mark\":{\"type\":\"bar\",\"width\":60},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Sample Count\"},{\"field\":\"MatrixProportion\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"% of Total\"}]},\"view\":{\"stroke\":null}},{\"mark\":{\"type\":\"bar\",\"cornerRadius\":5},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"axis\":null},\"x\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"axis\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Sample Count\"},{\"field\":\"MatrixProportion\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"% of Total\"}]},\"view\":{\"stroke\":null}},{\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"y\":{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"axis\":{\"labels\":false,\"title\":null}},\"x\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"axis\":null},\"size\":{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"field\":\"sample\",\"type\":\"quantitative\",\"title\":\"Sample Count\"},{\"field\":\"MatrixProportion\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"% of Total\"}]},\"view\":{\"stroke\":null}}]}]}" ;
+        ns5:depiction <http://nanomine.org/viz/48a59d05f9684cb8_depiction> .
+
+    <http://nanomine.org/viz/48a59d05f9684cb8_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:11:33.676000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "04c9d834-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

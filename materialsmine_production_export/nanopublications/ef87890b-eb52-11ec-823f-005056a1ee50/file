@@ -1,0 +1,159 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L204_S1_Bansal_2005_assertion {
+    <http://materialsmine.org/compound/Polystyrene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Polystyrene" ;
+        ns2:notation "PS" .
+
+    <http://materialsmine.org/sample/l204-s1-bansal-2005_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l204-s1-bansal-2005> .
+
+    <http://materialsmine.org/sample/l204-s1-bansal-2005_matrix_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.04e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PS" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l204-s1-bansal-2005> ] .
+
+    <http://materialsmine.org/sample/l204-s1-bansal-2005> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label " in polystyrene" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin> ;
+                ns3:hasValue 3.7917e+02 ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l204-s1-bansal-2005_matrix_0> ;
+        ns3:hasRole <http://materialsmine.org/sample/l204-s1-bansal-2005_control_role> .
+}
+
+ns1:L204_S1_Bansal_2005_provenance {
+    <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/rheometrics-dmta-v>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L204_S1_Bansal_2005_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/joel-840>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L204_S1_Bansal_2005_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/ns/joel-840> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JOEL 840" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/rheometrics-dmta-v> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Rheometrics DMTA V" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L204_S1_Bansal_2005_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L204_S1_Bansal_2005_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    ns1:L204_S1_Bansal_2005_assertion ns4:wasDerivedFrom ns1:L204_S1_Bansal_2005_assertion,
+            <http://nanomine.org/pub/NDA4NDE4LjA4MDA1Njk3NTk_assertion> ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/NTI3MDU5LjM1ODE0NDIxNTQ/MaterialsmineXMLImport> ;
+                ns4:used ns1:L204_S1_Bansal_2005_assertion,
+                    <http://nanomine.org/pub/NDA4NDE4LjA4MDA1Njk3NTk_assertion> ],
+            <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_equipment>,
+            <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L204_S1_Bansal_2005_characterization_transmission-electron-microscopy> .
+}
+
+ns1:L204_S1_Bansal_2005_pubinfo {
+    ns1:L204_S1_Bansal_2005_assertion ns6:created "2021-07-22T14:06:42.214000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/NTI3MDU5LjM1ODE0NDIxNTQ/MaterialsmineXMLImport> ;
+        ns4:wasQuotedFrom <http://dx.doi.org/10.1038/nmat1447> .
+
+    <http://dx.doi.org/10.1038/nmat1447> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns6:BibliographicResource ;
+        rdfs:label "Quantitative equivalence between polymer nanocomposites and thin polymer films" ;
+        ns6:created 2005 ;
+        ns6:creator <http://materialsmine.org/author/bansal-amitabh>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/cho-kilwon>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/li-chunzhao>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/yang-hoichang> ;
+        ns6:isPartOf <http://materialsmine.org/publication/nature-materials> ;
+        ns6:language <http://materialsmine.org/language/english> ;
+        ns6:title "Quantitative equivalence between polymer nanocomposites and thin polymer films" ;
+        ns7:authorList ( <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/kumar-sanat-k> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/cho-kilwon> <http://materialsmine.org/author/li-chunzhao> <http://materialsmine.org/author/yang-hoichang> <http://materialsmine.org/author/bansal-amitabh> ) ;
+        ns7:volume 4 ;
+        ns3:hasPart <http://materialsmine.org/sample/l204-s1-bansal-2005> ;
+        rdfs:seeAlso <http://www.nature.com/articles/nmat1447> .
+
+    <http://materialsmine.org/language/english> a ns6:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-rensselaer-polytechnic-institute-troy-new-york-12180-usa> a ns6:Location ;
+        rdfs:label "Department of Materials Science and Engineering, Rensselaer Polytechnic Institute, Troy, New York 12180, USA" .
+
+    <http://materialsmine.org/publication/nature-materials> ns6:publisher <publisher:nature-publishing-group> ;
+        ns6:title "Nature Materials" .
+
+    <http://materialsmine.org/sample/l204-s1-bansal-2005> ns4:wasAttributedTo <http://materialsmine.org/author/bansal-amitabh>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/cho-kilwon>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/li-chunzhao>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/yang-hoichang> .
+
+    <publisher:nature-publishing-group> rdfs:label "Nature Publishing Group" ;
+        ns4:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-rensselaer-polytechnic-institute-troy-new-york-12180-usa> .
+
+    <http://materialsmine.org/author/bansal-amitabh> a ns4:Agent ;
+        rdfs:label "Bansal, Amitabh" ;
+        ns5:name "Bansal, Amitabh" .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns4:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns5:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/cho-kilwon> a ns4:Agent ;
+        rdfs:label "Cho, Kilwon" ;
+        ns5:name "Cho, Kilwon" .
+
+    <http://materialsmine.org/author/kumar-sanat-k> a ns4:Agent ;
+        rdfs:label "Kumar, Sanat K." ;
+        ns5:name "Kumar, Sanat K." .
+
+    <http://materialsmine.org/author/li-chunzhao> a ns4:Agent ;
+        rdfs:label "Li, Chunzhao" ;
+        ns5:name "Li, Chunzhao" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns4:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns5:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/yang-hoichang> a ns4:Agent ;
+        rdfs:label "Yang, Hoichang" ;
+        ns5:name "Yang, Hoichang" .
+}
+

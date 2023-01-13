@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:a43kcu4hd4_assertion {
+    <http://nanomine.org/viz/9179ab794bed3b27> a ns5:Chart ;
+        ns2:description "What can a color encoding add to a data visualization? This chart contains a scatter plot of glass transition temperature as a function of volume fraction, with a tooltip that pops up to display material composition information when you hover over a point. In the bar chart to the right, select one (or more by holding the Shift key) materials to add color to the chart based on material composition. Filler material colors are encoded as the fill color of points in the scatter plot, while matrix material colors are encoded as the stroke color. Double-click the bar chart to reset the chart." ;
+        ns2:title "Pleasantville" ;
+        ns3:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?controlsample sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_control ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?VolumeFraction ] ,
+                                                  [ a nm:MassFraction ;
+                                                    sio:hasValue ?MassFraction ] 
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"fold\":[\"Filler\",\"Matrix\"],\"as\":[\"role\",\"material\"]}],\"hconcat\":[{\"height\":500,\"width\":500,\"layer\":[{\"transform\":[{\"filter\":{\"field\":\"role\",\"equal\":\"Filler\"}}],\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":150,\"stroke\":null},\"encoding\":{\"color\":{\"condition\":{\"selection\":\"materialselect\",\"field\":\"material\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20b\"}},\"value\":\"#777\"}}},{\"transform\":[{\"filter\":{\"field\":\"role\",\"equal\":\"Matrix\"}}],\"mark\":{\"type\":\"point\",\"filled\":false,\"size\":300,\"strokeWidth\":5},\"encoding\":{\"stroke\":{\"condition\":{\"selection\":\"materialselect\",\"field\":\"material\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20b\"}},\"value\":\"#777\"}}}],\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Volume Fraction\"},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"opacity\":{\"condition\":{\"selection\":\"materialselect\",\"value\":1},\"value\":0.1},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"title\":\"vol%\",\"format\":\".2p\"},{\"field\":\"Tg\",\"type\":\"quantitative\",\"format\":\".4r\",\"title\":\"Tg (C)\"}]}},{\"height\":500,\"width\":100,\"selection\":{\"materialselect\":{\"type\":\"multi\",\"fields\":[\"role\",\"material\"],\"empty\":\"none\"}},\"mark\":{\"type\":\"bar\"},\"encoding\":{\"x\":{\"field\":\"role\",\"type\":\"nominal\",\"title\":null},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":null},\"color\":{\"condition\":{\"selection\":\"materialselect\",\"field\":\"material\",\"type\":\"nominal\",\"legend\":null},\"value\":\"#000\"},\"stroke\":{\"condition\":{\"selection\":\"materialselect\",\"field\":\"material\",\"type\":\"nominal\",\"legend\":null},\"value\":\"#000\"},\"opacity\":{\"condition\":{\"selection\":\"materialselect\",\"value\":1},\"value\":0.3},\"tooltip\":[{\"field\":\"material\",\"type\":\"nominal\",\"title\":\"Material\"},{\"field\":\"role\",\"type\":\"nominal\",\"title\":\"Role\"},{\"aggregate\":\"count\",\"type\":\"quantitative\",\"title\":\"Count\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":24,\"labelFontSize\":16}}}" ;
+        ns7:depiction <http://nanomine.org/viz/9179ab794bed3b27_depiction> .
+
+    <http://nanomine.org/viz/9179ab794bed3b27_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T13:36:03.718000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "e9ee0210-f528-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:a43kcu4hd4_pubinfo {
+    ns1:a43kcu4hd4_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T13:36:03.721000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:a43kcu4hd4 a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/9179ab794bed3b27_depiction> ;
+        ns8:hasAssertion ns1:a43kcu4hd4_assertion ;
+        ns8:hasProvenance ns1:a43kcu4hd4_provenance ;
+        ns8:hasPublicationInfo ns1:a43kcu4hd4_pubinfo .
+
+    ns1:a43kcu4hd4_assertion a ns8:Assertion .
+
+    ns1:a43kcu4hd4_provenance a ns8:Provenance .
+
+    ns1:a43kcu4hd4_pubinfo a ns8:PublicationInfo .
+}
+

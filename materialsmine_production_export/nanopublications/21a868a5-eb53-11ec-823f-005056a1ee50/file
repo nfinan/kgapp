@@ -1,0 +1,549 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://www.w3.org/ns/prov#> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L252_S2_Ameli_2014_assertion {
+    <http://materialsmine.org/sample/l252-s1-ameli-2014> ns2:hasRole <http://materialsmine.org/sample/l252-s1-ameli-2014_control_role> .
+
+    <http://materialsmine.org/compound/MultiWallCarbonNanotubes> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Multi-wall carbon nanotubes" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nanocyl S.A., Sambreville, Belgium" ] ;
+        ns3:altLabel "Nanocyl NC 7000",
+            "multi-walled carbon nanotubes" ;
+        ns3:notation "MWCNT" .
+
+    <http://materialsmine.org/compound/PolyPropylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(propylene)" ;
+        ns3:altLabel "Moplen HP 400R" ;
+        ns3:notation "PP" .
+
+    <http://materialsmine.org/sample/l252-s1-ameli-2014_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l252-s2-ameli-2014> .
+
+    <http://materialsmine.org/sample/l252-s2-ameli-2014_filler_0> a <http://materialsmine.org/compound/MultiWallCarbonNanotubes> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 9.5e+00 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.75e+00 ],
+            <http://materialsmine.org/sample/l252-s2-ameli-2014_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l252-s2-ameli-2014_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l252-s2-ameli-2014> ] .
+
+    <http://materialsmine.org/sample/l252-s2-ameli-2014_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 5.043172e-03 .
+
+    <http://materialsmine.org/sample/l252-s2-ameli-2014_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 2.6e-03 .
+
+    <http://materialsmine.org/sample/l252-s2-ameli-2014_matrix_0> a <http://materialsmine.org/compound/PolyPropylene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PP" ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "Moplen HP 400R" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Lyondell Basell Industries" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 9e-01 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l252-s2-ameli-2014> ] .
+
+    <http://materialsmine.org/sample/l252-s2-ameli-2014> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "multi-walled carbon nanotubes in polypropylene" ;
+        ns2:hasAttribute [ ns2:hasValue 7.427182e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.003655e-01 ] ],
+            [ ns2:hasValue 6.824577e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.754939e-01 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ ns2:hasValue 7.427182e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.003655e-01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.458594e+00 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.629809e+02 ] ],
+            [ ns2:hasValue 5.762077e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 7.864041e-01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.821398e+00 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.524264e+03 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.821398e+00 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.819154e+02 ] ],
+            [ ns2:hasValue 1.256346e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 4.554932e+01 ] ],
+            [ ns2:hasValue 6.754938e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.89897e+02 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.294261e+04 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.821398e+00 ] ],
+            [ ns2:hasValue 7.37741e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.006311e-01 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 6.010194e+03 ] ],
+            [ ns2:hasValue 6.841524e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.2385e+01 ] ],
+            [ ns2:hasValue 6.841524e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.2385e+01 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.217312e+04 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.458594e+00 ] ],
+            [ ns2:hasValue 6.187066e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.427984e+04 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.294261e+04 ] ],
+            [ ns2:hasValue 4.815352e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.50841e+03 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.474245e+01 ] ],
+            [ ns2:hasValue 2.898265e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.394188e+04 ] ],
+            [ ns2:hasValue 2.898265e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.394188e+04 ] ],
+            [ ns2:hasValue 6.344563e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.051618e+02 ] ],
+            [ ns2:hasValue 7.561695e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.869118e+02 ] ],
+            [ ns2:hasValue 3.66934e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 2.95442e+00 ] ],
+            [ ns2:hasValue 4.815352e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 7.669681e+02 ] ],
+            [ ns2:hasValue 6.344563e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.051618e+02 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.849058e+04 ] ],
+            [ ns2:hasValue 2.589049e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 8.732284e+04 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.217312e+04 ] ],
+            [ ns2:hasValue 6.344563e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.083493e+03 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.458594e+00 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.849058e+04 ] ],
+            [ ns2:hasValue 6.187066e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.427984e+04 ] ],
+            [ ns2:hasValue 6.754938e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.89897e+02 ] ],
+            [ ns2:hasValue 6.754938e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.89897e+02 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.887801e-01 ] ],
+            [ ns2:hasValue 4.815352e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.50841e+03 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.849058e+04 ] ],
+            [ ns2:hasValue 1.665726e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 2.183363e+01 ] ],
+            [ ns2:hasValue 1.256346e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 4.554932e+01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.142446e+03 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.534409e-01 ] ],
+            [ ns2:hasValue 6.096463e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 3.451696e-01 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.534409e-01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.641589e+01 ] ],
+            [ ns2:hasValue 7.561695e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.869118e+02 ] ],
+            [ ns2:hasValue 6.187066e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.427984e+04 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.524264e+03 ] ],
+            [ ns2:hasValue 7.37741e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.006311e-01 ] ],
+            [ ns2:hasValue 4.815352e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 7.669681e+02 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.887801e-01 ] ],
+            [ ns2:hasValue 4.815352e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.50841e+03 ] ],
+            [ ns2:hasValue 6.824577e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.754939e-01 ] ],
+            [ ns2:hasValue 1.665726e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 2.183363e+01 ] ],
+            [ ns2:hasValue 4.864995e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.501962e+00 ] ],
+            [ ns2:hasValue 2.208503e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.177215e+01 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 6.010194e+03 ] ],
+            [ ns2:hasValue 5.762077e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 7.864041e-01 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.541444e-01 ] ],
+            [ ns2:hasValue 3.66934e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 2.95442e+00 ] ],
+            [ ns2:hasValue 1.060749e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 9.226521e+01 ] ],
+            [ ns2:hasValue 5.762077e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 7.864041e-01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.972795e+02 ] ],
+            [ ns2:hasValue 6.096463e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 3.451696e-01 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 6.010194e+03 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.629809e+02 ] ],
+            [ ns2:hasValue 6.344563e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.083493e+03 ] ],
+            [ ns2:hasValue 2.589049e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 8.732284e+04 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.641589e+01 ] ],
+            [ ns2:hasValue 6.344563e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.051618e+02 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.534409e-01 ] ],
+            [ ns2:hasValue 7.015682e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.00706e+00 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.541444e-01 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.524264e+03 ] ],
+            [ ns2:hasValue 3.066458e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.217312e+04 ] ],
+            [ ns2:hasValue 3.432691e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.967199e+03 ] ],
+            [ ns2:hasValue 7.015682e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.00706e+00 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.142446e+03 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+05 ] ],
+            [ ns2:hasValue 6.187066e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.850565e+04 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.629809e+02 ] ],
+            [ ns2:hasValue 1.060749e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 9.226521e+01 ] ],
+            [ ns2:hasValue 4.864995e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.501962e+00 ] ],
+            [ ns2:hasValue 3.098071e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 5.81108e+00 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.972795e+02 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.474245e+01 ] ],
+            [ ns2:hasValue 3.432691e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.967199e+03 ] ],
+            [ ns2:hasValue 1.060749e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 9.226521e+01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.972795e+02 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.819154e+02 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.819154e+02 ] ],
+            [ ns2:hasValue 1.256346e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 4.554932e+01 ] ],
+            [ ns2:hasValue 7.427182e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.003655e-01 ] ],
+            [ ns2:hasValue 3.66934e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 2.95442e+00 ] ],
+            [ ns2:hasValue 7.015682e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.00706e+00 ] ],
+            [ ns2:hasValue 7.37741e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.006311e-01 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns4:description "unspecified, assumed to be room temperature" ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 2.5e+01 ],
+            [ ns2:hasValue 2.898265e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.394188e+04 ] ],
+            [ ns2:hasValue 6.187066e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.850565e+04 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.474245e+01 ] ],
+            [ ns2:hasValue 3.098071e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 5.81108e+00 ] ],
+            [ ns2:hasValue 4.815352e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 7.669681e+02 ] ],
+            [ ns2:hasValue 1.665726e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 2.183363e+01 ] ],
+            [ ns2:hasValue 7.561695e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.869118e+02 ] ],
+            [ ns2:hasValue 6.344563e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.083493e+03 ] ],
+            [ ns2:hasValue 6.187066e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.850565e+04 ] ],
+            [ ns2:hasValue 2.589049e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 8.732284e+04 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.541444e-01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.641589e+01 ] ],
+            [ ns2:hasValue 7.194273e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.887801e-01 ] ],
+            [ ns2:hasValue 6.506071e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.294261e+04 ] ],
+            [ ns2:hasValue 6.096463e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 3.451696e-01 ] ],
+            [ ns2:hasValue 4.864995e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.501962e+00 ] ],
+            [ ns2:hasValue 3.098071e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 5.81108e+00 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+05 ] ],
+            [ ns2:hasValue 6.824577e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.754939e-01 ] ],
+            [ ns2:hasValue 2.208503e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.177215e+01 ] ],
+            [ ns2:hasValue 3.432691e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.967199e+03 ] ],
+            [ ns2:hasValue 2.208503e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.177215e+01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+05 ] ],
+            [ ns2:hasValue 6.841524e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.2385e+01 ] ],
+            [ ns2:hasValue 6.671689e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.142446e+03 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l252-s2-ameli-2014_filler_0>,
+            <http://materialsmine.org/sample/l252-s2-ameli-2014_matrix_0> .
+}
+
+ns1:L252_S2_Ameli_2014_pubinfo {
+    ns1:L252_S2_Ameli_2014_assertion ns4:created "2021-07-22T18:52:06.817000+00:00"^^xsd:dateTime ;
+        ns6:wasAttributedTo <http://nanomine.org/setl/Mzc5ODkzLjM4ODYzNzg5MTE/MaterialsmineXMLImport> ;
+        ns6:wasQuotedFrom <http://dx.doi.org/10.1016/j.carbon.2014.01.031> .
+
+    <http://dx.doi.org/10.1016/j.carbon.2014.01.031> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Polypropylene/carbon nanotube nano/microcellular structures with high dielectric permittivity, low dielectric loss, and low percolation threshold" ;
+        ns4:created 2014 ;
+        ns4:creator <http://materialsmine.org/author/ameli-a>,
+            <http://materialsmine.org/author/nofar-m>,
+            <http://materialsmine.org/author/park-c-b>,
+            <http://materialsmine.org/author/potschke-p>,
+            <http://materialsmine.org/author/rizvi-g> ;
+        ns4:isPartOf <http://materialsmine.org/publication/carbon> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Polypropylene/carbon nanotube nano/microcellular structures with high dielectric permittivity, low dielectric loss, and low percolation threshold" ;
+        ns5:authorList ( <http://materialsmine.org/author/rizvi-g> <http://materialsmine.org/author/potschke-p> <http://materialsmine.org/author/park-c-b> <http://materialsmine.org/author/nofar-m> <http://materialsmine.org/author/ameli-a> ) ;
+        ns5:volume 71 ;
+        ns2:hasPart <http://materialsmine.org/sample/l252-s2-ameli-2014> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0008622314000670?via%3Dihub> .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/microcellular-plastics-manufacturing-laboratory-department-of-mechanical-and-industrial-engineering-university-of-toronto-5-kings-college-road-toronto-m5s-3g8-canada> a ns4:Location ;
+        rdfs:label "Microcellular Plastics Manufacturing Laboratory, Department of Mechanical and Industrial Engineering, University of Toronto, 5 King���s College Road, Toronto M5S 3G8, Canada" .
+
+    <http://materialsmine.org/publication/carbon> ns4:publisher <publisher:pergamon> ;
+        ns4:title "Carbon" .
+
+    <http://materialsmine.org/sample/l252-s2-ameli-2014> ns6:wasAttributedTo <http://materialsmine.org/author/ameli-a>,
+            <http://materialsmine.org/author/nofar-m>,
+            <http://materialsmine.org/author/park-c-b>,
+            <http://materialsmine.org/author/potschke-p>,
+            <http://materialsmine.org/author/rizvi-g> .
+
+    <publisher:pergamon> rdfs:label "Pergamon" ;
+        ns6:atLocation <http://materialsmine.org/location/microcellular-plastics-manufacturing-laboratory-department-of-mechanical-and-industrial-engineering-university-of-toronto-5-kings-college-road-toronto-m5s-3g8-canada> .
+
+    <http://materialsmine.org/author/ameli-a> a ns6:Agent ;
+        rdfs:label "Ameli, A." ;
+        ns7:name "Ameli, A." .
+
+    <http://materialsmine.org/author/nofar-m> a ns6:Agent ;
+        rdfs:label "Nofar, M." ;
+        ns7:name "Nofar, M." .
+
+    <http://materialsmine.org/author/park-c-b> a ns6:Agent ;
+        rdfs:label "Park, C.B." ;
+        ns7:name "Park, C.B." .
+
+    <http://materialsmine.org/author/potschke-p> a ns6:Agent ;
+        rdfs:label "P��tschke, P." ;
+        ns7:name "P��tschke, P." .
+
+    <http://materialsmine.org/author/rizvi-g> a ns6:Agent ;
+        rdfs:label "Rizvi, G." ;
+        ns7:name "Rizvi, G." .
+}
+
+ns1:L252_S2_Ameli_2014_provenance {
+    <http://materialsmine.org/sample/l252-s2-ameli-2014> ns6:wasGeneratedBy <http://materialsmine.org/entry/L252_S2_Ameli_2014_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/alpha-a-high-performance-conductivity-analyzer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_description_attr_29>,
+                    <http://materialsmine.org/sample/L252_S2_Ameli_2014_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/jeol-jsm-6060>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_equipment_used_attr_28> ],
+            [ a <http://materialsmine.org/ns/hitachi-s-5200>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/hitachi-h-7000>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L252_S2_Ameli_2014_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_2> .
+
+    <http://materialsmine.org/ns/alpha-a-high-performance-conductivity-analyzer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Alpha-A high performance conductivity analyzer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/hitachi-h-7000> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Hitachi H-7000" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/hitachi-s-5200> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Hitachi S-5200" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/jeol-jsm-6060> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JSM-6060" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0> a <http://materialsmine.org/ns/Extrusion> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extruder>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extrusion>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extruder> a <http://materialsmine.org/ns/Extruder>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extrusion> a <http://materialsmine.org/ns/Extrusion>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extrusion_extruder>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extrusion_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns2:hasValue "Berstorff ZE25 twin-screw extruder" .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_extrusion_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_twinscrewextrusion_extruder> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_twinscrewextrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns2:hasValue "Berstorff ZE25 twin-screw extruder" .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_chemicalused>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_description>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_rpm>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_temperature> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_description>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_rpm>,
+            <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_temperature> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_description> a ns2:Description ;
+        ns2:hasValue "PP was filled with MWCNTs" .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_rpm> a <http://materialsmine.org/ns/RotationalFrequency> ;
+        ns2:hasValue "500" .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_mixing_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "190" .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_rpm> a <http://materialsmine.org/ns/RotationalFrequency>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_2> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_2_molding> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_melt_mixing_step_2_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    ns1:L252_S2_Ameli_2014_assertion ns6:wasDerivedFrom ns1:L252_S2_Ameli_2014_assertion,
+            <http://nanomine.org/pub/MTY2NzcuOTczOTQyMTg5NzU4_assertion> ;
+        ns6:wasGeneratedBy [ a <http://nanomine.org/setl/Mzc5ODkzLjM4ODYzNzg5MTE/MaterialsmineXMLImport> ;
+                ns6:used ns1:L252_S2_Ameli_2014_assertion,
+                    <http://nanomine.org/pub/MTY2NzcuOTczOTQyMTg5NzU4_assertion> ],
+            <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_description>,
+            <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_equipment>,
+            <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L252_S2_Ameli_2014_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L252_S2_Ameli_2014_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+

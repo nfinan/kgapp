@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:x7nyvvbvhm_assertion {
+    <http://nanomine.org/viz/69be676da551202a> a ns7:Chart ;
+        ns3:description "Use the built-in interactive elements (tooltips, query widgets, etc.) to solve the puzzle and unlock the hidden hyperlink." ;
+        ns3:title "Cryptograph" ;
+        ns2:query """# Hint: This useful material can be found in
+#       sand, microchips, and even as a filler
+#       in some polymer nanocomposites...
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?Filler (COUNT(distinct ?sample) AS ?SampleCount) WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ; a [ rdfs:label ?Filler] ]
+}
+GROUP BY ?Filler""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"Try to solve the puzzle before reviewing this Vega-Lite spec. Spoilers inevitably lie ahead!\",\"layer\":[{\"transform\":[{\"filter\":{\"selection\":\"filler\"}}],\"mark\":{\"type\":\"text\",\"dy\":-117,\"dx\":-10,\"font\":\"Courier New\",\"fontSize\":16,\"color\":\"#777\"},\"encoding\":{\"text\":{\"value\":\"A B C D E F G H I J K L\"}}},{\"transform\":[{\"filter\":{\"selection\":\"filler\"}}],\"mark\":{\"type\":\"text\",\"dy\":117,\"font\":\"Courier New\",\"fontSize\":16,\"color\":\"#777\"},\"encoding\":{\"text\":{\"value\":\"N O P Q R S T U V W X Y Z\"}}},{\"transform\":[{\"filter\":{\"selection\":\"filler\"}},{\"calculate\":\"replace(datum.Filler,/.*/,'Mmm is what I say when you give me a donut.')\",\"as\":\"donuts\"}],\"selection\":{\"m\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"donuts\"]}},\"mark\":{\"type\":\"text\",\"dy\":-117,\"dx\":114,\"font\":\"Courier New\",\"fontSize\":16},\"encoding\":{\"text\":{\"value\":\"M\"},\"color\":{\"condition\":{\"selection\":\"m\",\"value\":\"firebrick\"},\"value\":\"#777\"},\"tooltip\":{\"field\":\"donuts\",\"type\":\"nominal\",\"title\":\"Hint\"}}},{\"data\":{\"values\":[{\"df\":\"Might I recommend first looking at the SPARQL query?\"}]},\"selection\":{\"hover2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"text\",\"font\":\"Times New Roman\",\"fontSize\":18,\"fontStyle\":\"italic\",\"dy\":-45},\"encoding\":{\"text\":{\"datum\":\"\\\"May I bother you for the time?\\\"\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"hover2\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"df\",\"type\":\"nominal\",\"title\":\"Hint\"}]}},{\"data\":{\"values\":[{\"m\":[-25000,25000,-25000,0,0],\"n\":[-36000,-36000,38000,-200,-15],\"msg1\":[\"Alas, another red herring. Perhaps try the first letter?\",\"My mistake. I meant the first letter of ZOOM.\",\"Seems like the solution is always in the last corner you look...\",\"These aren't the digits you're looking for.\",\"If the code isn't here, might I suggest moving along...\"],\"mycolor\":[\"red\",\"green\",\"goldenrod\",\"purple\",\"black\"]}]},\"transform\":[{\"flatten\":[\"m\",\"n\",\"msg1\",\"mycolor\"]},{\"calculate\":\"ceil(now()*random())\",\"as\":\"test1\"},{\"calculate\":\"datetime(datum.test1)\",\"as\":\"cdtest1\"},{\"calculate\":\"replace(datum.cdtest1,/GMT.*/,'')\",\"as\":\"ctest1\"}],\"selection\":{\"ht\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"text\",\"fontSize\":12,\"dy\":12},\"encoding\":{\"y\":{\"field\":\"n\",\"type\":\"quantitative\",\"axis\":null},\"x\":{\"field\":\"m\",\"type\":\"quantitative\",\"axis\":null},\"color\":{\"field\":\"mycolor\",\"type\":\"nominal\",\"scale\":null},\"text\":{\"field\":\"ctest1\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"ht\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"msg1\",\"type\":\"nominal\",\"title\":\"Hint\"}]}},{\"height\":250,\"width\":250,\"data\":{\"values\":[{\"a\":38000,\"b\":\"N2zK3sA\",\"b2\":\"Atr-4\",\"x\":25000,\"c\":\"http:/*\",\"msg\":\"When this text turns blue, Ctrl-click and you are through!\"}]},\"transform\":[{\"calculate\":\"ceil(now()*random())\",\"as\":\"t0\"},{\"calculate\":\"datetime(datum.t0)\",\"as\":\"cdt\"},{\"calculate\":\"replace(datum.cdt,/GMT.*/,'')\",\"as\":\"ct\"},{\"calculate\":\"seconds(datum.t0)\",\"as\":\"tS\"},{\"calculate\":\"minutes(datum.t0)\",\"as\":\"tM\"},{\"calculate\":\"hours(datum.t0)\",\"as\":\"tH\"},{\"calculate\":\"replace(datum.c,'*','/youtu.be/*')\",\"as\":\"w1\"},{\"calculate\":\"replace(datum.w1,'*',datum.b)\",\"as\":\"w0\"},{\"calculate\":\"replace(datum.w0,'A',datum.b2)\",\"as\":\"w\"}],\"selection\":{\"tN\":{\"type\":\"single\",\"fields\":[\"tH\",\"tM\",\"tS\"],\"init\":{\"tS\":\" \",\"tM\":\" \",\"tH\":\" \"},\"bind\":{\"tH\":{\"input\":\"range\",\"min\":0,\"max\":23,\"step\":1,\"name\":\" \"},\"tM\":{\"input\":\"range\",\"min\":0,\"max\":59,\"step\":1,\"name\":\" \"},\"tS\":{\"input\":\"range\",\"min\":0,\"max\":59,\"step\":1,\"name\":\" \"}}},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"text\",\"fontSize\":12,\"dy\":12},\"encoding\":{\"y\":{\"field\":\"a\",\"type\":\"quantitative\",\"scale\":{\"domain\":[2.5,7.5]},\"axis\":null},\"x\":{\"field\":\"x\",\"type\":\"quantitative\",\"scale\":{\"domain\":[2.5,7.5]},\"axis\":null},\"href\":{\"condition\":{\"selection\":\"tN\",\"field\":\"w\",\"type\":\"nominal\"},\"value\":null},\"text\":{\"field\":\"ct\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"tN\",\"value\":\"blue\"},\"value\":\"#999\"},\"opacity\":{\"condition\":{\"selection\":\"filler\",\"value\":1},\"value\":1},\"tooltip\":[{\"field\":\"msg\",\"type\":\"nominal\",\"title\":\"Hint\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"filler\"}}],\"selection\":{\"hover1\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"arc\",\"opacity\":0.2,\"innerRadius\":7,\"outerRadius\":30},\"encoding\":{\"theta\":{\"field\":\"SampleCount\",\"type\":\"quantitative\"},\"tooltip\":[{\"field\":\"SampleCount\",\"type\":\"quantitative\",\"title\":\"Ignore this number\"}],\"opacity\":{\"condition\":{\"selection\":\"hover1\",\"value\":0.5},\"value\":0.2},\"color\":{\"condition\":{\"selection\":\"filler\",\"value\":\"black\"},\"value\":\"transparent\"}}},{\"selection\":{\"filler\":{\"type\":\"single\",\"fields\":[\"Filler\"],\"empty\":\"none\",\"bind\":{\"input\":\"select\",\"name\":\"Query says... \",\"options\":[null,\"Graphene\",\"Transistors\",\"Copper\",\"Silver\",\"Sand\",\"Aluminium oxide\",\"Steel\",\"Carbon nanotubes\",\"Clay\",\"Seashells\",\"Barium titanate\",\"Red herrings\",\"Titanium dioxide\",\"Polymers\",\"Silicon carbide\",\"Driftwood\",\"Gold\",\"Platinum\",\"Montmorillonite\",\"Turtles\",\"Zirconium dioxide\",\"Silicon dioxide\",\"Water\",\"Cellulose\",\"Epoxy\"]}},\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"transform\":[{\"filter\":\"datum.Filler == 'Silicon dioxide'\"}],\"mark\":{\"type\":\"text\",\"fontWeight\":\"bolder\",\"dx\":-1},\"encoding\":{\"x\":{\"datum\":3.95,\"type\":\"quantitative\"},\"y\":{\"datum\":3.95},\"text\":{\"value\":\"T R Y   Z O O M I N G   O U T\"},\"color\":{\"condition\":{\"selection\":\"filler\",\"value\":\"#777\"},\"value\":\"transparent\"}}},{\"data\":{\"sequence\":{\"start\":1,\"stop\":5000,\"as\":\"points\"}},\"transform\":[{\"calculate\":\"random()*10000-5000\",\"as\":\"x\"},{\"calculate\":\"random()*10000-5000\",\"as\":\"y\"},{\"calculate\":\"random()\",\"as\":\"z\"},{\"filter\":\"datum.x * datum.x + datum.y * datum.y > 4000000\"},{\"filter\":\"datum.x * datum.x + datum.y * datum.y < 25000000\"},{\"calculate\":\"replace(datum.z,/.*/,'Aligning the donuts reveals a central letter...')\",\"as\":\"finalhint\"}],\"selection\":{\"donut\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"point\"},\"encoding\":{\"x\":{\"field\":\"x\",\"type\":\"quantitative\"},\"y\":{\"field\":\"y\",\"type\":\"quantitative\"},\"color\":{\"field\":\"z\",\"type\":\"quantitative\",\"scale\":{\"scheme\":{\"name\":\"darkmulti\"}},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"donut\",\"value\":1},\"value\":0.7},\"tooltip\":[{\"field\":\"finalhint\",\"type\":\"nominal\",\"title\":\"Hint\"}]}}],\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns4:depiction <http://nanomine.org/viz/69be676da551202a_depiction> .
+
+    <http://nanomine.org/viz/69be676da551202a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:21:27.780000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "66e6feba-f548-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:x7nyvvbvhm_pubinfo {
+    ns1:x7nyvvbvhm_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:21:27.780000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:x7nyvvbvhm a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/69be676da551202a_depiction> ;
+        ns8:hasAssertion ns1:x7nyvvbvhm_assertion ;
+        ns8:hasProvenance ns1:x7nyvvbvhm_provenance ;
+        ns8:hasPublicationInfo ns1:x7nyvvbvhm_pubinfo .
+
+    ns1:x7nyvvbvhm_assertion a ns8:Assertion .
+
+    ns1:x7nyvvbvhm_provenance a ns8:Provenance .
+
+    ns1:x7nyvvbvhm_pubinfo a ns8:PublicationInfo .
+}
+

@@ -1,0 +1,53 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:huex7lppy6_assertion {
+    <http://nanomine.org/viz/f501584f1b7bdeb9> a ns2:Chart ;
+        ns3:description "To commemorate the end of the 2011-2020 decade, this Decade Clock captures some of the temporal rhythms that shape our lives (seconds, minutes, hours, days, years, decades...) within a nested donut chart. To assemble this layered chart, Vega's now() expression is parsed upon chart load in order to display each component of the current time as arcs with independently resolved scale domains." ;
+        ns3:title "Decade Clock" ;
+        ns5:query """SELECT * WHERE {
+  ?sub a ?obj .
+} 
+LIMIT 1""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"milliseconds(now()) / 1000 + seconds(now())\",\"as\":\"CurrentTimeS2\"},{\"calculate\":\"datum.CurrentTimeS2 / 60 + minutes(now())\",\"as\":\"CurrentTimeM\"},{\"calculate\":\"datum.CurrentTimeM / 60 + hours(now())\",\"as\":\"CurrentTimeH\"},{\"calculate\":\"datum.CurrentTimeH / 24 + dayofyear(now()) - 1\",\"as\":\"CurrentTimeDoY\"},{\"calculate\":\"(year(now()) - 1) % 10 + (datum.CurrentTimeDoY / 366)\",\"as\":\"CurrentTimeYoDecade\"},{\"calculate\":\"datetime(now())\",\"as\":\"CurrentTime\"}],\"layer\":[{\"height\":250,\"width\":350,\"mark\":{\"type\":\"arc\",\"innerRadius\":5,\"outerRadius\":25},\"encoding\":{\"theta\":{\"field\":\"CurrentTimeYoDecade\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,10]}},\"color\":{\"field\":\"CurrentTimeYoDecade\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,10]}},\"tooltip\":[{\"field\":\"CurrentTimeYoDecade\",\"type\":\"quantitative\",\"title\":\"Year of Decade\",\"format\":\".3f\"}]}},{\"height\":250,\"width\":350,\"mark\":{\"type\":\"arc\",\"innerRadius\":30,\"outerRadius\":50},\"encoding\":{\"theta\":{\"field\":\"CurrentTimeDoY\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,365]}},\"color\":{\"field\":\"CurrentTimeDoY\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,365]}},\"tooltip\":[{\"field\":\"CurrentTimeDoY\",\"type\":\"quantitative\",\"title\":\"Day of Year\",\"format\":\".3f\"}]}},{\"mark\":{\"type\":\"arc\",\"innerRadius\":55,\"outerRadius\":75},\"encoding\":{\"theta\":{\"field\":\"CurrentTimeH\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,24]}},\"color\":{\"field\":\"CurrentTimeH\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,24]}},\"tooltip\":[{\"field\":\"CurrentTimeH\",\"type\":\"quantitative\",\"title\":\"Hour of Day\",\"format\":\".3f\"}]}},{\"mark\":{\"type\":\"arc\",\"innerRadius\":80,\"outerRadius\":100},\"encoding\":{\"theta\":{\"field\":\"CurrentTimeM\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,60]}},\"color\":{\"field\":\"CurrentTimeM\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,60]}},\"tooltip\":[{\"field\":\"CurrentTimeM\",\"type\":\"quantitative\",\"title\":\"Minute of Hour\",\"format\":\".3f\"}]}},{\"mark\":{\"type\":\"arc\",\"innerRadius\":105,\"outerRadius\":125},\"encoding\":{\"theta\":{\"field\":\"CurrentTimeS2\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,60]}},\"color\":{\"field\":\"CurrentTimeS2\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,60]}},\"tooltip\":[{\"field\":\"CurrentTimeS2\",\"type\":\"quantitative\",\"title\":\"Second of Minute\",\"format\":\".3f\"}]}},{\"mark\":{\"type\":\"text\",\"dy\":150,\"font\":\"Helvetica\",\"color\":\"gray\"},\"encoding\":{\"text\":{\"field\":\"CurrentTime\",\"type\":\"nominal\"}}}],\"resolve\":{\"scale\":{\"theta\":\"independent\",\"color\":\"independent\"}},\"view\":{\"stroke\":null},\"config\":{\"legend\":{\"disable\":true}}}" ;
+        ns4:depiction <http://nanomine.org/viz/f501584f1b7bdeb9_depiction> .
+
+    <http://nanomine.org/viz/f501584f1b7bdeb9_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:12:33.696000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "2890432a-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+{
+    ns1:huex7lppy6 a ns8:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/f501584f1b7bdeb9_depiction> ;
+        ns8:hasAssertion ns1:huex7lppy6_assertion ;
+        ns8:hasProvenance ns1:huex7lppy6_provenance ;
+        ns8:hasPublicationInfo ns1:huex7lppy6_pubinfo .
+
+    ns1:huex7lppy6_assertion a ns8:Assertion .
+
+    ns1:huex7lppy6_provenance a ns8:Provenance .
+
+    ns1:huex7lppy6_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:huex7lppy6_pubinfo {
+    ns1:huex7lppy6_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-08-04T17:12:33.697000+00:00"^^xsd:dateTime .
+}
+

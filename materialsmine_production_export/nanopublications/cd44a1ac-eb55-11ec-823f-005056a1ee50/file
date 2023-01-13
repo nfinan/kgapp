@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ramqyfwb8l_assertion {
+    <http://nanomine.org/viz/a60dd30fbcdf5787> a ns7:Chart ;
+        ns6:description "Color encodings become difficult to discern when too many unique categorical labels exist (such as the unique polymer names in this dataset). Grouping data into appropriate superclasses may reveal a broader trend in the data (or lack thereof).  Embedded within this chart spec is a lookup table with common polymer names and the respective category (Thermoplastic/Thermoset/Elastomer) for each. If a matrix polymer does not exist in the lookup table, a default label is assigned. This approach enables grouping of data into custom-defined superclasses. Click on any point to highlight all other points in that category." ;
+        ns6:title "Delta-Tg Plot with Custom Category Lookup" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?controlTg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?Loading_mass ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datum.Tg - datum.controlTg\",\"as\":\"deltaTg\"},{\"filter\":{\"and\":[{\"field\":\"Loading_mass\",\"valid\":true},{\"field\":\"deltaTg\",\"valid\":true}]}},{\"lookup\":\"Matrix\",\"from\":{\"data\":{\"values\":[{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polystyrene\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(methyl methacrylate)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Nylon 6(3)T\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polybenzimidazole\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(vinyl alcohol)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(vinyl butyral)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(vinyl chloride)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(vinylidene fluoride)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(ethylene terephthalate)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polypropylene\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polyurethane\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(ethyl methacrylate)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(2-vinyl pyridine)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(acrylonitrile)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(styrene-co-acrylonitrile)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(bisphenol A carbonate)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Poly(ethylene-vinyl acetate)\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polyamide-imide\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polyimide\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polylactic acid\"},{\"category\":\"Thermoplastic\",\"matrixtype\":\"Polyphenylsulfone\"},{\"category\":\"Thermoset\",\"matrixtype\":\"DGEBA Epoxy Resin\"},{\"category\":\"Thermoset\",\"matrixtype\":\"DGEBF Epoxy Resin\"},{\"category\":\"Thermoset\",\"matrixtype\":\"Cycloaliphatic Epoxy Resin\"},{\"category\":\"Thermoset\",\"matrixtype\":\"Bisphenol E cyanate ester resin\"},{\"category\":\"Thermoset\",\"matrixtype\":\"Bisphenol-A-epoxy vinyl ester resin\"},{\"category\":\"Elastomer\",\"matrixtype\":\"Poly(dimethyl siloxane)\"}]},\"key\":\"matrixtype\",\"fields\":[\"category\"]},\"default\":\"other\"}],\"selection\":{\"myselect\":{\"type\":\"multi\",\"fields\":[\"category\"]},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"stroke\":\"black\",\"filled\":true,\"size\":200},\"width\":700,\"height\":495,\"encoding\":{\"x\":{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Loading (mass fraction)\",\"titleFontSize\":20,\"labelFontSize\":20},\"scale\":{\"type\":\"log\"}},\"y\":{\"field\":\"deltaTg\",\"type\":\"quantitative\",\"axis\":{\"title\":\"delta Tg (Celsius)\",\"titleFontSize\":20,\"labelFontSize\":20}},\"color\":{\"field\":\"category\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"accent\"},\"legend\":{\"titleFontSize\":16,\"title\":\"Category\"}},\"opacity\":{\"condition\":[{\"selection\":\"myselect\",\"value\":1}],\"value\":0.01}},\"config\":{\"view\":{\"stroke\":\"transparent\"}}}" ;
+        ns2:depiction <http://nanomine.org/viz/a60dd30fbcdf5787_depiction> .
+
+    <http://nanomine.org/viz/a60dd30fbcdf5787_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T17:05:46.388000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "35c9ee5c-f546-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns6:FileFormat .
+}
+
+{
+    ns1:ramqyfwb8l a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/a60dd30fbcdf5787_depiction> ;
+        ns8:hasAssertion ns1:ramqyfwb8l_assertion ;
+        ns8:hasProvenance ns1:ramqyfwb8l_provenance ;
+        ns8:hasPublicationInfo ns1:ramqyfwb8l_pubinfo .
+
+    ns1:ramqyfwb8l_assertion a ns8:Assertion .
+
+    ns1:ramqyfwb8l_provenance a ns8:Provenance .
+
+    ns1:ramqyfwb8l_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:ramqyfwb8l_pubinfo {
+    ns1:ramqyfwb8l_assertion ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T17:05:46.389000+00:00"^^xsd:dateTime .
+}
+

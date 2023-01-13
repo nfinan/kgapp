@@ -1,0 +1,62 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ti82gsh2d5_pubinfo {
+    ns1:ti82gsh2d5_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-19T16:43:56.280000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:ti82gsh2d5 a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/505b0b3f8212c225_depiction> ;
+        ns3:hasAssertion ns1:ti82gsh2d5_assertion ;
+        ns3:hasProvenance ns1:ti82gsh2d5_provenance ;
+        ns3:hasPublicationInfo ns1:ti82gsh2d5_pubinfo .
+
+    ns1:ti82gsh2d5_assertion a ns3:Assertion .
+
+    ns1:ti82gsh2d5_provenance a ns3:Provenance .
+
+    ns1:ti82gsh2d5_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:ti82gsh2d5_assertion {
+    <http://nanomine.org/viz/505b0b3f8212c225> a ns4:Chart ;
+        ns2:description "The UpSet plot is a novel technique developed by Lex et al. (2014, DOI: 10.1109/TVCG.2014.2346248) for visualizing set intersections as a matrix layout. A sorted bar chart along the top shows the number of intersections of the sets (shown as connected dots) in the matrix below. Along the left hand side, a bar chart shows the size of each set. This chart shows the largest pairwise intersections of material components within nanocomposite samples in the knowledge graph. The plot was achieved in Vega-Lite through the use of the joinaggregate, calculate, window, and filter transforms as well as concatenated and layered views. Hover over data marks to view tooltips." ;
+        ns2:title "The UpSet Plot" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart ?part1, ?part2 .
+  ?part1 a [ rdfs:label ?Part1 ] .
+  ?part2 a [ rdfs:label ?Part2 ] .
+  FILTER (?Part1 != ?Part2)
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"MatlCount\"}],\"groupby\":[\"Part1\"]},{\"calculate\":\"datum.Part1 + ' and ' + datum.Part2\",\"as\":\"ComboKey\"},{\"calculate\":\"datum.Part1 > datum.Part2 ? 1 : 0\",\"as\":\"UniqueCombo\"},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"ComboCount\"}],\"groupby\":[\"ComboKey\"]},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"ComboCount\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank < 15\"}],\"hconcat\":[{\"vconcat\":[{\"height\":140,\"mark\":\"text\",\"view\":{\"stroke\":null}},{\"mark\":{\"type\":\"bar\",\"color\":\"#777777\"},\"encoding\":{\"x\":{\"field\":\"MatlCount\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"y\":{\"field\":\"Part1\",\"type\":\"nominal\",\"axis\":null},\"tooltip\":[{\"field\":\"Part1\",\"type\":\"nominal\",\"title\":\"Material\"},{\"aggregate\":\"mean\",\"field\":\"MatlCount\",\"type\":\"nominal\",\"title\":\"Set Size\"}]}}]},{\"vconcat\":[{\"transform\":[{\"filter\":\"datum.UniqueCombo == 1\"}],\"height\":150,\"mark\":{\"type\":\"bar\",\"color\":\"#777777\"},\"encoding\":{\"x\":{\"field\":\"ComboKey\",\"type\":\"nominal\",\"sort\":{\"field\":\"ComboCount\",\"order\":\"descending\"},\"axis\":null},\"y\":{\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":null},\"order\":{\"aggregate\":\"mean\",\"field\":\"ComboCount\"},\"tooltip\":[{\"field\":\"ComboKey\",\"type\":\"nominal\",\"title\":\"Materials\"},{\"aggregate\":\"mean\",\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":\"Intersections\"}]}},{\"transform\":[{\"filter\":\"datum.UniqueCombo == 1\"},{\"window\":[{\"op\":\"rank\",\"as\":\"r2\"}],\"groupby\":[\"ComboKey\"]}],\"layer\":[{\"transform\":[{\"fold\":[\"Part1\",\"Part2\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"r1\"}],\"groupby\":[\"value\"]},{\"filter\":\"datum.r1 == 1\"},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"AlphaRank\"}],\"sort\":[{\"field\":\"value\",\"order\":\"ascending\"}]},{\"calculate\":\"datum.AlphaRank % 2\",\"as\":\"even_odd\"}],\"mark\":\"rect\",\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"nominal\"},\"color\":{\"field\":\"even_odd\",\"type\":\"nominal\",\"scale\":{\"range\":[\"#ffffff\",\"#eeeeee\"]},\"legend\":null}}},{\"transform\":[{\"filter\":\"datum.r2 == 1\"}],\"mark\":{\"type\":\"rule\",\"color\":\"black\",\"opacity\":1},\"encoding\":{\"x\":{\"field\":\"ComboKey\",\"type\":\"nominal\",\"sort\":{\"field\":\"ComboCount\",\"order\":\"descending\"},\"axis\":null},\"y\":{\"field\":\"Part1\",\"type\":\"nominal\",\"title\":null,\"axis\":{\"labelAlign\":\"left\",\"labelPadding\":100,\"labelLimit\":100,\"ticks\":false}},\"y2\":{\"field\":\"Part2\"}}},{\"transform\":[{\"filter\":\"datum.r2 == 1\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":75,\"color\":\"#555555\",\"opacity\":1},\"encoding\":{\"x\":{\"field\":\"ComboKey\",\"type\":\"nominal\",\"sort\":{\"field\":\"ComboCount\",\"order\":\"descending\"},\"axis\":null},\"y\":{\"field\":\"Part1\",\"type\":\"nominal\"}}},{\"transform\":[{\"filter\":\"datum.r2 == 1\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":75,\"color\":\"#555555\",\"opacity\":1},\"encoding\":{\"x\":{\"field\":\"ComboKey\",\"type\":\"nominal\",\"sort\":{\"field\":\"ComboCount\",\"order\":\"descending\"},\"axis\":null},\"y\":{\"field\":\"Part2\",\"type\":\"nominal\"}}}],\"encoding\":{\"tooltip\":[{\"field\":\"ComboKey\",\"type\":\"nominal\",\"title\":\"Materials\"},{\"aggregate\":\"mean\",\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":\"Intersections\"}]}}]}],\"config\":{\"concat\":{\"spacing\":0}}}" ;
+        ns8:depiction <http://nanomine.org/viz/505b0b3f8212c225_depiction> .
+
+    <http://nanomine.org/viz/505b0b3f8212c225_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-19T16:43:56.280000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "e31a47ae-4957-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

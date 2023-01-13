@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:c8d19qn7k5 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/a507d5443e42909b_depiction> ;
+        ns2:hasAssertion ns1:c8d19qn7k5_assertion ;
+        ns2:hasProvenance ns1:c8d19qn7k5_provenance ;
+        ns2:hasPublicationInfo ns1:c8d19qn7k5_pubinfo .
+
+    ns1:c8d19qn7k5_assertion a ns2:Assertion .
+
+    ns1:c8d19qn7k5_provenance a ns2:Provenance .
+
+    ns1:c8d19qn7k5_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:c8d19qn7k5_assertion {
+    <http://nanomine.org/viz/a507d5443e42909b> a ns3:Chart ;
+        ns5:description "To celebrate the transition to the 2022 new year, this Vega-Lite chart imitates a fireworks display using arc marks, each corresponding to a curated research article in the MaterialsMine knowledge graph, where the angle of the mark corresponds to the number of samples curated from the article and the horizontal location of the central axis of each mark corresponds to the year of publication. Various styling elements (color encoding scheme, background and font color, conditional stroke color, padding) have been added incrementally to the Vega-Lite spec. Hover over a mark to view a tooltip with the article title and DOI." ;
+        ns5:title "Happy New Year!" ;
+        ns7:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:title ?Title ;
+       dct:created ?Year ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite .
+  FILTER(?Year > 0)
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"}],\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"arc\",\"radius\":30},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\",\"title\":null},\"color\":{\"field\":\"doi\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"goldorange\"},\"legend\":null},\"theta\":{\"aggregate\":\"count\",\"scale\":{\"domain\":[1,100],\"range\":[0.9,1.5]}},\"stroke\":{\"condition\":{\"selection\":\"hover\",\"value\":\"white\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"Year\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"title\":\"Sample Count\"}]},\"config\":{\"background\":\"black\",\"axis\":{\"labelColor\":\"white\"},\"padding\":50}}" ;
+        ns4:depiction <http://nanomine.org/viz/a507d5443e42909b_depiction> .
+
+    <http://nanomine.org/viz/a507d5443e42909b_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-12-30T14:30:41.717000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "10e8c5ee-697d-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+ns1:c8d19qn7k5_pubinfo {
+    ns1:c8d19qn7k5_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-12-30T14:30:41.717000+00:00"^^xsd:dateTime .
+}
+

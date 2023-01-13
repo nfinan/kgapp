@@ -1,0 +1,54 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://vocab.rpi.edu/whyis/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:tx0v3bs1un_assertion {
+    <http://nanomine.org/viz/accbeff1ebb4f20a> a ns3:Chart ;
+        ns5:description "In the classic holiday movie A Christmas Story, Ralphie waits for weeks for his Little Orphan Annie Secret Society decoder pin to arrive so that he can solve the encoded numeric messages in the radio broadcasts. The code is a simple substitution cipher, where letters of the alphabet are scrambled and each mapped to a unique number. This Vega-Lite chart shows how to bind input elements to drive the interactions, where the coded message and scrambled letters are embedded as arrays and flattened within the Vega-Lite specification. Can you find the correct key and solve the puzzle?" ;
+        ns5:title "You Can Do It, Ralphie!" ;
+        ns4:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+SELECT DISTINCT * WHERE {
+  ?class a owl:Class
+} LIMIT 26""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"window\":[{\"op\":\"row_number\",\"as\":\"rownum\"}]},{\"calculate\":\"['Q','S','U','T','V','Y','Z','X','A','C','E','B','G','H','F','D','J','I','L','M','K','W','N','O','R','P']\",\"as\":\"letters\"},{\"calculate\":\"[12,11,2,3,25,11,4,24,16,25,18,23,21,6,24,3,25,24,5,9,19,4,18,23,11]\",\"as\":\"message\"},{\"filter\":{\"selection\":\"key\"}}],\"hconcat\":[{\"transform\":[{\"flatten\":[\"message\"]},{\"calculate\":\"(datum.message - datum.rownum + 38) % 26 + 1\",\"as\":\"current_code\"},{\"window\":[{\"op\":\"row_number\",\"as\":\"i\"}]},{\"calculate\":\"(datum.i - 1) % 5 + 1\",\"as\":\"col\"},{\"calculate\":\"ceil(datum.i / 5)\",\"as\":\"row\"},{\"flatten\":[\"letters\"]},{\"window\":[{\"op\":\"row_number\",\"as\":\"expand_letters\"}]},{\"calculate\":\"datum.expand_letters % 26 + 1\",\"as\":\"i_letter\"},{\"filter\":\"datum.current_code == datum.i_letter\"}],\"layer\":[{\"height\":300,\"width\":300,\"selection\":{\"key\":{\"type\":\"single\",\"fields\":[\"rownum\"],\"init\":{\"rownum\":1},\"bind\":{\"rownum\":{\"input\":\"range\",\"min\":1,\"max\":26,\"step\":1,\"name\":\"Key: B-\"}}}},\"mark\":{\"type\":\"text\",\"fontSize\":42,\"opacity\":0.6,\"font\":\"Brush Script MT\"},\"encoding\":{\"text\":{\"field\":\"message\",\"type\":\"nominal\"}}},{\"mark\":{\"type\":\"text\",\"fontSize\":12,\"color\":\"blue\",\"yOffset\":23},\"encoding\":{\"text\":{\"field\":\"letters\",\"type\":\"nominal\"}}}],\"encoding\":{\"x\":{\"field\":\"col\",\"type\":\"ordinal\",\"axis\":null},\"y\":{\"field\":\"row\",\"type\":\"ordinal\",\"axis\":null}}},{\"transform\":[{\"flatten\":[\"letters\"]},{\"window\":[{\"op\":\"row_number\",\"as\":\"r\"}]}],\"layer\":[{\"height\":300,\"width\":300,\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"arc\",\"radius\":110,\"radius2\":10,\"color\":\"#dbb882\"},\"encoding\":{\"theta\":{\"value\":6.3}}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"arc\",\"radius\":91,\"color\":\"#887338\",\"opacity\":0.4},\"encoding\":{\"theta\":{\"value\":6.3}}},{\"mark\":{\"type\":\"text\",\"radius\":100},\"encoding\":{\"text\":{\"field\":\"letters\",\"type\":\"nominal\"},\"theta\":{\"field\":\"r\",\"type\":\"ordinal\"}}},{\"transform\":[{\"calculate\":\"(datum.r - datum.rownum + 38) % 26\",\"as\":\"rotate\"}],\"mark\":{\"type\":\"text\",\"radius\":80},\"encoding\":{\"text\":{\"field\":\"r\",\"type\":\"nominal\"},\"theta\":{\"field\":\"rotate\",\"type\":\"ordinal\"}}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"arc\",\"radius\":110,\"radius2\":65,\"stroke\":\"black\",\"color\":\"white\",\"fillOpacity\":0.2},\"encoding\":{\"theta\":{\"value\":2.8},\"theta2\":{\"value\":3}}}]}],\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns6:depiction <http://nanomine.org/viz/accbeff1ebb4f20a_depiction> .
+
+    <http://nanomine.org/viz/accbeff1ebb4f20a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-12-02T22:34:54.323000+00:00"^^xsd:dateTime ;
+        ns2:hasFileID "120ba37e-53c0-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+ns1:tx0v3bs1un_pubinfo {
+    ns1:tx0v3bs1un_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-12-02T22:34:54.323000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:tx0v3bs1un a ns8:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/accbeff1ebb4f20a_depiction> ;
+        ns8:hasAssertion ns1:tx0v3bs1un_assertion ;
+        ns8:hasProvenance ns1:tx0v3bs1un_provenance ;
+        ns8:hasPublicationInfo ns1:tx0v3bs1un_pubinfo .
+
+    ns1:tx0v3bs1un_assertion a ns8:Assertion .
+
+    ns1:tx0v3bs1un_provenance a ns8:Provenance .
+
+    ns1:tx0v3bs1un_pubinfo a ns8:PublicationInfo .
+}
+

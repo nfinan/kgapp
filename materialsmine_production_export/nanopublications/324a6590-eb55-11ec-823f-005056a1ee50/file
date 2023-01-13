@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:4tvkwsgwnb a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/cabc979226493613_depiction> ;
+        ns3:hasAssertion ns1:4tvkwsgwnb_assertion ;
+        ns3:hasProvenance ns1:4tvkwsgwnb_provenance ;
+        ns3:hasPublicationInfo ns1:4tvkwsgwnb_pubinfo .
+
+    ns1:4tvkwsgwnb_assertion a ns3:Assertion .
+
+    ns1:4tvkwsgwnb_provenance a ns3:Provenance .
+
+    ns1:4tvkwsgwnb_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:4tvkwsgwnb_pubinfo {
+    ns1:4tvkwsgwnb_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T16:59:37.539000+00:00"^^xsd:dateTime .
+}
+
+ns1:4tvkwsgwnb_assertion {
+    <http://nanomine.org/viz/cabc979226493613> a ns2:Chart ;
+        ns4:description "This streamgraph shows, grouped by publisher, the quantity of research articles curated into NanoMine as a function of the year the articles were originally published. Hovering over the chart displays a tooltip with the publisher, year, and number of DOIs associated with the publisher for that year." ;
+        ns4:title "Publishers of Articles Curated into NanoMine" ;
+        ns7:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?label ?year (COUNT(DISTINCT ?doi) AS ?doicount) WHERE {
+  ?doi dct:isPartOf [ dct:publisher ?pub ] ;
+       dct:created ?year .
+  ?pub prov:atLocation ?place ;
+       rdfs:label ?label
+}
+GROUP BY ?label ?year
+ORDER BY DESC (?doicount)""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":700,\"height\":495,\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"fields\":[\"label\"],\"clear\":\"mouseout\"}},\"transform\":[{\"calculate\":\"datum.year + 0.5\",\"as\":\"correctedYear\"}],\"mark\":\"area\",\"encoding\":{\"x\":{\"field\":\"correctedYear\",\"type\":\"quantitative\",\"axis\":{\"domain\":false,\"tickSize\":0,\"format\":\"f\",\"title\":\"Year\",\"labelFontSize\":12,\"titleFontSize\":24,\"labelOffset\":25,\"labelBound\":1,\"labelAngle\":-50,\"offset\":5},\"scale\":{\"type\":\"time\"}},\"y\":{\"aggregate\":\"sum\",\"field\":\"doicount\",\"type\":\"quantitative\",\"axis\":null,\"stack\":\"center\"},\"color\":{\"field\":\"label\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20b\"},\"title\":\"Publisher\"},\"tooltip\":[{\"field\":\"label\",\"type\":\"nominal\",\"title\":\"Publisher\"},{\"field\":\"year\",\"type\":\"quantitative\",\"title\":\"Year\"},{\"field\":\"doicount\",\"type\":\"quantitative\",\"title\":\"# DOIs\"}],\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.6},\"value\":1}}}" ;
+        ns5:depiction <http://nanomine.org/viz/cabc979226493613_depiction> .
+
+    <http://nanomine.org/viz/cabc979226493613_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T16:59:37.538000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "59efd888-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

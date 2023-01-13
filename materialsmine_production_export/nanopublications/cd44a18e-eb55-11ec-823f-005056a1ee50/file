@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:mp43xk6ti4 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/5ae48136af3f005c_depiction> ;
+        ns2:hasAssertion ns1:mp43xk6ti4_assertion ;
+        ns2:hasProvenance ns1:mp43xk6ti4_provenance ;
+        ns2:hasPublicationInfo ns1:mp43xk6ti4_pubinfo .
+
+    ns1:mp43xk6ti4_assertion a ns2:Assertion .
+
+    ns1:mp43xk6ti4_provenance a ns2:Provenance .
+
+    ns1:mp43xk6ti4_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:mp43xk6ti4_assertion {
+    <http://nanomine.org/viz/5ae48136af3f005c> a ns3:Chart ;
+        ns6:description "Glass transition temperature (Tg) are plotted as a function of filler loading. A diverging color scale represents how Tg changes as filler is added by subtracting the Tg value from the Tg of the reference control sample (neat matrix). Interactive bar plots allow dynamic highlighting and filtering of the points that appear in the scatter plot. Pan and zoom the scatterplot to explore clusters of points, and hover over a point to display a tooltip with the NanoMine sample ID." ;
+        ns6:title "Tg Scatterplot with Diverging Color Scale for Delta-Tg" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?controlTg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?Loading_mass ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datum.Tg - datum.controlTg\",\"as\":\"deltaTg\"},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"ID\"}],\"hconcat\":[{\"repeat\":{\"row\":[\"Matrix\",\"Filler\"]},\"spec\":{\"width\":250,\"height\":225,\"layer\":[{\"selection\":{\"selectmatl\":{\"type\":\"multi\",\"encodings\":[\"y\"]}},\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":{\"repeat\":\"row\"},\"type\":\"nominal\",\"axis\":{\"titleFontSize\":20,\"labelAngle\":-10}},\"x\":{\"aggregate\":\"count\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":14,\"titleFontSize\":16,\"title\":\"Number of Samples\"},\"scale\":{\"type\":\"log\",\"domain\":[0.9,1000]}},\"color\":{\"value\":\"#ccc\"}}},{\"transform\":[{\"filter\":{\"selection\":\"selectmatl\"}}],\"selection\":{\"highlightmatl\":{\"type\":\"single\",\"on\":\"mouseover\",\"encodings\":[\"y\"],\"empty\":\"none\"}},\"mark\":{\"type\":\"bar\",\"stroke\":\"black\"},\"encoding\":{\"y\":{\"field\":{\"repeat\":\"row\"},\"type\":\"nominal\"},\"x\":{\"aggregate\":\"count\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":14,\"titleFontSize\":16},\"scale\":{\"type\":\"log\",\"domain\":[0.9,1000]}},\"opacity\":{\"condition\":{\"selection\":\"highlightmatl\",\"value\":0.7},\"value\":1},\"strokeWidth\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"selectmatl\"},\"length(data(\\\"selectmatl_store\\\"))\"]},\"value\":3},\"value\":0},\"tooltip\":[{\"field\":{\"repeat\":\"row\"},\"type\":\"nominal\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"highlightmatl\"}}],\"mark\":{\"type\":\"bar\",\"stroke\":\"orange\"},\"encoding\":{\"y\":{\"field\":{\"repeat\":\"row\"},\"type\":\"nominal\"},\"x\":{\"aggregate\":\"count\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":14,\"titleFontSize\":16},\"scale\":{\"type\":\"log\",\"domain\":[0.9,1000]}},\"fillOpacity\":{\"value\":0},\"strokeWidth\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"selectmatl\"},\"length(data(\\\"selectmatl_store\\\"))\"]},\"value\":2},\"value\":0}}}]}},{\"selection\":{\"myzoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"width\":495,\"height\":495,\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":250,\"stroke\":\"black\",\"opacity\":0.7},\"encoding\":{\"x\":{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Filler Loading (wt.%)\",\"titleFontSize\":18,\"labelFontSize\":20,\"format\":\"p\",\"labelAlign\":\"center\"}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Tg (Celsius)\",\"titleFontSize\":20,\"labelFontSize\":20,\"format\":\".1f\"}},\"color\":{\"field\":\"deltaTg\",\"type\":\"quantitative\",\"legend\":{\"orient\":\"right\",\"labelFontSize\":18,\"titleFontSize\":16,\"direction\":\"vertical\",\"gradientLength\":300,\"gradientThickness\":25,\"title\":\"delta Tg (PNC - matrix)\",\"titleOrient\":\"left\"},\"scale\":{\"scheme\":{\"name\":\"redblue\"},\"reverse\":true,\"domainMid\":0}},\"strokeWidth\":{\"condition\":{\"selection\":\"highlightmatl\",\"value\":3},\"value\":0.5},\"opacity\":{\"condition\":{\"selection\":\"selectmatl\",\"value\":0.7},\"value\":0},\"tooltip\":{\"field\":\"ID\",\"type\":\"nominal\"}}}],\"resolve\":{\"legend\":{\"color\":\"independent\"}}}" ;
+        ns4:depiction <http://nanomine.org/viz/5ae48136af3f005c_depiction> .
+
+    <http://nanomine.org/viz/5ae48136af3f005c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T15:49:35.814000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "9183b47c-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns6:FileFormat .
+}
+
+ns1:mp43xk6ti4_pubinfo {
+    ns1:mp43xk6ti4_assertion ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T15:49:35.815000+00:00"^^xsd:dateTime .
+}
+

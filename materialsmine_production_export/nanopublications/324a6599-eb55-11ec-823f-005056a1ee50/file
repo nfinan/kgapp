@@ -1,0 +1,54 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:6x3i18n7i3 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/f584824ea9b48fe7_depiction> ;
+        ns2:hasAssertion ns1:6x3i18n7i3_assertion ;
+        ns2:hasProvenance ns1:6x3i18n7i3_provenance ;
+        ns2:hasPublicationInfo ns1:6x3i18n7i3_pubinfo .
+
+    ns1:6x3i18n7i3_assertion a ns2:Assertion .
+
+    ns1:6x3i18n7i3_provenance a ns2:Provenance .
+
+    ns1:6x3i18n7i3_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:6x3i18n7i3_assertion {
+    <http://nanomine.org/viz/f584824ea9b48fe7> a ns3:Chart ;
+        ns4:description "A selection can be used to filter the displayed results for real-time interactivity. In this example, an interval selection filters one layer of a plot to reveal the gray layer below. To create a selection brush, click-drag horizontally within the chart. To translate the selection brush, release the mouse and click-drag within the selection brush." ;
+        ns4:title "Adding Interactive Selections to a Vega-Lite Chart" ;
+        ns5:query """PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?DOI a dct:BibliographicResource ;
+       dct:created ?Year
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"layer\":[{\"mark\":{\"type\":\"bar\",\"color\":\"#dddddd\"}},{\"selection\":{\"brush\":{\"type\":\"interval\"}},\"transform\":[{\"filter\":{\"selection\":\"brush\"}}],\"mark\":{\"type\":\"bar\",\"color\":\"#f8b195\"}}],\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"aggregate\":\"count\"}}}" ;
+        ns6:depiction <http://nanomine.org/viz/f584824ea9b48fe7_depiction> .
+
+    <http://nanomine.org/viz/f584824ea9b48fe7_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-21T22:03:59.997000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "e6a1637e-62a9-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:6x3i18n7i3_pubinfo {
+    ns1:6x3i18n7i3_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-21T22:03:59.998000+00:00"^^xsd:dateTime .
+}
+

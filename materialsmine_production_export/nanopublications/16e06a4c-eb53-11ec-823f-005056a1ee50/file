@@ -1,0 +1,422 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://www.w3.org/ns/dcat#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L238_S6_Zhao_2008_provenance {
+    <http://materialsmine.org/sample/l238-s6-zhao-2008> ns3:wasGeneratedBy <http://materialsmine.org/entry/L238_S6_Zhao_2008_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L238_S6_Zhao_2008_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L238_S6_Zhao_2008_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/jeol-6330f>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L238_S6_Zhao_2008_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/jeol-cm12>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L238_S6_Zhao_2008_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_7> .
+
+    <http://materialsmine.org/ns/jeol-6330f> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL 6330F" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/jeol-cm12> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL CM12" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_temperature>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "nanoparticles were dried in vacuum" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "190" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "24" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1> a <http://materialsmine.org/ns/Solvent> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_solvent>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_solventname> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns2:hasValue "liquid epoxy resin (Araldite F)" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixer>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixingmethod>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_rpm>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_mixer>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_rpm>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_description> a ns2:Description ;
+        ns2:hasValue "1/8��� alumina balls were added during mixing" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "Hauschild SpeedMixer (DAC-150)" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "high shear mixing" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_rpm> a <http://materialsmine.org/ns/RotationalFrequency> ;
+        ns2:hasValue "3450" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "20" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_rpm> a <http://materialsmine.org/ns/RotationalFrequency>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_additive>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_description> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_additive_additive>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_additive_description> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "Aradur HY905" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_additive_description> a ns2:Description ;
+        ns2:hasValue "hardener" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_3_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_additive>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_description> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_additive_additive>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_additive_description> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "DY062" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_additive_description> a ns2:Description ;
+        ns2:hasValue "catalyst" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_4_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_temperature>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating_temperature>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating_description> a ns2:Description ;
+        ns2:hasValue "curing" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "80" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "6" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_5_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_temperature>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating_description>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating_temperature>,
+            <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating_time> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating_description> a ns2:Description ;
+        ns2:hasValue "post-curing" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "135" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "10" .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_7> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_6_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_7_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_7_molding> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_solution_processing_step_7_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L238_S6_Zhao_2008_assertion ns3:wasDerivedFrom ns1:L238_S6_Zhao_2008_assertion,
+            <http://nanomine.org/pub/MTgyNTc2LjQyOTA1NzgxMDc1_assertion> ;
+        ns3:wasGeneratedBy [ a <http://nanomine.org/setl/NTA0NjkyLjIzMDcyNDMwNDc/MaterialsmineXMLImport> ;
+                ns3:used ns1:L238_S6_Zhao_2008_assertion,
+                    <http://nanomine.org/pub/MTgyNTc2LjQyOTA1NzgxMDc1_assertion> ],
+            <http://materialsmine.org/entry/L238_S6_Zhao_2008_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L238_S6_Zhao_2008_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L238_S6_Zhao_2008_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L238_S6_Zhao_2008_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+
+ns1:L238_S6_Zhao_2008_pubinfo {
+    ns1:L238_S6_Zhao_2008_assertion ns5:created "2021-07-22T17:38:29.598000+00:00"^^xsd:dateTime ;
+        ns3:wasAttributedTo <http://nanomine.org/setl/NTA0NjkyLjIzMDcyNDMwNDc/MaterialsmineXMLImport> ;
+        ns3:wasQuotedFrom <http://dx.doi.org/10.1016/j.compscitech.2008.07.010> .
+
+    <http://dx.doi.org/10.1016/j.compscitech.2008.07.010> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns5:BibliographicResource ;
+        rdfs:label "Improvements and mechanisms of fracture and fatigue properties of well-dispersed alumina/epoxy nanocomposites" ;
+        ns5:created 2008 ;
+        ns5:creator <http://materialsmine.org/author/auletta-tommaso>,
+            <http://materialsmine.org/author/hillborg-henrik>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/zhao-su> ;
+        ns5:isPartOf <http://materialsmine.org/publication/composites-science-and-technology> ;
+        ns5:language <http://materialsmine.org/language/english> ;
+        ns5:title "Improvements and mechanisms of fracture and fatigue properties of well-dispersed alumina/epoxy nanocomposites" ;
+        ns6:authorList ( <http://materialsmine.org/author/auletta-tommaso> <http://materialsmine.org/author/hillborg-henrik> <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/zhao-su> ) ;
+        ns6:volume 68 ;
+        ns2:hasPart <http://materialsmine.org/sample/l238-s6-zhao-2008> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0266353808002674?via%3Dihub> ;
+        ns4:keyword "Fatigue",
+            "Fracture Toughness",
+            "Interface",
+            "Nanocomposites",
+            "Plastic Deformation" .
+
+    <http://materialsmine.org/language/english> a ns5:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-110-8th-street-troy-ny-12180-usa> a ns5:Location ;
+        rdfs:label "Department of Materials Science and Engineering and Rensselaer Nanotechnology Center, Rensselaer Polytechnic Institute, 110 8th Street, Troy, NY 12180, USA" .
+
+    <http://materialsmine.org/publication/composites-science-and-technology> ns5:publisher <publisher:elsevier> ;
+        ns5:title "Composites Science and Technology" .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008> ns3:wasAttributedTo <http://materialsmine.org/author/auletta-tommaso>,
+            <http://materialsmine.org/author/hillborg-henrik>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/zhao-su> .
+
+    <publisher:elsevier> rdfs:label "Elsevier" ;
+        ns3:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-110-8th-street-troy-ny-12180-usa> .
+
+    <http://materialsmine.org/author/auletta-tommaso> a ns3:Agent ;
+        rdfs:label "Auletta, Tommaso" ;
+        ns7:name "Auletta, Tommaso" .
+
+    <http://materialsmine.org/author/hillborg-henrik> a ns3:Agent ;
+        rdfs:label "Hillborg, Henrik" ;
+        ns7:name "Hillborg, Henrik" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns3:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns7:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/zhao-su> a ns3:Agent ;
+        rdfs:label "Zhao, Su" ;
+        ns7:name "Zhao, Su" .
+}
+
+ns1:L238_S6_Zhao_2008_assertion {
+    <http://materialsmine.org/sample/l238-s1-zhao-2008> ns2:hasRole <http://materialsmine.org/sample/l238-s1-zhao-2008_control_role> .
+
+    <http://materialsmine.org/compound/3Aminopropyltriethoxysilane> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/AluminiumOxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Aluminium oxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nanophase Technologies Corporation" ] ;
+        ns8:altLabel "NanoTek",
+            "alumina" ;
+        ns8:notation "Al2O3" .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" .
+
+    <http://materialsmine.org/sample/l238-s1-zhao-2008_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l238-s6-zhao-2008> .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0> a <http://materialsmine.org/compound/AluminiumOxide> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 4.5e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 3.95e+00 ],
+            <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l238-s6-zhao-2008> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns5:description "computed by NanoMine" ;
+        ns2:hasValue 5.378174e-02 .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0_surface_0> a <http://materialsmine.org/compound/3Aminopropyltriethoxysilane> ;
+        rdfs:label "3-Aminopropyltriethoxysilane" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Gelest Inc" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l238-s6-zhao-2008> ] ;
+        ns8:notation "APTES" .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns5:description "reported" ;
+        ns2:hasValue 1.6e-02 .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.13e+00 ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Huntsman Araldite" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l238-s6-zhao-2008> ] .
+
+    <http://materialsmine.org/sample/l238-s6-zhao-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "alumina in epoxy" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/EssentialWorkOfFracture> ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ a <http://materialsmine.org/ns/StrainRate> ],
+            [ a <http://materialsmine.org/ns/EssentialWorkOfFracture> ],
+            [ a <http://materialsmine.org/ns/FractureToughnessProperty> ],
+            [ a <http://materialsmine.org/ns/FractureToughnessProperty> ],
+            [ a <http://materialsmine.org/ns/StrainRate> ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 1e-01 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+                ns2:hasValue 3.48e+00 ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l238-s6-zhao-2008_filler_0>,
+            <http://materialsmine.org/sample/l238-s6-zhao-2008_matrix_0> .
+}
+

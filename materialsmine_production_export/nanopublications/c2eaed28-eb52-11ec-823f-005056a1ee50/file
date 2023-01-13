@@ -1,0 +1,2051 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L151_S3_Akcora_2010_provenance {
+    <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/ta-instruments-ar2000-rheometer>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L151_S3_Akcora_2010_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/jeol-jem-100-cx>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L151_S3_Akcora_2010_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/ns/jeol-jem-100-cx> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JEM-100 CX" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-ar2000-rheometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments AR2000 rheometer" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L151_S3_Akcora_2010_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L151_S3_Akcora_2010_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    ns1:L151_S3_Akcora_2010_assertion ns2:wasDerivedFrom ns1:L151_S3_Akcora_2010_assertion,
+            <http://nanomine.org/pub/MTM5ODguNzA4NjIyODE1NDY_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/Mjg1MTkuMzQ0MzI0MTA3OTA0/MaterialsmineXMLImport> ;
+                ns2:used ns1:L151_S3_Akcora_2010_assertion,
+                    <http://nanomine.org/pub/MTM5ODguNzA4NjIyODE1NDY_assertion> ],
+            <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_equipment>,
+            <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L151_S3_Akcora_2010_characterization_transmission-electron-microscopy> .
+}
+
+ns1:L151_S3_Akcora_2010_assertion {
+    <http://materialsmine.org/sample/l151-s1-akcora-2010> ns3:hasRole <http://materialsmine.org/sample/l151-s1-akcora-2010_control_role> .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Nissan Chemicals" ] ;
+        ns4:altLabel "silica" ;
+        ns4:notation "SiO2" .
+
+    <http://materialsmine.org/sample/l151-s1-akcora-2010_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l151-s3-akcora-2010> .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns3:hasAttribute [ a ns3:Width ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 1.5e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l151-s3-akcora-2010> ] ;
+        ns3:isSurroundedBy <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns5:description "reported" ;
+        ns3:hasValue 1e-02 .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0_surface_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        rdfs:label "Polystyrene" ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l151-s3-akcora-2010> ] ;
+        ns4:notation "PS" .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns5:description "computed by NanoMine" ;
+        ns3:hasValue 3.948517e-03 .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010_matrix_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.04e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PS" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l151-s3-akcora-2010> ] .
+
+    <http://materialsmine.org/compound/Polystyrene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Polystyrene" ;
+        ns4:notation "PS" .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in polystyrene" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.233809e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.095504e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.284831e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.689141e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.124937e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.467826e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.147946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.018839e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.486603e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.650038e+03 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.676077e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.265995e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.771784e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.708408e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.195924e+01 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.923883e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.97767e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.063533e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.952696e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.215109e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.319016e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.348294e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.534231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e+00 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.287928e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.992916e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.928178e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.762687e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.332109e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.386063e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.026924e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.446779e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.703782e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 8.302918e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.851279e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.98718e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.582176e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.751714e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.543858e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.388274e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.528389e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.197338e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.346899e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.069866e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.073419e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.635261e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.782255e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.582176e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.751714e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.911622e+03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.846907e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.534231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.282507e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.275203e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.821605e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.044942e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.762334e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.806393e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.761965e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.200105e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.570919e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.75251e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.708408e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.195924e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.317815e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.265933e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.808634e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6.3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.094619e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.093842e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.582176e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.751714e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.35355e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.194295e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.073419e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.77202e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.338339e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 9.824437e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.534231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.363375e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.981072e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.911622e+03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.846907e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.317815e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.265933e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.534231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.3657e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.528389e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.197338e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.808634e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6.3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.559539e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.361092e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.21059e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.707833e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.270124e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.528389e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.197338e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.908839e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.219463e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.647771e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.88351e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.819491e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.539174e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.46129e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.215109e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.089973e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.815681e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.953994e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.078079e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.508216e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.319016e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.348294e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.995262e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.265995e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.771784e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.3657e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.079368e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.88351e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.819491e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.360896e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.863453e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.274571e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.238787e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.079368e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 9.824437e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.995262e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.890798e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.179193e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.648969e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.25e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.548134e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.548134e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.346899e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.069866e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.559539e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.361092e+03 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.648969e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.25e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.771077e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.583692e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.77202e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.338339e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.584753e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.036576e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.710608e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.534231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e+00 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.763309e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.941797e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.346899e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.069866e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.063533e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.952696e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.196192e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.523931e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.478372e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.906061e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.218788e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.478372e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.906061e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.265995e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.771784e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.486603e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.650038e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.01291e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.089085e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.771077e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.583692e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.892008e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.613215e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6.3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.53078e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.699466e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.708408e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.195924e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.539174e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.46129e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.094619e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.093842e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.839906e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.800105e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.923883e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.218788e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.089973e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.014648e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.24613e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.078079e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.508216e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.213825e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.18712e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.282507e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.275203e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.676077e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.911622e+03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.846907e+02 ] ],
+            [ a <http://materialsmine.org/ns/ViscoelasticProperty> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.735022e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.25e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.995549e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.62912e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.233088e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.379562e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.62197e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.586574e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.648969e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.25e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.282507e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.275203e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.851279e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.98718e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.763309e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.941797e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.908839e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.655462e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.889132e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.584753e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.036576e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.763309e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.941797e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.147946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.018839e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.761145e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.676592e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.363375e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.839906e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.800105e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.710608e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.710608e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.35355e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.194295e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.270124e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.890798e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.179193e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.332109e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.386063e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.196192e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.523931e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.581869e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.502429e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.446779e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.703782e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.613215e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6.3e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.534231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.558369e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.463241e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.995549e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.62912e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.270124e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.416182e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.918972e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.124937e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.467826e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.026924e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 8.302918e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.581869e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.502429e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.839906e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.800105e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.908839e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.204396e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.62197e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.586574e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.570919e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.328095e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.305875e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.495231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.64479e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.233088e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.379562e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.54334e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.543858e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.388274e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.28085e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.692324e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.769832e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.999863e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.215109e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.233088e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.379562e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.219463e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.647771e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.328095e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.305875e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.213825e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.18712e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.735022e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.25e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.213825e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.18712e+03 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.584753e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.036576e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.983056e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e+00 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.558369e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.463241e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.761145e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.676592e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.863453e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.274571e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.28085e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.692324e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.424462e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.079368e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.848921e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.793537e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.073419e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.928178e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.762687e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.124937e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.467826e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 9.824437e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.923883e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.769832e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.999863e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.655462e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.889132e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.495231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.64479e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.128902e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.145289e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.317815e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.265933e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.890798e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.179193e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.635261e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.782255e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.014648e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.24613e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.543858e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.388274e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.28085e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.692324e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.539174e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.46129e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.363375e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.238787e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.761965e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.200105e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.821605e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.044942e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.995262e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.495231e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.64479e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.815681e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.953994e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.328095e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.305875e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.01291e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.089085e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.014648e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.24613e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.198443e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.277697e+03 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.204396e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.416182e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.918972e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.548134e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.446779e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.703782e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.204396e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.128902e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.145289e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.9989e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.084113e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.284831e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.689141e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.026924e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.863453e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.274571e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.01291e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.089085e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.75251e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.510972e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.21792e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.233809e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.095504e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.196192e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.523931e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.848921e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.793537e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.424462e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.892008e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.97767e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.284831e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.689141e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.416182e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.918972e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.238787e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 8.302918e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.54334e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.981072e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.655462e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.889132e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.189168e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.592279e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.287928e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.992916e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.218788e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 5e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.510972e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.21792e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.928178e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.762687e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.696862e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.264244e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.147946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.018839e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.848921e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.793537e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.851279e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.98718e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.9989e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.084113e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.769832e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.999863e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.821605e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.044942e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.696862e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.264244e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.983056e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e+00 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.53078e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.699466e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.762334e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.806393e+01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.189168e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.592279e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.88351e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.819491e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.424462e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.761965e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.200105e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.676077e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 3e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.892008e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 8e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.089973e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.762334e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.806393e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.54334e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.771077e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.583692e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.189168e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.592279e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.510972e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.21792e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.21059e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.707833e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 4.75251e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.761145e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.676592e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.77202e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.338339e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.62197e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.586574e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.332109e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.386063e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.360896e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.486603e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.650038e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.078079e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 4.508216e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.808634e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6.3e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.478372e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.906061e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.9989e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.084113e+02 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.198443e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.277697e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.21059e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.707833e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.815681e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.953994e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.983056e+02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e+00 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.287928e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.992916e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 2.360896e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 4e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.613215e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6.3e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.570919e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 1.97767e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.319016e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.348294e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.198443e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.277697e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.063533e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 9.952696e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.219463e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 7.647771e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 5.995549e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.62912e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.559539e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.361092e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.696862e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 3.264244e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 3.981072e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 6e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 7.735022e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 1.25e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.094619e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.093842e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.3657e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/AngFrequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/radianPerSecond-Time> ;
+                        ns3:hasValue 2.5e-01 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.35355e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 5.194295e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.558369e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.463241e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.233809e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.095504e+03 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.635261e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 2.782255e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.53078e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 8.699466e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.581869e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 1.502429e+02 ] ],
+            [ a <http://materialsmine.org/ns/ShearStress> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns3:hasValue 6.128902e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Time> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+                        ns3:hasValue 6.145289e+02 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l151-s3-akcora-2010_filler_0>,
+            <http://materialsmine.org/sample/l151-s3-akcora-2010_matrix_0> .
+
+    <http://materialsmine.org/ns/StorageModulus> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "storage modulus" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/LossModulus> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "loss modulus" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/AngFrequency> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "ang. frequency" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/ShearStress> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "shear stress" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/Time> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "time" ;
+        rdfs:subClassOf ns3:Quantity .
+}
+
+ns1:L151_S3_Akcora_2010_pubinfo {
+    ns1:L151_S3_Akcora_2010_assertion ns5:created "2021-07-22T10:22:45.611000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/Mjg1MTkuMzQ0MzI0MTA3OTA0/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1021/ma902072d> .
+
+    <http://dx.doi.org/10.1021/ma902072d> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns5:BibliographicResource ;
+        rdfs:label "���Gel-like��� Mechanical Reinforcement in Polymer Nanocomposite Melts" ;
+        ns5:created 2010 ;
+        ns5:creator <http://materialsmine.org/author/akcora-pinar>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/colby-ralph-h>,
+            <http://materialsmine.org/author/douglas-jack-f>,
+            <http://materialsmine.org/author/ilavsky-jan>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/lewis-sarah>,
+            <http://materialsmine.org/author/li-yu>,
+            <http://materialsmine.org/author/moll-joseph>,
+            <http://materialsmine.org/author/narayanan-suresh>,
+            <http://materialsmine.org/author/sandy-alec>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/thiyagarajan-pappannan> ;
+        ns5:isPartOf <http://materialsmine.org/publication/macromolecules> ;
+        ns5:language <http://materialsmine.org/language/english> ;
+        ns5:title "���Gel-like��� Mechanical Reinforcement in Polymer Nanocomposite Melts" ;
+        ns6:authorList ( <http://materialsmine.org/author/douglas-jack-f> <http://materialsmine.org/author/colby-ralph-h> <http://materialsmine.org/author/thiyagarajan-pappannan> <http://materialsmine.org/author/ilavsky-jan> <http://materialsmine.org/author/narayanan-suresh> <http://materialsmine.org/author/sandy-alec> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/li-yu> <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/lewis-sarah> <http://materialsmine.org/author/moll-joseph> <http://materialsmine.org/author/kumar-sanat-k> <http://materialsmine.org/author/akcora-pinar> ) ;
+        ns6:volume 43 ;
+        ns3:hasPart <http://materialsmine.org/sample/l151-s3-akcora-2010> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/abs/10.1021/ma902072d> .
+
+    <http://materialsmine.org/language/english> a ns5:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-chemical-engineering-columbia-university-new-york-new-york-usa> a ns5:Location ;
+        rdfs:label "Department of Chemical Engineering, Columbia University, New York, New York, USA" .
+
+    <http://materialsmine.org/publication/macromolecules> ns5:publisher <publisher:american-chemical-society> ;
+        ns5:title "Macromolecules" .
+
+    <http://materialsmine.org/sample/l151-s3-akcora-2010> ns2:wasAttributedTo <http://materialsmine.org/author/akcora-pinar>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/colby-ralph-h>,
+            <http://materialsmine.org/author/douglas-jack-f>,
+            <http://materialsmine.org/author/ilavsky-jan>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/lewis-sarah>,
+            <http://materialsmine.org/author/li-yu>,
+            <http://materialsmine.org/author/moll-joseph>,
+            <http://materialsmine.org/author/narayanan-suresh>,
+            <http://materialsmine.org/author/sandy-alec>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/thiyagarajan-pappannan> .
+
+    <publisher:american-chemical-society> rdfs:label "American Chemical Society" ;
+        ns2:atLocation <http://materialsmine.org/location/department-of-chemical-engineering-columbia-university-new-york-new-york-usa> .
+
+    <http://materialsmine.org/author/akcora-pinar> a ns2:Agent ;
+        rdfs:label "Akcora, Pinar" ;
+        ns7:name "Akcora, Pinar" .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns2:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns7:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/colby-ralph-h> a ns2:Agent ;
+        rdfs:label "Colby, Ralph H." ;
+        ns7:name "Colby, Ralph H." .
+
+    <http://materialsmine.org/author/douglas-jack-f> a ns2:Agent ;
+        rdfs:label "Douglas, Jack F." ;
+        ns7:name "Douglas, Jack F." .
+
+    <http://materialsmine.org/author/ilavsky-jan> a ns2:Agent ;
+        rdfs:label "Ilavsky, Jan" ;
+        ns7:name "Ilavsky, Jan" .
+
+    <http://materialsmine.org/author/kumar-sanat-k> a ns2:Agent ;
+        rdfs:label "Kumar, Sanat K." ;
+        ns7:name "Kumar, Sanat K." .
+
+    <http://materialsmine.org/author/lewis-sarah> a ns2:Agent ;
+        rdfs:label "Lewis, Sarah" ;
+        ns7:name "Lewis, Sarah" .
+
+    <http://materialsmine.org/author/li-yu> a ns2:Agent ;
+        rdfs:label "Li, Yu" ;
+        ns7:name "Li, Yu" .
+
+    <http://materialsmine.org/author/moll-joseph> a ns2:Agent ;
+        rdfs:label "Moll, Joseph" ;
+        ns7:name "Moll, Joseph" .
+
+    <http://materialsmine.org/author/narayanan-suresh> a ns2:Agent ;
+        rdfs:label "Narayanan, Suresh" ;
+        ns7:name "Narayanan, Suresh" .
+
+    <http://materialsmine.org/author/sandy-alec> a ns2:Agent ;
+        rdfs:label "Sandy, Alec" ;
+        ns7:name "Sandy, Alec" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns2:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns7:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/thiyagarajan-pappannan> a ns2:Agent ;
+        rdfs:label "Thiyagarajan, Pappannan" ;
+        ns7:name "Thiyagarajan, Pappannan" .
+}
+

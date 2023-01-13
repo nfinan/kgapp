@@ -1,0 +1,258 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:E117_S4_Krentz_2016_assertion {
+    <http://materialsmine.org/sample/e117-s1-krentz-2016> ns2:hasRole <http://materialsmine.org/sample/e117-s1-krentz-2016_control_role> .
+
+    <http://materialsmine.org/compound/PolyPropylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(propylene)" ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID8252> ;
+        ns3:altLabel "Borclean HB311BF" ;
+        ns3:notation "PP" .
+
+    <http://materialsmine.org/compound/PolyStearylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan" ] ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID24261> ;
+        ns3:altLabel "MEK-ST",
+            "silicon dioxide" ;
+        ns3:notation "SiO2" .
+
+    <http://materialsmine.org/sample/e117-s1-krentz-2016_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/e117-s4-krentz-2016> .
+
+    <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.4e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e117-s4-krentz-2016> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0_surface_0> a <http://materialsmine.org/compound/PolyStearylMethacrylate> ;
+        rdfs:label "poly(stearyl methacrylate)" ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e117-s4-krentz-2016> ] ;
+        ns3:notation "PSMA" .
+
+    <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 6.655447e-03 .
+
+    <http://materialsmine.org/sample/e117-s4-krentz-2016_matrix_0> a <http://materialsmine.org/compound/PolyPropylene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Borealis AG" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 8.7e-01 ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "Borclean HB311BF" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PP" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e117-s4-krentz-2016> ] .
+
+    <http://materialsmine.org/sample/e117-s4-krentz-2016> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silicon dioxide in polypropylene" ;
+        ns2:hasAttribute [ a <file:///apps/whyis/nan> ;
+                ns4:description "AC 63% breakdown parameter" ;
+                ns2:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns2:hasValue 1.72e+02 ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns4:description "DC 63% breakdown parameter" ;
+                ns2:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns2:hasValue 6.72e+02 ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/e117-s4-krentz-2016_filler_0>,
+            <http://materialsmine.org/sample/e117-s4-krentz-2016_matrix_0> .
+}
+
+ns1:E117_S4_Krentz_2016_pubinfo {
+    ns1:E117_S4_Krentz_2016_assertion ns4:created "2021-07-22T05:10:37.186000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NDkxNDY2LjM5NTI4OTIzNjA0/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/unpublished/doi-ppL4KD1Fk2yy9bkbcPHg7g> .
+
+    <http://dx.doi.org/unpublished/doi-ppL4KD1Fk2yy9bkbcPHg7g> a <file:///apps/whyis/>,
+            ns4:BibliographicResource ;
+        rdfs:label "" ;
+        ns4:created ""^^xsd:integer ;
+        ns4:title "" ;
+        ns6:authorList () ;
+        ns2:hasPart <http://materialsmine.org/sample/e117-s4-krentz-2016> .
+}
+
+ns1:E117_S4_Krentz_2016_provenance {
+    <http://materialsmine.org/sample/e117-s4-krentz-2016> ns5:wasGeneratedBy <http://materialsmine.org/entry/E117_S4_Krentz_2016_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/ta-instruments-q100>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/E117_S4_Krentz_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E117_S4_Krentz_2016_equipment_attr_30>,
+                    <http://materialsmine.org/sample/E117_S4_Krentz_2016_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/jeol-2010>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/E117_S4_Krentz_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E117_S4_Krentz_2016_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/E117_S4_Krentz_2016_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns2:Procedure ;
+        ns4:description """The PSMA2 control, containing silica nanoparticles
+    with a PSMA brush, was prepared without the solvent premixing step to
+    investigate the impact of processing.""" ;
+        ns2:hasPart <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0> .
+
+    <http://materialsmine.org/ns/jeol-2010> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-2010" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-q100> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments Q100" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0> a <http://materialsmine.org/ns/Extrusion> ;
+        ns2:hasOutput <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extruder>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusiontemperature>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_residencetime>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_rotationspeed>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extruder> a <http://materialsmine.org/ns/Extruder>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion> a <http://materialsmine.org/ns/Extrusion>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_extruder>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_residencetime>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_rotationspeed>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns2:hasValue "Twin-screw Thermo-Haake melt compounder" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "185" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "10" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns2:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns2:hasValue "60" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusion_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew> .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_residencetime> a <http://materialsmine.org/ns/ResidenceTime>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_extruder>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_residencetime>,
+            <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_rotationspeed> .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns2:hasValue "Twin-screw Thermo-Haake melt compounder" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "185" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "10" .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_melt_mixing_step_0_twinscrewextrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns2:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns2:hasValue "60" .
+
+    ns1:E117_S4_Krentz_2016_assertion ns5:wasDerivedFrom ns1:E117_S4_Krentz_2016_assertion,
+            <http://nanomine.org/pub/Mzc3NTI4LjkwOTg0NjA3_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NDkxNDY2LjM5NTI4OTIzNjA0/MaterialsmineXMLImport> ;
+                ns5:used ns1:E117_S4_Krentz_2016_assertion,
+                    <http://nanomine.org/pub/Mzc3NTI4LjkwOTg0NjA3_assertion> ],
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_description>,
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_equipment>,
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_equipmentused>,
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_heatingrate>,
+            <http://materialsmine.org/entry/E117_S4_Krentz_2016_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/E117_S4_Krentz_2016_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> rdfs:label "rpm" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+}
+

@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.nanopub.org/nschema#> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:3YVKtVLJ6cKTTZ2rRmPXSM> a ns1:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/nmr/xml/L247_S4_Huang_2016?format=xml> ;
+        ns1:hasAssertion <urn:3YVKtVLJ6cKTTZ2rRmPXSM_assertion> ;
+        ns1:hasProvenance <urn:3YVKtVLJ6cKTTZ2rRmPXSM_provenance> ;
+        ns1:hasPublicationInfo <urn:3YVKtVLJ6cKTTZ2rRmPXSM_pubinfo> .
+
+    <urn:3YVKtVLJ6cKTTZ2rRmPXSM_assertion> a ns1:Assertion .
+
+    <urn:3YVKtVLJ6cKTTZ2rRmPXSM_provenance> a ns1:Provenance .
+
+    <urn:3YVKtVLJ6cKTTZ2rRmPXSM_pubinfo> a ns1:PublicationInfo .
+}
+
+<urn:3YVKtVLJ6cKTTZ2rRmPXSM_assertion> {
+    <http://nanomine.org/nmr/dataset/247> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/L247_S4_Huang_2016> .
+
+    <http://nanomine.org/nmr/xml/L247_S4_Huang_2016?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns3:hasContentType "text/xml" ;
+        ns5:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns5:contributor <http://nanomine.org/user/9999999999> ;
+        ns5:created "2021-07-22T18:22:23+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "c2369552-eb19-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns5:FileFormat .
+}
+
+<urn:3YVKtVLJ6cKTTZ2rRmPXSM_pubinfo> {
+    <urn:3YVKtVLJ6cKTTZ2rRmPXSM_assertion> ns5:contributor <http://nanomine.org/user/9999999999> ;
+        ns5:created "2021-07-22T18:22:23.001000+00:00"^^xsd:dateTime .
+}
+

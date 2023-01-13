@@ -1,0 +1,47 @@
+@prefix ns1: <http://www.nanopub.org/nschema#> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    <urn:oyhbjpNBn8PCvNjQu3KND> a ns1:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/nmr/xml/L225_S9_Ma_2007?format=xml> ;
+        ns1:hasAssertion <urn:oyhbjpNBn8PCvNjQu3KND_assertion> ;
+        ns1:hasProvenance <urn:oyhbjpNBn8PCvNjQu3KND_provenance> ;
+        ns1:hasPublicationInfo <urn:oyhbjpNBn8PCvNjQu3KND_pubinfo> .
+
+    <urn:oyhbjpNBn8PCvNjQu3KND_assertion> a ns1:Assertion .
+
+    <urn:oyhbjpNBn8PCvNjQu3KND_provenance> a ns1:Provenance .
+
+    <urn:oyhbjpNBn8PCvNjQu3KND_pubinfo> a ns1:PublicationInfo .
+}
+
+<urn:oyhbjpNBn8PCvNjQu3KND_pubinfo> {
+    <urn:oyhbjpNBn8PCvNjQu3KND_assertion> ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T16:36:53.720000+00:00"^^xsd:dateTime .
+}
+
+<urn:oyhbjpNBn8PCvNjQu3KND_assertion> {
+    <http://nanomine.org/nmr/dataset/225> a ns6:Dataset ;
+        ns6:distribution <http://nanomine.org/nmr/xml/L225_S9_Ma_2007> .
+
+    <http://nanomine.org/nmr/xml/L225_S9_Ma_2007?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns6:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns4:hasContentType "text/xml" ;
+        ns3:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T16:36:53.719000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "05aafaee-eb0b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns3:FileFormat .
+}
+

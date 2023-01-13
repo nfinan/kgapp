@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:f919jm4bee_assertion {
+    <http://nanomine.org/viz/7a13349da71a5123> a ns4:Chart ;
+        ns3:description "What can a color encoding add to a data visualization? This chart contains a scatter plot of glass transition temperature as a function of volume fraction, with a tooltip that pops up to display material composition information when you hover over a point. In the bar chart to the right, select one (or more by holding the Shift key) materials to add color to the chart based on material composition. Filler material colors are encoded as the fill color of points in the scatter plot, while matrix material colors are encoded as the stroke color. Double-click the bar chart to reset the chart." ;
+        ns3:title "DataVoyager Variant: Pleasantville" ;
+        ns2:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?controlsample sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_control ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?VolumeFraction ] ,
+                                                  [ a nm:MassFraction ;
+                                                    sio:hasValue ?MassFraction ] 
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+}""" ;
+        ns4:hasValue "{\"data\":{\"name\":\"source\"},\"mark\":\"point\",\"encoding\":{\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{}},\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"scale\":{}},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"}}},\"config\":{\"line\":{\"point\":true},\"scale\":{\"useUnaggregatedDomain\":true}}}" ;
+        ns5:depiction <http://nanomine.org/viz/7a13349da71a5123_depiction> .
+}
+
+{
+    ns1:f919jm4bee a ns6:Nanopublication ;
+        ns6:hasAssertion ns1:f919jm4bee_assertion ;
+        ns6:hasProvenance ns1:f919jm4bee_provenance ;
+        ns6:hasPublicationInfo ns1:f919jm4bee_pubinfo .
+
+    ns1:f919jm4bee_assertion a ns6:Assertion .
+
+    ns1:f919jm4bee_provenance a ns6:Provenance .
+
+    ns1:f919jm4bee_pubinfo a ns6:PublicationInfo .
+}
+
+ns1:f919jm4bee_pubinfo {
+    ns1:f919jm4bee_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-10-20T16:20:39.666000+00:00"^^xsd:dateTime .
+}
+

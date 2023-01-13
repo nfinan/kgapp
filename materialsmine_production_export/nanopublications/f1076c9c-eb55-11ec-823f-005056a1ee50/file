@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://open.vocab.org/terms/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://www.nanopub.org/nschema#> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:h5BvMKzgk1yaDdvY85Enp3_assertion> {
+    <http://nanomine.org/nmr/dataset/262> a ns1:Dataset ;
+        ns1:distribution <http://nanomine.org/nmr/xml/L262_S2_Oyarzabal_2016> .
+
+    <http://nanomine.org/nmr/xml/L262_S2_Oyarzabal_2016?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns1:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns2:hasContentType "text/xml" ;
+        ns3:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T20:19:15.547000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "16044bba-eb2a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns3:FileFormat .
+}
+
+<urn:h5BvMKzgk1yaDdvY85Enp3_pubinfo> {
+    <urn:h5BvMKzgk1yaDdvY85Enp3_assertion> ns3:contributor <http://nanomine.org/user/9999999999> ;
+        ns3:created "2021-07-22T20:19:15.548000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:h5BvMKzgk1yaDdvY85Enp3> a ns5:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/nmr/xml/L262_S2_Oyarzabal_2016?format=xml> ;
+        ns5:hasAssertion <urn:h5BvMKzgk1yaDdvY85Enp3_assertion> ;
+        ns5:hasProvenance <urn:h5BvMKzgk1yaDdvY85Enp3_provenance> ;
+        ns5:hasPublicationInfo <urn:h5BvMKzgk1yaDdvY85Enp3_pubinfo> .
+
+    <urn:h5BvMKzgk1yaDdvY85Enp3_assertion> a ns5:Assertion .
+
+    <urn:h5BvMKzgk1yaDdvY85Enp3_provenance> a ns5:Provenance .
+
+    <urn:h5BvMKzgk1yaDdvY85Enp3_pubinfo> a ns5:PublicationInfo .
+}
+

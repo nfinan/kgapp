@@ -1,0 +1,58 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:eh22uqwy4p_pubinfo {
+    ns1:eh22uqwy4p_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-07T13:59:12.305000+00:00"^^xsd:dateTime .
+}
+
+ns1:eh22uqwy4p_assertion {
+    <http://nanomine.org/viz/3f55a9d3e2446d0e> a ns5:Chart ;
+        ns2:description "To mark the 100th chart in the MaterialsMine Chart Gallery, this concatenated view displays numerical attribute values from the knowledge graph in the range 99.5 <= x < 100.5, as well as the attribute class and units of measure. Hover over data marks to view tooltips. (To avoid long query times, only the first 100 instances are returned.)" ;
+        ns2:title "#100" ;
+        ns3:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?AttrType ?value ?unit WHERE {
+  ?AttrType rdfs:subClassOf+ sio:Quantity .
+  ?x a ?AttrType ;
+     sio:hasValue ?value ;
+     sio:hasUnit ?unit .
+  FILTER((?value >= 99.5) && (?value < 100.5))
+} LIMIT 100""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"hover0\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"width\":50,\"mark\":\"tick\",\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"scale\":{\"domain\":[99.5,100.5]},\"axis\":{\"title\":null}},\"color\":{\"field\":\"AttrType\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"accent\"}},\"size\":{\"condition\":{\"selection\":\"hover0\",\"value\":40},\"value\":20},\"tooltip\":[{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Value\"},{\"field\":\"AttrType\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"field\":\"unit\",\"type\":\"nominal\",\"title\":\"Unit\"}]}},{\"selection\":{\"hover1\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"arc\",\"radius\":100,\"innerRadius\":75},\"encoding\":{\"color\":{\"field\":\"AttrType\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"set3\"}},\"theta\":{\"aggregate\":\"count\"},\"opacity\":{\"condition\":{\"selection\":\"hover1\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"AttrType\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"aggregate\":\"count\"}]}},{\"selection\":{\"hover2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"arc\",\"radius\":100,\"innerRadius\":75},\"encoding\":{\"color\":{\"field\":\"unit\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"category20b\"}},\"theta\":{\"aggregate\":\"count\"},\"opacity\":{\"condition\":{\"selection\":\"hover2\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"unit\",\"type\":\"nominal\",\"title\":\"Unit\"},{\"aggregate\":\"count\"}]}}],\"resolve\":{\"scale\":{\"color\":\"independent\"}},\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns7:depiction <http://nanomine.org/viz/3f55a9d3e2446d0e_depiction> .
+
+    <http://nanomine.org/viz/3f55a9d3e2446d0e_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-07T13:59:12.303000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "c005f9e6-2776-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:eh22uqwy4p a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/3f55a9d3e2446d0e_depiction> ;
+        ns8:hasAssertion ns1:eh22uqwy4p_assertion ;
+        ns8:hasProvenance ns1:eh22uqwy4p_provenance ;
+        ns8:hasPublicationInfo ns1:eh22uqwy4p_pubinfo .
+
+    ns1:eh22uqwy4p_assertion a ns8:Assertion .
+
+    ns1:eh22uqwy4p_provenance a ns8:Provenance .
+
+    ns1:eh22uqwy4p_pubinfo a ns8:PublicationInfo .
+}
+

@@ -1,0 +1,562 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L386_S98_jimenez_2019_assertion {
+    <http://materialsmine.org/compound/PolyEthyleneGlycol> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(ethylene glycol)" ;
+        ns4:notation "PEO" .
+
+    <http://materialsmine.org/compound/PolyMethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan Chemical Industries" ] ;
+        ns4:altLabel "MEK-ST",
+            "SiO2" ;
+        ns4:notation "SiO2" .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.4e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l386-s98-jimenez-2019> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 2.507507e-01 .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0_surface_0> a <http://materialsmine.org/compound/PolyMethylMethacrylate> ;
+        rdfs:label "Poly(methyl methacrylate)" ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l386-s98-jimenez-2019> ] ;
+        ns4:notation "PMMA" .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 1.21e-01 .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019_matrix_0> a <http://materialsmine.org/compound/PolyEthyleneGlycol> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Scientific Polymer Products" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PEO" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.09e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l386-s98-jimenez-2019> ] .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "SiO2 in Poly(ethylene oxide)" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/CrystallizationTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 5.7e+01 ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l386-s98-jimenez-2019_filler_0>,
+            <http://materialsmine.org/sample/l386-s98-jimenez-2019_matrix_0> .
+}
+
+ns1:L386_S98_jimenez_2019_provenance {
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019> ns5:wasGeneratedBy <http://materialsmine.org/entry/L386_S98_jimenez_2019_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_cycleinformation> a <http://materialsmine.org/ns/CycleInformation>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/ta-instruments-discovery-dsc>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_cycle_information_attr_31>,
+                    <http://materialsmine.org/sample/L386_S98_jimenez_2019_description_attr_29>,
+                    <http://materialsmine.org/sample/L386_S98_jimenez_2019_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_opticalmicroscopy> a <http://materialsmine.org/ns/OpticalMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/polarized-light-optical-microscopy-plom-was-performed-on-a-leica-dfc320-with-a-l-retardation-plate-between-45deg-crossed-polarizers-to-monitor-the-spherulitic-growth-of-the-polymer-images-were-recorded-with-a-wild-leitz-digital-camera-temperature-control-was-performed-with-a-linkam-lts420-temperature-hot-stage-previously-molded-samples-were-further-hot-pressed-between-two-microscope-slides-to-be-50-mm-thick-the-sample-was-heated-to-90-degc-and-held-for-5-min-before-cooling-at-20-degc-min-to-a-set-tc-multiple-samples-and-runs-at-each-temperature-were-performed-to-provide-a-reproducible-average-growth-rate-each-measuring-2-3-spherulite-diameters-over-5-10-time-stamps>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/fei-talos-120c-tem>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/ganesha-saxslab>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_description_attr_29>,
+                    <http://materialsmine.org/sample/L386_S98_jimenez_2019_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L386_S98_jimenez_2019_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns3:description "5 wt % PEO was dissolved in THF and stirred for 1 h at 60 ��C with 0.5 wt % Irganox to help reduce degradation in subsequent steps. (GPC was performed after subsequent steps to ensure that no drastic changes to the molecular weight of the polymer occurred.) For the composites, the NPs were then added via a micropipet and stirred for another hour at 60 ��C. The samples were then probe sonicated for 3 min (looping 2 s on, 1 s off to minimize bond breaking) and cast in a Teflon dish at 60 ��C in an oven at ���5 in.Hg for 1 h to facilitate a mild evaporation process. The samples were then left in the vacuum oven for 1 day at room temperature and 1 day at 80 ��C to remove any remaining solvent and to thermally anneal the polymer. A hot press was used at 80 ��C to mold the samples into disks." ;
+        ns2:hasPart <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9> .
+
+    <http://materialsmine.org/ns/fei-talos-120c-tem> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "FEI Talos 120C TEM" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ganesha-saxslab> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Ganesha, SAXSLAB" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/polarized-light-optical-microscopy-plom-was-performed-on-a-leica-dfc320-with-a-l-retardation-plate-between-45deg-crossed-polarizers-to-monitor-the-spherulitic-growth-of-the-polymer-images-were-recorded-with-a-wild-leitz-digital-camera-temperature-control-was-performed-with-a-linkam-lts420-temperature-hot-stage-previously-molded-samples-were-further-hot-pressed-between-two-microscope-slides-to-be-50-mm-thick-the-sample-was-heated-to-90-degc-and-held-for-5-min-before-cooling-at-20-degc-min-to-a-set-tc-multiple-samples-and-runs-at-each-temperature-were-performed-to-provide-a-reproducible-average-growth-rate-each-measuring-2-3-spherulite-diameters-over-5-10-time-stamps> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label """Polarized light optical microscopy (PLOM) was performed on a
+Leica DFC320 with a ��-retardation plate between 45�� crossed
+polarizers to monitor the spherulitic growth of the polymer. Images
+were recorded with a Wild Leitz digital camera. Temperature control
+was performed with a Linkam LTS420 temperature hot stage.
+Previously molded samples were further hot pressed between two
+microscope slides to be ���50 ��m thick. The sample was heated to 90
+��C and held for 5 min before cooling at 20 ��C/min to a set Tc.
+Multiple samples and runs at each temperature were performed to
+provide a reproducible average growth rate, each measuring 2���3
+spherulite diameters over 5���10 time stamps.""" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-discovery-dsc> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments Discovery DSC" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_cycle_information_attr_31> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_amount>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_description> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive_additive>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive_amount>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive_description> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "PEO" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "5.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_additive_description> a ns2:Description ;
+        ns2:hasValue """5 wt % PEO was dissolved in THF and
+stirred for 1 h at 60 ��C with 0.5 wt % Irganox to help reduce
+degradation in subsequent steps.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1> a <http://materialsmine.org/ns/Solvent> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_solvent>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_solventname> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns2:hasValue "THF" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_amount>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_description> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive_additive>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive_amount>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive_description> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "Irganox" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "0.5" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_additive_description> a ns2:Description ;
+        ns2:hasValue """5 wt % PEO was dissolved in THF and
+stirred for 1 h at 60 ��C with 0.5 wt % Irganox to help reduce
+degradation in subsequent steps.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_additive>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_description> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_additive_additive>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_additive_description> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "SiO2 NPs" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_additive_description> a ns2:Description ;
+        ns2:hasValue """For the composites, the NPs were
+then added via a micropipet and stirred for another hour at 60 ��C.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_3_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixingmethod>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_description> a ns2:Description ;
+        ns2:hasValue """For the composites, the NPs were
+then added via a micropipet and stirred for another hour at 60 ��C.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "60" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "1" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_4_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_5_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_ambientcondition>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_ambientcondition>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_description> a ns2:Description ;
+        ns2:hasValue """and cast in a Teflon dish at 60 ��C in
+an oven at ���5 in.Hg for 1 h to facilitate a mild evaporation process.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "60.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_molding_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "1.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_6_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_ambientcondition>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue """The samples were then left in the vacuum oven for 1 day at room
+temperature and 1 day at 80 ��C to remove any remaining solvent and
+to thermally anneal the polymer.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "25.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Day ;
+        ns2:hasValue "1.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_7_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating_temperature>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating_time> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating_description> a ns2:Description ;
+        ns2:hasValue """The samples were then left in the vacuum oven for 1 day at room
+temperature and 1 day at 80 ��C to remove any remaining solvent and
+to thermally anneal the polymer.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "80.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Day ;
+        ns2:hasValue "1.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_8_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_molding>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_temperature> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_molding_description>,
+            <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_molding_temperature> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_molding_description> a ns2:Description ;
+        ns2:hasValue """A hot press was used at 80 ��C to
+mold the samples into disks.""" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_molding_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "80.0" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_solution_processing_step_9_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    ns1:L386_S98_jimenez_2019_assertion ns5:wasDerivedFrom ns1:L386_S98_jimenez_2019_assertion,
+            <http://nanomine.org/pub/NDQ0MTAwLjgwMjc0ODg1OTU_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/MjMxMzA2LjAyMzQ2MzM4NTc2/MaterialsmineXMLImport> ;
+                ns5:used ns1:L386_S98_jimenez_2019_assertion,
+                    <http://nanomine.org/pub/NDQ0MTAwLjgwMjc0ODg1OTU_assertion> ],
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_cycleinformation>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_description>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_equipment>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_opticalmicroscopy>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_transmission-electron-microscopy>,
+            <http://materialsmine.org/entry/L386_S98_jimenez_2019_characterization_xray-diffraction-and-scattering> .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns2:Day rdfs:label "days" .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://materialsmine.org/sample/L386_S98_jimenez_2019_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+
+ns1:L386_S98_jimenez_2019_pubinfo {
+    ns1:L386_S98_jimenez_2019_assertion ns3:created "2021-07-23T05:12:54.648000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/MjMxMzA2LjAyMzQ2MzM4NTc2/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/acs.macromol.9b01380> .
+
+    <http://dx.doi.org/10.1021/acs.macromol.9b01380> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Effects of Hairy Nanoparticles on Polymer Crystallization Kinetics" ;
+        ns3:created 2019 ;
+        ns3:creator <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/jestin-jacques>,
+            <http://materialsmine.org/author/jimenez-andrew-m>,
+            <http://materialsmine.org/author/krauskopf-alejandro-a>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/muller-alejandro-j>,
+            <http://materialsmine.org/author/perez-camargo-ricardo-a>,
+            <http://materialsmine.org/author/pribyl-julia>,
+            <http://materialsmine.org/author/zhao-dan> ;
+        ns3:isPartOf <http://materialsmine.org/publication/macromolecules> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Effects of Hairy Nanoparticles on Polymer Crystallization Kinetics" ;
+        ns7:authorList ( <http://materialsmine.org/author/kumar-sanat-k> <http://materialsmine.org/author/muller-alejandro-j> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/jestin-jacques> <http://materialsmine.org/author/pribyl-julia> <http://materialsmine.org/author/zhao-dan> <http://materialsmine.org/author/perez-camargo-ricardo-a> <http://materialsmine.org/author/krauskopf-alejandro-a> <http://materialsmine.org/author/jimenez-andrew-m> ) ;
+        ns7:volume 52 ;
+        ns2:hasPart <http://materialsmine.org/sample/l386-s98-jimenez-2019> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/acs.macromol.9b01380> .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/publication/macromolecules> ns3:title "Macromolecules" .
+
+    <http://materialsmine.org/sample/l386-s98-jimenez-2019> ns5:wasAttributedTo <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/jestin-jacques>,
+            <http://materialsmine.org/author/jimenez-andrew-m>,
+            <http://materialsmine.org/author/krauskopf-alejandro-a>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/muller-alejandro-j>,
+            <http://materialsmine.org/author/perez-camargo-ricardo-a>,
+            <http://materialsmine.org/author/pribyl-julia>,
+            <http://materialsmine.org/author/zhao-dan> .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns5:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns6:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/jestin-jacques> a ns5:Agent ;
+        rdfs:label "Jestin, Jacques" ;
+        ns6:name "Jestin, Jacques" .
+
+    <http://materialsmine.org/author/jimenez-andrew-m> a ns5:Agent ;
+        rdfs:label "Jimenez, Andrew M." ;
+        ns6:name "Jimenez, Andrew M." .
+
+    <http://materialsmine.org/author/krauskopf-alejandro-a> a ns5:Agent ;
+        rdfs:label "Krauskopf, Alejandro A." ;
+        ns6:name "Krauskopf, Alejandro A." .
+
+    <http://materialsmine.org/author/kumar-sanat-k> a ns5:Agent ;
+        rdfs:label "Kumar, Sanat K." ;
+        ns6:name "Kumar, Sanat K." .
+
+    <http://materialsmine.org/author/muller-alejandro-j> a ns5:Agent ;
+        rdfs:label "M��ller, Alejandro J." ;
+        ns6:name "M��ller, Alejandro J." .
+
+    <http://materialsmine.org/author/perez-camargo-ricardo-a> a ns5:Agent ;
+        rdfs:label "P��rez-Camargo, Ricardo A." ;
+        ns6:name "P��rez-Camargo, Ricardo A." .
+
+    <http://materialsmine.org/author/pribyl-julia> a ns5:Agent ;
+        rdfs:label "Pribyl, Julia" ;
+        ns6:name "Pribyl, Julia" .
+
+    <http://materialsmine.org/author/zhao-dan> a ns5:Agent ;
+        rdfs:label "Zhao, Dan" ;
+        ns6:name "Zhao, Dan" .
+}
+

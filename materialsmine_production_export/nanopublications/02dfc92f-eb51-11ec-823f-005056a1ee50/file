@@ -1,0 +1,2743 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:E115_S9_Bell_2016_provenance {
+    <http://materialsmine.org/sample/e115-s9-bell-2016> ns2:wasGeneratedBy <http://materialsmine.org/entry/E115_S9_Bell_2016_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/perkin-elmer-spectrum-100>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E115_S9_Bell_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_nuclear-magnetic-resonance> a <http://materialsmine.org/ns/NuclearMagneticResonance>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/varian-mercury-400-spectrometer>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E115_S9_Bell_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/ta-instruments-q5000>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E115_S9_Bell_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E115_S9_Bell_2016_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3> .
+
+    <http://materialsmine.org/ns/perkin-elmer-spectrum-100> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Perkin Elmer Spectrum 100" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-q5000> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments Q5000" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/varian-mercury-400-spectrometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Varian Mercury 400 spectrometer" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixer>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing_mixer>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns3:hasValue "Hauschild high shear mixer" .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns3:hasValue "high shear mixing" .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasInput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_ambientcondition>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_description>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_drying-evaporation> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_drying-evaporation_description> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns3:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "Solvent residue was evaporated in vacuum." .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasInput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_1_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_chemicalused>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixer>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixingmethod> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing_chemicalused>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing_mixer>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns3:hasValue "Hauschild high shear mixer" .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns3:hasValue "high shear mixing" .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_2_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_description>,
+            <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_molding> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_molding_description> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_melt_mixing_step_3_molding_description> a ns3:Description ;
+        ns3:hasValue "The resin was cast and cured per manufacturer            recommendations." .
+
+    ns1:E115_S9_Bell_2016_assertion ns2:wasDerivedFrom ns1:E115_S9_Bell_2016_assertion,
+            <http://nanomine.org/pub/NTg2NTM0LjcwODg0NDc5Nw_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/Mzg1NzU1LjExOTM2NTIwNjk/MaterialsmineXMLImport> ;
+                ns2:used ns1:E115_S9_Bell_2016_assertion,
+                    <http://nanomine.org/pub/NTg2NTM0LjcwODg0NDc5Nw_assertion> ],
+            <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_description>,
+            <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_equipment>,
+            <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_nuclear-magnetic-resonance>,
+            <http://materialsmine.org/entry/E115_S9_Bell_2016_characterization_thermogravimetric-analysis> .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E115_S9_Bell_2016_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+
+ns1:E115_S9_Bell_2016_assertion {
+    <http://materialsmine.org/sample/e115-s1-bell-2016> ns3:hasRole <http://materialsmine.org/sample/e115-s1-bell-2016_control_role> .
+
+    <http://localhost/nmr/blob?id=5b5a0f65e74a1d4cdbaedea5> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f65e74a1d4cdbaedea5" .
+
+    <http://localhost/nmr/blob?id=5b5a0f6be74a1d4cdbaedeb3> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f6be74a1d4cdbaedeb3" .
+
+    <http://localhost/nmr/blob?id=5b5a0f72e74a1d4cdbaedec1> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f72e74a1d4cdbaedec1" .
+
+    <http://localhost/nmr/blob?id=5b5a0f7ae74a1d4cdbaedecf> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f7ae74a1d4cdbaedecf" .
+
+    <http://localhost/nmr/blob?id=5b5a0f81e74a1d4cdbaededd> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f81e74a1d4cdbaededd" .
+
+    <http://localhost/nmr/blob?id=5b5a0f89e74a1d4cdbaedeeb> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f89e74a1d4cdbaedeeb" .
+
+    <http://localhost/nmr/blob?id=5b5a0f91e74a1d4cdbaedef9> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0f91e74a1d4cdbaedef9" .
+
+    <http://localhost/nmr/blob?id=5b5a0fa3e74a1d4cdbaedf0b> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0fa3e74a1d4cdbaedf0b" .
+
+    <http://localhost/nmr/blob?id=5b5a0faae74a1d4cdbaedf19> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0faae74a1d4cdbaedf19" .
+
+    <http://localhost/nmr/blob?id=5b5a0fb2e74a1d4cdbaedf27> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns4:depiction "http://localhost/nmr/blob?id=5b5a0fb2e74a1d4cdbaedf27" .
+
+    <http://materialsmine.org/compound/4CyanopentanoicAcidDithiobenzoate> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/9AnthraceneAceticAcid> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" ;
+        ns5:altLabel "Araldite GY 2600" ;
+        ns5:notation "epoxy" .
+
+    <http://materialsmine.org/compound/PolyglycidylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Nissan" ] ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID24261> ;
+        ns5:altLabel "MEK-ST",
+            "silicon dioxide" ;
+        ns5:notation "SiO2" .
+
+    <http://materialsmine.org/sample/e115-s1-bell-2016_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/e115-s9-bell-2016> .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns3:hasAttribute [ a ns3:Width ;
+                ns3:hasAttribute [ a ns3:StandardDeviation,
+                            ns3:UncertaintyValue ;
+                        ns3:hasValue 4e+00 ] ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 1.4e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns3:isSurroundedBy <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_surface_0>,
+            <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_surface_1>,
+            <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_surface_2> .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns6:description "reported" ;
+        ns3:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_surface_0> a <http://materialsmine.org/compound/9AnthraceneAceticAcid> ;
+        rdfs:label "9-anthracene acetic acid" ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns5:notation "Anth" .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_surface_1> a <http://materialsmine.org/compound/4CyanopentanoicAcidDithiobenzoate> ;
+        rdfs:label "4-Cyanopentanoic acid dithiobenzoate" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Strem Chemical, Inc." ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns5:notation "CPDB" .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_surface_2> a <http://materialsmine.org/compound/PolyglycidylMethacrylate> ;
+        rdfs:label "polyglycidyl methacrylate" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Tokyo Chemical Industry" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e115-s9-bell-2016> ] ;
+        ns5:notation "PGMA" .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns6:description "computed by NanoMine" ;
+        ns3:hasValue 8.929934e-03 .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Huntsman Corporation" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "epoxy" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.17e+00 ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns3:hasValue "Araldite GY 2600" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e115-s9-bell-2016> ] .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/e115-s9-bell-2016> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silicon dioxide in bisphenol-A epoxy" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 8.0909e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6236e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 6.1243e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5816e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.2307e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.0972e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.5296e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6594e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.1464e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.557e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.8242e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7006e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.616e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.1627e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.616e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.355e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.1667e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9943e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.7646e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.1531e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.1999e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.7447e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.8946e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.3369e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.9018e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.8635e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9557e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3633e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.4078e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.0721e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.5413e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.2283e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.5413e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.1342e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.2776e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.0746e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.943e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0461e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.2407e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.3846e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.2487e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5199e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.2408e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0286e-06 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.2349e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7769e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.0746e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.0756e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.6752e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.9018e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4924e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5199e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.4814e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.1531e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6108e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7772e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7006e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0844e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.9905e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.0466e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.0445e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.4496e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6594e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.3846e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5394e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3647e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.9078e-03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5639e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.4814e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.1364e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.5206e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.9064e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.5956e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.4244e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.9905e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6331e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.3622e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.593e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.8875e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.0766e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6357e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.5413e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.0746e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.2461e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7543e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.0721e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.9064e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.0445e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.8635e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.1079e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.4053e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.8946e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.2896e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6357e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4924e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.0401e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.9098e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.0622e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6339e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.2461e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.6069e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.4407e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.5068e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.4496e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.4912e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.3369e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.1902e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7351e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.2484e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.4053e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.1342e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.5068e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.5034e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.1627e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.1083e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.5296e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.353e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.2429e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.4912e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4609e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.8735e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.8826e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.1667e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0034e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4248e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.8875e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5101e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 6.3567e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.355e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.625e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.9173e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.6752e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.557e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9557e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <file:///apps/whyis/nan> ;
+                ns6:description "AC breakdown strength" ;
+                ns3:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns3:hasValue 2.376e+02 ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.293e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.8635e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6857e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.3622e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7407e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5435e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.4407e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.1064e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.2313e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.1083e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3633e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6487e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5816e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5968e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.4244e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9943e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.9018e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.7437e-03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6487e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.1667e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5639e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue 2.5e+01 ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.6456e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 8.0909e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.1803e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.1076e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.0116e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.5757e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6345e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.6906e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.5206e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6331e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0303e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5968e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6339e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.2349e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.1999e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.9173e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.852e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 2.8291e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.1464e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4924e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7174e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7006e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.1803e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0286e-06 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.9078e-03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.0766e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.1902e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.2484e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7769e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.0766e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6345e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.7003e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 8.8722e-08 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 7.2846e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.2194e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.4078e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5394e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.7813e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.6258e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 6.0178e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.7796e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.4219e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.6069e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 6.0178e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6719e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.5068e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.852e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.2896e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.3369e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.3053e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7174e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.8242e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.1163e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7543e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 6.1243e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.625e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6487e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.2776e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.2461e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7032e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.0466e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.0756e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.2484e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.3622e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0303e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.098e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0337e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.6906e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7351e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0555e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6857e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.9905e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5639e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.353e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9123e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.1342e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.5505e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.2429e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.0622e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.7796e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.3053e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.1999e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 6.3567e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.5757e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.2313e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.4478e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.4912e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.5568e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.799e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9123e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5101e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7351e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.0756e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.2896e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0555e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.2173e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.625e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6331e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.4053e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5199e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.1531e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.593e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.1076e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.2487e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.8826e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.7003e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.9078e-03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7407e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.6898e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.3404e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.1902e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3647e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.6069e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.7813e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.9098e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.3495e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.0116e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.201e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.8735e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.7813e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.098e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.4478e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.0721e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0461e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.852e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9557e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.355e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6719e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.1076e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 8.8722e-08 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 8.8722e-08 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4248e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.2449e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.5956e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.799e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7772e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.5206e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.293e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5743e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5816e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.2283e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.6456e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3044e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.6898e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5743e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.5034e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.2313e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.0401e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6345e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 8.0909e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.293e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.8903e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.7437e-03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.7447e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.7646e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.1064e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.4244e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.0445e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.5034e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.8242e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.9973e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6108e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.0972e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.2408e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.557e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.4042e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.2307e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.3495e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.2449e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5435e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 6.0178e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.1364e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.468e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.5568e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4609e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.8946e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.7796e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4609e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.1364e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7772e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.7203e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0461e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.5568e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.2449e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.1079e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.6258e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.5956e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.1803e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 5.0972e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.2408e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.2173e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6339e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 7.2846e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0034e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6594e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7407e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.2407e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0303e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0844e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.1163e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.4407e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.1064e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.2407e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0337e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.4042e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6357e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.2283e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.201e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7032e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3633e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.0401e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.9064e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.799e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.6752e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.9098e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5743e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.6906e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3044e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.2349e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6236e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.1106e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0337e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.468e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.3845e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.6456e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5394e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9943e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7769e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.4478e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.943e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.4496e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 6.1243e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6108e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.7203e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.2776e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3101e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.7447e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7174e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.593e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0555e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.4248e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.7646e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.2429e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.7095e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.7543e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.8875e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 8.943e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.1627e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3097e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.9173e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.4814e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.353e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.1106e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.2194e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.7095e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.2173e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 6.6258e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.3846e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6719e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.5296e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.3495e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 3.0116e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.3845e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.1163e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.7203e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.7095e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5435e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+03 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.1079e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6857e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.6898e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3098e+03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.3404e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 9.7437e-03 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3099e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.6236e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.4219e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.4219e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 2.8291e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 2.5101e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.4042e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.616e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3647e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.8903e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.5505e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.4078e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 4.1464e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.3404e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.8826e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.5968e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9812e+02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 7.3053e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3102e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.8903e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.1083e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.201e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 6.3567e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.0466e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.0034e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9813e+01 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 4.9123e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 7.2846e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+05 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.9973e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.0622e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+04 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.5505e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+03 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 4.1106e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1e+07 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.7032e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.3096e+05 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.3044e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e+00 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.098e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-02 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 9.8735e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 6.31e-01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.3845e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e-03 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 5.2487e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.0001e-02 ] ],
+            [ a <file:///apps/whyis/nan> ;
+                ns6:description "�� value" ;
+                ns3:hasValue 2.2e+00 ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 5.2307e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.585e+01 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 1.5757e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5121e+00 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0286e-06 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 2.2194e-07 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+06 ] ],
+            [ a <http://materialsmine.org/ns/TanDelta> ;
+                ns3:hasValue 3.468e-02 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 1.5849e+04 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.7003e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.512e+04 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 2.8291e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 2.5119e+06 ] ],
+            [ a <http://materialsmine.org/ns/RealPermittivity> ;
+                ns3:hasValue 3.9973e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9811e+05 ] ],
+            [ a <http://materialsmine.org/ns/ImaginaryPermittivity> ;
+                ns3:hasValue 1.0844e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns3:hasValue 3.9814e-01 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/e115-s9-bell-2016_filler_0>,
+            <http://materialsmine.org/sample/e115-s9-bell-2016_matrix_0> ;
+        ns3:isRepresentedBy <http://localhost/nmr/blob?id=5b5a0f65e74a1d4cdbaedea5>,
+            <http://localhost/nmr/blob?id=5b5a0f6be74a1d4cdbaedeb3>,
+            <http://localhost/nmr/blob?id=5b5a0f72e74a1d4cdbaedec1>,
+            <http://localhost/nmr/blob?id=5b5a0f7ae74a1d4cdbaedecf>,
+            <http://localhost/nmr/blob?id=5b5a0f81e74a1d4cdbaededd>,
+            <http://localhost/nmr/blob?id=5b5a0f89e74a1d4cdbaedeeb>,
+            <http://localhost/nmr/blob?id=5b5a0f91e74a1d4cdbaedef9>,
+            <http://localhost/nmr/blob?id=5b5a0fa3e74a1d4cdbaedf0b>,
+            <http://localhost/nmr/blob?id=5b5a0faae74a1d4cdbaedf19>,
+            <http://localhost/nmr/blob?id=5b5a0fb2e74a1d4cdbaedf27> .
+
+    <http://materialsmine.org/ns/ImaginaryPermittivity> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Imaginary permittivity" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/RealPermittivity> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Real permittivity" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/TanDelta> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Tan delta" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/Frequency> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Frequency" ;
+        rdfs:subClassOf ns3:Quantity .
+}
+
+ns1:E115_S9_Bell_2016_pubinfo {
+    ns1:E115_S9_Bell_2016_assertion ns6:created "2021-07-22T04:35:42.458000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/Mzg1NzU1LjExOTM2NTIwNjk/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/unpublished/doi-eiyNBJ7jVz8kxbyefNauze> .
+
+    <http://dx.doi.org/unpublished/doi-eiyNBJ7jVz8kxbyefNauze> a <file:///apps/whyis/>,
+            ns6:BibliographicResource ;
+        rdfs:label "" ;
+        ns6:created ""^^xsd:integer ;
+        ns6:title "" ;
+        ns7:authorList () ;
+        ns3:hasPart <http://materialsmine.org/sample/e115-s9-bell-2016> .
+}
+

@@ -1,0 +1,174 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:E115_S1_Bell_2016_assertion {
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" ;
+        ns4:altLabel "Araldite GY 2600" ;
+        ns4:notation "epoxy" .
+
+    <http://materialsmine.org/sample/e115-s1-bell-2016_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/e115-s1-bell-2016> .
+
+    <http://materialsmine.org/sample/e115-s1-bell-2016_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "epoxy" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.17e+00 ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "Araldite GY 2600" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Huntsman Corporation" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/e115-s1-bell-2016> ] .
+
+    <http://materialsmine.org/sample/e115-s1-bell-2016> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label " in bisphenol-A epoxy" ;
+        ns2:hasAttribute [ a <file:///apps/whyis/nan> ;
+                ns3:description "AC breakdown strength" ;
+                ns2:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns2:hasValue 1.98e+02 ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/e115-s1-bell-2016_matrix_0> ;
+        ns2:hasRole <http://materialsmine.org/sample/e115-s1-bell-2016_control_role> .
+}
+
+ns1:E115_S1_Bell_2016_pubinfo {
+    ns1:E115_S1_Bell_2016_assertion ns3:created "2021-07-22T04:29:36.219000+00:00"^^xsd:dateTime ;
+        ns6:wasAttributedTo <http://nanomine.org/setl/NDUwMzkuMTQ4NTM1MTgyODk/MaterialsmineXMLImport> ;
+        ns6:wasQuotedFrom <http://dx.doi.org/unpublished/doi-eiyNBJ7jVz8kxbyefNauze> .
+
+    <http://dx.doi.org/unpublished/doi-eiyNBJ7jVz8kxbyefNauze> a <file:///apps/whyis/>,
+            ns3:BibliographicResource ;
+        rdfs:label "" ;
+        ns3:created ""^^xsd:integer ;
+        ns3:title "" ;
+        ns5:authorList () ;
+        ns2:hasPart <http://materialsmine.org/sample/e115-s1-bell-2016> .
+}
+
+ns1:E115_S1_Bell_2016_provenance {
+    <http://materialsmine.org/sample/e115-s1-bell-2016> ns6:wasGeneratedBy <http://materialsmine.org/entry/E115_S1_Bell_2016_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/perkin-elmer-spectrum-100>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/E115_S1_Bell_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E115_S1_Bell_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_nuclear-magnetic-resonance> a <http://materialsmine.org/ns/NuclearMagneticResonance>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/varian-mercury-400-spectrometer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/E115_S1_Bell_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E115_S1_Bell_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/ta-instruments-q5000>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/E115_S1_Bell_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E115_S1_Bell_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E115_S1_Bell_2016_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1> .
+
+    <http://materialsmine.org/ns/perkin-elmer-spectrum-100> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Perkin Elmer Spectrum 100" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-q5000> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments Q5000" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/varian-mercury-400-spectrometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Varian Mercury 400 spectrometer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixer>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing_mixer>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "Hauschild high shear mixer" .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "high shear mixing" .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_description>,
+            <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_molding> .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_molding_description> .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_melt_mixing_step_1_molding_description> a ns2:Description ;
+        ns2:hasValue "The resin was cast and cured per manufacturer            recommendations" .
+
+    ns1:E115_S1_Bell_2016_assertion ns6:wasDerivedFrom ns1:E115_S1_Bell_2016_assertion,
+            <http://nanomine.org/pub/MTUyODY0Ljc4MDU3MzU1MzEx_assertion> ;
+        ns6:wasGeneratedBy [ a <http://nanomine.org/setl/NDUwMzkuMTQ4NTM1MTgyODk/MaterialsmineXMLImport> ;
+                ns6:used ns1:E115_S1_Bell_2016_assertion,
+                    <http://nanomine.org/pub/MTUyODY0Ljc4MDU3MzU1MzEx_assertion> ],
+            <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_description>,
+            <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_equipment>,
+            <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_nuclear-magnetic-resonance>,
+            <http://materialsmine.org/entry/E115_S1_Bell_2016_characterization_thermogravimetric-analysis> .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E115_S1_Bell_2016_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+

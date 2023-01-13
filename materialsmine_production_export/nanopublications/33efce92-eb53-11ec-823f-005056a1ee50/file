@@ -1,0 +1,1384 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L257_S1_Dai_2013_provenance {
+    <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/dma-q800>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L257_S1_Dai_2013_description_attr_29>,
+                    <http://materialsmine.org/sample/L257_S1_Dai_2013_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_raman-spectroscopy> a <http://materialsmine.org/ns/RamanSpectroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/renishaw-raman-microscope>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L257_S1_Dai_2013_description_attr_29>,
+                    <http://materialsmine.org/sample/L257_S1_Dai_2013_equipment_attr_30> ] .
+
+    <http://materialsmine.org/ns/dma-q800> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DMA Q800" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/renishaw-raman-microscope> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Renishaw Raman Microscope" ;
+        rdfs:subClassOf ns3:Device .
+
+    ns1:L257_S1_Dai_2013_assertion ns2:wasDerivedFrom ns1:L257_S1_Dai_2013_assertion,
+            <http://nanomine.org/pub/MjU4ODk1LjE1MDMxNzAyNzcz_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/MjUwODE1Ljk2MDY0OTQwNzkz/MaterialsmineXMLImport> ;
+                ns2:used ns1:L257_S1_Dai_2013_assertion,
+                    <http://nanomine.org/pub/MjU4ODk1LjE1MDMxNzAyNzcz_assertion> ],
+            <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_description>,
+            <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_equipment>,
+            <http://materialsmine.org/entry/L257_S1_Dai_2013_characterization_raman-spectroscopy> .
+
+    <http://materialsmine.org/sample/L257_S1_Dai_2013_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L257_S1_Dai_2013_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+
+ns1:L257_S1_Dai_2013_assertion {
+    <http://materialsmine.org/compound/PolyBisphenolACarbonate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(bisphenol A carbonate)" ;
+        ns4:altLabel "Iupilon E-2000" ;
+        ns4:notation "PC" .
+
+    <http://materialsmine.org/sample/l257-s1-dai-2013_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l257-s1-dai-2013> .
+
+    <http://materialsmine.org/sample/l257-s1-dai-2013_matrix_0> a <http://materialsmine.org/compound/PolyBisphenolACarbonate> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.2e+00 ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Mitsubishi Engineering Plastics" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PC" ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns3:hasValue "Iupilon E-2000" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l257-s1-dai-2013> ] .
+
+    <http://materialsmine.org/sample/l257-s1-dai-2013> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label " in polycarbonate" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.191816e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.345046e+02 ] ],
+            [ ns3:hasValue 3.006907e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.85103e+01 ] ],
+            [ ns3:hasValue 3.507053e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.007924e+01 ] ],
+            [ ns3:hasValue 8.583224e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.046437e+01 ] ],
+            [ ns3:hasValue 1.92093e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633307e+00 ] ],
+            [ ns3:hasValue 2.30179e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.43565e+01 ] ],
+            [ ns3:hasValue 7.599365e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.738991e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.639386e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 8.025976e+01 ] ],
+            [ ns3:hasValue 2.936677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.326466e+01 ] ],
+            [ ns3:hasValue 1.700632e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.465172e+01 ] ],
+            [ ns3:hasValue 1.92093e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633307e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.85422e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.007753e+02 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.644257e+01 ] ],
+            [ ns3:hasValue 2.746803e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.903925e+01 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.254625e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.547315e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 7.782764e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.522518e+01 ] ],
+            [ ns3:hasValue 3.70016e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.613312e+00 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.278973e+02 ] ],
+            [ ns3:hasValue 1.983235e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.889512e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.053708e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.192043e+02 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.209607e+01 ] ],
+            [ ns3:hasValue 1.335038e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.688869e+00 ] ],
+            [ ns3:hasValue 3.375959e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.743022e-01 ] ],
+            [ ns3:hasValue 2.961637e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132939e+02 ] ],
+            [ ns3:hasValue 3.006907e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.85103e+01 ] ],
+            [ ns3:hasValue 2.378517e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.73108e+01 ] ],
+            [ ns3:hasValue 1.683976e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.617294e+01 ] ],
+            [ ns3:hasValue 2.900256e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.042522e+02 ] ],
+            [ ns3:hasValue 1.833767e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.043235e+01 ] ],
+            [ ns3:hasValue 1.70926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.927142e+01 ] ],
+            [ ns3:hasValue 2.409207e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.353386e+00 ] ],
+            [ ns3:hasValue 3.766887e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.521395e+00 ] ],
+            [ ns3:hasValue 2.2711e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.105304e+01 ] ],
+            [ ns3:hasValue 2.746803e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.903925e+01 ] ],
+            [ ns3:hasValue 2.915601e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.105126e+02 ] ],
+            [ ns3:hasValue 1.713639e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.773419e+01 ] ],
+            [ ns3:hasValue 2.179028e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.360058e+00 ] ],
+            [ ns3:hasValue 2.59335e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.921761e+01 ] ],
+            [ ns3:hasValue 1.652536e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.72538e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.329923e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.463267e+02 ] ],
+            [ ns3:hasValue 1.70926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.927142e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 5.348604e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.88491e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.025135e+02 ] ],
+            [ ns3:hasValue 1.332319e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.449159e+01 ] ],
+            [ ns3:hasValue 3.426288e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.816165e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.409207e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.353386e+00 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.983521e+01 ] ],
+            [ ns3:hasValue 2.762148e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.208229e+01 ] ],
+            [ ns3:hasValue 1.766899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.216173e+01 ] ],
+            [ a <http://materialsmine.org/ns/FiberTensileStrength> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns3:hasValue 3.24e+01 ],
+            [ ns3:hasValue 1.788631e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.159327e+01 ] ],
+            [ ns3:hasValue 1.713639e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.773419e+01 ] ],
+            [ ns3:hasValue 2.731458e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.999622e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 7.365595e+01 ] ],
+            [ ns3:hasValue 7.599365e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.738991e+01 ] ],
+            [ ns3:hasValue 6.255361e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.882306e-01 ] ],
+            [ ns3:hasValue 2.693095e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.582342e+01 ] ],
+            [ ns3:hasValue 2.992327e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.171191e+02 ] ],
+            [ ns3:hasValue 1.680091e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.065492e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.345269e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.397176e+02 ] ],
+            [ ns3:hasValue 1.202619e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.026421e+01 ] ],
+            [ ns3:hasValue 1.448595e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.814251e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.296373e+02 ] ],
+            [ ns3:hasValue 2.234073e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.786229e+00 ] ],
+            [ ns3:hasValue 2.654636e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.819334e+01 ] ],
+            [ ns3:hasValue 1.332319e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.449159e+01 ] ],
+            [ ns3:hasValue 1.69225e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.445156e+01 ] ],
+            [ ns3:hasValue 2.347826e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.659513e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.435428e+02 ] ],
+            [ ns3:hasValue 2.007842e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.985588e+01 ] ],
+            [ ns3:hasValue 5.453613e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220176e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.348604e+01 ] ],
+            [ ns3:hasValue 2.654731e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.234627e+01 ] ],
+            [ ns3:hasValue 1.684265e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.013611e+02 ] ],
+            [ ns3:hasValue 2.317136e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.356055e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 5.522518e+01 ] ],
+            [ ns3:hasValue 1.70807e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.794235e+01 ] ],
+            [ ns3:hasValue 1.700632e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.465172e+01 ] ],
+            [ ns3:hasValue 3.507053e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.007924e+01 ] ],
+            [ ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.310286e+02 ] ],
+            [ ns3:hasValue 1.683976e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.617294e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.324808e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 4.305148e+01 ] ],
+            [ ns3:hasValue 1.69225e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.445156e+01 ] ],
+            [ ns3:hasValue 1.332319e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.449159e+01 ] ],
+            [ ns3:hasValue 3.468031e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.543227e+02 ] ],
+            [ ns3:hasValue 2.90511e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.284227e+00 ] ],
+            [ ns3:hasValue 1.692561e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.002402e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.426999e+01 ] ],
+            [ ns3:hasValue 2.547315e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.782764e+01 ] ],
+            [ ns3:hasValue 1.684265e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.013611e+02 ] ],
+            [ ns3:hasValue 1.788631e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.159327e+01 ] ],
+            [ ns3:hasValue 2.767508e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.267829e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.139909e+01 ] ],
+            [ ns3:hasValue 2.654636e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.819334e+01 ] ],
+            [ ns3:hasValue 3.329923e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.463267e+02 ] ],
+            [ ns3:hasValue 2.777494e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.903836e+01 ] ],
+            [ ns3:hasValue 1.927281e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.620496e+01 ] ],
+            [ ns3:hasValue 1.652536e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.72538e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.731458e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 8.999622e+01 ] ],
+            [ ns3:hasValue 3.43734e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.518888e+02 ] ],
+            [ ns3:hasValue 3.307861e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.013611e+00 ] ],
+            [ ns3:hasValue 1.963092e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.793435e+01 ] ],
+            [ ns3:hasValue 2.501279e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.808985e+01 ] ],
+            [ ns3:hasValue 3.421995e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.491066e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 1.335038e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.688869e+00 ] ],
+            [ ns3:hasValue 3.43734e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.518888e+02 ] ],
+            [ ns3:hasValue 2.56266e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.088068e+00 ] ],
+            [ ns3:hasValue 2.702612e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.648177e+01 ] ],
+            [ ns3:hasValue 1.090841e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.718975e+01 ] ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.209607e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.693095e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 8.582342e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.414558e+02 ] ],
+            [ ns3:hasValue 2.531969e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.480262e+00 ] ],
+            [ ns3:hasValue 1.7094e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.176942e+01 ] ],
+            [ ns3:hasValue 1.652536e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.72538e-01 ] ],
+            [ ns3:hasValue 1.940899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 1.949656e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.716573e+01 ] ],
+            [ ns3:hasValue 2.56266e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.088068e+00 ] ],
+            [ ns3:hasValue 1.735778e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.446757e+01 ] ],
+            [ ns3:hasValue 1.735778e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.446757e+01 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.480645e+02 ] ],
+            [ ns3:hasValue 1.983235e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.889512e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.531969e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 5.480262e+00 ] ],
+            [ ns3:hasValue 3.329923e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.463267e+02 ] ],
+            [ ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.574589e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.08773e+02 ] ],
+            [ ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.574589e+02 ] ],
+            [ ns3:hasValue 2.808184e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.973313e+01 ] ],
+            [ ns3:hasValue 1.887328e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 3.329923e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.560658e+02 ] ],
+            [ ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.296373e+02 ] ],
+            [ ns3:hasValue 6.436935e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.431545e+01 ] ],
+            [ ns3:hasValue 3.053708e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.192043e+02 ] ],
+            [ ns3:hasValue 1.384572e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.803843e-01 ] ],
+            [ ns3:hasValue 2.516624e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.045925e+00 ] ],
+            [ ns3:hasValue 2.73913e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.590904e+01 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.317233e+02 ] ],
+            [ ns3:hasValue 1.766899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.216173e+01 ] ],
+            [ ns3:hasValue 1.983235e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.889512e+01 ] ],
+            [ ns3:hasValue 1.675926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.119295e+02 ] ],
+            [ ns3:hasValue 3.591472e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.846276e+00 ] ],
+            [ ns3:hasValue 1.963092e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.793435e+01 ] ],
+            [ ns3:hasValue 2.516624e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.045925e+00 ] ],
+            [ ns3:hasValue 3.978361e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.550841e+00 ] ],
+            [ ns3:hasValue 2.179028e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.360058e+00 ] ],
+            [ ns3:hasValue 2.992327e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.171191e+02 ] ],
+            [ ns3:hasValue 1.090841e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.718975e+01 ] ],
+            [ ns3:hasValue 2.867978e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.763867e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.961637e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.132939e+02 ] ],
+            [ ns3:hasValue 9.969082e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.392314e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.522518e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.329923e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.560658e+02 ] ],
+            [ ns3:hasValue 1.69225e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.445156e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.976982e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.153804e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.424552e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.217903e+01 ] ],
+            [ ns3:hasValue 2.777494e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.903836e+01 ] ],
+            [ ns3:hasValue 2.59335e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.921761e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.115557e+02 ] ],
+            [ ns3:hasValue 3.424848e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397781e+01 ] ],
+            [ ns3:hasValue 1.887328e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 2.702612e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.648177e+01 ] ],
+            [ ns3:hasValue 1.70807e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.794235e+01 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.480645e+02 ] ],
+            [ ns3:hasValue 2.654731e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.234627e+01 ] ],
+            [ ns3:hasValue 2.762148e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.208229e+01 ] ],
+            [ ns3:hasValue 3.507053e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.007924e+01 ] ],
+            [ ns3:hasValue 1.700889e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.926341e+01 ] ],
+            [ ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.1569e+01 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.426999e+01 ] ],
+            [ ns3:hasValue 1.949656e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.716573e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.762148e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.347359e+01 ] ],
+            [ ns3:hasValue 1.994885e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.017569e+00 ] ],
+            [ ns3:hasValue 2.2711e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.105304e+01 ] ],
+            [ ns3:hasValue 1.684265e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.013611e+02 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.435428e+02 ] ],
+            [ ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.873346e+00 ] ],
+            [ ns3:hasValue 3.07914e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48019e+01 ] ],
+            [ ns3:hasValue 3.114788e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.938193e+01 ] ],
+            [ ns3:hasValue 1.680091e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.065492e+02 ] ],
+            [ ns3:hasValue 3.468031e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.543227e+02 ] ],
+            [ ns3:hasValue 2.762148e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.347359e+01 ] ],
+            [ ns3:hasValue 1.700889e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.926341e+01 ] ],
+            [ ns3:hasValue 3.591472e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.846276e+00 ] ],
+            [ ns3:hasValue 4.738362e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.047238e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.560676e+02 ] ],
+            [ ns3:hasValue 2.234073e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.786229e+00 ] ],
+            [ ns3:hasValue 1.7094e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.176942e+01 ] ],
+            [ ns3:hasValue 9.969082e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.392314e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.334625e+02 ] ],
+            [ ns3:hasValue 3.766887e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.521395e+00 ] ],
+            [ ns3:hasValue 2.30179e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.43565e+01 ] ],
+            [ ns3:hasValue 2.501279e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.808985e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 7.1569e+01 ] ],
+            [ ns3:hasValue 3.307861e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.013611e+00 ] ],
+            [ ns3:hasValue 1.92093e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633307e+00 ] ],
+            [ ns3:hasValue 1.788631e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.159327e+01 ] ],
+            [ ns3:hasValue 3.191816e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.345046e+02 ] ],
+            [ ns3:hasValue 1.700632e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.465172e+01 ] ],
+            [ ns3:hasValue 2.654636e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.819334e+01 ] ],
+            [ ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.365595e+01 ] ],
+            [ ns3:hasValue 1.89602e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.601281e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.30179e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 3.43565e+01 ] ],
+            [ ns3:hasValue 1.692561e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.002402e+01 ] ],
+            [ ns3:hasValue 2.702612e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.648177e+01 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.414558e+02 ] ],
+            [ ns3:hasValue 3.307861e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.013611e+00 ] ],
+            [ ns3:hasValue 2.73913e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.590904e+01 ] ],
+            [ ns3:hasValue 1.700889e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.926341e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.485934e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.982942e+01 ] ],
+            [ ns3:hasValue 1.735778e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.446757e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 5.139909e+01 ] ],
+            [ ns3:hasValue 2.731458e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.999622e+01 ] ],
+            [ ns3:hasValue 2.234073e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.786229e+00 ] ],
+            [ ns3:hasValue 2.693095e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.582342e+01 ] ],
+            [ ns3:hasValue 2.867978e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.763867e+01 ] ],
+            [ ns3:hasValue 1.384572e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.803843e-01 ] ],
+            [ ns3:hasValue 2.501279e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.608985e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.393862e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.009296e+01 ] ],
+            [ ns3:hasValue 1.675926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.119295e+02 ] ],
+            [ ns3:hasValue 2.393862e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.009296e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.179028e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.360058e+00 ] ],
+            [ ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.358937e+02 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.452819e+02 ] ],
+            [ ns3:hasValue 3.40665e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.55368e+02 ] ],
+            [ ns3:hasValue 2.424552e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.461381e+01 ] ],
+            [ ns3:hasValue 1.448595e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.814251e+01 ] ],
+            [ ns3:hasValue 3.006907e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.85103e+01 ] ],
+            [ ns3:hasValue 1.927281e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.620496e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.896431e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.073817e+02 ] ],
+            [ ns3:hasValue 3.306354e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.348653e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.746803e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.903925e+01 ] ],
+            [ ns3:hasValue 2.90511e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.284227e+00 ] ],
+            [ ns3:hasValue 1.700632e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.465172e+01 ] ],
+            [ ns3:hasValue 1.833767e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.043235e+01 ] ],
+            [ ns3:hasValue 2.409207e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.266429e+00 ] ],
+            [ ns3:hasValue 6.436935e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.431545e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.887735e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.347826e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.659513e+00 ] ],
+            [ ns3:hasValue 2.85422e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.007753e+02 ] ],
+            [ ns3:hasValue 1.713639e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.773419e+01 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.522651e+01 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.334625e+02 ] ],
+            [ ns3:hasValue 1.981078e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 1.7094e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.176942e+01 ] ],
+            [ ns3:hasValue 2.762148e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.347359e+01 ] ],
+            [ ns3:hasValue 2.547109e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746998e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.115557e+02 ] ],
+            [ ns3:hasValue 2.547315e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.782764e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.983521e+01 ] ],
+            [ ns3:hasValue 3.345269e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397176e+02 ] ],
+            [ ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.358937e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 3.887735e+01 ] ],
+            [ ns3:hasValue 3.766887e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.521395e+00 ] ],
+            [ ns3:hasValue 2.900256e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.042522e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.375959e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.743022e-01 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.480645e+02 ] ],
+            [ ns3:hasValue 2.547109e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746998e+00 ] ],
+            [ ns3:hasValue 1.684265e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.013611e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 3.644257e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.501279e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.808985e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.73913e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.590904e+01 ] ],
+            [ ns3:hasValue 2.547109e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746998e+00 ] ],
+            [ ns3:hasValue 3.421995e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.491066e+02 ] ],
+            [ ns3:hasValue 2.936677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.326466e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 7.519182e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.357945e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 1.749361e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.024686e+00 ] ],
+            [ ns3:hasValue 1.202619e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.026421e+01 ] ],
+            [ ns3:hasValue 4.738362e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.047238e+01 ] ],
+            [ ns3:hasValue 4.738362e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.047238e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.808184e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.973313e+01 ] ],
+            [ ns3:hasValue 3.40665e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.55368e+02 ] ],
+            [ ns3:hasValue 1.949656e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.716573e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.424552e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.461381e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.574589e+02 ] ],
+            [ ns3:hasValue 3.114788e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.938193e+01 ] ],
+            [ ns3:hasValue 1.963092e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.793435e+01 ] ],
+            [ ns3:hasValue 1.798085e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.100881e+01 ] ],
+            [ ns3:hasValue 1.090841e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.718975e+01 ] ],
+            [ ns3:hasValue 1.89602e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.601281e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.887735e+01 ] ],
+            [ ns3:hasValue 3.766887e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.521395e+00 ] ],
+            [ ns3:hasValue 3.053708e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.192043e+02 ] ],
+            [ a <http://materialsmine.org/ns/Creep> ],
+            [ ns3:hasValue 6.436935e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.431545e+01 ] ],
+            [ ns3:hasValue 2.976982e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.153804e+02 ] ],
+            [ ns3:hasValue 8.583224e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.046437e+01 ] ],
+            [ ns3:hasValue 2.639386e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.025976e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.409207e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 8.266429e+00 ] ],
+            [ ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.365595e+01 ] ],
+            [ ns3:hasValue 2.808184e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.973313e+01 ] ],
+            [ ns3:hasValue 1.671752e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.171177e+02 ] ],
+            [ ns3:hasValue 1.949656e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.716573e+01 ] ],
+            [ ns3:hasValue 1.833767e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.043235e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.452819e+02 ] ],
+            [ ns3:hasValue 2.702612e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.648177e+01 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ ns3:hasValue 2.88491e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.025135e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.992327e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.171191e+02 ] ],
+            [ ns3:hasValue 2.85422e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.007753e+02 ] ],
+            [ ns3:hasValue 7.599365e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.738991e+01 ] ],
+            [ ns3:hasValue 3.424848e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397781e+01 ] ],
+            [ ns3:hasValue 4.738362e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.047238e+01 ] ],
+            [ ns3:hasValue 3.507053e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.007924e+01 ] ],
+            [ ns3:hasValue 2.409207e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.353386e+00 ] ],
+            [ a <http://materialsmine.org/ns/Creep> ],
+            [ ns3:hasValue 1.766899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.216173e+01 ] ],
+            [ ns3:hasValue 1.864706e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.485989e+01 ] ],
+            [ ns3:hasValue 2.961637e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132939e+02 ] ],
+            [ ns3:hasValue 3.114788e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.938193e+01 ] ],
+            [ ns3:hasValue 1.578348e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.333066e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.746803e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.730012e+01 ] ],
+            [ ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.296373e+02 ] ],
+            [ ns3:hasValue 3.978361e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.550841e+00 ] ],
+            [ ns3:hasValue 1.940899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 3.130435e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.230281e+02 ] ],
+            [ ns3:hasValue 1.735778e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.446757e+01 ] ],
+            [ ns3:hasValue 1.69225e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.445156e+01 ] ],
+            [ ns3:hasValue 6.255361e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.882306e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.501279e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 7.608985e+01 ] ],
+            [ ns3:hasValue 3.114788e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.938193e+01 ] ],
+            [ ns3:hasValue 3.424848e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397781e+01 ] ],
+            [ ns3:hasValue 2.007842e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.985588e+01 ] ],
+            [ ns3:hasValue 1.788631e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.159327e+01 ] ],
+            [ ns3:hasValue 6.436935e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.431545e+01 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.334625e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.421995e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.491066e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.777494e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.903836e+01 ] ],
+            [ ns3:hasValue 3.70016e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.613312e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.130435e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.230281e+02 ] ],
+            [ ns3:hasValue 3.375959e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.743022e-01 ] ],
+            [ ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.216373e+02 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.435428e+02 ] ],
+            [ ns3:hasValue 2.88491e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.025135e+02 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.896431e+01 ] ],
+            [ ns3:hasValue 3.306354e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.348653e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.358937e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.254625e+02 ] ],
+            [ a <http://materialsmine.org/ns/ViscoelasticProperty> ],
+            [ ns3:hasValue 2.485934e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.982942e+01 ] ],
+            [ ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.310286e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.317233e+02 ] ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.414558e+02 ] ],
+            [ ns3:hasValue 1.864706e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.485989e+01 ] ],
+            [ ns3:hasValue 1.671752e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.171177e+02 ] ],
+            [ ns3:hasValue 3.07914e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48019e+01 ] ],
+            [ ns3:hasValue 3.07914e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48019e+01 ] ],
+            [ ns3:hasValue 1.671752e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.171177e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.43734e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.518888e+02 ] ],
+            [ ns3:hasValue 2.455243e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.635205e+01 ] ],
+            [ ns3:hasValue 3.426288e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.816165e+01 ] ],
+            [ ns3:hasValue 1.766899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.216173e+01 ] ],
+            [ ns3:hasValue 1.384572e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.803843e-01 ] ],
+            [ ns3:hasValue 1.92093e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633307e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.310286e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.216373e+02 ] ],
+            [ ns3:hasValue 2.767508e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.267829e+01 ] ],
+            [ ns3:hasValue 7.599365e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.738991e+01 ] ],
+            [ ns3:hasValue 1.89602e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.601281e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.059904e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.873346e+00 ] ],
+            [ ns3:hasValue 2.976982e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.153804e+02 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.254625e+02 ] ],
+            [ ns3:hasValue 2.324808e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.305148e+01 ] ],
+            [ ns3:hasValue 3.426288e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.816165e+01 ] ],
+            [ ns3:hasValue 3.306354e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.348653e+01 ] ],
+            [ ns3:hasValue 2.915601e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.105126e+02 ] ],
+            [ ns3:hasValue 1.683976e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.617294e+01 ] ],
+            [ ns3:hasValue 1.652536e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.72538e-01 ] ],
+            [ ns3:hasValue 1.578348e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.333066e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.915601e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.105126e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 4.896431e+01 ] ],
+            [ ns3:hasValue 1.70926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.927142e+01 ] ],
+            [ ns3:hasValue 2.485934e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.982942e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.56266e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 4.088068e+00 ] ],
+            [ ns3:hasValue 1.448595e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.814251e+01 ] ],
+            [ ns3:hasValue 1.202619e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.026421e+01 ] ],
+            [ ns3:hasValue 2.936677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.326466e+01 ] ],
+            [ ns3:hasValue 1.927281e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.620496e+01 ] ],
+            [ ns3:hasValue 6.255361e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.882306e-01 ] ],
+            [ ns3:hasValue 1.70926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.927142e+01 ] ],
+            [ ns3:hasValue 1.983235e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.889512e+01 ] ],
+            [ ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.873346e+00 ] ],
+            [ ns3:hasValue 2.007842e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.985588e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.317136e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.356055e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 1.994885e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 2.017569e+00 ] ],
+            [ ns3:hasValue 1.887328e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.059904e+02 ] ],
+            [ ns3:hasValue 2.424552e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.217903e+01 ] ],
+            [ ns3:hasValue 2.317136e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.356055e+00 ] ],
+            [ ns3:hasValue 3.11509e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.216373e+02 ] ],
+            [ ns3:hasValue 2.007842e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.985588e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.378517e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 5.73108e+01 ] ],
+            [ ns3:hasValue 1.675926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.119295e+02 ] ],
+            [ ns3:hasValue 2.347826e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.659513e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.654731e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 8.234627e+01 ] ],
+            [ ns3:hasValue 1.700889e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.926341e+01 ] ],
+            [ ns3:hasValue 3.978361e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.550841e+00 ] ],
+            [ a <http://materialsmine.org/ns/TensileStressAtYield> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns3:hasValue 2.56e+01 ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.2711e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.105304e+01 ] ],
+            [ ns3:hasValue 2.90511e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.284227e+00 ] ],
+            [ ns3:hasValue 1.675926e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.119295e+02 ] ],
+            [ ns3:hasValue 2.455243e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.635205e+01 ] ],
+            [ ns3:hasValue 1.749361e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.024686e+00 ] ],
+            [ ns3:hasValue 1.981078e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 3.006907e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.85103e+01 ] ],
+            [ ns3:hasValue 3.191816e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.345046e+02 ] ],
+            [ ns3:hasValue 3.314578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.376315e+02 ] ],
+            [ ns3:hasValue 8.583224e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.046437e+01 ] ],
+            [ ns3:hasValue 2.424552e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.217903e+01 ] ],
+            [ ns3:hasValue 1.448595e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.814251e+01 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.209607e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.485934e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 7.469899e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.08773e+02 ] ],
+            [ ns3:hasValue 2.746803e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.730012e+01 ] ],
+            [ ns3:hasValue 1.680091e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.065492e+02 ] ],
+            [ ns3:hasValue 2.485934e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.469899e+01 ] ],
+            [ ns3:hasValue 1.927281e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.620496e+01 ] ],
+            [ ns3:hasValue 1.384572e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.803843e-01 ] ],
+            [ ns3:hasValue 3.426288e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.816165e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.139909e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.762148e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 9.208229e+01 ] ],
+            [ ns3:hasValue 3.345269e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397176e+02 ] ],
+            [ ns3:hasValue 1.692561e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.002402e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.59335e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 7.921761e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.468031e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.543227e+02 ] ],
+            [ ns3:hasValue 1.833767e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.043235e+01 ] ],
+            [ ns3:hasValue 3.70016e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.613312e+00 ] ],
+            [ ns3:hasValue 1.70807e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.794235e+01 ] ],
+            [ ns3:hasValue 2.767508e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.267829e+01 ] ],
+            [ ns3:hasValue 1.578348e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.333066e+01 ] ],
+            [ ns3:hasValue 2.324808e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.305148e+01 ] ],
+            [ ns3:hasValue 2.767508e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.267829e+01 ] ],
+            [ ns3:hasValue 2.424552e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.461381e+01 ] ],
+            [ ns3:hasValue 3.70016e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.613312e+00 ] ],
+            [ ns3:hasValue 2.936677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.326466e+01 ] ],
+            [ ns3:hasValue 1.7094e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.176942e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.073817e+02 ] ],
+            [ ns3:hasValue 0e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.362615e-01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.278973e+02 ] ],
+            [ ns3:hasValue 1.335038e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.688869e+00 ] ],
+            [ ns3:hasValue 1.89602e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.601281e+01 ] ],
+            [ ns3:hasValue 1.70807e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.794235e+01 ] ],
+            [ ns3:hasValue 1.940899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 2.234073e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.786229e+00 ] ],
+            [ ns3:hasValue 2.746803e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.730012e+01 ] ],
+            [ ns3:hasValue 1.981078e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 2.867978e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.763867e+01 ] ],
+            [ ns3:hasValue 3.306354e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.348653e+01 ] ],
+            [ ns3:hasValue 3.307861e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.013611e+00 ] ],
+            [ ns3:hasValue 2.547109e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746998e+00 ] ],
+            [ ns3:hasValue 1.680091e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.065492e+02 ] ],
+            [ ns3:hasValue 1.202619e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.026421e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.115557e+02 ] ],
+            [ ns3:hasValue 2.90511e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.284227e+00 ] ],
+            [ ns3:hasValue 1.963092e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.793435e+01 ] ],
+            [ ns3:hasValue 1.798085e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.100881e+01 ] ],
+            [ ns3:hasValue 1.692561e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.002402e+01 ] ],
+            [ ns3:hasValue 6.255361e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.882306e-01 ] ],
+            [ ns3:hasValue 1.798085e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.100881e+01 ] ],
+            [ ns3:hasValue 1.981078e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 2.654636e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.819334e+01 ] ],
+            [ ns3:hasValue 1.332319e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.449159e+01 ] ],
+            [ ns3:hasValue 9.969082e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.392314e+01 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.348604e+01 ] ],
+            [ ns3:hasValue 3.591472e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.846276e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.40665e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.55368e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 3.314578e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.376315e+02 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.426999e+01 ] ],
+            [ ns3:hasValue 3.329923e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.560658e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.516624e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 3.045925e+00 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.522651e+01 ] ],
+            [ ns3:hasValue 5.453613e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220176e+01 ] ],
+            [ ns3:hasValue 1.887328e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 1.578348e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.333066e+01 ] ],
+            [ ns3:hasValue 1.749361e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.024686e+00 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.08773e+02 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.983521e+01 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.900256e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 1.042522e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 2.455243e+01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 6.635205e+01 ] ],
+            [ ns3:hasValue 1.940899e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.024019e+01 ] ],
+            [ ns3:hasValue 3.591472e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.846276e+00 ] ],
+            [ ns3:hasValue 2.409207e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.266429e+00 ] ],
+            [ ns3:hasValue 5.453613e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220176e+01 ] ],
+            [ ns3:hasValue 3.424848e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397781e+01 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ ns3:hasValue 1.798085e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.100881e+01 ] ],
+            [ ns3:hasValue 2.531969e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.480262e+00 ] ],
+            [ ns3:hasValue 3.130435e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.230281e+02 ] ],
+            [ ns3:hasValue 1.671752e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.171177e+02 ] ],
+            [ ns3:hasValue 2.332481e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.644257e+01 ] ],
+            [ ns3:hasValue 1.864706e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.485989e+01 ] ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+                ns3:hasValue 1.31e+00 ],
+            [ ns3:hasValue 3.375959e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.452819e+02 ] ],
+            [ ns3:hasValue 5.453613e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220176e+01 ] ],
+            [ ns3:hasValue 2.867978e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.763867e+01 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.317233e+02 ] ],
+            [ ns3:hasValue 1.090841e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.718975e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.059904e+02 ] ],
+            [ ns3:hasValue 3.314578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.376315e+02 ] ],
+            [ ns3:hasValue 2.378517e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.73108e+01 ] ],
+            [ ns3:hasValue 3.978361e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.550841e+00 ] ],
+            [ ns3:hasValue 1.994885e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.017569e+00 ] ],
+            [ ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.560676e+02 ] ],
+            [ ns3:hasValue 9.969082e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.392314e+01 ] ],
+            [ ns3:hasValue 1.683976e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.617294e+01 ] ],
+            [ ns3:hasValue 1.864706e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.485989e+01 ] ],
+            [ ns3:hasValue 8.583224e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.046437e+01 ] ],
+            [ ns3:hasValue 7.519182e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.357945e+00 ] ],
+            [ ns3:hasValue 2.501279e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.608985e+01 ] ],
+            [ ns3:hasValue 2.639386e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.025976e+01 ] ],
+            [ ns3:hasValue 7.519182e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.357945e+00 ] ],
+            [ ns3:hasValue 3.14578e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.278973e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns3:hasValue 0e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns3:hasValue 3.362615e-01 ] ],
+            [ ns3:hasValue 2.393862e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.009296e+01 ] ],
+            [ ns3:hasValue 1.713639e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.773419e+01 ] ],
+            [ ns3:hasValue 2.286445e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.522651e+01 ] ],
+            [ ns3:hasValue 3.07914e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48019e+01 ] ],
+            [ ns3:hasValue 2.930946e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.073817e+02 ] ],
+            [ ns3:hasValue 0e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.362615e-01 ] ],
+            [ ns3:hasValue 3.268542e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.560676e+02 ] ],
+            [ ns3:hasValue 2.485934e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.469899e+01 ] ],
+            [ ns3:hasValue 2.470588e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.1569e+01 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l257-s1-dai-2013_matrix_0> ;
+        ns3:hasRole <http://materialsmine.org/sample/l257-s1-dai-2013_control_role> .
+}
+
+ns1:L257_S1_Dai_2013_pubinfo {
+    ns1:L257_S1_Dai_2013_assertion ns8:created "2021-07-22T19:51:19.248000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/MjUwODE1Ljk2MDY0OTQwNzkz/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1016/j.polymer.2013.05.013> .
+
+    <http://dx.doi.org/10.1016/j.polymer.2013.05.013> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns8:BibliographicResource ;
+        rdfs:label "Creep-resistant behavior of MWCNT-polycarbonate melt spun nanocomposite fibers at elevated temperature" ;
+        ns8:created 2013 ;
+        ns8:creator <http://materialsmine.org/author/dai-zhaohe>,
+            <http://materialsmine.org/author/gao-yun>,
+            <http://materialsmine.org/author/liu-luqi>,
+            <http://materialsmine.org/author/potschke-petra>,
+            <http://materialsmine.org/author/yang-jinglei>,
+            <http://materialsmine.org/author/zhang-zhong> ;
+        ns8:isPartOf <http://materialsmine.org/publication/polymer> ;
+        ns8:language <http://materialsmine.org/language/english> ;
+        ns8:title "Creep-resistant behavior of MWCNT-polycarbonate melt spun nanocomposite fibers at elevated temperature" ;
+        ns5:authorList ( <http://materialsmine.org/author/zhang-zhong> <http://materialsmine.org/author/yang-jinglei> <http://materialsmine.org/author/potschke-petra> <http://materialsmine.org/author/liu-luqi> <http://materialsmine.org/author/gao-yun> <http://materialsmine.org/author/dai-zhaohe> ) ;
+        ns5:volume 54 ;
+        ns3:hasPart <http://materialsmine.org/sample/l257-s1-dai-2013> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0032386113004448?via%3Dihub> ;
+        ns7:keyword "Carbon Nanotubes",
+            "Creep",
+            "Nanocomposite Fiber" .
+
+    <http://materialsmine.org/language/english> a ns8:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/national-center-for-nanoscience-and-technology-no-11-beiyitiao-zhongguancun-beijing-100190-pr-china> a ns8:Location ;
+        rdfs:label "National Center for Nanoscience and Technology, No.11, Beiyitiao Zhongguancun, Beijing 100190, PR China" .
+
+    <http://materialsmine.org/publication/polymer> ns8:publisher <publisher:elsevier> ;
+        ns8:title "Polymer" .
+
+    <http://materialsmine.org/sample/l257-s1-dai-2013> ns2:wasAttributedTo <http://materialsmine.org/author/dai-zhaohe>,
+            <http://materialsmine.org/author/gao-yun>,
+            <http://materialsmine.org/author/liu-luqi>,
+            <http://materialsmine.org/author/potschke-petra>,
+            <http://materialsmine.org/author/yang-jinglei>,
+            <http://materialsmine.org/author/zhang-zhong> .
+
+    <publisher:elsevier> rdfs:label "Elsevier" ;
+        ns2:atLocation <http://materialsmine.org/location/national-center-for-nanoscience-and-technology-no-11-beiyitiao-zhongguancun-beijing-100190-pr-china> .
+
+    <http://materialsmine.org/author/dai-zhaohe> a ns2:Agent ;
+        rdfs:label "Dai, Zhaohe" ;
+        ns6:name "Dai, Zhaohe" .
+
+    <http://materialsmine.org/author/gao-yun> a ns2:Agent ;
+        rdfs:label "Gao, Yun" ;
+        ns6:name "Gao, Yun" .
+
+    <http://materialsmine.org/author/liu-luqi> a ns2:Agent ;
+        rdfs:label "Liu, Luqi" ;
+        ns6:name "Liu, Luqi" .
+
+    <http://materialsmine.org/author/potschke-petra> a ns2:Agent ;
+        rdfs:label "P��tschke, Petra" ;
+        ns6:name "P��tschke, Petra" .
+
+    <http://materialsmine.org/author/yang-jinglei> a ns2:Agent ;
+        rdfs:label "Yang, Jinglei" ;
+        ns6:name "Yang, Jinglei" .
+
+    <http://materialsmine.org/author/zhang-zhong> a ns2:Agent ;
+        rdfs:label "Zhang, Zhong" ;
+        ns6:name "Zhang, Zhong" .
+}
+

@@ -1,0 +1,47 @@
+@prefix ns1: <http://vocab.rpi.edu/whyis/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://www.nanopub.org/nschema#> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:oboBXGMWdrwtrzdW2xgeHi_assertion> {
+    <http://nanomine.org/nmr/dataset/174> a ns3:Dataset ;
+        ns3:distribution <http://nanomine.org/nmr/xml/L174_S20_Ramanathan_2008> .
+
+    <http://nanomine.org/nmr/xml/L174_S20_Ramanathan_2008?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns3:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns4:hasContentType "text/xml" ;
+        ns2:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-22T12:34:02.682000+00:00"^^xsd:dateTime ;
+        ns1:hasFileID "18a700ce-eae9-11eb-9f8d-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns2:FileFormat .
+}
+
+<urn:oboBXGMWdrwtrzdW2xgeHi_pubinfo> {
+    <urn:oboBXGMWdrwtrzdW2xgeHi_assertion> ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-22T12:34:02.683000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:oboBXGMWdrwtrzdW2xgeHi> a ns5:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/nmr/xml/L174_S20_Ramanathan_2008?format=xml> ;
+        ns5:hasAssertion <urn:oboBXGMWdrwtrzdW2xgeHi_assertion> ;
+        ns5:hasProvenance <urn:oboBXGMWdrwtrzdW2xgeHi_provenance> ;
+        ns5:hasPublicationInfo <urn:oboBXGMWdrwtrzdW2xgeHi_pubinfo> .
+
+    <urn:oboBXGMWdrwtrzdW2xgeHi_assertion> a ns5:Assertion .
+
+    <urn:oboBXGMWdrwtrzdW2xgeHi_provenance> a ns5:Provenance .
+
+    <urn:oboBXGMWdrwtrzdW2xgeHi_pubinfo> a ns5:PublicationInfo .
+}
+

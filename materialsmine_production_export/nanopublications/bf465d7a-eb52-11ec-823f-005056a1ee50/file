@@ -1,0 +1,250 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L146_S2_Tao_2011_assertion {
+    <http://materialsmine.org/sample/l146-s1-tao-2011> ns3:hasRole <http://materialsmine.org/sample/l146-s1-tao-2011_control_role> .
+
+    <http://localhost/nmr/blob?id=5ac3f408e74a1d06fd99cd8a> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns3:Image ;
+        ns4:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    ns4:Activity ;
+                ns4:used <http://materialsmine.org/sample/l146-s2-tao-2011> ] ;
+        ns5:depiction "http://localhost/nmr/blob?id=5ac3f408e74a1d06fd99cd8a" .
+
+    <http://materialsmine.org/compound/PolyGlycidylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(glycidyl methacrylate)" ;
+        ns2:notation "PGMA" .
+
+    <http://materialsmine.org/compound/TitaniumDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Titanium dioxide" ;
+        ns2:altLabel "Titanium Dioxide" .
+
+    <http://materialsmine.org/ns/GrayscaleImage> rdfs:label "Grayscale Image" .
+
+    <http://materialsmine.org/sample/l146-s1-tao-2011_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l146-s2-tao-2011> .
+
+    <http://materialsmine.org/sample/l146-s2-tao-2011_filler_0> a <http://materialsmine.org/compound/TitaniumDioxide> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 3.87e+00 ],
+            [ a ns3:Width ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 5.4e+00 ],
+            <http://materialsmine.org/sample/l146-s2-tao-2011_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l146-s2-tao-2011_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l146-s2-tao-2011> ] .
+
+    <http://materialsmine.org/sample/l146-s2-tao-2011_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns6:description "reported" ;
+        ns3:hasValue 5.5e-01 .
+
+    <http://materialsmine.org/sample/l146-s2-tao-2011_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns6:description "computed by NanoMine" ;
+        ns3:hasValue 2.543353e-01 .
+
+    <http://materialsmine.org/sample/l146-s2-tao-2011_matrix_0> a <http://materialsmine.org/compound/PolyGlycidylMethacrylate> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PGMA" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.08e+00 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l146-s2-tao-2011> ] .
+
+    <http://materialsmine.org/sample/l146-s2-tao-2011> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Titanium Dioxide in poly(glycidyl methacrylate)" ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l146-s2-tao-2011_filler_0>,
+            <http://materialsmine.org/sample/l146-s2-tao-2011_matrix_0> ;
+        ns3:isRepresentedBy <http://localhost/nmr/blob?id=5ac3f408e74a1d06fd99cd8a> .
+}
+
+ns1:L146_S2_Tao_2011_pubinfo {
+    ns1:L146_S2_Tao_2011_assertion ns6:created "2021-07-22T09:59:12.677000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/NDA3OTg4LjQ4MDc2NzQzOTY0/MaterialsmineXMLImport> ;
+        ns4:wasQuotedFrom <http://dx.doi.org/10.1039/C1JM13093E> .
+
+    <http://dx.doi.org/10.1039/C1JM13093E> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns6:BibliographicResource ;
+        rdfs:label "TiO2 nanocomposites with high refractive index and transparency" ;
+        ns6:created 2011 ;
+        ns6:creator <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/gao-jianing>,
+            <http://materialsmine.org/author/li-yu>,
+            <http://materialsmine.org/author/rungta-atri>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/siegel-richard-w>,
+            <http://materialsmine.org/author/tao-peng>,
+            <http://materialsmine.org/author/viswanath-anand> ;
+        ns6:isPartOf <http://materialsmine.org/publication/journal-of-materials-chemistry> ;
+        ns6:language <http://materialsmine.org/language/english> ;
+        ns6:title "TiO2 nanocomposites with high refractive index and transparency" ;
+        ns7:authorList ( <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/siegel-richard-w> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/gao-jianing> <http://materialsmine.org/author/viswanath-anand> <http://materialsmine.org/author/rungta-atri> <http://materialsmine.org/author/li-yu> <http://materialsmine.org/author/tao-peng> ) ;
+        ns7:volume 21 ;
+        ns3:hasPart <http://materialsmine.org/sample/l146-s2-tao-2011> ;
+        rdfs:seeAlso <http://pubs.rsc.org/en/content/articlelanding/2011/jm/c1jm13093e> .
+
+    <http://materialsmine.org/language/english> a ns6:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-troy-usa> a ns6:Location ;
+        rdfs:label "Department of Materials Science and Engineering and Rensselaer Nanotechnology Center, Rensselaer Polytechnic Institute, Troy, USA" .
+
+    <http://materialsmine.org/publication/journal-of-materials-chemistry> ns6:publisher <publisher:the-royal-society-of-chemistry> ;
+        ns6:title "Journal of Materials Chemistry" .
+
+    <http://materialsmine.org/sample/l146-s2-tao-2011> ns4:wasAttributedTo <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/gao-jianing>,
+            <http://materialsmine.org/author/li-yu>,
+            <http://materialsmine.org/author/rungta-atri>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/siegel-richard-w>,
+            <http://materialsmine.org/author/tao-peng>,
+            <http://materialsmine.org/author/viswanath-anand> .
+
+    <publisher:the-royal-society-of-chemistry> rdfs:label "The Royal Society of Chemistry" ;
+        ns4:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-troy-usa> .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns4:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns5:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/gao-jianing> a ns4:Agent ;
+        rdfs:label "Gao, Jianing" ;
+        ns5:name "Gao, Jianing" .
+
+    <http://materialsmine.org/author/li-yu> a ns4:Agent ;
+        rdfs:label "Li, Yu" ;
+        ns5:name "Li, Yu" .
+
+    <http://materialsmine.org/author/rungta-atri> a ns4:Agent ;
+        rdfs:label "Rungta, Atri" ;
+        ns5:name "Rungta, Atri" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns4:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns5:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/siegel-richard-w> a ns4:Agent ;
+        rdfs:label "Siegel, Richard W." ;
+        ns5:name "Siegel, Richard W." .
+
+    <http://materialsmine.org/author/tao-peng> a ns4:Agent ;
+        rdfs:label "Tao, Peng" ;
+        ns5:name "Tao, Peng" .
+
+    <http://materialsmine.org/author/viswanath-anand> a ns4:Agent ;
+        rdfs:label "Viswanath, Anand" ;
+        ns5:name "Viswanath, Anand" .
+}
+
+ns1:L146_S2_Tao_2011_provenance {
+    <http://materialsmine.org/sample/l146-s2-tao-2011> ns4:wasGeneratedBy <http://materialsmine.org/entry/L146_S2_Tao_2011_material_in-situ_polymerization_procedure> .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/bruker-d8-discover-xrd>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_nuclear-magnetic-resonance> a <http://materialsmine.org/ns/NuclearMagneticResonance>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/varian-500>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/perkin-elmer-series-7>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/jeol-2010>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns3:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/bruker-d8-discover-xrd>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L146_S2_Tao_2011_material_in-situ_polymerization_procedure> a <http://materialsmine.org/ns/In-SituPolymerization>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0> .
+
+    <http://materialsmine.org/ns/jeol-2010> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-2010" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/perkin-elmer-series-7> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Perkin Elmer Series 7" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/varian-500> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Varian 500" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0> a <http://materialsmine.org/ns/Solvent> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_solvent>,
+            <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_solventname> .
+
+    <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns3:hasValue "chloroform" .
+
+    <http://materialsmine.org/sample/L146_S2_Tao_2011_in-situ_polymerization_step_0_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns3:Parameter .
+
+    ns1:L146_S2_Tao_2011_assertion ns4:wasDerivedFrom ns1:L146_S2_Tao_2011_assertion,
+            <http://nanomine.org/pub/Mzk5MDIuMzQ0OTQwNjE4MzA2_assertion> ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/NDA3OTg4LjQ4MDc2NzQzOTY0/MaterialsmineXMLImport> ;
+                ns4:used ns1:L146_S2_Tao_2011_assertion,
+                    <http://nanomine.org/pub/Mzk5MDIuMzQ0OTQwNjE4MzA2_assertion> ],
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_equipment>,
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_nuclear-magnetic-resonance>,
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_transmission-electron-microscopy>,
+            <http://materialsmine.org/entry/L146_S2_Tao_2011_characterization_xray-diffraction-and-scattering> .
+
+    <http://materialsmine.org/ns/bruker-d8-discover-xrd> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Bruker D8 Discover XRD" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L146_S2_Tao_2011_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+

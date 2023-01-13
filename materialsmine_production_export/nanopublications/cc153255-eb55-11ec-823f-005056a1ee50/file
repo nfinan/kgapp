@@ -1,0 +1,93 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:ihvaws6gm9 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/1dfd29527da82466_depiction> ;
+        ns2:hasAssertion ns1:ihvaws6gm9_assertion ;
+        ns2:hasProvenance ns1:ihvaws6gm9_provenance ;
+        ns2:hasPublicationInfo ns1:ihvaws6gm9_pubinfo .
+
+    ns1:ihvaws6gm9_assertion a ns2:Assertion .
+
+    ns1:ihvaws6gm9_provenance a ns2:Provenance .
+
+    ns1:ihvaws6gm9_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:ihvaws6gm9_pubinfo {
+    ns1:ihvaws6gm9_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:51:02.198000+00:00"^^xsd:dateTime .
+}
+
+ns1:ihvaws6gm9_assertion {
+    <http://nanomine.org/viz/1dfd29527da82466> a ns3:Chart ;
+        ns4:description "These linked histograms show the distribution of samples in NanoMine, with a focus on mechanical properties data. The histograms enable dynamic crossfiltering, where selection of a range in one chart highlights corresponding samples from accompanying charts that fall within the specified interval of the selected chart. Hold down Shift to pan and zoom within a histogram, and double-click to reset." ;
+        ns4:title "Mechanical Properties with Crossfiltering" ;
+        ns8:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT * WHERE {
+  ?sample a nm:PolymerNanocomposite
+  OPTIONAL {
+    ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?Loading ]
+                               ]
+  }
+  OPTIONAL {
+    ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:TensileModulus;
+                             sio:hasValue ?TensileModulusGPa;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] ] .
+  }
+  OPTIONAL {
+    ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ElongationAtBreak;
+                             sio:hasValue ?ElongationAtBreakPercent;
+                             sio:hasUnit [ rdfs:label "Percent" ] ] .
+  }
+  OPTIONAL { 
+    ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:TensileStressAtBreak;
+                             sio:hasValue ?TensileStressAtBreakMPa;
+                             sio:hasUnit [ rdfs:label "Megapascal" ] ] .
+  }
+  OPTIONAL { 
+    ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:TensileStressAtYield;
+                             sio:hasValue ?TensileStressAtYieldMPa;
+                             sio:hasUnit [ rdfs:label "Megapascal" ] ] .
+  }
+  OPTIONAL {
+    ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ElongationAtYield;
+                             sio:hasValue ?ElongationAtYieldPercent;
+                             sio:hasUnit [ rdfs:label "Percent" ] ] .
+  }
+  
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datum.Loading\",\"as\":\"Filler Mass Fraction\"},{\"calculate\":\"datum.TensileModulusGPa\",\"as\":\"Youngs Modulus (GPa)\"},{\"calculate\":\"datum.ElongationAtBreakPercent\",\"as\":\"Elongation at Break (%)\"},{\"calculate\":\"datum.TensileStressAtBreakMPa\",\"as\":\"Stress at Break (MPa)\"},{\"calculate\":\"datum.TensileStressAtYieldMPa\",\"as\":\"Yield Stress (MPa)\"},{\"calculate\":\"datum.ElongationAtYieldPercent\",\"as\":\"Elongation at Yield (%)\"}],\"repeat\":[\"Filler Mass Fraction\",\"Youngs Modulus (GPa)\",\"Elongation at Break (%)\",\"Stress at Break (MPa)\",\"Yield Stress (MPa)\",\"Elongation at Yield (%)\"],\"columns\":3,\"spec\":{\"width\":250,\"height\":250,\"layer\":[{\"selection\":{\"brush\":{\"type\":\"interval\",\"encodings\":[\"x\"],\"on\":\"[mousedown[!event.shiftKey],mouseup] > mousemove\",\"translate\":\"[mousedown[!event.shiftKey],mouseup] > mousemove\",\"zoom\":\"wheel![!event.shiftKey]\"},\"zoom\":{\"type\":\"interval\",\"encodings\":[\"x\"],\"bind\":\"scales\",\"on\":\"[mousedown[event.shiftKey],mouseup] > mousemove\",\"translate\":\"[mousedown[event.shiftKey],mouseup] > mousemove\",\"zoom\":\"wheel![event.shiftKey]\"}},\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":{\"repeat\":\"repeat\"},\"bin\":{\"maxbins\":20,\"extent\":{\"selection\":\"zoom\"}},\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"},\"color\":{\"value\":\"#ddd\"}}},{\"transform\":[{\"filter\":{\"selection\":\"brush\"}}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":{\"repeat\":\"repeat\"},\"bin\":{\"maxbins\":20,\"extent\":{\"selection\":\"zoom\"}},\"type\":\"quantitative\"},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}]}}" ;
+        ns5:depiction <http://nanomine.org/viz/1dfd29527da82466_depiction> .
+
+    <http://nanomine.org/viz/1dfd29527da82466_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:51:02.197000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "c500b9f8-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

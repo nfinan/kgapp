@@ -1,0 +1,47 @@
+@prefix ns1: <http://vocab.rpi.edu/whyis/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:nyAT4K6Fi5rDQ8swzHG1B4_assertion> {
+    <http://nanomine.org/nmr/dataset/300> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/L300_S3_Nakane_1999> .
+
+    <http://nanomine.org/nmr/xml/L300_S3_Nakane_1999?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns3:hasContentType "text/xml" ;
+        ns2:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-23T00:25:54.607000+00:00"^^xsd:dateTime ;
+        ns1:hasFileID "8af1a892-eb4c-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns2:FileFormat .
+}
+
+<urn:nyAT4K6Fi5rDQ8swzHG1B4_pubinfo> {
+    <urn:nyAT4K6Fi5rDQ8swzHG1B4_assertion> ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-23T00:25:54.607000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:nyAT4K6Fi5rDQ8swzHG1B4> a ns6:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/nmr/xml/L300_S3_Nakane_1999?format=xml> ;
+        ns6:hasAssertion <urn:nyAT4K6Fi5rDQ8swzHG1B4_assertion> ;
+        ns6:hasProvenance <urn:nyAT4K6Fi5rDQ8swzHG1B4_provenance> ;
+        ns6:hasPublicationInfo <urn:nyAT4K6Fi5rDQ8swzHG1B4_pubinfo> .
+
+    <urn:nyAT4K6Fi5rDQ8swzHG1B4_assertion> a ns6:Assertion .
+
+    <urn:nyAT4K6Fi5rDQ8swzHG1B4_provenance> a ns6:Provenance .
+
+    <urn:nyAT4K6Fi5rDQ8swzHG1B4_pubinfo> a ns6:PublicationInfo .
+}
+

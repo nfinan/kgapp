@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.nanopub.org/nschema#> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:iln8lwvbr1_pubinfo {
+    ns1:iln8lwvbr1_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-11T22:11:11.670000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:iln8lwvbr1 a ns4:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/7d96a6a5d5a8d7a1_depiction> ;
+        ns4:hasAssertion ns1:iln8lwvbr1_assertion ;
+        ns4:hasProvenance ns1:iln8lwvbr1_provenance ;
+        ns4:hasPublicationInfo ns1:iln8lwvbr1_pubinfo .
+
+    ns1:iln8lwvbr1_assertion a ns4:Assertion .
+
+    ns1:iln8lwvbr1_provenance a ns4:Provenance .
+
+    ns1:iln8lwvbr1_pubinfo a ns4:PublicationInfo .
+}
+
+ns1:iln8lwvbr1_assertion {
+    <http://nanomine.org/viz/7d96a6a5d5a8d7a1> a ns3:Chart ;
+        ns2:description "The amount (mass or volume fraction) of filler material added to a nanocomposite is often an experimental factor, meaning that the researcher varies its value along a list of nominal levels in order to measure some effect on one or more response variables. These nominal values tend to be \"round\" numbers that are integer multiples of some simple base value. In this area chart, which performs a density estimate of reported values of mass and volume fraction, you may observe undulations whose peaks lie at these round numbers." ;
+        ns2:title "Researchers Prefer Round Numbers" ;
+        ns6:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Filler ] ;
+                                 sio:hasAttribute [ a ?FractionType ;
+                                                    sio:hasValue ?fraction ] ]
+  VALUES ?FractionType { mm:MassFraction mm:VolumeFraction }
+  BIND(STRLEN(?fraction) AS ?val_len)
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":450,\"height\":300,\"transform\":[{\"filter\":\"datum.val_len < 10\"},{\"density\":\"fraction\"}],\"mark\":\"area\",\"encoding\":{\"x\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Reported Mass and/or Volume Fraction\"},\"y\":{\"field\":\"density\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Density Estimate\"}},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns7:depiction <http://nanomine.org/viz/7d96a6a5d5a8d7a1_depiction> .
+
+    <http://nanomine.org/viz/7d96a6a5d5a8d7a1_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-11T22:11:11.670000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "2499049a-2ae0-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

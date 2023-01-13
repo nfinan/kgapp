@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:chthilinvl_assertion {
+    <http://nanomine.org/viz/217477dd362e3202> a ns6:Chart ;
+        ns2:description "A bubble matrix uses categorical x- and y-axes, with data marks featuring size and/or color encodings to describe a quantitative variable such as a change in some value. Here, we use a bubble matrix to show the consituent filler and matrix materials in a polymer-matrix nanocomposite. The size of each bubble corresponds to the average change in the glass transition temperature, Tg, of the nanocomposite compared to its control sample. The color indicates the direction of change (red: higher Tg, blue: lower Tg). Create a selection brush in the tick chart above by click-dragging to filter the results in the bubble matrix, and hover over a bubble for a tooltip." ;
+        ns2:title "Bubble Matrix of Changes in Glass Transition Temperature" ;
+        ns4:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?controlTg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                            ] .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a mm:Filler ] ;
+                                 sio:hasAttribute [ a mm:MassFraction ;
+                                                    sio:hasValue ?Loading_mass ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a mm:Matrix] ] .
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"vconcat\":[{\"width\":400,\"selection\":{\"brush\":{\"type\":\"interval\"}},\"mark\":\"tick\",\"encoding\":{\"x\":{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Mass Fraction of Filler\"}}},{\"transform\":[{\"filter\":{\"selection\":\"brush\"}},{\"calculate\":\"datum.Tg - datum.controlTg\",\"as\":\"deltaTg\"},{\"aggregate\":[{\"op\":\"mean\",\"field\":\"deltaTg\",\"as\":\"deltaTg_mean\"}],\"groupby\":[\"Filler\",\"Matrix\"]},{\"calculate\":\"datum.deltaTg_mean >= 0 ? 'firebrick' : 'steelblue'\",\"as\":\"bubble_color\"},{\"calculate\":\"abs(datum.deltaTg_mean)\",\"as\":\"deltaTg_mean_abs\"}],\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"y\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"x\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"color\":{\"field\":\"bubble_color\",\"type\":\"nominal\",\"scale\":null},\"size\":{\"field\":\"deltaTg_mean_abs\",\"type\":\"quantitative\",\"title\":\"Mean change in Tg\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"deltaTg_mean\",\"type\":\"quantitative\",\"format\":\".3r\",\"title\":\"Mean Change in Tg\"}]}}],\"config\":{\"axis\":{\"labelFontSize\":12,\"titleFontSize\":14}}}" ;
+        ns3:depiction <http://nanomine.org/viz/217477dd362e3202_depiction> .
+
+    <http://nanomine.org/viz/217477dd362e3202_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-18T11:25:38.163000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "1e843374-3006-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:chthilinvl_pubinfo {
+    ns1:chthilinvl_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-18T11:25:38.165000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:chthilinvl a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/217477dd362e3202_depiction> ;
+        ns8:hasAssertion ns1:chthilinvl_assertion ;
+        ns8:hasProvenance ns1:chthilinvl_provenance ;
+        ns8:hasPublicationInfo ns1:chthilinvl_pubinfo .
+
+    ns1:chthilinvl_assertion a ns8:Assertion .
+
+    ns1:chthilinvl_provenance a ns8:Provenance .
+
+    ns1:chthilinvl_pubinfo a ns8:PublicationInfo .
+}
+

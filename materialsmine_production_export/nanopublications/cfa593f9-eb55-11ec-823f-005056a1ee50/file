@@ -1,0 +1,74 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:yho8i9dh4t a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/7b945476f32ed898_depiction> ;
+        ns2:hasAssertion ns1:yho8i9dh4t_assertion ;
+        ns2:hasProvenance ns1:yho8i9dh4t_provenance ;
+        ns2:hasPublicationInfo ns1:yho8i9dh4t_pubinfo .
+
+    ns1:yho8i9dh4t_assertion a ns2:Assertion .
+
+    ns1:yho8i9dh4t_provenance a ns2:Provenance .
+
+    ns1:yho8i9dh4t_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:yho8i9dh4t_pubinfo {
+    ns1:yho8i9dh4t_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:03:35.219000+00:00"^^xsd:dateTime .
+}
+
+ns1:yho8i9dh4t_assertion {
+    <http://nanomine.org/viz/7b945476f32ed898> a ns3:Chart ;
+        ns4:description "Glass transition temperature (Tg) data for the polymer nanocomposite and control Tg of the neat matrix are shown as a parallel coordinates plot along with nanofiller mass and volume fraction. Hover over a line to display all other samples with the same matrix. Lines are colored based on the filler type. Hovering over a line along the axis displays a tooltip with the numerical values and sample ID." ;
+        ns4:title "Parallel Coordinates Plot of Tg Data" ;
+        ns6:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] 
+                           ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?Loading_mass ] ,
+                                                  [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?Loading_vol ] ] ,
+                               [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+    ?control sio:hasRole [ a sio:ControlRole ;
+                           sio:inRelationTo ?sample ] ;
+             sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                                sio:hasValue ?controlTg ;
+                                sio:hasUnit [ rdfs:label "Celsius" ] 
+                              ] .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":700,\"height\":495,\"transform\":[{\"window\":[{\"op\":\"count\",\"as\":\"index\"}]},{\"calculate\":\"datum.Loading_mass\",\"as\":\"Nanofiller wt %\"},{\"calculate\":\"datum.Loading_vol\",\"as\":\"Nanofiller vol %\"},{\"calculate\":\"(datum.Tg + 150) / 500\",\"as\":\"normTg\"},{\"calculate\":\"(datum.controlTg + 150) / 500\",\"as\":\"normcontrolTg\"},{\"calculate\":\"datum.normTg\",\"as\":\"Tg (Nanocomposite)\"},{\"calculate\":\"datum.normcontrolTg\",\"as\":\"Tg (Neat Matrix)\"},{\"fold\":[\"Tg (Nanocomposite)\",\"Tg (Neat Matrix)\",\"Nanofiller wt %\",\"Nanofiller vol %\"]},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#ccc\",\"strokeWidth\":2},\"encoding\":{\"detail\":{\"aggregate\":\"count\",\"type\":\"quantitative\"},\"x\":{\"type\":\"nominal\",\"field\":\"key\"}}},{\"mark\":{\"type\":\"line\"},\"selection\":{\"myselect\":{\"type\":\"single\",\"on\":\"mouseover\",\"fields\":[\"Matrix\"],\"empty\":\"none\"}},\"encoding\":{\"color\":{\"condition\":{\"selection\":\"myselect\",\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":{\"titleFontSize\":24,\"labelFontSize\":12,\"offset\":-25,\"symbolStrokeWidth\":5,\"symbolSize\":200},\"scale\":{\"scheme\":\"tableau20\"}},\"value\":\"#ddd\"},\"detail\":{\"type\":\"nominal\",\"field\":\"index\"},\"opacity\":{\"condition\":{\"selection\":\"myselect\",\"value\":0.7},\"value\":0.1},\"strokeWidth\":{\"condition\":{\"selection\":\"myselect\",\"value\":3},\"value\":1},\"x\":{\"type\":\"nominal\",\"field\":\"key\",\"axis\":{\"labelFontSize\":18},\"scale\":{\"domain\":[\"Tg (Neat Matrix)\",\"Tg (Nanocomposite)\",\"Nanofiller wt %\",\"Nanofiller vol %\"]}},\"y\":{\"type\":\"quantitative\",\"field\":\"value\",\"axis\":null},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Loading_vol\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"Tg\",\"type\":\"quantitative\"},{\"field\":\"controlTg\",\"type\":\"quantitative\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"myselect\"}}],\"mark\":{\"type\":\"text\",\"fontSize\":16,\"align\":\"right\",\"dx\":250,\"dy\":-205,\"color\":\"#999\"},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"myselect\",\"value\":1},\"value\":0},\"text\":{\"field\":\"Matrix\",\"type\":\"nominal\"}}},{\"data\":{\"values\":[{\"label\":\"Matrix\"}]},\"mark\":{\"type\":\"text\",\"fontSize\":24,\"align\":\"right\",\"dx\":250,\"dy\":-475},\"encoding\":{\"y\":{\"datum\":0},\"text\":{\"field\":\"label\",\"type\":\"nominal\"}}}],\"config\":{\"axisX\":{\"domain\":false,\"labelAngle\":0,\"tickColor\":\"#ccc\",\"title\":null},\"view\":{\"stroke\":null},\"style\":{\"label\":{\"baseline\":\"middle\",\"align\":\"right\",\"dx\":-5},\"tick\":{\"orient\":\"horizontal\"}}},\"usermeta\":{\"info\":\"Normalization of Tg is hard-coded in this example and may need to be updated as new data are added.\"}}" ;
+        ns8:depiction <http://nanomine.org/viz/7b945476f32ed898_depiction> .
+
+    <http://nanomine.org/viz/7b945476f32ed898_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:03:35.217000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "e79ac51c-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

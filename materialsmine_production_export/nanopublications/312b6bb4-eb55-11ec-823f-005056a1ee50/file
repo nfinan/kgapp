@@ -1,0 +1,67 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:2hhzt9qou5_assertion {
+    <http://nanomine.org/viz/6a32225e9cf27355> a ns7:Chart ;
+        ns2:description "This chart adds interactive filtering to an UpSet Plot, providing a way to explore common materials combinations that occur among nanocomposite samples in the MaterialsMine knowledge graph. The plot displays the ranked top K combinations of materials, which is cut off to conserve space. Dark gray bars show the counts represented within the plot, whereas light gray bars show the total count available in the knowledge graph. Using the colored bars in the upper left corner, select a material to display the top K combinations of materials in the knowledge graph that include the selected material. Hover over data marks for tooltips, and double-click anywhere to reset a selection." ;
+        ns2:title "Interactive UpSet Plot for Exploring Co-Occurring Materials" ;
+        ns4:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?doi ?sample ?Part ?Role ?Other_Part ?Other_Role (GROUP_CONCAT(DISTINCT ?All_Parts; SEPARATOR=" & ") AS ?Combo) WHERE {
+  {
+    SELECT ?doi ?sample ?Part ?Role ?Other_Part ?Other_Role ?All_Parts WHERE {
+      ?doi a dct:BibliographicResource ;
+           sio:hasPart ?sample .
+      ?sample a mm:PolymerNanocomposite ;
+              sio:hasComponentPart ?part, ?other_part, ?all_parts.
+      ?part a [ rdfs:label ?Part ] ; sio:hasRole [ a [ rdfs:label ?Role ] ] .
+      ?other_part a [ rdfs:label ?Other_Part ] ; sio:hasRole [ a [ rdfs:label ?Other_Role ] ] .
+      ?all_parts a [ rdfs:label ?All_Parts ] .
+      FILTER(?part != ?other_part)
+    } ORDER BY ?All_Parts
+  }
+} GROUP BY ?doi ?sample ?Part ?Role ?Other_Part ?Other_Role""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"sample\",\"as\":\"OtherCount\"}],\"groupby\":[\"Other_Part\"]},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"sample\",\"as\":\"PartCount\"}],\"groupby\":[\"Part\"]},{\"filter\":{\"selection\":\"matrix_select\"}},{\"filter\":{\"selection\":\"filler_select\"}},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"sample\",\"as\":\"OtherCount_selection\"}],\"groupby\":[\"Other_Part\"]},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"sample\",\"as\":\"ComboCount\"}],\"groupby\":[\"Combo\"]},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"ComboCount\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank < 16\"},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"sample\",\"as\":\"PartCount_selection\"}],\"groupby\":[\"Part\"]}],\"hconcat\":[{\"vconcat\":[{\"vconcat\":[{\"layer\":[{\"selection\":{\"matrix_select\":{\"type\":\"single\",\"fields\":[\"Part\"]},\"matrix_select2\":{\"type\":\"single\",\"fields\":[\"Part\"],\"empty\":\"none\"}},\"width\":200,\"height\":70,\"transform\":[{\"filter\":\"datum.Role == 'Matrix'\"}],\"mark\":{\"type\":\"bar\"},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"axis\":{\"title\":\"Matrix Material\",\"labels\":false,\"ticks\":false,\"grid\":false,\"domain\":false,\"titlePadding\":-60,\"titleFontSize\":12},\"scale\":{\"nice\":false}},\"color\":{\"field\":\"Part\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"matrix_select\",\"value\":1},\"value\":0.2},\"tooltip\":{\"field\":\"Part\",\"type\":\"nominal\",\"title\":\"Matrix\"}}},{\"transform\":[{\"filter\":{\"selection\":\"matrix_select2\"}},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}]},{\"filter\":\"datum.row_number == 1\"}],\"mark\":{\"type\":\"text\",\"color\":\"white\",\"limit\":200},\"encoding\":{\"text\":{\"field\":\"Part\",\"type\":\"nominal\"}}}],\"view\":{\"stroke\":null}},{\"layer\":[{\"selection\":{\"filler_select\":{\"type\":\"single\",\"fields\":[\"Part\"]},\"filler_select2\":{\"type\":\"single\",\"fields\":[\"Part\"],\"empty\":\"none\"}},\"width\":200,\"height\":70,\"transform\":[{\"filter\":\"datum.Role == 'Filler'\"}],\"mark\":{\"type\":\"bar\"},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"axis\":{\"title\":\"Filler Material\",\"labels\":false,\"ticks\":false,\"grid\":false,\"domain\":false,\"titlePadding\":-60,\"titleFontSize\":12},\"scale\":{\"nice\":false}},\"color\":{\"field\":\"Part\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"filler_select\",\"value\":1},\"value\":0.2},\"tooltip\":{\"field\":\"Part\",\"type\":\"nominal\",\"title\":\"Filler\"}}},{\"transform\":[{\"filter\":{\"selection\":\"filler_select2\"}},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}]},{\"filter\":\"datum.row_number == 1\"}],\"mark\":{\"type\":\"text\",\"color\":\"white\",\"limit\":200},\"encoding\":{\"text\":{\"field\":\"Part\",\"type\":\"nominal\"}}}],\"view\":{\"stroke\":null}}]},{\"transform\":[{\"fold\":[\"Part\",\"Other_Part\"]}],\"layer\":[{\"transform\":[{\"filter\":\"datum.key == 'Other_Part'\"},{\"filter\":{\"or\":[{\"selection\":\"matrix_select2\"},{\"selection\":\"filler_select2\"}]}}],\"mark\":{\"type\":\"bar\",\"color\":\"#dddddd\"},\"encoding\":{\"x\":{\"field\":\"OtherCount\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Material\"},{\"aggregate\":\"mean\",\"field\":\"OtherCount\",\"type\":\"nominal\",\"title\":\"Total Set Size\"}]}},{\"transform\":[{\"filter\":\"datum.key == 'Other_Part'\"},{\"filter\":{\"or\":[{\"selection\":\"matrix_select2\"},{\"selection\":\"filler_select2\"}]}}],\"mark\":{\"type\":\"bar\",\"color\":\"#4c78a8\"},\"encoding\":{\"x\":{\"field\":\"OtherCount_selection\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Material\"},{\"aggregate\":\"mean\",\"field\":\"OtherCount_selection\",\"type\":\"nominal\",\"title\":\"Size Displayed\"}]}},{\"transform\":[{\"filter\":\"datum.key == 'Part'\"}],\"mark\":{\"type\":\"bar\",\"color\":\"#dddddd\"},\"encoding\":{\"x\":{\"field\":\"PartCount\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Material\"},{\"aggregate\":\"mean\",\"field\":\"PartCount\",\"type\":\"nominal\",\"title\":\"Total Set Size\"}]}},{\"transform\":[{\"filter\":\"datum.key == 'Part'\"},{\"filter\":{\"and\":[{\"selection\":\"matrix_select\"},{\"selection\":\"filler_select\"}]}}],\"mark\":{\"type\":\"bar\",\"color\":\"#777777\"},\"encoding\":{\"x\":{\"field\":\"PartCount_selection\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Material\"},{\"aggregate\":\"mean\",\"field\":\"PartCount_selection\",\"type\":\"nominal\",\"title\":\"Size Displayed\"}]}}],\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"nominal\",\"axis\":null}}}]},{\"vconcat\":[{\"height\":150,\"width\":350,\"mark\":{\"type\":\"bar\",\"color\":\"#777777\"},\"encoding\":{\"x\":{\"field\":\"Combo\",\"type\":\"nominal\",\"sort\":{\"field\":\"ComboCount\",\"order\":\"descending\"},\"axis\":null},\"y\":{\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":null},\"order\":{\"aggregate\":\"mean\",\"field\":\"ComboCount\"},\"tooltip\":[{\"field\":\"Combo\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":\"Size\"}]}},{\"width\":349,\"layer\":[{\"transform\":[{\"fold\":[\"Part\",\"Other_Part\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"r1\"}],\"groupby\":[\"value\"]},{\"filter\":\"datum.r1 == 1\"},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"AlphaRank\"}],\"sort\":[{\"field\":\"value\",\"order\":\"ascending\"}]},{\"calculate\":\"datum.AlphaRank % 2\",\"as\":\"even_odd\"}],\"mark\":\"rect\",\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"nominal\"},\"color\":{\"field\":\"even_odd\",\"type\":\"nominal\",\"scale\":{\"range\":[\"#ffffff\",\"#eeeeee\"]},\"legend\":null}}},{\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#555555\",\"opacity\":1,\"strokeWidth\":2},\"encoding\":{\"y\":{\"field\":\"Part\",\"type\":\"nominal\",\"title\":null,\"axis\":{\"labelAlign\":\"left\",\"labelPadding\":100,\"labelLimit\":100,\"ticks\":false}},\"y2\":{\"field\":\"Other_Part\"},\"tooltip\":[{\"field\":\"Combo\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":\"Size\"}]}},{\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":75,\"color\":\"#555555\",\"opacity\":1},\"encoding\":{\"y\":{\"field\":\"Part\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Combo\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":\"Size\"}]}},{\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":75,\"color\":\"#555555\",\"opacity\":1},\"encoding\":{\"y\":{\"field\":\"Other_Part\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Combo\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"ComboCount\",\"type\":\"quantitative\",\"title\":\"Size\"}]}}],\"encoding\":{\"x\":{\"field\":\"Combo\",\"type\":\"nominal\",\"sort\":{\"field\":\"ComboCount\",\"order\":\"descending\"},\"axis\":null}}}]}]}],\"config\":{\"concat\":{\"spacing\":0}},\"resolve\":{\"scale\":{\"color\":\"independent\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/6a32225e9cf27355_depiction> .
+
+    <http://nanomine.org/viz/6a32225e9cf27355_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-22T21:02:13.417000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "775a0bd0-4bd7-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:2hhzt9qou5 a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/6a32225e9cf27355_depiction> ;
+        ns8:hasAssertion ns1:2hhzt9qou5_assertion ;
+        ns8:hasProvenance ns1:2hhzt9qou5_provenance ;
+        ns8:hasPublicationInfo ns1:2hhzt9qou5_pubinfo .
+
+    ns1:2hhzt9qou5_assertion a ns8:Assertion .
+
+    ns1:2hhzt9qou5_provenance a ns8:Provenance .
+
+    ns1:2hhzt9qou5_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:2hhzt9qou5_pubinfo {
+    ns1:2hhzt9qou5_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-22T21:02:13.417000+00:00"^^xsd:dateTime .
+}
+

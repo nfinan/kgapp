@@ -1,0 +1,70 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:ye06og7xwd a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/5b766ace33d64a23_depiction> ;
+        ns2:hasAssertion ns1:ye06og7xwd_assertion ;
+        ns2:hasProvenance ns1:ye06og7xwd_provenance ;
+        ns2:hasPublicationInfo ns1:ye06og7xwd_pubinfo .
+
+    ns1:ye06og7xwd_assertion a ns2:Assertion .
+
+    ns1:ye06og7xwd_provenance a ns2:Provenance .
+
+    ns1:ye06og7xwd_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:ye06og7xwd_pubinfo {
+    ns1:ye06og7xwd_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-01T18:07:53.107000+00:00"^^xsd:dateTime .
+}
+
+ns1:ye06og7xwd_assertion {
+    <http://nanomine.org/viz/5b766ace33d64a23> a ns3:Chart ;
+        ns4:description "The glass transition temperature, Tg, of a polymer represents a range of temperatures across which the material shows a change in mechanical behavior from stiff to flexible. Tg is often reported as a single value, and when determined using dynamic mechanical analysis (DMA) corresponds to the peak in Tan Delta or Loss Modulus curves. This chart gathers all raw DMA data from MaterialsMine with temperature as the independent variable (and Loss Modulus or Tan Delta as the dependent variable) and uses Vega-Lite to a) calculate the offset temperature of the raw data from the reported value of Tg, b) normalize the dependent values on a per-sample basis, and c) perform a locally-estimated scatterplot smoothing (LOESS) regression grouped by dependent variable. A strong peak near 0 for Tan Delta indicates that peak Tan Delta is the preferred means for determining Tg, however a secondary peak near 0 for Loss Modulus data suggests that Tg may sometimes be reported based on Loss Modulus data." ;
+        ns4:title "Reporting Glass Transition Temperature: Peak Loss Modulus or Peak Tan Delta?" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ,
+                           [ a mm:ViscoelasticProperty ] ,
+                           [ a ?AttrType ;
+                             sio:hasValue ?value ; 
+                             sio:inRelationTo [ a mm:Temperature ;
+                                                sio:hasValue ?TemperatureC ;
+                                                sio:hasUnit [ rdfs:label "Celsius" ] ]
+                           ]  .
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  VALUES ?AttrType { mm:TanDelta mm:LossModulus }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":500,\"height\":300,\"transform\":[{\"calculate\":\"datum.TemperatureC - datum.Tg\",\"as\":\"offsetTemp\"},{\"joinaggregate\":[{\"op\":\"max\",\"field\":\"value\",\"as\":\"valueMax\"}],\"groupby\":[\"sample\",\"AttrType\"]},{\"calculate\":\"datum.value / datum.valueMax\",\"as\":\"valueNorm\"},{\"loess\":\"valueNorm\",\"on\":\"offsetTemp\",\"groupby\":[\"AttrType\"]},{\"calculate\":\"replace(datum.AttrType, /^.*.org.ns./, 'mm:')\",\"as\":\"Attribute Type\"}],\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"offsetTemp\",\"type\":\"quantitative\",\"title\":\"Temperature Offset by Reported Tg (C)\"},\"y\":{\"field\":\"valueNorm\",\"type\":\"quantitative\",\"title\":\"Normalized Value\"},\"color\":{\"field\":\"Attribute Type\",\"type\":\"nominal\"}},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12},\"legend\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns7:depiction <http://nanomine.org/viz/5b766ace33d64a23_depiction> .
+
+    <http://nanomine.org/viz/5b766ace33d64a23_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-01T18:07:53.107000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "a1d405c2-3b3e-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

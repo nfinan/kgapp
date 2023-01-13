@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://www.nanopub.org/nschema#> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:qc4BwXPZ7Rc5LSywsyyCDz_assertion> {
+    <http://nanomine.org/nmr/dataset/270> a ns1:Dataset ;
+        ns1:distribution <http://nanomine.org/nmr/xml/L270_S13_Montazeri_2010> .
+
+    <http://nanomine.org/nmr/xml/L270_S13_Montazeri_2010?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns1:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns3:hasContentType "text/xml" ;
+        ns2:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-22T21:23:00.270000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "fdbac0f8-eb32-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns2:FileFormat .
+}
+
+<urn:qc4BwXPZ7Rc5LSywsyyCDz_pubinfo> {
+    <urn:qc4BwXPZ7Rc5LSywsyyCDz_assertion> ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-22T21:23:00.271000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:qc4BwXPZ7Rc5LSywsyyCDz> a ns5:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/nmr/xml/L270_S13_Montazeri_2010?format=xml> ;
+        ns5:hasAssertion <urn:qc4BwXPZ7Rc5LSywsyyCDz_assertion> ;
+        ns5:hasProvenance <urn:qc4BwXPZ7Rc5LSywsyyCDz_provenance> ;
+        ns5:hasPublicationInfo <urn:qc4BwXPZ7Rc5LSywsyyCDz_pubinfo> .
+
+    <urn:qc4BwXPZ7Rc5LSywsyyCDz_assertion> a ns5:Assertion .
+
+    <urn:qc4BwXPZ7Rc5LSywsyyCDz_provenance> a ns5:Provenance .
+
+    <urn:qc4BwXPZ7Rc5LSywsyyCDz_pubinfo> a ns5:PublicationInfo .
+}
+

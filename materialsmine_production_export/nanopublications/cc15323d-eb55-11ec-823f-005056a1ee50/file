@@ -1,0 +1,85 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:e65sv6712t_assertion {
+    <http://nanomine.org/viz/eabb2ebec980f937> a ns7:Chart ;
+        ns2:description "Ashby plots are a common way to plot materials in property space, where classes of materials are represented by ellipses or other shapes that enclose the regions of property space in which the material typically resides. Such an approach works well for conveying approximate information about materials classes with distinctly different properties, but this approach to data visualization becomes less effective when materials classes overlap in property space, leading to occlusion of data marks. This interactive chart shows an alternative approach to conventional Ashby plots using Vega-Lite and a 2-D histogram, or heat map. Each rectangle mark represents a binned region in property space, and the gradient color corresponds to the number of material samples that fall within that range. In this case, binning occurs along regular intervals, and the x-axis has been specified with a logarithmic scale. Hover over a sector of the pie chart to filter the heatmap and get a sense of the distribution in property space in which a nanocomposite sample with a given matrix material can be found." ;
+        ns2:title "An Interactive Alternative to \"Ashby Plots\"" ;
+        ns3:query """PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT ?sample ?FillerMaterial ?MatrixMaterial ?FillerVolumeFraction ?CompositeDensity ?Tg_C ?TensileModulus_GPa WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                 a [ rdfs:label ?FillerMaterial ] ;
+                                 sio:hasAttribute [ a nm:Density ;
+                                                    sio:hasValue ?FillerDensity ] ,
+                                                  [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?FillerVolumeFraction] ] ,
+                               [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?MatrixMaterial ] ;
+                                 sio:hasAttribute [ a nm:Density ;
+                                                    sio:hasValue ?MatrixDensity ] ] ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_C ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ,
+                           [ a nm:TensileModulus ;
+                             sio:hasValue ?TensileModulus_GPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] ]
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?filler1, ?filler2 .
+    ?filler1 sio:hasRole [ a nm:Filler ] .
+    ?filler2 sio:hasRole [ a nm:Filler ] .
+    FILTER ( ?filler1 != ?filler2 )
+  }
+  FILTER NOT EXISTS {
+    ?sample sio:hasComponentPart ?matrix1, ?matrix2 .
+    ?matrix1 sio:hasRole [ a nm:Filler ] .
+    ?matrix2 sio:hasRole [ a nm:Filler ] .
+    FILTER ( ?matrix1 != ?matrix2 )
+  }
+  BIND( (?FillerDensity * ?FillerVolumeFraction) + (?MatrixDensity * (1 - ?FillerVolumeFraction)) AS ?CompositeDensity)
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datum.TensileModulus_GPa / datum.CompositeDensity\",\"as\":\"SpecificStiffness\"}],\"hconcat\":[{\"layer\":[{\"mark\":{\"type\":\"rect\",\"color\":\"#f1f1f1\"},\"width\":350,\"height\":350},{\"transform\":[{\"filter\":{\"selection\":\"hover\"}}],\"mark\":{\"type\":\"rect\",\"stroke\":\"black\"},\"encoding\":{\"color\":{\"aggregate\":\"count\",\"type\":\"quantitative\"}}}],\"encoding\":{\"x\":{\"bin\":{\"maxbins\":30},\"field\":\"SpecificStiffness\",\"type\":\"quantitative\",\"title\":\"Specific Stiffness (E / density)\",\"scale\":{\"type\":\"log\"}},\"y\":{\"bin\":{\"maxbins\":20},\"field\":\"Tg_C\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"}}},{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"MatrixMaterial\"]}},\"width\":150,\"mark\":{\"type\":\"arc\"},\"encoding\":{\"color\":{\"type\":\"nominal\",\"field\":\"MatrixMaterial\",\"title\":\"Matrix Material\",\"legend\":{\"orient\":\"bottom\",\"direction\":\"vertical\"}},\"theta\":{\"aggregate\":\"count\"},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":1},\"value\":0.4},\"stroke\":{\"condition\":{\"selection\":\"hover\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":{\"field\":\"MatrixMaterial\",\"type\":\"nominal\"}}}],\"config\":{\"view\":{\"stroke\":\"transparent\"},\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12,\"labelFlush\":false}}}" ;
+        ns4:depiction <http://nanomine.org/viz/eabb2ebec980f937_depiction> .
+
+    <http://nanomine.org/viz/eabb2ebec980f937_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2022-03-29T11:12:23.798000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "1bf5b162-af51-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:e65sv6712t a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/eabb2ebec980f937_depiction> ;
+        ns8:hasAssertion ns1:e65sv6712t_assertion ;
+        ns8:hasProvenance ns1:e65sv6712t_provenance ;
+        ns8:hasPublicationInfo ns1:e65sv6712t_pubinfo .
+
+    ns1:e65sv6712t_assertion a ns8:Assertion .
+
+    ns1:e65sv6712t_provenance a ns8:Provenance .
+
+    ns1:e65sv6712t_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:e65sv6712t_pubinfo {
+    ns1:e65sv6712t_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2022-03-29T11:12:23.799000+00:00"^^xsd:dateTime .
+}
+

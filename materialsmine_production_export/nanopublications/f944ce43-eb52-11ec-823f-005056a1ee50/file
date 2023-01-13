@@ -1,0 +1,363 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L211_S9_Ash_2004_assertion {
+    <http://materialsmine.org/sample/l211-s1-ash-2004> ns2:hasRole <http://materialsmine.org/sample/l211-s1-ash-2004_control_role> .
+
+    <http://materialsmine.org/compound/AluminiumOxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Aluminium oxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nanophase Technologies" ] ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID14769> ;
+        ns3:altLabel "Alumina" ;
+        ns3:notation "Al2O3" .
+
+    <http://materialsmine.org/compound/PolyMethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(methyl methacrylate)" ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID6658> ;
+        ns3:notation "PMMA" .
+
+    <http://materialsmine.org/sample/l211-s1-ash-2004_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l211-s9-ash-2004> .
+
+    <http://materialsmine.org/sample/l211-s9-ash-2004_filler_0> a <http://materialsmine.org/compound/AluminiumOxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 3.95e+00 ],
+            [ a <http://materialsmine.org/ns/SpecificSurfaceArea> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/squareMetrePerGram> ;
+                ns2:hasValue 9.8e+01 ],
+            [ a ns2:AspectRatio ;
+                ns2:hasValue 1e+00 ],
+            [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.7e+01 ],
+            <http://materialsmine.org/sample/l211-s9-ash-2004_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l211-s9-ash-2004_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l211-s9-ash-2004> ] .
+
+    <http://materialsmine.org/sample/l211-s9-ash-2004_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 1e-02 .
+
+    <http://materialsmine.org/sample/l211-s9-ash-2004_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 2.932177e-03 .
+
+    <http://materialsmine.org/sample/l211-s9-ash-2004_matrix_0> a <http://materialsmine.org/compound/PolyMethylMethacrylate> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PMMA" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Acros" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.15e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l211-s9-ash-2004> ] .
+
+    <http://materialsmine.org/sample/l211-s9-ash-2004> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Alumina in poly methyl methacrylate" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 9.737e+01 ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l211-s9-ash-2004_filler_0>,
+            <http://materialsmine.org/sample/l211-s9-ash-2004_matrix_0> .
+}
+
+ns1:L211_S9_Ash_2004_pubinfo {
+    ns1:L211_S9_Ash_2004_assertion ns4:created "2021-07-22T15:13:30.710000+00:00"^^xsd:dateTime ;
+        ns8:wasAttributedTo <http://nanomine.org/setl/NzM3ODIyLjE4MjgwNzE3NTk/MaterialsmineXMLImport> ;
+        ns8:wasQuotedFrom <http://dx.doi.org/10.1002/polb.20297> .
+
+    <http://dx.doi.org/10.1002/polb.20297> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Glass-transition temperature behavior of alumina/PMMA nanocomposites" ;
+        ns4:created 2004 ;
+        ns4:creator <http://materialsmine.org/author/ash-benjamin-j>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/siegel-richard-w> ;
+        ns4:isPartOf <http://materialsmine.org/publication/journal-of-polymer-science-part-b-polymer-physics> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Glass-transition temperature behavior of alumina/PMMA nanocomposites" ;
+        ns5:authorList ( <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/siegel-richard-w> <http://materialsmine.org/author/ash-benjamin-j> ) ;
+        ns5:volume 42 ;
+        ns2:hasPart <http://materialsmine.org/sample/l211-s9-ash-2004> ;
+        rdfs:seeAlso <http://onlinelibrary.wiley.com/doi/10.1002/polb.20297/abstract> ;
+        ns7:keyword "Differential Scanning Calorimetry (Dsc)",
+            "Glass Transition",
+            "Interfaces",
+            "Nanocomposites" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/sandia-national-laboratories-albuquerque-new-mexico-87185-usa> a ns4:Location ;
+        rdfs:label "Sandia National Laboratories, Albuquerque, New Mexico 87185, USA" .
+
+    <http://materialsmine.org/publication/journal-of-polymer-science-part-b-polymer-physics> ns4:publisher <publisher:wiley-subscription-services-inc-a-wiley-company> ;
+        ns4:title "Journal of Polymer Science Part B: Polymer Physics" .
+
+    <http://materialsmine.org/sample/l211-s9-ash-2004> ns8:wasAttributedTo <http://materialsmine.org/author/ash-benjamin-j>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/siegel-richard-w> .
+
+    <publisher:wiley-subscription-services-inc-a-wiley-company> rdfs:label "Wiley Subscription Services, Inc., A Wiley Company" ;
+        ns8:atLocation <http://materialsmine.org/location/sandia-national-laboratories-albuquerque-new-mexico-87185-usa> .
+
+    <http://materialsmine.org/author/ash-benjamin-j> a ns8:Agent ;
+        rdfs:label "Ash, Benjamin J." ;
+        ns6:name "Ash, Benjamin J." .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns8:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns6:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/siegel-richard-w> a ns8:Agent ;
+        rdfs:label "Siegel, Richard W." ;
+        ns6:name "Siegel, Richard W." .
+}
+
+ns1:L211_S9_Ash_2004_provenance {
+    <http://materialsmine.org/sample/l211-s9-ash-2004> ns8:wasGeneratedBy <http://materialsmine.org/entry/L211_S9_Ash_2004_material_in-situ_polymerization_procedure> .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns8:Activity .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns8:Activity ;
+        ns8:used [ a <http://materialsmine.org/ns/mettler-toledo-dsc-822e>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_equipment_attr_30>,
+                    <http://materialsmine.org/sample/L211_S9_Ash_2004_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns8:Activity ;
+        ns8:used [ a <http://materialsmine.org/ns/rheometric-scientific-dmta-v>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns8:Activity .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns8:Activity .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns8:Activity .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns8:Activity ;
+        ns8:used [ a <http://materialsmine.org/ns/jeol-jsm-6330f>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/L211_S9_Ash_2004_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns8:Activity ;
+        ns8:used [ a <http://materialsmine.org/ns/jeol-cm-12>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L211_S9_Ash_2004_material_in-situ_polymerization_procedure> a <http://materialsmine.org/ns/In-SituPolymerization>,
+            ns2:Procedure ;
+        ns4:description "In-situ polymerization with nanoparticles" ;
+        ns2:hasPart <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3> .
+
+    <http://materialsmine.org/ns/jeol-cm-12> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL CM-12" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/jeol-jsm-6330f> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JSM-6330F" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/mettler-toledo-dsc-822e> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Mettler Toledo DSC 822e" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/rheometric-scientific-dmta-v> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Rheometric Scientific DMTA V" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns2:hasValue 5e+00 .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_amount>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_description> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive_additive>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive_amount>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive_description> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "AIBN" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "0.0425" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_additive_description> a ns2:Description ;
+        ns2:hasValue "Initiator" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_amount>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_description> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive_additive>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive_amount>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive_description> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "1- decanethiol" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "30" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_additive_description> a ns2:Description ;
+        ns2:hasValue "Chain transfer agent" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_description>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixingmethod>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_temperature>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_time> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_description>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_temperature>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_time> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_description> a ns2:Description ;
+        ns2:hasValue "Sonication under water bath" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "50" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "21" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_heating>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_temperature>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_time> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_heating_temperature>,
+            <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_heating_time> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "115" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "2" .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_in-situ_polymerization_step_3_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> rdfs:label "C/min" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    ns1:L211_S9_Ash_2004_assertion ns8:wasDerivedFrom ns1:L211_S9_Ash_2004_assertion,
+            <http://nanomine.org/pub/MTE3NTY1LjY2MjE5OTc1OTIz_assertion> ;
+        ns8:wasGeneratedBy [ a <http://nanomine.org/setl/NzM3ODIyLjE4MjgwNzE3NTk/MaterialsmineXMLImport> ;
+                ns8:used ns1:L211_S9_Ash_2004_assertion,
+                    <http://nanomine.org/pub/MTE3NTY1LjY2MjE5OTc1OTIz_assertion> ],
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_equipment>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_heatingrate>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L211_S9_Ash_2004_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L211_S9_Ash_2004_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+

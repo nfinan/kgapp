@@ -1,0 +1,720 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/ns/dcat#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L143_S5_Hui_2013_provenance {
+    <http://materialsmine.org/sample/l143-s5-hui-2013> ns2:wasGeneratedBy <http://materialsmine.org/entry/L143_S5_Hui_2013_material_other_processing_procedure>,
+            <http://materialsmine.org/entry/L143_S5_Hui_2013_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L143_S5_Hui_2013_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/novocontrol-analyzer>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L143_S5_Hui_2013_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L143_S5_Hui_2013_material_other_processing_procedure> a <http://materialsmine.org/ns/Other_Processing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_1>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2> .
+
+    <http://materialsmine.org/entry/L143_S5_Hui_2013_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2> .
+
+    <http://materialsmine.org/ns/novocontrol-analyzer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Novocontrol analyzer" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_temperature> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation_temperature> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "silica particles were first dried at elevated  temperatures of 85C and 16 C" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation_temperature_uncertainty> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "125" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_drying-evaporation_temperature_uncertainty> a ns3:StandardDeviation,
+            ns3:UncertaintyValue ;
+        ns3:hasValue "40" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_temperature> a ns3:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_1_molding> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasInput <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_1_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "degassed" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_drying-evaporation_time> a ns3:TimeInterval ;
+        ns3:hasUnit ns3:Day ;
+        ns3:hasValue "3" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_other_processing_step_2_time> a ns3:Parameter,
+            ns3:TimeInterval .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_temperature> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation_temperature> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "silica particles were first dried at elevated  temperatures of 85C and 16 C" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation_temperature_uncertainty> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "125" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_drying-evaporation_temperature_uncertainty> a ns3:StandardDeviation,
+            ns3:UncertaintyValue ;
+        ns3:hasValue "40" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_temperature> a ns3:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_1_molding> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasInput <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_1_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "degassed" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_drying-evaporation_time> a ns3:TimeInterval ;
+        ns3:hasUnit ns3:Day ;
+        ns3:hasValue "3" .
+
+    <http://materialsmine.org/sample/L143_S5_Hui_2013_solution_processing_step_2_time> a ns3:Parameter,
+            ns3:TimeInterval .
+
+    ns1:L143_S5_Hui_2013_assertion ns2:wasDerivedFrom ns1:L143_S5_Hui_2013_assertion,
+            <http://nanomine.org/pub/NzA4NDQ4LjA4NTYxNjM3MjY_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/MTM0Mjg2LjU5NDExODg0OTM1/MaterialsmineXMLImport> ;
+                ns2:used ns1:L143_S5_Hui_2013_assertion,
+                    <http://nanomine.org/pub/NzA4NDQ4LjA4NTYxNjM3MjY_assertion> ],
+            <http://materialsmine.org/entry/L143_S5_Hui_2013_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L143_S5_Hui_2013_characterization_equipment> .
+
+    ns3:Day rdfs:label "days" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+
+ns1:L143_S5_Hui_2013_pubinfo {
+    ns1:L143_S5_Hui_2013_assertion ns4:created "2021-07-22T09:56:56.820000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/MTM0Mjg2LjU5NDExODg0OTM1/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1109/TDEI.2013.6508768> .
+
+    <http://dx.doi.org/10.1109/TDEI.2013.6508768> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "The influence of moisture on the electrical properties of crosslinked polyethylene/silica nanocomposites" ;
+        ns4:created 2013 ;
+        ns4:creator <http://materialsmine.org/author/hui-le>,
+            <http://materialsmine.org/author/nelson-j-keith>,
+            <http://materialsmine.org/author/schadler-linda-s> ;
+        ns4:isPartOf <http://materialsmine.org/publication/ieee-transactions-on-dielectrics-and-electrical-insulation> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "The influence of moisture on the electrical properties of crosslinked polyethylene/silica nanocomposites" ;
+        ns6:authorList ( <http://materialsmine.org/author/nelson-j-keith> <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/hui-le> ) ;
+        ns6:volume 20 ;
+        ns3:hasPart <http://materialsmine.org/sample/l143-s5-hui-2013> ;
+        rdfs:seeAlso <http://ieeexplore.ieee.org:80/document/6508768/?reload=true> ;
+        ns5:keyword "3D Structure",
+            "Ac Breakdown Strength",
+            "Ageing",
+            "Cable Insulation",
+            "Concentric Shell",
+            "Crosslinked Polyethylene-Silica Nanocomposites",
+            "Dielectric Behavior",
+            "Dielectric Properties",
+            "Dielectricbreakdown",
+            "Dielectrics",
+            "Electric Breakdown",
+            "Electrical Property",
+            "Filled Polymers",
+            "Inter-Particle-Cluster Distances",
+            "Moisture",
+            "Moisture Uptake",
+            "Nanocomposites",
+            "Nanofiller",
+            "Nanotechnology",
+            "Percolation",
+            "Permittivity",
+            "Polyethylene Insulation",
+            "Polyolefin Nanocomposites",
+            "Power Cable Insulation",
+            "Silicon Compounds",
+            "Sio2",
+            "Space Charge",
+            "Space Charge Formation",
+            "Temperature Measurement",
+            "Trees (Electrical)",
+            "Water Shell Size",
+            "Water Tree Aging Reduction",
+            "Water Trees",
+            "Xlpe",
+            "Xlpe Insulation" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/rensselaer-polytechnic-institute-department-of-electrical-computer-and-system-engineering-troy-ny-12180-usa> a ns4:Location ;
+        rdfs:label "Rensselaer Polytechnic Institute, Department of Electrical, Computer and System Engineering, Troy, NY 12180, USA" .
+
+    <http://materialsmine.org/publication/ieee-transactions-on-dielectrics-and-electrical-insulation> ns4:publisher <publisher:ieee> ;
+        ns4:title "IEEE Transactions on Dielectrics and Electrical Insulation" .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013> ns2:wasAttributedTo <http://materialsmine.org/author/hui-le>,
+            <http://materialsmine.org/author/nelson-j-keith>,
+            <http://materialsmine.org/author/schadler-linda-s> .
+
+    <publisher:ieee> rdfs:label "IEEE" ;
+        ns2:atLocation <http://materialsmine.org/location/rensselaer-polytechnic-institute-department-of-electrical-computer-and-system-engineering-troy-ny-12180-usa> .
+
+    <http://materialsmine.org/author/hui-le> a ns2:Agent ;
+        rdfs:label "Hui, Le" ;
+        ns7:name "Hui, Le" .
+
+    <http://materialsmine.org/author/nelson-j-keith> a ns2:Agent ;
+        rdfs:label "Nelson, J. Keith" ;
+        ns7:name "Nelson, J. Keith" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns2:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns7:name "Schadler, Linda S." .
+}
+
+ns1:L143_S5_Hui_2013_assertion {
+    <http://materialsmine.org/sample/l143-s4-hui-2013> ns3:hasRole <http://materialsmine.org/sample/l143-s4-hui-2013_control_role> .
+
+    <http://materialsmine.org/compound/PolyEthylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(ethylene)" ;
+        ns8:notation "XLPE" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns8:altLabel "silica" .
+
+    <http://materialsmine.org/compound/VinylSilane> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/sample/l143-s4-hui-2013_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l143-s5-hui-2013> .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l143-s5-hui-2013> ] ;
+        ns3:isSurroundedBy <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns3:hasValue 5e-02 .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0_surface_0> a <http://materialsmine.org/compound/VinylSilane> ;
+        rdfs:label "Vinyl silane" ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l143-s5-hui-2013> ] .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns3:hasValue 1.794422e-02 .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013_matrix_0> a <http://materialsmine.org/compound/PolyEthylene> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "XLPE" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 9.2e-01 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l143-s5-hui-2013> ] .
+
+    <http://materialsmine.org/sample/l143-s5-hui-2013> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in cross-linked polyethylene" ;
+        ns3:hasAttribute [ ns3:hasValue 8.923349e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.418097e+02 ] ],
+            [ ns3:hasValue 2.743622e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.235642e+02 ] ],
+            [ ns3:hasValue 9.775698e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48573e+04 ] ],
+            [ ns3:hasValue 2.341306e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.064739e-01 ] ],
+            [ ns3:hasValue 2.506195e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.051741e-02 ] ],
+            [ ns3:hasValue 2.741441e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.8297e+02 ] ],
+            [ ns3:hasValue 2.441412e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.922488e+04 ] ],
+            [ ns3:hasValue 2.690132e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.834365e+03 ] ],
+            [ ns3:hasValue 2.906271e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.780834e-01 ] ],
+            [ ns3:hasValue 2.163634e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.348965e+03 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.735317e+02 ] ],
+            [ ns3:hasValue 2.914352e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.456643e-02 ] ],
+            [ ns3:hasValue 2.798925e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.267056e+03 ] ],
+            [ ns3:hasValue 8.246244e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.610477e+03 ] ],
+            [ ns3:hasValue 6.281011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.864932e+02 ] ],
+            [ ns3:hasValue 2.490796e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.123315e+04 ] ],
+            [ ns3:hasValue 2.907939e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.866531e-01 ] ],
+            [ ns3:hasValue 2.492849e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.065314e+04 ] ],
+            [ ns3:hasValue 4.175319e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.145131e+00 ] ],
+            [ ns3:hasValue 2.506195e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.051741e-02 ] ],
+            [ ns3:hasValue 2.745417e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.313084e+02 ] ],
+            [ ns3:hasValue 2.518209e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.788883e+03 ] ],
+            [ ns3:hasValue 2.906271e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.780834e-01 ] ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ ns3:hasValue 3.071768e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.376416e+03 ] ],
+            [ ns3:hasValue 9.775698e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48573e+04 ] ],
+            [ ns3:hasValue 3.290345e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.79432e-01 ] ],
+            [ ns3:hasValue 2.854577e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.477946e+00 ] ],
+            [ ns3:hasValue 4.78413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.957378e+01 ] ],
+            [ ns3:hasValue 2.691928e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.547847e+03 ] ],
+            [ ns3:hasValue 2.750548e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107149e+01 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.735317e+02 ] ],
+            [ ns3:hasValue 2.959889e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 9.70466e-02 ] ],
+            [ ns3:hasValue 2.690132e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.834365e+03 ] ],
+            [ ns3:hasValue 2.341306e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.064739e-01 ] ],
+            [ ns3:hasValue 4.78413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.957378e+01 ] ],
+            [ ns3:hasValue 2.957709e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.023052e-01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns3:hasValue 4.175319e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.444688e+00 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.063339e+02 ] ],
+            [ ns3:hasValue 2.490796e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.123315e+04 ] ],
+            [ ns3:hasValue 7.196857e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.841592e+03 ] ],
+            [ ns3:hasValue 2.262975e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.458745e-02 ] ],
+            [ ns3:hasValue 5.298317e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.384772e+02 ] ],
+            [ ns3:hasValue 2.743622e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.235642e+02 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.063339e+02 ] ],
+            [ ns3:hasValue 2.904219e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.353766e+00 ] ],
+            [ ns3:hasValue 2.897105e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.568836e+03 ] ],
+            [ ns3:hasValue 7.970358e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.437141e+03 ] ],
+            [ ns3:hasValue 2.746828e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.438012e+02 ] ],
+            [ ns3:hasValue 8.531679e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.001097e+04 ] ],
+            [ ns3:hasValue 2.262975e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.458745e-02 ] ],
+            [ ns3:hasValue 2.746828e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.438012e+02 ] ],
+            [ ns3:hasValue 2.341306e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.064739e-01 ] ],
+            [ ns3:hasValue 2.854577e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.477946e+00 ] ],
+            [ ns3:hasValue 2.262975e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.199253e-02 ] ],
+            [ ns3:hasValue 3.281784e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.730263e+03 ] ],
+            [ ns3:hasValue 2.854577e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.477946e+00 ] ],
+            [ ns3:hasValue 2.741441e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.8297e+02 ] ],
+            [ ns3:hasValue 2.796726e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.20579e+01 ] ],
+            [ ns3:hasValue 1.451264e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.28173e+02 ] ],
+            [ ns3:hasValue 2.745417e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.313084e+02 ] ],
+            [ ns3:hasValue 4.175319e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.145131e+00 ] ],
+            [ ns3:hasValue 3.538314e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.116963e+03 ] ],
+            [ ns3:hasValue 3.290345e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.79432e-01 ] ],
+            [ ns3:hasValue 3.643983e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.929246e+00 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.341253e+01 ] ],
+            [ ns3:hasValue 3.716399e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.280781e+03 ] ],
+            [ ns3:hasValue 2.85214e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.631849e+00 ] ],
+            [ ns3:hasValue 2.916661e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.047457e-02 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.341253e+01 ] ],
+            [ ns3:hasValue 3.290345e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.79432e-01 ] ],
+            [ ns3:hasValue 2.957709e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.023052e-01 ] ],
+            [ ns3:hasValue 7.970358e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.437141e+03 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.515752e+01 ] ],
+            [ ns3:hasValue 1.266044e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.177772e+02 ] ],
+            [ ns3:hasValue 2.916661e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.047457e-02 ] ],
+            [ ns3:hasValue 2.752216e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.341957e+01 ] ],
+            [ ns3:hasValue 2.163634e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.348965e+03 ] ],
+            [ ns3:hasValue 8.923349e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.418097e+02 ] ],
+            [ ns3:hasValue 8.531679e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.001097e+04 ] ],
+            [ ns3:hasValue 2.518209e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.788883e+03 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ ns3:hasValue 4.78413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.049437e+01 ] ],
+            [ ns3:hasValue 2.262975e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.199253e-02 ] ],
+            [ ns3:hasValue 2.688593e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.760484e+03 ] ],
+            [ ns3:hasValue 2.492849e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.065314e+04 ] ],
+            [ ns3:hasValue 2.959889e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 9.70466e-02 ] ],
+            [ ns3:hasValue 2.918457e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.118116e-02 ] ],
+            [ ns3:hasValue 2.341306e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.960815e-02 ] ],
+            [ ns3:hasValue 1.240498e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.117916e+04 ] ],
+            [ ns3:hasValue 2.746562e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.075787e+03 ] ],
+            [ ns3:hasValue 2.691928e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.547847e+03 ] ],
+            [ ns3:hasValue 3.643983e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.929246e+00 ] ],
+            [ ns3:hasValue 2.494901e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.034489e+04 ] ],
+            [ ns3:hasValue 2.341306e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.960815e-02 ] ],
+            [ ns3:hasValue 2.490796e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.123315e+04 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.341253e+01 ] ],
+            [ ns3:hasValue 2.796726e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.20579e+01 ] ],
+            [ ns3:hasValue 2.85214e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.631849e+00 ] ],
+            [ ns3:hasValue 7.196857e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.841592e+03 ] ],
+            [ ns3:hasValue 4.175319e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.444688e+00 ] ],
+            [ ns3:hasValue 2.371966e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482853e+03 ] ],
+            [ ns3:hasValue 2.775554e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.901519e-01 ] ],
+            [ ns3:hasValue 1.451264e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.28173e+02 ] ],
+            [ ns3:hasValue 2.262975e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.199253e-02 ] ],
+            [ ns3:hasValue 3.111554e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.797827e+03 ] ],
+            [ ns3:hasValue 2.907939e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.866531e-01 ] ],
+            [ ns3:hasValue 2.850088e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.124376e+01 ] ],
+            [ ns3:hasValue 8.826994e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.867625e+04 ] ],
+            [ ns3:hasValue 2.752216e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.341957e+01 ] ],
+            [ ns3:hasValue 2.871627e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.547434e-01 ] ],
+            [ ns3:hasValue 3.244019e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.907807e+03 ] ],
+            [ ns3:hasValue 1.240498e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.117916e+04 ] ],
+            [ ns3:hasValue 2.262975e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.458745e-02 ] ],
+            [ ns3:hasValue 2.906271e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.780834e-01 ] ],
+            [ ns3:hasValue 2.741441e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 8.8297e+02 ] ],
+            [ ns3:hasValue 3.071768e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.376416e+03 ] ],
+            [ ns3:hasValue 3.244019e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.907807e+03 ] ],
+            [ ns3:hasValue 2.688593e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.760484e+03 ] ],
+            [ ns3:hasValue 6.281011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.864932e+02 ] ],
+            [ ns3:hasValue 3.643983e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.13069e+00 ] ],
+            [ ns3:hasValue 9.775698e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.48573e+04 ] ],
+            [ ns3:hasValue 2.752216e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.341957e+01 ] ],
+            [ ns3:hasValue 2.691928e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.547847e+03 ] ],
+            [ ns3:hasValue 2.959889e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 9.70466e-02 ] ],
+            [ ns3:hasValue 8.531679e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.001097e+04 ] ],
+            [ ns3:hasValue 2.494901e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.034489e+04 ] ],
+            [ ns3:hasValue 2.494901e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.034489e+04 ] ],
+            [ ns3:hasValue 2.750548e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107149e+01 ] ],
+            [ ns3:hasValue 2.341306e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.960815e-02 ] ],
+            [ ns3:hasValue 2.690132e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.834365e+03 ] ],
+            [ ns3:hasValue 3.538314e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.116963e+03 ] ],
+            [ ns3:hasValue 3.716399e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.280781e+03 ] ],
+            [ ns3:hasValue 8.246244e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.610477e+03 ] ],
+            [ ns3:hasValue 2.441412e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.922488e+04 ] ],
+            [ ns3:hasValue 5.671456e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.777822e+02 ] ],
+            [ ns3:hasValue 2.371966e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482853e+03 ] ],
+            [ ns3:hasValue 3.643983e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.13069e+00 ] ],
+            [ ns3:hasValue 3.281784e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.730263e+03 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.063339e+02 ] ],
+            [ ns3:hasValue 2.897105e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.568836e+03 ] ],
+            [ ns3:hasValue 8.826994e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.867625e+04 ] ],
+            [ ns3:hasValue 2.914352e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.456643e-02 ] ],
+            [ ns3:hasValue 2.798925e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.267056e+03 ] ],
+            [ ns3:hasValue 2.850088e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.124376e+01 ] ],
+            [ ns3:hasValue 1.84636e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.138569e+03 ] ],
+            [ ns3:hasValue 2.745417e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.313084e+02 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns3:hasValue 2.918457e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.118116e-02 ] ],
+            [ ns3:hasValue 4.78413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.049437e+01 ] ],
+            [ ns3:hasValue 2.871627e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.547434e-01 ] ],
+            [ ns3:hasValue 5.671456e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.777822e+02 ] ],
+            [ ns3:hasValue 2.746828e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.438012e+02 ] ],
+            [ a <file:///apps/whyis/nan> ],
+            [ ns3:hasValue 2.850088e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.124376e+01 ] ],
+            [ ns3:hasValue 8.246244e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.610477e+03 ] ],
+            [ ns3:hasValue 3.111554e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.797827e+03 ] ],
+            [ ns3:hasValue 2.918457e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.118116e-02 ] ],
+            [ ns3:hasValue 2.743622e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.235642e+02 ] ],
+            [ ns3:hasValue 2.796726e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.20579e+01 ] ],
+            [ ns3:hasValue 4.175319e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.145131e+00 ] ],
+            [ ns3:hasValue 2.688593e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.760484e+03 ] ],
+            [ ns3:hasValue 3.643983e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.929246e+00 ] ],
+            [ ns3:hasValue 5.352011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.969855e+02 ] ],
+            [ ns3:hasValue 8.826994e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.867625e+04 ] ],
+            [ ns3:hasValue 4.78413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.049437e+01 ] ],
+            [ ns3:hasValue 2.871627e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.547434e-01 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue 2.5e+01 ],
+            [ ns3:hasValue 2.907939e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.866531e-01 ] ],
+            [ ns3:hasValue 2.85214e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.631849e+00 ] ],
+            [ ns3:hasValue 3.452472e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.289105e+03 ] ],
+            [ ns3:hasValue 2.746562e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.075787e+03 ] ],
+            [ ns3:hasValue 5.298317e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.384772e+02 ] ],
+            [ ns3:hasValue 5.298317e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.384772e+02 ] ],
+            [ ns3:hasValue 2.750548e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107149e+01 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.515752e+01 ] ],
+            [ ns3:hasValue 2.904219e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.353766e+00 ] ],
+            [ ns3:hasValue 2.775554e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.901519e-01 ] ],
+            [ ns3:hasValue 6.281011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.864932e+02 ] ],
+            [ ns3:hasValue 2.914352e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.456643e-02 ] ],
+            [ ns3:hasValue 4.175319e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.444688e+00 ] ],
+            [ ns3:hasValue 2.957709e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.023052e-01 ] ],
+            [ ns3:hasValue 2.492849e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.065314e+04 ] ],
+            [ ns3:hasValue 3.643983e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.13069e+00 ] ],
+            [ ns3:hasValue 2.506195e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.051741e-02 ] ],
+            [ ns3:hasValue 2.916661e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.047457e-02 ] ],
+            [ ns3:hasValue 5.352011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.969855e+02 ] ],
+            [ ns3:hasValue 2.904219e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.353766e+00 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.735317e+02 ] ],
+            [ ns3:hasValue 7.196857e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.841592e+03 ] ],
+            [ ns3:hasValue 2.775554e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.901519e-01 ] ],
+            [ ns3:hasValue 1.240498e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.117916e+04 ] ],
+            [ ns3:hasValue 1.266044e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.177772e+02 ] ],
+            [ ns3:hasValue 5.121057e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.515752e+01 ] ],
+            [ ns3:hasValue 5.671456e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.777822e+02 ] ],
+            [ ns3:hasValue 2.441412e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.922488e+04 ] ],
+            [ ns3:hasValue 1.84636e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.138569e+03 ] ],
+            [ ns3:hasValue 3.452472e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.289105e+03 ] ],
+            [ ns3:hasValue 4.78413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.957378e+01 ] ],
+            [ ns3:hasValue 7.970358e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.437141e+03 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l143-s5-hui-2013_filler_0>,
+            <http://materialsmine.org/sample/l143-s5-hui-2013_matrix_0> .
+}
+

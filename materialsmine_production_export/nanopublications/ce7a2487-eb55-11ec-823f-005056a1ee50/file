@@ -1,0 +1,78 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:tfdro70rta a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/6203fc0eade146e8_depiction> ;
+        ns2:hasAssertion ns1:tfdro70rta_assertion ;
+        ns2:hasProvenance ns1:tfdro70rta_provenance ;
+        ns2:hasPublicationInfo ns1:tfdro70rta_pubinfo .
+
+    ns1:tfdro70rta_assertion a ns2:Assertion .
+
+    ns1:tfdro70rta_provenance a ns2:Provenance .
+
+    ns1:tfdro70rta_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:tfdro70rta_pubinfo {
+    ns1:tfdro70rta_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:35:16.705000+00:00"^^xsd:dateTime .
+}
+
+ns1:tfdro70rta_assertion {
+    <http://nanomine.org/viz/6203fc0eade146e8> a ns3:Chart ;
+        ns4:description "Cross-filtering enables the interaction in one plot to adjust the display of another plot. Here, raw tensile test data of silica-filled PVA from Bandyopadhyay et al. (DOI: 10.1007/s10853-005-4417-y) are displayed on the line plot to the right while the average Tensile Modulus, Tensile Strength, and Elongation at Break as a function of Filler Mass Fraction are displayed in the scatter plots along the left. Hover over a point in any scatter plot to view the corresponding value against the representative raw tensile test data." ;
+        ns4:title "Relating Tensile Properties to Raw Tensile Test Data" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1007/s10853-005-4417-y> sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:TensileProperty ] ,
+                           [ a nm:TensileModulus ; sio:hasValue ?TensileModulus ; sio:hasUnit [ rdfs:label "Megapascal" ] ] ,
+                           [ a nm:TensileStressAtBreak ; sio:hasValue ?ElongationAtBreak ; sio:hasUnit [ rdfs:label "Megapascal" ] ], # NOTE: Curation error; TensileStressAtBreak and
+                           [ a nm:ElongationAtBreak ; sio:hasValue ?TensileStressAtBreak ; sio:hasUnit [ rdfs:label "Percent" ] ],    # ElongationAtBreak values swapped, see DOI Fig 6c
+                     	   [ a nm:GlassTransitionTemperature ; sio:hasValue ?Tg ; sio:hasUnit [ rdfs:label "Celsius" ] ],
+                           [ a nm:Stress ;
+                             sio:hasValue ?StressMPa ;
+                             sio:hasUnit [ rdfs:label "Megapascal" ] ;
+                             sio:inRelationTo [ a nm:Strain ;
+                                                sio:hasValue ?StrainPercent ;
+                                                sio:hasUnit [ rdfs:label "Percent" ] ]  
+                            ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] .
+  }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"(datum.Loading_mass > 0) ? datum.Loading_mass : 0\",\"as\":\"MassFraction\"},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"MassFraction\"]}],\"hconcat\":[{\"transform\":[{\"filter\":\"datum.rank == 1\"}],\"vconcat\":[{\"selection\":{\"highlightTM\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"height\":150,\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"axis\":{\"labels\":false,\"title\":null},\"scale\":{\"padding\":10}},\"y\":{\"field\":\"TensileModulus\",\"type\":\"quantitative\",\"title\":\"Tensile Modulus (MPa)\",\"scale\":{\"padding\":10}},\"color\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"legend\":null},\"size\":{\"condition\":{\"selection\":\"highlightTM\",\"value\":300},\"value\":100}}},{\"selection\":{\"highlightTS\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"height\":150,\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true,\"shape\":\"diamond\"},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"axis\":{\"labels\":false,\"title\":null},\"scale\":{\"padding\":10}},\"y\":{\"field\":\"TensileStressAtBreak\",\"type\":\"quantitative\",\"title\":\"Tensile Strength (MPa)\",\"scale\":{\"padding\":10}},\"color\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"legend\":null},\"size\":{\"condition\":{\"selection\":\"highlightTS\",\"value\":300},\"value\":100}}},{\"selection\":{\"highlightEB\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"height\":150,\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true,\"shape\":\"triangle-up\"},\"encoding\":{\"x\":{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"title\":\"Mass Fraction of Filler\",\"scale\":{\"padding\":10}},\"y\":{\"field\":\"ElongationAtBreak\",\"type\":\"quantitative\",\"title\":\"Elongation at Break (%)\",\"scale\":{\"padding\":10}},\"color\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"legend\":null},\"size\":{\"condition\":{\"selection\":\"highlightEB\",\"value\":300},\"value\":100}}}]},{\"height\":545,\"width\":545,\"layer\":[{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"line\"},\"encoding\":{\"x\":{\"field\":\"StrainPercent\",\"type\":\"quantitative\",\"title\":\"Strain (%)\",\"scale\":{\"padding\":10,\"domain\":[-10,190],\"nice\":false}},\"y\":{\"field\":\"StressMPa\",\"type\":\"quantitative\",\"title\":\"Stress (MPa)\",\"scale\":{\"padding\":10,\"domain\":[0,50],\"nice\":false}},\"color\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"legend\":null},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"size\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"highlightTM\"},{\"selection\":\"highlightTS\"},{\"selection\":\"highlightEB\"}]},\"value\":5},\"value\":2}}},{\"transform\":[{\"filter\":\"datum.rank == 1\"},{\"calculate\":\"format(datum.TensileModulus, '.2f')+' MPa'\",\"as\":\"TM_Label\"},{\"calculate\":\"4500 / datum.TensileModulus\",\"as\":\"x2value\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#999\",\"strokeWidth\":2,\"strokeDash\":[10,10]},\"encoding\":{\"x2\":{\"datum\":0},\"y2\":{\"datum\":0}}},{\"mark\":{\"type\":\"text\",\"xOffset\":15,\"yOffset\":-10,\"fontSize\":16,\"color\":\"#999\"},\"encoding\":{\"text\":{\"field\":\"TM_Label\",\"type\":\"nominal\"}}}],\"encoding\":{\"x\":{\"field\":\"x2value\",\"type\":\"quantitative\"},\"y\":{\"datum\":45},\"opacity\":{\"condition\":{\"selection\":\"highlightTM\",\"value\":1},\"value\":0}}},{\"transform\":[{\"joinaggregate\":[{\"op\":\"argmax\",\"field\":\"StressMPa\",\"as\":\"argmax_Stress\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.argmax_Stress['StrainPercent']\",\"as\":\"StrainAtTS\"},{\"calculate\":\"format(datum.TensileStressAtBreak, '.2f')+' MPa'\",\"as\":\"TS_Label\"},{\"filter\":\"datum.rank == 1\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#999\",\"strokeWidth\":2,\"strokeDash\":[10,10]},\"encoding\":{\"x2\":{\"datum\":-100}}},{\"mark\":{\"type\":\"point\",\"color\":\"#999\",\"size\":200,\"shape\":\"diamond\"}},{\"mark\":{\"type\":\"text\",\"xOffset\":0,\"yOffset\":-15,\"fontSize\":16,\"color\":\"#999\"},\"encoding\":{\"text\":{\"field\":\"TS_Label\",\"type\":\"nominal\"}}}],\"encoding\":{\"x\":{\"field\":\"StrainAtTS\",\"type\":\"quantitative\"},\"y\":{\"field\":\"TensileStressAtBreak\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlightTS\",\"value\":1},\"value\":0}}},{\"transform\":[{\"joinaggregate\":[{\"op\":\"argmax\",\"field\":\"StrainPercent\",\"as\":\"argmax_Strain\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.argmax_Strain['StressMPa']\",\"as\":\"StressAtBreak\"},{\"calculate\":\"format(datum.ElongationAtBreak, '.2f')+'%'\",\"as\":\"EB_Label\"},{\"filter\":\"datum.rank == 1\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#999\",\"strokeWidth\":2,\"strokeDash\":[10,10]},\"encoding\":{\"y2\":{\"datum\":-100}}},{\"mark\":{\"type\":\"point\",\"color\":\"#999\",\"size\":200,\"shape\":\"triangle-up\"}},{\"mark\":{\"type\":\"text\",\"xOffset\":0,\"yOffset\":-15,\"fontSize\":16,\"color\":\"#999\"},\"encoding\":{\"text\":{\"field\":\"EB_Label\",\"type\":\"nominal\"}}}],\"encoding\":{\"x\":{\"field\":\"ElongationAtBreak\",\"type\":\"quantitative\"},\"y\":{\"field\":\"StressAtBreak\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlightEB\",\"value\":1},\"value\":0}}}]}],\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":14}}}" ;
+        ns6:depiction <http://nanomine.org/viz/6203fc0eade146e8_depiction> .
+
+    <http://nanomine.org/viz/6203fc0eade146e8_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:35:16.704000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "54fac554-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

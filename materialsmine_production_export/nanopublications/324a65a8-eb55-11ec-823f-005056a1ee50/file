@@ -1,0 +1,76 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://vocab.rpi.edu/whyis/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:9j71uo7qeb_assertion {
+    <http://nanomine.org/viz/b9db1fec77018d44> a ns3:Chart ;
+        ns4:description "Tensile test data are displayed as linked x-y plots. Click-drag in the left plot to create a selection brush that filters the data for the binned x-y plot on the right. The plot on the right has two additional visual encodings: color (filler type) and size (filler mass fraction). Double-click to reset the chart." ;
+        ns4:title "X-Y Plots with Log Binning" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT * WHERE {
+  ?doi sio:hasPart ?sample.
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] 
+                               ] ,
+                               [ sio:hasRole [ a nm:Filler ] ;
+                                   a [ rdfs:label ?Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] 
+                               ] ;
+          sio:hasAttribute [ a nm:TensileModulus ;
+                             sio:hasValue ?TensModGPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ]
+                           ] ,
+                           [ a nm:ElongationAtBreak ;
+                               sio:hasValue ?ElongBreakPercent ;
+                               sio:hasUnit [ rdfs:label "Percent" ]
+                           ] .
+} """ ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"log(datum.TensModGPa) / log(10) \",\"as\":\"logTM\"},{\"calculate\":\"log(datum.ElongBreakPercent) / log(10)\",\"as\":\"logEB\"},{\"filter\":\"datum.Matrix != 'polystyrene'\"}],\"hconcat\":[{\"selection\":{\"brush\":{\"type\":\"interval\"}},\"height\":495,\"width\":300,\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"ElongBreakPercent\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Elongation at Break (%)\",\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14}},\"y\":{\"field\":\"TensModGPa\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Tensile Modulus (GPa)\",\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14}},\"opacity\":{\"value\":0.5}}},{\"height\":495,\"width\":300,\"transform\":[{\"filter\":{\"selection\":\"brush\"}}],\"mark\":{\"type\":\"point\"},\"encoding\":{\"x\":{\"field\":\"logEB\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":7},\"title\":\"log(Elongation at Break)\",\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14}},\"y\":{\"field\":\"logTM\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":11},\"title\":\"log(Tensile Modulus)\",\"axis\":{\"titleFontSize\":20,\"labelFontSize\":14}},\"opacity\":{\"value\":0.5},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"size\":{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"scale\":{\"type\":\"linear\",\"range\":[10,2000]},\"title\":\"Filler Mass Fraction\"}}}]}" ;
+        ns6:depiction <http://nanomine.org/viz/b9db1fec77018d44_depiction> .
+
+    <http://nanomine.org/viz/b9db1fec77018d44_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:41:17.483000+00:00"^^xsd:dateTime ;
+        ns2:hasFileID "687c8384-f53a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+{
+    ns1:9j71uo7qeb a ns8:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/b9db1fec77018d44_depiction> ;
+        ns8:hasAssertion ns1:9j71uo7qeb_assertion ;
+        ns8:hasProvenance ns1:9j71uo7qeb_provenance ;
+        ns8:hasPublicationInfo ns1:9j71uo7qeb_pubinfo .
+
+    ns1:9j71uo7qeb_assertion a ns8:Assertion .
+
+    ns1:9j71uo7qeb_provenance a ns8:Provenance .
+
+    ns1:9j71uo7qeb_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:9j71uo7qeb_pubinfo {
+    ns1:9j71uo7qeb_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:41:17.484000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:nbrlue2cre_assertion {
+    <http://nanomine.org/viz/35d260155d17d6e6> a ns7:Chart ;
+        ns2:description "In design of experiments, replication is a great thing. Replication means running the same test under (what you think are) identical conditions and measuring the result. Variability in these results gives a sense of the uncontrolled \"nuisance factors\" that impact an experiment. For scalar sample data, data modeling is straightforward. What about non-scalar data, where multiple points relate to each other (e.g., produced by the same measurement procedure)? Unless each data series is provided an ID, we cannot tell them apart when querying. This series of charts shows an example case where multiple stress-strain curves are linked to the same sample ID, and different ways of displaying what the \"representative\" results look like." ;
+        ns2:title "Handling Multiple Data Series Linked to the Same Sample" ;
+        ns5:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:Stress ; sio:hasValue ?Stress ; sio:hasUnit ?StressUnit ;
+                             sio:inRelationTo [ a mm:Strain ; sio:hasValue ?Strain ; sio:hasUnit ?StrainUnit ] ] .
+  VALUES ?sample { <http://materialsmine.org/sample/l380-s5-zhao-2017> }
+  VALUES ( ?StressUnit ?StrainUnit ) { ( om-2:megapascal om-2:percent ) }
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"concat\":[{\"title\":\"Line Mark\",\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"Strain\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Stress\",\"type\":\"quantitative\"}}},{\"title\":\"Point Marks\",\"mark\":\"point\",\"encoding\":{\"x\":{\"field\":\"Strain\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Stress\",\"type\":\"quantitative\"}}},{\"title\":\"Point Marks (with Binning)\",\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"Strain\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":20}},\"y\":{\"field\":\"Stress\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":20}},\"size\":{\"aggregate\":\"count\",\"legend\":null}}},{\"title\":\"Error Bar Marks (with Binning)\",\"mark\":{\"type\":\"errorbar\",\"ticks\":true,\"clip\":true},\"encoding\":{\"x\":{\"field\":\"Strain\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":20}},\"y\":{\"field\":\"Stress\",\"type\":\"quantitative\"}}},{\"title\":\"Error Band Marks (with Binning)\",\"mark\":{\"type\":\"errorband\",\"interpolate\":\"monotone\",\"borders\":true},\"encoding\":{\"x\":{\"field\":\"Strain\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":50}},\"y\":{\"field\":\"Stress\",\"type\":\"quantitative\"}}},{\"title\":\"Loess Transform with Line Mark\",\"transform\":[{\"loess\":\"Stress\",\"on\":\"Strain\"}],\"mark\":\"line\",\"encoding\":{\"x\":{\"field\":\"Strain\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Stress\",\"type\":\"quantitative\"}}}],\"columns\":3}" ;
+        ns6:depiction <http://nanomine.org/viz/35d260155d17d6e6_depiction> .
+
+    <http://nanomine.org/viz/35d260155d17d6e6_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-04T14:42:46.048000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "79827aae-3d7d-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:nbrlue2cre a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/35d260155d17d6e6_depiction> ;
+        ns8:hasAssertion ns1:nbrlue2cre_assertion ;
+        ns8:hasProvenance ns1:nbrlue2cre_provenance ;
+        ns8:hasPublicationInfo ns1:nbrlue2cre_pubinfo .
+
+    ns1:nbrlue2cre_assertion a ns8:Assertion .
+
+    ns1:nbrlue2cre_provenance a ns8:Provenance .
+
+    ns1:nbrlue2cre_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:nbrlue2cre_pubinfo {
+    ns1:nbrlue2cre_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-04T14:42:46.048000+00:00"^^xsd:dateTime .
+}
+

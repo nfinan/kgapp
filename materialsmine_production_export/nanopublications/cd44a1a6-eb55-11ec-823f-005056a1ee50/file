@@ -1,0 +1,61 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:pumh9f7y0g a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/bd7ccdf0f9be6c4a_depiction> ;
+        ns2:hasAssertion ns1:pumh9f7y0g_assertion ;
+        ns2:hasProvenance ns1:pumh9f7y0g_provenance ;
+        ns2:hasPublicationInfo ns1:pumh9f7y0g_pubinfo .
+
+    ns1:pumh9f7y0g_assertion a ns2:Assertion .
+
+    ns1:pumh9f7y0g_provenance a ns2:Provenance .
+
+    ns1:pumh9f7y0g_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:pumh9f7y0g_assertion {
+    <http://nanomine.org/viz/bd7ccdf0f9be6c4a> a ns3:Chart ;
+        ns4:description "Compared to boxplots, which show the quartiles in which data fall, violin plots show the full distribution of the data using kernel density estimates. This faceted chart shows the distribution of glass transition temperature values, in Celsius, for six pre-selected matrix materials. Hover over any plot for a tooltip with the value and kernel density estimate." ;
+        ns4:title "Faceted Violin Plots" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+  ?doi sio:hasPart ?sample .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":250,\"width\":200,\"transform\":[{\"filter\":{\"field\":\"Matrix\",\"oneOf\":[\"DGEBA Epoxy Resin\",\"Cycloaliphatic Epoxy Resin\",\"Poly(methyl methacrylate)\",\"Polyurethane\",\"Poly(vinyl alcohol)\",\"Polyimide\"]}},{\"density\":\"Tg\",\"groupby\":[\"Matrix\"],\"extent\":[-100,450],\"counts\":false,\"steps\":1000,\"cumulative\":false},{\"joinaggregate\":[{\"field\":\"value\",\"op\":\"mean\",\"as\":\"meanTg\"}],\"groupby\":[\"Matrix\"]}],\"mark\":{\"type\":\"area\",\"interpolate\":\"monotone\",\"orient\":\"horizontal\"},\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"x\":{\"field\":\"density\",\"type\":\"quantitative\",\"stack\":\"center\",\"axis\":null},\"facet\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"columns\":3,\"header\":{\"labelFontSize\":16,\"labelOrient\":\"bottom\"},\"sort\":{\"field\":\"meanTg\"},\"title\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"dark2\"},\"legend\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"},{\"field\":\"density\",\"type\":\"quantitative\",\"title\":\"Kernel Density\",\"format\":\".5r\"}]},\"config\":{\"view\":{\"stroke\":null},\"axis\":{\"titleFontSize\":14,\"labelFontSize\":14}}}" ;
+        ns6:depiction <http://nanomine.org/viz/bd7ccdf0f9be6c4a_depiction> .
+
+    <http://nanomine.org/viz/bd7ccdf0f9be6c4a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:29:56.117000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "95e515e8-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:pumh9f7y0g_pubinfo {
+    ns1:pumh9f7y0g_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:29:56.118000+00:00"^^xsd:dateTime .
+}
+

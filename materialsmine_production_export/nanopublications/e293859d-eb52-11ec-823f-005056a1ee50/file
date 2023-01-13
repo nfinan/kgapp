@@ -1,0 +1,223 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L190_S2_Putz_2008_assertion {
+    <http://materialsmine.org/sample/l190-s1-putz-2008> ns2:hasRole <http://materialsmine.org/sample/l190-s1-putz-2008_control_role> .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" .
+
+    <http://materialsmine.org/compound/MultiWallCarbonNanotubes> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Multi-wall carbon nanotubes" ;
+        ns4:altLabel "multi-walled carbon nanotubes" .
+
+    <http://materialsmine.org/sample/l190-s1-putz-2008_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l190-s2-putz-2008> .
+
+    <http://materialsmine.org/sample/l190-s2-putz-2008_filler_0> a <http://materialsmine.org/compound/MultiWallCarbonNanotubes> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.6e+00 ],
+            <http://materialsmine.org/sample/l190-s2-putz-2008_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l190-s2-putz-2008_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l190-s2-putz-2008> ] .
+
+    <http://materialsmine.org/sample/l190-s2-putz-2008_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 2.5e-03 .
+
+    <http://materialsmine.org/sample/l190-s2-putz-2008_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 1.088076e-03 .
+
+    <http://materialsmine.org/sample/l190-s2-putz-2008_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.13e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l190-s2-putz-2008> ] .
+
+    <http://materialsmine.org/sample/l190-s2-putz-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "multi-walled carbon nanotubes in epoxy" ;
+        ns2:hasAttribute [ ns2:hasValue -4.615385e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5e-01 ] ],
+            [ ns2:hasValue -6.666667e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+00 ] ],
+            [ ns2:hasValue 3.367521e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 0e+00 ] ],
+            [ ns2:hasValue -2.444444e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.5e-01 ] ],
+            [ ns2:hasValue -4.615385e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5e-01 ] ],
+            [ ns2:hasValue -2.444444e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.5e-01 ] ],
+            [ ns2:hasValue -6.666667e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+00 ] ],
+            [ ns2:hasValue 4.188034e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.5e-01 ] ],
+            [ ns2:hasValue 3.367521e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 0e+00 ] ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ ns2:hasValue 4.188034e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.5e-01 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l190-s2-putz-2008_filler_0>,
+            <http://materialsmine.org/sample/l190-s2-putz-2008_matrix_0> .
+}
+
+ns1:L190_S2_Putz_2008_pubinfo {
+    ns1:L190_S2_Putz_2008_assertion ns3:created "2021-07-22T13:20:25.507000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NDI5MzI1LjA1MDMzMjcwMDU0/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/nn202040c> .
+
+    <http://dx.doi.org/10.1021/nn202040c> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Evolution of Order During Vacuum-Assisted Self-Assembly of Graphene Oxide Paper and Associated Polymer Nanocomposites" ;
+        ns3:created 2011 ;
+        ns3:creator <http://materialsmine.org/author/an-zhi>,
+            <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/compton-owen-c>,
+            <http://materialsmine.org/author/nguyen-sonbinh-t>,
+            <http://materialsmine.org/author/putz-karl-w>,
+            <http://materialsmine.org/author/segar-claire> ;
+        ns3:isPartOf <http://materialsmine.org/publication/acs-nano> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Evolution of Order During Vacuum-Assisted Self-Assembly of Graphene Oxide Paper and Associated Polymer Nanocomposites" ;
+        ns8:authorList ( <http://materialsmine.org/author/brinson-l-catherine> <http://materialsmine.org/author/nguyen-sonbinh-t> <http://materialsmine.org/author/an-zhi> <http://materialsmine.org/author/segar-claire> <http://materialsmine.org/author/compton-owen-c> <http://materialsmine.org/author/putz-karl-w> ) ;
+        ns8:volume 5 ;
+        ns2:hasPart <http://materialsmine.org/sample/l190-s2-putz-2008> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/nn202040c> ;
+        ns7:keyword "Graphene Oxide",
+            "Hierarchical Structure",
+            "Nanostructures",
+            "Polymer Nanocomposite",
+            "Self Assembly" .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-mechanical-engineering-department-of-chemistry-and-department-of-materials-science-and-engineering-northwestern-university-2145-sheridan-road-evanston-illinois-60208-usa> a ns3:Location ;
+        rdfs:label "Department of Mechanical Engineering,  Department of Chemistry, and  Department of Materials Science and Engineering, Northwestern University, 2145 Sheridan Road, Evanston, Illinois 60208, USA" .
+
+    <http://materialsmine.org/publication/acs-nano> ns3:publisher <publisher:american-chemical-society> ;
+        ns3:title "ACS Nano" .
+
+    <http://materialsmine.org/sample/l190-s2-putz-2008> ns5:wasAttributedTo <http://materialsmine.org/author/an-zhi>,
+            <http://materialsmine.org/author/brinson-l-catherine>,
+            <http://materialsmine.org/author/compton-owen-c>,
+            <http://materialsmine.org/author/nguyen-sonbinh-t>,
+            <http://materialsmine.org/author/putz-karl-w>,
+            <http://materialsmine.org/author/segar-claire> .
+
+    <publisher:american-chemical-society> rdfs:label "American Chemical Society" ;
+        ns5:atLocation <http://materialsmine.org/location/department-of-mechanical-engineering-department-of-chemistry-and-department-of-materials-science-and-engineering-northwestern-university-2145-sheridan-road-evanston-illinois-60208-usa> .
+
+    <http://materialsmine.org/author/an-zhi> a ns5:Agent ;
+        rdfs:label "An, Zhi" ;
+        ns6:name "An, Zhi" .
+
+    <http://materialsmine.org/author/brinson-l-catherine> a ns5:Agent ;
+        rdfs:label "Brinson, L. Catherine" ;
+        ns6:name "Brinson, L. Catherine" .
+
+    <http://materialsmine.org/author/compton-owen-c> a ns5:Agent ;
+        rdfs:label "Compton, Owen C." ;
+        ns6:name "Compton, Owen C." .
+
+    <http://materialsmine.org/author/nguyen-sonbinh-t> a ns5:Agent ;
+        rdfs:label "Nguyen, SonBinh T." ;
+        ns6:name "Nguyen, SonBinh T." .
+
+    <http://materialsmine.org/author/putz-karl-w> a ns5:Agent ;
+        rdfs:label "Putz, Karl W." ;
+        ns6:name "Putz, Karl W." .
+
+    <http://materialsmine.org/author/segar-claire> a ns5:Agent ;
+        rdfs:label "Segar, Claire" ;
+        ns6:name "Segar, Claire" .
+}
+
+ns1:L190_S2_Putz_2008_provenance {
+    <http://materialsmine.org/sample/l190-s2-putz-2008> ns5:wasGeneratedBy <http://materialsmine.org/entry/L190_S2_Putz_2008_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L190_S2_Putz_2008_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns3:description "Mixing followed by curing" ;
+        ns2:hasPart <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0> .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixer>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_rpm>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_temperature> .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_mixer>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_rpm>,
+            <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_temperature> .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "EPoxy Matrix and nanotubes are blended together" .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "multi wall nanotube" .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "blending" .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_rpm> a <http://materialsmine.org/ns/RotationalFrequency> ;
+        ns2:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns2:hasValue "10000" .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixing_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "190" .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_rpm> a <http://materialsmine.org/ns/RotationalFrequency>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L190_S2_Putz_2008_solution_processing_step_0_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> rdfs:label "RPM" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    ns1:L190_S2_Putz_2008_assertion ns5:wasDerivedFrom ns1:L190_S2_Putz_2008_assertion,
+            <http://nanomine.org/pub/NTU3NjEzLjM4NzczNTIwMjY_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NDI5MzI1LjA1MDMzMjcwMDU0/MaterialsmineXMLImport> ;
+                ns5:used ns1:L190_S2_Putz_2008_assertion,
+                    <http://nanomine.org/pub/NTU3NjEzLjM4NzczNTIwMjY_assertion> ] .
+}
+

@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:y6lg5ve410 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/7537989086b2d035_depiction> ;
+        ns2:hasAssertion ns1:y6lg5ve410_assertion ;
+        ns2:hasProvenance ns1:y6lg5ve410_provenance ;
+        ns2:hasPublicationInfo ns1:y6lg5ve410_pubinfo .
+
+    ns1:y6lg5ve410_assertion a ns2:Assertion .
+
+    ns1:y6lg5ve410_provenance a ns2:Provenance .
+
+    ns1:y6lg5ve410_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:y6lg5ve410_pubinfo {
+    ns1:y6lg5ve410_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-23T15:13:51.181000+00:00"^^xsd:dateTime .
+}
+
+ns1:y6lg5ve410_assertion {
+    <http://nanomine.org/viz/7537989086b2d035> a ns3:Chart ;
+        ns4:description "The first example of a self-referential chart in MaterialsMine, \"Meta-Analysis of Charts Gallery\" (https://materialsmine.org/wi/viz/2a774b46a67ff7a6) runs a query for all instances of sio:Chart in the knowledge graph as well as the string length of the title, description, query, and Vega-Lite specification. At the time the chart was conceived, fewer than thirty charts existed in the knowledge graph. Now, more than one hundred charts later, we revisit the original chart specification using the same SPARQL query as the original chart. This updated Vega-Lite chart employs logarithmic x- and y-scales and swaps the query length and description length for the x-position and size encoding channels, respectively. In addition, the chart uses a dark background with a quantitative color scale better suited for dark backgrounds. Finally, a layer of arrow marks direct the eye to the original meta-analysis chart (orange arrow) as well as this chart (white arrow). Use the mouse to pan and zoom, hover over points to view a tooltip with the chart's title, and Ctrl-click to open the chart in a new tab." ;
+        ns4:title "Meta-Analysis of Charts Gallery (Revisited)" ;
+        ns7:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?chartURI ?Title 
+  (strlen(str(?Query)) AS ?QueryCharLength)
+  (strlen(str(?Title)) AS ?TitleCharLength)
+  (strlen(str(?Description)) AS ?DescriptionCharLength)
+  (strlen(str(?VLSpec)) AS ?VLSpecCharLength) 
+WHERE {
+  ?chartURI a sio:Chart ;
+            schema:query ?Query ;
+            dct:title ?Title ;
+            dct:description ?Description ;
+            sio:hasValue ?VLSpec .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"layer\":[{\"width\":400,\"height\":400,\"mark\":{\"type\":\"point\",\"filled\":true},\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"encoding\":{\"size\":{\"field\":\"DescriptionCharLength\",\"type\":\"quantitative\",\"title\":\"Description Length (# chars)\",\"scale\":{\"type\":\"linear\",\"nice\":false,\"padding\":10}},\"color\":{\"field\":\"TitleCharLength\",\"type\":\"quantitative\",\"title\":\"Title Length (# chars)\",\"scale\":{\"scheme\":\"darkmulti\"}},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"blue\"},\"value\":\"#eeeeee\"},\"tooltip\":{\"field\":\"Title\",\"type\":\"nominal\"},\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"}}},{\"transform\":[{\"filter\":{\"field\":\"Title\",\"oneOf\":[\"Meta-Analysis of Charts Gallery\",\"Meta-Analysis of Charts Gallery (Revisited)\"]}}],\"mark\":{\"type\":\"point\",\"shape\":\"arrow\",\"opacity\":1,\"xOffset\":20,\"size\":1000,\"filled\":true},\"encoding\":{\"color\":{\"field\":\"Title\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"Meta-Analysis of Charts Gallery\",\"Meta-Analysis of Charts Gallery (Revisited)\"],\"range\":[\"orange\",\"white\"]},\"legend\":null},\"angle\":{\"value\":-90}}}],\"encoding\":{\"x\":{\"field\":\"QueryCharLength\",\"type\":\"quantitative\",\"title\":\"Query Length (# chars)\"},\"y\":{\"field\":\"VLSpecCharLength\",\"type\":\"quantitative\",\"title\":\"Vega-Lite Spec Length (# chars)\",\"scale\":{\"type\":\"log\",\"nice\":false,\"padding\":10}}},\"config\":{\"axis\":{\"titleFontSize\":14},\"legend\":{\"titleFontSize\":12},\"view\":{\"fill\":\"#333333\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/7537989086b2d035_depiction> .
+
+    <http://nanomine.org/viz/7537989086b2d035_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-23T15:13:51.181000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "f710a3f0-4c6f-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

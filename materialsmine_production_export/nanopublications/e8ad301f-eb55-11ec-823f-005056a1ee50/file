@@ -1,0 +1,47 @@
+@prefix ns1: <http://open.vocab.org/terms/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:d67etJ22uEZnf6mMHRYTou_assertion> {
+    <http://nanomine.org/nmr/dataset/242> a ns3:Dataset ;
+        ns3:distribution <http://nanomine.org/nmr/xml/L242_S6_Narayanan_2006> .
+
+    <http://nanomine.org/nmr/xml/L242_S6_Narayanan_2006?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns3:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns1:hasContentType "text/xml" ;
+        ns2:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-22T18:00:22.243000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "aefafb84-eb16-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns2:FileFormat .
+}
+
+<urn:d67etJ22uEZnf6mMHRYTou_pubinfo> {
+    <urn:d67etJ22uEZnf6mMHRYTou_assertion> ns2:contributor <http://nanomine.org/user/9999999999> ;
+        ns2:created "2021-07-22T18:00:22.243000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:d67etJ22uEZnf6mMHRYTou> a ns6:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/nmr/xml/L242_S6_Narayanan_2006?format=xml> ;
+        ns6:hasAssertion <urn:d67etJ22uEZnf6mMHRYTou_assertion> ;
+        ns6:hasProvenance <urn:d67etJ22uEZnf6mMHRYTou_provenance> ;
+        ns6:hasPublicationInfo <urn:d67etJ22uEZnf6mMHRYTou_pubinfo> .
+
+    <urn:d67etJ22uEZnf6mMHRYTou_assertion> a ns6:Assertion .
+
+    <urn:d67etJ22uEZnf6mMHRYTou_provenance> a ns6:Provenance .
+
+    <urn:d67etJ22uEZnf6mMHRYTou_pubinfo> a ns6:PublicationInfo .
+}
+

@@ -1,0 +1,81 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:winu37ir09_assertion {
+    <http://nanomine.org/viz/80b0c2862693975a> a ns5:Chart ;
+        ns3:description "This interactive Vega-Lite chart compares the properties of polymer nanocomposite samples with the processing steps used to create those samples. Hover over a point or bar to display a tooltip with additional information. The width of each bar in the Gantt chart on the right signifies the duration of a given process step, and the color of the bar corresponds to the text description linked to the step. These data were curated from Liao et al. (2004, doi: 10.1016/j.msea.2004.06.031), and they help to convey the degree to which the processing of a material can impact its measurable attributes such as glass transition temperature, Tg. Use the mouse to pan or zoom in either plot." ;
+        ns3:title "Comparing Properties and Processing Steps" ;
+        ns6:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT ?sample ?sample_label ?ProcessType ?ParamType ?MassFrac ?Tg_C ?step ?description ?duration ?temp_C
+  (MIN(?unit_label) AS ?units) WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ; rdfs:label ?sample_label ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg_C ; sio:hasUnit om-2:degreeCelsius ] ;
+          prov:wasGeneratedBy [ a ?ProcessType ; sio:hasPart ?step ] .
+  OPTIONAL {
+  	?step sio:hasParameter [ a ?ParamType ; sio:hasAttribute [ a sio:Description ; sio:hasValue ?description ] ] .
+  }
+  OPTIONAL {
+  	?step sio:hasParameter [ a ?ParamType ; sio:hasAttribute [ a sio:TimeInterval ; sio:hasValue ?duration ; sio:hasUnit ?unit ] ] .
+  }
+  OPTIONAL {
+    ?step sio:hasParameter [ a ?ParamType ; sio:hasAttribute [ a [ rdfs:label "Temperature" ] ; sio:hasValue ?temp_C ; sio:hasUnit om-2:degreeCelsius ] ] .
+  }
+  OPTIONAL{
+    ?sample sio:hasComponentPart ?filler_part .
+    ?filler_part sio:hasRole [ a mm:Filler ] ; a [ rdfs:label ?Filler ] ; 
+            sio:hasAttribute [ a mm:MassFraction ; sio:hasValue ?MassFrac ]  
+  }
+  ?unit rdfs:label ?unit_label .
+  FILTER(?ProcessType != sio:Procedure && ?ParamType != sio:Parameter)
+  BIND(IF(BOUND(?MassFrac), ?MassFrac, 0) AS ?MassFrac)
+  VALUES ?doi { <http://dx.doi.org/10.1016/j.msea.2004.06.031> }
+} GROUP BY ?sample ?sample_label ?ProcessType ?ParamType ?MassFrac ?Tg_C ?step ?description ?duration ?temp_C""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"toNumber(replace(datum.step, /^.*_/, ''))\",\"as\":\"stepNo\"},{\"calculate\":\"datum.duration > 0 ? (datum.duration + ' ' + datum.units) : 'none'\",\"as\":\"Duration_reported\"},{\"calculate\":\"datum.temp_C > 0 ? (datum.temp_C + ' C') : 'none'\",\"as\":\"Temp_reported\"},{\"calculate\":\"datum.units == 'Second' ? datum.duration / 60 : datum.units == 'Hour' ? datum.duration * 60 : datum.units == 'Minute' ? datum.duration : '60'\",\"as\":\"duration_min\"},{\"window\":[{\"op\":\"sum\",\"field\":\"duration_min\",\"as\":\"end\"}],\"sort\":[{\"field\":\"stepNo\"}],\"frame\":[null,0],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.end - datum.duration_min\",\"as\":\"start\"},{\"calculate\":\"(datum.end + datum.start) / 2\",\"as\":\"mid\"},{\"calculate\":\"replace(datum.ParamType, /^.*org.ns./, '')\",\"as\":\"ParamLabel\"},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"stepNo\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]}],\"hconcat\":[{\"selection\":{\"hover_pt\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"sample\"],\"empty\":\"none\"},\"zoom_scatter\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"rank_1\"}],\"groupby\":[\"sample\"]},{\"filter\":\"datum.rank_1 == 1\"}],\"height\":200,\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"MassFrac\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"axis\":{\"format\":\"p\"},\"title\":\"Filler Amt. (wt.%)\"},\"y\":{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"scale\":{\"zero\":false,\"nice\":false,\"padding\":10},\"title\":\"Glass Transition Temperature, Tg (C)\"},\"size\":{\"condition\":{\"selection\":\"hover_Gantt\",\"value\":150},\"value\":50},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"sample_label\",\"type\":\"nominal\",\"title\":\"Label\"},{\"field\":\"MassFrac\",\"type\":\"quantitative\",\"title\":\"Mass Fraction\"},{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"}]}},{\"layer\":[{\"height\":200,\"width\":400,\"selection\":{\"hover_Gantt\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"sample\"],\"empty\":\"none\"},\"zoom_Gantt\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]}},\"mark\":{\"type\":\"bar\",\"cornerRadius\":2},\"encoding\":{\"y\":{\"field\":\"sample\",\"type\":\"ordinal\",\"title\":\"Step Number\",\"axis\":null},\"x\":{\"field\":\"start\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":2},\"title\":\"Time (minutes)\"},\"x2\":{\"field\":\"end\"},\"color\":{\"field\":\"description\",\"type\":\"nominal\",\"title\":\"Step Type\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"opacity\":{\"condition\":{\"test\":{\"field\":\"duration\",\"gt\":0},\"value\":1},\"value\":0},\"stroke\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"hover_pt\"},{\"selection\":\"hover_Gantt\"}]},\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"stepNo\",\"type\":\"quantitative\",\"title\":\"Step\"},{\"field\":\"Duration_reported\",\"type\":\"nominal\",\"title\":\"Reported Duration\"},{\"field\":\"Temp_reported\",\"type\":\"nominal\",\"title\":\"Reported Temperature\"},{\"field\":\"ParamLabel\",\"type\":\"nominal\",\"title\":\"Step Type\"},{\"field\":\"description\",\"type\":\"nominal\",\"title\":\"Description\"}]}},{\"mark\":\"text\",\"encoding\":{\"x\":{\"field\":\"mid\",\"type\":\"quantitative\"},\"y\":{\"field\":\"sample\",\"type\":\"nominal\"},\"text\":{\"field\":\"stepNo\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"hover_pt\"},{\"selection\":\"hover_Gantt\"}]},\"value\":1},\"value\":0}}}]}]}" ;
+        ns2:depiction <http://nanomine.org/viz/80b0c2862693975a_depiction> .
+
+    <http://nanomine.org/viz/80b0c2862693975a_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-30T17:39:09.311000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "64c16594-6997-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:winu37ir09_pubinfo {
+    ns1:winu37ir09_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-30T17:39:09.312000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:winu37ir09 a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/80b0c2862693975a_depiction> ;
+        ns8:hasAssertion ns1:winu37ir09_assertion ;
+        ns8:hasProvenance ns1:winu37ir09_provenance ;
+        ns8:hasPublicationInfo ns1:winu37ir09_pubinfo .
+
+    ns1:winu37ir09_assertion a ns8:Assertion .
+
+    ns1:winu37ir09_provenance a ns8:Provenance .
+
+    ns1:winu37ir09_pubinfo a ns8:PublicationInfo .
+}
+

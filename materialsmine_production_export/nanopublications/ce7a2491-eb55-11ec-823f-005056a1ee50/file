@@ -1,0 +1,68 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:u9pegbf18l_assertion {
+    <http://nanomine.org/viz/168a7c0715a01069> a ns6:Chart ;
+        ns2:description "One vision for the semantic web is the ability to query diverse datasets, and the SPARQL 1.1 Federated Query extension allows execution of queries across different SPARQL endpoints. This chart shows articles in MaterialsMine that studied silicon dioxide in a given year, and the query fetches the abstract corresponding to the silicon dioxide resource in DBpedia. While it would be nice to demonstrate retrieval of multiple abstracts, practical limitations severely impact the query runtime." ;
+        ns2:title "Federated Querying on DBpedia" ;
+        ns5:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT ?MM_compound ?MM_label ?Year ?doi ?Title ?URI ?abstract WHERE {
+  ?doi a dct:BibliographicResource ; dct:created ?Year ; dct:title ?Title ; sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a ?MM_compound ] .
+  ?MM_compound rdfs:label ?MM_label .
+  BIND(REPLACE(STR(?MM_label), "[^a-zA-Z0-9]", "_", "i") AS ?label)
+  BIND(IRI(CONCAT("http://dbpedia.org/resource/", ?label)) AS ?URI)
+  FILTER(?Year > 0)
+
+  SERVICE <https://dbpedia.org/sparql> { 
+    ?URI a dbo:ChemicalCompound ; rdfs:label ?DBp_label ; dbo:abstract ?abstract FILTER(LANG(?abstract) = "en") FILTER(LANG(?DBp_label) = "en")
+    VALUES ?URI { <http://dbpedia.org/resource/Silicon_dioxide> }
+  }
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"vconcat\":[{\"title\":{\"text\":[\"DBpedia abstract\",\"(from federated SPARQL query)\"]},\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}]},{\"filter\":\"datum.rank == 1\"},{\"calculate\":\"replace(datum.abstract, /.{90} /g, '$&###')\",\"as\":\"Description_break\"},{\"calculate\":\"split(datum.Description_break, '###')\",\"as\":\"Description_break_split\"}],\"width\":500,\"mark\":{\"type\":\"text\"},\"encoding\":{\"text\":{\"field\":\"Description_break_split\",\"type\":\"nominal\"}}},{\"width\":500,\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"},\"select\":{\"type\":\"single\",\"empty\":\"none\",\"fields\":[\"Year\"],\"init\":{\"Year\":2012}}},\"mark\":{\"type\":\"bar\",\"cornerRadius\":5,\"strokeWidth\":2},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"aggregate\":\"distinct\",\"field\":\"doi\",\"type\":\"quantitative\",\"title\":\"Count of DOIs\"},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":0.5},\"value\":1},\"stroke\":{\"condition\":{\"selection\":\"select\",\"value\":\"orange\"},\"value\":null},\"tooltip\":[{\"field\":\"Year\",\"type\":\"quantitative\"},{\"aggregate\":\"count\",\"type\":\"quantitative\",\"title\":\"Count of DOIs\"}]}}]},{\"title\":{\"text\":[\"DOIs from selected year\",\"(Ctrl-click to open in new tab)\"]},\"transform\":[{\"filter\":{\"selection\":\"select\"}},{\"calculate\":\"replace(datum.doi, /^.*doi.org./,'')\",\"as\":\"DOI\"},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"DOI\",\"order\":\"descending\"}]}],\"selection\":{\"doi_hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"width\":200,\"mark\":\"text\",\"encoding\":{\"text\":{\"field\":\"DOI\",\"type\":\"nominal\"},\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null},\"color\":{\"condition\":{\"selection\":\"doi_hover\",\"value\":\"blue\"},\"value\":\"black\"},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"tooltip\":{\"field\":\"Title\",\"type\":\"nominal\"}}}],\"config\":{\"view\":{\"stroke\":null},\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns3:depiction <http://nanomine.org/viz/168a7c0715a01069_depiction> .
+
+    <http://nanomine.org/viz/168a7c0715a01069_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-14T15:32:37.128000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "f5a8799c-2d03-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:u9pegbf18l_pubinfo {
+    ns1:u9pegbf18l_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-14T15:32:37.129000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:u9pegbf18l a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/168a7c0715a01069_depiction> ;
+        ns8:hasAssertion ns1:u9pegbf18l_assertion ;
+        ns8:hasProvenance ns1:u9pegbf18l_provenance ;
+        ns8:hasPublicationInfo ns1:u9pegbf18l_pubinfo .
+
+    ns1:u9pegbf18l_assertion a ns8:Assertion .
+
+    ns1:u9pegbf18l_provenance a ns8:Provenance .
+
+    ns1:u9pegbf18l_pubinfo a ns8:PublicationInfo .
+}
+

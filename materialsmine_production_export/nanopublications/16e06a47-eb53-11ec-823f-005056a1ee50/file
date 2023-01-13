@@ -1,0 +1,257 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/ns/dcat#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L238_S1_Zhao_2008_provenance {
+    <http://materialsmine.org/entry/L238_S1_Zhao_2008_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L238_S1_Zhao_2008_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/jeol-6330f>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L238_S1_Zhao_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L238_S1_Zhao_2008_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/jeol-cm12>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L238_S1_Zhao_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/ns/jeol-6330f> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL 6330F" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/jeol-cm12> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL CM12" ;
+        rdfs:subClassOf ns3:Device .
+
+    ns1:L238_S1_Zhao_2008_assertion ns2:wasDerivedFrom ns1:L238_S1_Zhao_2008_assertion,
+            <http://nanomine.org/pub/NTA1MDc5LjU4NTYzMzg4ODI2_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/NjYwOTIyLjM2OTY4ODU3ODk/MaterialsmineXMLImport> ;
+                ns2:used ns1:L238_S1_Zhao_2008_assertion,
+                    <http://nanomine.org/pub/NTA1MDc5LjU4NTYzMzg4ODI2_assertion> ],
+            <http://materialsmine.org/entry/L238_S1_Zhao_2008_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L238_S1_Zhao_2008_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L238_S1_Zhao_2008_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L238_S1_Zhao_2008_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+
+ns1:L238_S1_Zhao_2008_pubinfo {
+    ns1:L238_S1_Zhao_2008_assertion ns5:created "2021-07-22T17:34:40.974000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/NjYwOTIyLjM2OTY4ODU3ODk/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1016/j.compscitech.2008.07.010> .
+
+    <http://dx.doi.org/10.1016/j.compscitech.2008.07.010> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns5:BibliographicResource ;
+        rdfs:label "Improvements and mechanisms of fracture and fatigue properties of well-dispersed alumina/epoxy nanocomposites" ;
+        ns5:created 2008 ;
+        ns5:creator <http://materialsmine.org/author/auletta-tommaso>,
+            <http://materialsmine.org/author/hillborg-henrik>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/zhao-su> ;
+        ns5:isPartOf <http://materialsmine.org/publication/composites-science-and-technology> ;
+        ns5:language <http://materialsmine.org/language/english> ;
+        ns5:title "Improvements and mechanisms of fracture and fatigue properties of well-dispersed alumina/epoxy nanocomposites" ;
+        ns7:authorList ( <http://materialsmine.org/author/auletta-tommaso> <http://materialsmine.org/author/hillborg-henrik> <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/zhao-su> ) ;
+        ns7:volume 68 ;
+        ns3:hasPart <http://materialsmine.org/sample/l238-s1-zhao-2008> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0266353808002674?via%3Dihub> ;
+        ns4:keyword "Fatigue",
+            "Fracture Toughness",
+            "Interface",
+            "Nanocomposites",
+            "Plastic Deformation" .
+
+    <http://materialsmine.org/language/english> a ns5:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-110-8th-street-troy-ny-12180-usa> a ns5:Location ;
+        rdfs:label "Department of Materials Science and Engineering and Rensselaer Nanotechnology Center, Rensselaer Polytechnic Institute, 110 8th Street, Troy, NY 12180, USA" .
+
+    <http://materialsmine.org/publication/composites-science-and-technology> ns5:publisher <publisher:elsevier> ;
+        ns5:title "Composites Science and Technology" .
+
+    <http://materialsmine.org/sample/l238-s1-zhao-2008> ns2:wasAttributedTo <http://materialsmine.org/author/auletta-tommaso>,
+            <http://materialsmine.org/author/hillborg-henrik>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/zhao-su> .
+
+    <publisher:elsevier> rdfs:label "Elsevier" ;
+        ns2:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-110-8th-street-troy-ny-12180-usa> .
+
+    <http://materialsmine.org/author/auletta-tommaso> a ns2:Agent ;
+        rdfs:label "Auletta, Tommaso" ;
+        ns6:name "Auletta, Tommaso" .
+
+    <http://materialsmine.org/author/hillborg-henrik> a ns2:Agent ;
+        rdfs:label "Hillborg, Henrik" ;
+        ns6:name "Hillborg, Henrik" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns2:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns6:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/zhao-su> a ns2:Agent ;
+        rdfs:label "Zhao, Su" ;
+        ns6:name "Zhao, Su" .
+}
+
+ns1:L238_S1_Zhao_2008_assertion {
+    <http://localhost/nmr/blob?id=59667538e74a1d62877b78bb> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/SEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/l238-s1-zhao-2008> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=59667538e74a1d62877b78bb" .
+
+    <http://localhost/nmr/blob?id=59667540e74a1d62877b78bd> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/SEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/l238-s1-zhao-2008> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=59667540e74a1d62877b78bd" .
+
+    <http://localhost/nmr/blob?id=59667546e74a1d62877b78cf> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/SEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/l238-s1-zhao-2008> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=59667546e74a1d62877b78cf" .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" .
+
+    <http://materialsmine.org/sample/l238-s1-zhao-2008_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l238-s1-zhao-2008> .
+
+    <http://materialsmine.org/sample/l238-s1-zhao-2008_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.13e+00 ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Huntsman Araldite" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l238-s1-zhao-2008> ] .
+
+    <http://materialsmine.org/ns/SEMMicroscopy> rdfs:label "SEM Microscopy" .
+
+    <http://materialsmine.org/sample/l238-s1-zhao-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label " in epoxy" ;
+        ns3:hasAttribute [ ns3:hasValue 2.520771e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.03993e-01 ] ],
+            [ a <http://materialsmine.org/ns/EssentialWorkOfFracture> ],
+            [ ns3:hasValue 1.513254e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.03993e-01 ] ],
+            [ ns3:hasValue 1.673504e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.356164e-01 ] ],
+            [ ns3:hasValue 6.238926e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.433563e-01 ] ],
+            [ ns3:hasValue 3.101436e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.00037e-01 ] ],
+            [ ns3:hasValue 9.374513e-05 ;
+                ns3:inRelationTo [ ns3:hasValue 2.684977e-01 ] ],
+            [ ns3:hasValue 5.650542e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.558352e-01 ] ],
+            [ ns3:hasValue 1.480238e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.687676e-01 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ ns3:hasValue 1.108386e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.988493e-01 ] ],
+            [ ns3:hasValue 3.101436e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.00037e-01 ] ],
+            [ ns3:hasValue 1.513254e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.03993e-01 ] ],
+            [ ns3:hasValue 2.520771e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.03993e-01 ] ],
+            [ ns3:hasValue 1.108386e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.988493e-01 ] ],
+            [ ns3:hasValue 1.673504e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.356164e-01 ] ],
+            [ a <http://materialsmine.org/ns/EssentialWorkOfFracture> ],
+            [ ns3:hasValue 2.520771e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.03993e-01 ] ],
+            [ ns3:hasValue 7.613275e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419971e-01 ] ],
+            [ ns3:hasValue 1.027655e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.731821e-01 ] ],
+            [ a <http://materialsmine.org/ns/StrainRate> ],
+            [ ns3:hasValue 5.650542e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.558352e-01 ] ],
+            [ ns3:hasValue 2.2252e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.976662e-01 ] ],
+            [ ns3:hasValue 2.519618e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.913746e-01 ] ],
+            [ ns3:hasValue 6.238926e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.433563e-01 ] ],
+            [ ns3:hasValue 2.2252e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.976662e-01 ] ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ ns3:hasValue 6.238926e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.433563e-01 ] ],
+            [ ns3:hasValue 1.027655e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.731821e-01 ] ],
+            [ ns3:hasValue 1.480238e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.687676e-01 ] ],
+            [ ns3:hasValue 2.2252e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.976662e-01 ] ],
+            [ ns3:hasValue 9.374513e-05 ;
+                ns3:inRelationTo [ ns3:hasValue 2.684977e-01 ] ],
+            [ ns3:hasValue 3.101436e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.00037e-01 ] ],
+            [ ns3:hasValue 5.650542e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.558352e-01 ] ],
+            [ a <http://materialsmine.org/ns/FractureToughnessProperty> ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns3:hasAttribute [ a ns3:StandardDeviation,
+                            ns3:UncertaintyValue ;
+                        ns3:hasValue 1e-01 ] ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+                ns3:hasValue 3.42e+00 ],
+            [ ns3:hasValue 9.374513e-05 ;
+                ns3:inRelationTo [ ns3:hasValue 2.684977e-01 ] ],
+            [ ns3:hasValue 9.374513e-05 ;
+                ns3:inRelationTo [ ns3:hasValue 2.684977e-01 ] ],
+            [ ns3:hasValue 1.027655e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.731821e-01 ] ],
+            [ a <http://materialsmine.org/ns/StrainRate> ],
+            [ ns3:hasValue 7.613275e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419971e-01 ] ],
+            [ ns3:hasValue 1.673504e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.356164e-01 ] ],
+            [ ns3:hasValue 9.374513e-05 ;
+                ns3:inRelationTo [ ns3:hasValue 2.684977e-01 ] ],
+            [ ns3:hasValue 9.374513e-05 ;
+                ns3:inRelationTo [ ns3:hasValue 2.684977e-01 ] ],
+            [ ns3:hasValue 2.519618e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.913746e-01 ] ],
+            [ ns3:hasValue 2.519618e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.913746e-01 ] ],
+            [ a <http://materialsmine.org/ns/FractureToughnessProperty> ],
+            [ ns3:hasValue 1.513254e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.03993e-01 ] ],
+            [ ns3:hasValue 1.108386e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.988493e-01 ] ],
+            [ ns3:hasValue 7.613275e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419971e-01 ] ],
+            [ ns3:hasValue 1.480238e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.687676e-01 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l238-s1-zhao-2008_matrix_0> ;
+        ns3:hasRole <http://materialsmine.org/sample/l238-s1-zhao-2008_control_role> ;
+        ns3:isRepresentedBy <http://localhost/nmr/blob?id=59667538e74a1d62877b78bb>,
+            <http://localhost/nmr/blob?id=59667540e74a1d62877b78bd>,
+            <http://localhost/nmr/blob?id=59667546e74a1d62877b78cf> .
+}
+

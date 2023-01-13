@@ -1,0 +1,578 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://purl.org/ontology/bibo/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L110_S7_Singha_2008_pubinfo {
+    ns1:L110_S7_Singha_2008_assertion ns3:created "2021-07-22T06:37:19.942000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/NDk2NjY4Ljk2ODMyMzYyNTg/MaterialsmineXMLImport> ;
+        ns4:wasQuotedFrom <http://dx.doi.org/10.1109/T-DEI.2008.4446732> .
+
+    <http://dx.doi.org/10.1109/T-DEI.2008.4446732> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Dielectric properties of epoxy nanocomposites" ;
+        ns3:created 2008 ;
+        ns3:creator <http://materialsmine.org/author/singha-santanu>,
+            <http://materialsmine.org/author/thomas-m> ;
+        ns3:isPartOf <http://materialsmine.org/publication/ieee-transactions-on-dielectrics-and-electrical-insulation> ;
+        ns3:title "Dielectric properties of epoxy nanocomposites" ;
+        ns2:authorList ( <http://materialsmine.org/author/thomas-m> <http://materialsmine.org/author/singha-santanu> ) ;
+        ns2:volume 15 ;
+        ns6:hasPart <http://materialsmine.org/sample/l110-s7-singha-2008> ;
+        rdfs:seeAlso <http://ieeexplore.ieee.org/document/4446732/> .
+
+    <http://materialsmine.org/publication/ieee-transactions-on-dielectrics-and-electrical-insulation> ns3:publisher <publisher:ieee> ;
+        ns3:title "IEEE Transactions on Dielectrics and Electrical Insulation" .
+
+    <http://materialsmine.org/sample/l110-s7-singha-2008> ns4:wasAttributedTo <http://materialsmine.org/author/singha-santanu>,
+            <http://materialsmine.org/author/thomas-m> .
+
+    <publisher:ieee> rdfs:label "IEEE" .
+
+    <http://materialsmine.org/author/singha-santanu> a ns4:Agent ;
+        rdfs:label "Singha, Santanu" ;
+        ns5:name "Singha, Santanu" .
+
+    <http://materialsmine.org/author/thomas-m> a ns4:Agent ;
+        rdfs:label "Thomas, M." ;
+        ns5:name "Thomas, M." .
+}
+
+ns1:L110_S7_Singha_2008_assertion {
+    <http://materialsmine.org/sample/l110-s1-singha-2008> ns6:hasRole <http://materialsmine.org/sample/l110-s1-singha-2008_control_role> .
+
+    <http://materialsmine.org/compound/AluminiumOxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Aluminium oxide" ;
+        ns6:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns6:hasValue "Sigma Aldrich" ] ;
+        ns7:altLabel "Al2O3" .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" ;
+        ns7:altLabel "CY1300" ;
+        ns7:notation "epoxy" .
+
+    <http://materialsmine.org/sample/l110-s1-singha-2008_control_role> a ns6:ControlRole ;
+        ns6:inRelationTo <http://materialsmine.org/sample/l110-s7-singha-2008> .
+
+    <http://materialsmine.org/sample/l110-s7-singha-2008_filler_0> a <http://materialsmine.org/compound/AluminiumOxide> ;
+        ns6:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns6:hasValue 3.95e+00 ],
+            <http://materialsmine.org/sample/l110-s7-singha-2008_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l110-s7-singha-2008_filler_0_volume_fraction> ;
+        ns6:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns6:inRelationTo <http://materialsmine.org/sample/l110-s7-singha-2008> ] .
+
+    <http://materialsmine.org/sample/l110-s7-singha-2008_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "reported" ;
+        ns6:hasValue 1e-03 .
+
+    <http://materialsmine.org/sample/l110-s7-singha-2008_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns6:hasValue 2.862803e-04 .
+
+    <http://materialsmine.org/sample/l110-s7-singha-2008_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns6:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns6:hasValue "epoxy" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns6:hasValue "Huntsman" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns6:hasValue 1.13e+00 ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns6:hasValue "CY1300" ] ;
+        ns6:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns6:inRelationTo <http://materialsmine.org/sample/l110-s7-singha-2008> ] .
+
+    <http://materialsmine.org/sample/l110-s7-singha-2008> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Al2O3 in bisphenol-A diglycidyl ether" ;
+        ns6:hasAttribute [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 1.7e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.35e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 5.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.54e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 8.3e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.65e+01 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns3:description "Shape Parameter (��)" ;
+                ns6:hasValue 1.957e+01 ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 2.6e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.35e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 3.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.45e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 3.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.45e+01 ] ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 7.5e+00 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.3e+01 ] ],
+            [ a <file:///apps/whyis/nan> ;
+                ns3:description "Scale Parameter (��)" ;
+                ns6:hasValue 3.601e+01 ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 7.5e+00 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.3e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 5.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.54e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 4.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.46e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 9.2e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.9e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 7.3e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.6e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 6.4e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.58e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 4.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.46e+01 ] ],
+            [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns6:hasValue 6.77e+01 ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 8.3e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.65e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 3.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.45e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 5.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.54e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 2.6e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.35e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 7.3e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.6e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 6.4e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.58e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 1.7e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.35e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 2.6e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.35e+01 ] ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 6.4e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.58e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 8.3e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.65e+01 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 7.3e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.6e+01 ] ],
+            [ a <http://materialsmine.org/ns/VolumeResistivity> ;
+                ns3:description "mean from samples" ;
+                ns6:hasUnit <http://materialsmine.org/ns/unit/ohm-cm> ;
+                ns6:hasValue 3.953181e+17 ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 9.2e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.9e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 1.7e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.35e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 4.5e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.46e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 9.2e+01 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.9e+01 ] ],
+            [ a <http://materialsmine.org/ns/FailureProbability> ;
+                ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns6:hasValue 7.5e+00 ;
+                ns6:inRelationTo [ a <http://materialsmine.org/ns/AcDielectricStrength> ;
+                        ns6:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                        ns6:hasValue 3.3e+01 ] ] ;
+        ns6:hasComponentPart <http://materialsmine.org/sample/l110-s7-singha-2008_filler_0>,
+            <http://materialsmine.org/sample/l110-s7-singha-2008_matrix_0> .
+
+    <http://materialsmine.org/ns/AcDielectricStrength> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "AC dielectric strength" ;
+        rdfs:subClassOf ns6:Quantity .
+
+    <http://materialsmine.org/ns/FailureProbability> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Failure probability" ;
+        rdfs:subClassOf ns6:Quantity .
+}
+
+ns1:L110_S7_Singha_2008_provenance {
+    <http://materialsmine.org/sample/l110-s7-singha-2008> ns4:wasGeneratedBy <http://materialsmine.org/entry/L110_S7_Singha_2008_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns6:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/agilent-impedance-analyzer-with-16451b-dielectric-test-fixture>,
+                    ns6:Device ;
+                ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns6:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/mettler-differential-scanning-calorimetry-dsc-equipment>,
+                    ns6:Device ;
+                ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_equipment_attr_30>,
+                    <http://materialsmine.org/sample/L110_S7_Singha_2008_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns6:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns6:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns6:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns6:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/jeol-field-emission-scanning-electron-microscope>,
+                    ns6:Device ;
+                ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L110_S7_Singha_2008_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns6:Procedure ;
+        ns6:hasPart <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7> .
+
+    <http://materialsmine.org/ns/agilent-impedance-analyzer-with-16451b-dielectric-test-fixture> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Agilent impedance analyzer with 16451B dielectric test fixture" ;
+        rdfs:subClassOf ns6:Device .
+
+    <http://materialsmine.org/ns/jeol-field-emission-scanning-electron-microscope> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL field emission scanning electron microscope" ;
+        rdfs:subClassOf ns6:Device .
+
+    <http://materialsmine.org/ns/mettler-differential-scanning-calorimetry-dsc-equipment> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Mettler Differential Scanning Calorimetry (DSC) equipment" ;
+        rdfs:subClassOf ns6:Device .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns6:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns6:hasValue 5e+00 .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns6:hasOutput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_output> ;
+        ns6:hasParameter <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_description>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_description> a ns6:Description,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns6:Parameter ;
+        ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing_description> a ns6:Description ;
+        ns6:hasValue "hand stir" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns6:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1> a <http://materialsmine.org/ns/Mixing> ;
+        ns6:hasInput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_0_output> ;
+        ns6:hasOutput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_output> ;
+        ns6:hasParameter <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixingmethod>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_rpm>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_time> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns6:Parameter ;
+        ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_rpm>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_time> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns6:hasValue "mechanical mixing" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_rpm> a <http://materialsmine.org/ns/RotationalFrequency> ;
+        ns6:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns6:hasValue "700" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixing_time> a ns6:TimeInterval ;
+        ns6:hasUnit ns6:Hour ;
+        ns6:hasValue "1" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_rpm> a <http://materialsmine.org/ns/RotationalFrequency>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_1_time> a ns6:Parameter,
+            ns6:TimeInterval .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3> a <http://materialsmine.org/ns/Mixing> ;
+        ns6:hasInput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_2_output> ;
+        ns6:hasOutput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_output> ;
+        ns6:hasParameter <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixing>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixingmethod> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns6:Parameter ;
+        ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns6:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4> a <http://materialsmine.org/ns/Mixing> ;
+        ns6:hasInput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_3_output> ;
+        ns6:hasOutput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_output> ;
+        ns6:hasParameter <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixing>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixingmethod> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns6:Parameter ;
+        ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns6:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_4_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6> a <http://materialsmine.org/ns/Molding> ;
+        ns6:hasInput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_5_output> ;
+        ns6:hasOutput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_output> ;
+        ns6:hasParameter <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_ambientcondition>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_temperature>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_time> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding> a <http://materialsmine.org/ns/Molding>,
+            ns6:Parameter ;
+        ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding_ambientcondition>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding_temperature>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding_time> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns6:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding_temperature> a <obo:PATO_0000146> ;
+        ns6:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns6:hasValue "60" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_molding_time> a ns6:TimeInterval ;
+        ns6:hasUnit ns6:Hour ;
+        ns6:hasValue "4" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_temperature> a ns6:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_time> a ns6:Parameter,
+            ns6:TimeInterval .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns6:hasInput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_6_output> ;
+        ns6:hasOutput <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_output> ;
+        ns6:hasParameter <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_ambientcondition>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_description>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_time> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_description> a ns6:Description,
+            ns6:Parameter .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns6:Parameter ;
+        ns6:hasAttribute <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns6:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation_description> a ns6:Description ;
+        ns6:hasValue "before dielectric property measurements" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_drying-evaporation_time> a ns6:TimeInterval ;
+        ns6:hasUnit ns6:Day ;
+        ns6:hasValue "1" .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_melt_mixing_step_7_time> a ns6:Parameter,
+            ns6:TimeInterval .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> rdfs:label "rpm" .
+
+    ns6:Day rdfs:label "days" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> rdfs:label "deg C/min" .
+
+    ns1:L110_S7_Singha_2008_assertion ns4:wasDerivedFrom ns1:L110_S7_Singha_2008_assertion,
+            <http://nanomine.org/pub/NTQ3NDUxLjk0ODUyMDU0NDc_assertion> ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/NDk2NjY4Ljk2ODMyMzYyNTg/MaterialsmineXMLImport> ;
+                ns4:used ns1:L110_S7_Singha_2008_assertion,
+                    <http://nanomine.org/pub/NTQ3NDUxLjk0ODUyMDU0NDc_assertion> ],
+            <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_equipment>,
+            <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_heatingrate>,
+            <http://materialsmine.org/entry/L110_S7_Singha_2008_characterization_scanning-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L110_S7_Singha_2008_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns6:hasValue ""^^xsd:double .
+
+    ns6:Hour rdfs:label "hours" .
+}
+

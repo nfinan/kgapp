@@ -1,0 +1,295 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L204_S10_Bansal_2005_provenance {
+    <http://materialsmine.org/sample/l204-s10-bansal-2005> ns3:wasGeneratedBy <http://materialsmine.org/entry/L204_S10_Bansal_2005_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/rheometrics-dmta-v>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L204_S10_Bansal_2005_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/joel-840>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L204_S10_Bansal_2005_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L204_S10_Bansal_2005_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_3> .
+
+    <http://materialsmine.org/ns/joel-840> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JOEL 840" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/rheometrics-dmta-v> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Rheometrics DMTA V" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_time> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "2" .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_description>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_drying-evaporation> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_drying-evaporation_description> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "dried at room temperature" .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_description>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_temperature>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "dried in a vacuum oven to remove the residual solvent" .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin> ;
+        ns2:hasValue "373" .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "24" .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_3> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_3_molding> .
+
+    <http://materialsmine.org/sample/L204_S10_Bansal_2005_solution_processing_step_3_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin> rdfs:label "Kelvin" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L204_S10_Bansal_2005_assertion ns3:wasDerivedFrom ns1:L204_S10_Bansal_2005_assertion,
+            <http://nanomine.org/pub/NTYxNDc0LjM2Mjg2MzU5NTg_assertion> ;
+        ns3:wasGeneratedBy [ a <http://nanomine.org/setl/MTA1NzEwLjE0MDUyNTI0ODg2/MaterialsmineXMLImport> ;
+                ns3:used ns1:L204_S10_Bansal_2005_assertion,
+                    <http://nanomine.org/pub/NTYxNDc0LjM2Mjg2MzU5NTg_assertion> ],
+            <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_equipment>,
+            <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L204_S10_Bansal_2005_characterization_transmission-electron-microscopy> .
+}
+
+ns1:L204_S10_Bansal_2005_assertion {
+    <http://materialsmine.org/sample/l204-s1-bansal-2005> ns2:hasRole <http://materialsmine.org/sample/l204-s1-bansal-2005_control_role> .
+
+    <http://materialsmine.org/compound/Polystyrene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Polystyrene" ;
+        ns4:notation "PS" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan Chemicals" ] ;
+        ns4:altLabel "silica" ;
+        ns4:notation "SiO2" .
+
+    <http://materialsmine.org/sample/l204-s1-bansal-2005_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l204-s10-bansal-2005> .
+
+    <http://materialsmine.org/sample/l204-s10-bansal-2005_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            [ a ns2:Width ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 4e+00 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.4e+01 ],
+            <http://materialsmine.org/sample/l204-s10-bansal-2005_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l204-s10-bansal-2005_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l204-s10-bansal-2005> ] .
+
+    <http://materialsmine.org/sample/l204-s10-bansal-2005_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns5:description "reported" ;
+        ns2:hasValue 5e-02 .
+
+    <http://materialsmine.org/sample/l204-s10-bansal-2005_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns5:description "computed by NanoMine" ;
+        ns2:hasValue 2.02374e-02 .
+
+    <http://materialsmine.org/sample/l204-s10-bansal-2005_matrix_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.04e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PS" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l204-s10-bansal-2005> ] .
+
+    <http://materialsmine.org/sample/l204-s10-bansal-2005> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in polystyrene" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kelvin> ;
+                ns2:hasValue 3.7497e+02 ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l204-s10-bansal-2005_filler_0>,
+            <http://materialsmine.org/sample/l204-s10-bansal-2005_matrix_0> .
+}
+
+ns1:L204_S10_Bansal_2005_pubinfo {
+    ns1:L204_S10_Bansal_2005_assertion ns5:created "2021-07-22T14:13:32.781000+00:00"^^xsd:dateTime ;
+        ns3:wasAttributedTo <http://nanomine.org/setl/MTA1NzEwLjE0MDUyNTI0ODg2/MaterialsmineXMLImport> ;
+        ns3:wasQuotedFrom <http://dx.doi.org/10.1038/nmat1447> .
+
+    <http://dx.doi.org/10.1038/nmat1447> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns5:BibliographicResource ;
+        rdfs:label "Quantitative equivalence between polymer nanocomposites and thin polymer films" ;
+        ns5:created 2005 ;
+        ns5:creator <http://materialsmine.org/author/bansal-amitabh>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/cho-kilwon>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/li-chunzhao>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/yang-hoichang> ;
+        ns5:isPartOf <http://materialsmine.org/publication/nature-materials> ;
+        ns5:language <http://materialsmine.org/language/english> ;
+        ns5:title "Quantitative equivalence between polymer nanocomposites and thin polymer films" ;
+        ns6:authorList ( <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/kumar-sanat-k> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/cho-kilwon> <http://materialsmine.org/author/li-chunzhao> <http://materialsmine.org/author/yang-hoichang> <http://materialsmine.org/author/bansal-amitabh> ) ;
+        ns6:volume 4 ;
+        ns2:hasPart <http://materialsmine.org/sample/l204-s10-bansal-2005> ;
+        rdfs:seeAlso <http://www.nature.com/articles/nmat1447> .
+
+    <http://materialsmine.org/language/english> a ns5:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-rensselaer-polytechnic-institute-troy-new-york-12180-usa> a ns5:Location ;
+        rdfs:label "Department of Materials Science and Engineering, Rensselaer Polytechnic Institute, Troy, New York 12180, USA" .
+
+    <http://materialsmine.org/publication/nature-materials> ns5:publisher <publisher:nature-publishing-group> ;
+        ns5:title "Nature Materials" .
+
+    <http://materialsmine.org/sample/l204-s10-bansal-2005> ns3:wasAttributedTo <http://materialsmine.org/author/bansal-amitabh>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/cho-kilwon>,
+            <http://materialsmine.org/author/kumar-sanat-k>,
+            <http://materialsmine.org/author/li-chunzhao>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/yang-hoichang> .
+
+    <publisher:nature-publishing-group> rdfs:label "Nature Publishing Group" ;
+        ns3:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-rensselaer-polytechnic-institute-troy-new-york-12180-usa> .
+
+    <http://materialsmine.org/author/bansal-amitabh> a ns3:Agent ;
+        rdfs:label "Bansal, Amitabh" ;
+        ns7:name "Bansal, Amitabh" .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns3:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns7:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/cho-kilwon> a ns3:Agent ;
+        rdfs:label "Cho, Kilwon" ;
+        ns7:name "Cho, Kilwon" .
+
+    <http://materialsmine.org/author/kumar-sanat-k> a ns3:Agent ;
+        rdfs:label "Kumar, Sanat K." ;
+        ns7:name "Kumar, Sanat K." .
+
+    <http://materialsmine.org/author/li-chunzhao> a ns3:Agent ;
+        rdfs:label "Li, Chunzhao" ;
+        ns7:name "Li, Chunzhao" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns3:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns7:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/yang-hoichang> a ns3:Agent ;
+        rdfs:label "Yang, Hoichang" ;
+        ns7:name "Yang, Hoichang" .
+}
+

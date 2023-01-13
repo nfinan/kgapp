@@ -1,0 +1,46 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://materialsmine.org/nanpub/> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:MzEzODE4LjQyMTMyMjc3MDY1 a ns2:Nanopublication ;
+        ns2:hasAssertion ns3:E115_S1_Bell_2016 ;
+        ns2:hasProvenance ns1:MzEzODE4LjQyMTMyMjc3MDY1_provenance ;
+        ns2:hasPublicationInfo ns1:MzEzODE4LjQyMTMyMjc3MDY1_pubinfo .
+
+    ns1:MzEzODE4LjQyMTMyMjc3MDY1_provenance a ns2:Provenance .
+
+    ns1:MzEzODE4LjQyMTMyMjc3MDY1_pubinfo a ns2:PublicationInfo .
+
+    [] a ns2:Assertion .
+}
+
+ns3:E115_S1_Bell_2016 {
+    ns3:E115_S1_Bell_2016_nanopub a ns2:Nanopublication ;
+        ns2:hasAssertion ns3:E115_S1_Bell_2016_assertion ;
+        ns2:hasProvenance ns3:E115_S1_Bell_2016_provenance ;
+        ns2:hasPublicationInfo ns3:E115_S1_Bell_2016_pubinfo .
+
+    ns3:E115_S1_Bell_2016_assertion a ns2:Assertion .
+
+    ns3:E115_S1_Bell_2016_provenance a ns2:Provenance .
+
+    ns3:E115_S1_Bell_2016_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:MzEzODE4LjQyMTMyMjc3MDY1_pubinfo {
+    ns3:E115_S1_Bell_2016 ns5:created "2021-07-22T04:29:36.133000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/NDUwMzkuMTQ4NTM1MTgyODk/MaterialsmineXMLImport> .
+}
+
+ns1:MzEzODE4LjQyMTMyMjc3MDY1_provenance {
+    ns3:E115_S1_Bell_2016 ns4:wasDerivedFrom ns3:E115_S1_Bell_2016,
+            ns1:MTUyODY0Ljc4MDU3MzU1MzEx_assertion ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/NDUwMzkuMTQ4NTM1MTgyODk/MaterialsmineXMLImport> ;
+                ns4:used ns3:E115_S1_Bell_2016,
+                    ns1:MTUyODY0Ljc4MDU3MzU1MzEx_assertion ] .
+}
+

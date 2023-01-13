@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:q3cp0km5r7_assertion {
+    <http://nanomine.org/viz/52086c0fea1fefab> a ns7:Chart ;
+        ns2:description "A bar chart showing the number of samples and experiments curated into the NanoMine as a function of the year published in the literature. Here, an experiment refers to the set of samples contained within a single DOI." ;
+        ns2:title "Experiments and Samples Curated into NanoMine" ;
+        ns4:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT ?pubdate (COUNT(DISTINCT ?sample) AS ?numberofSamples) (COUNT(DISTINCT ?doi) AS ?numberofDOIs) WHERE {
+  ?doi sio:hasPart ?sample ;
+       dct:created ?pubdate .
+  ?sample a nm:PolymerNanocomposite .
+}
+GROUP BY ?pubdate
+ORDER BY ?pubdate""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"description\":\"Example plot of NanoMine data.\",\"transform\":[{\"filter\":{\"field\":\"pubdate\",\"valid\":true}}],\"spacing\":0,\"vconcat\":[{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\"}},\"height\":350,\"width\":800,\"mark\":{\"type\":\"bar\",\"color\":\"burlywood\",\"width\":25},\"encoding\":{\"x\":{\"field\":\"pubdate\",\"type\":\"quantitative\",\"axis\":{\"domain\":false,\"format\":\"f\",\"ticks\":false,\"title\":null,\"labelFontSize\":16,\"labelBound\":1,\"labelAlign\":\"center\",\"offset\":5}},\"y\":{\"field\":\"numberofSamples\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":16,\"title\":\"# Samples\",\"titleFontSize\":20}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.8},\"value\":1},\"tooltip\":[{\"field\":\"pubdate\",\"type\":\"quantitative\",\"title\":\"Year Published\"},{\"field\":\"numberofSamples\",\"type\":\"quantitative\",\"title\":\"# of Samples\"}]}},{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\"}},\"height\":150,\"width\":800,\"mark\":{\"type\":\"bar\",\"width\":25},\"encoding\":{\"x\":{\"field\":\"pubdate\",\"type\":\"quantitative\",\"axis\":null},\"y\":{\"field\":\"numberofDOIs\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":16,\"title\":\"# Experiments\",\"titleFontSize\":20},\"sort\":\"descending\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.8},\"value\":1},\"tooltip\":[{\"field\":\"pubdate\",\"type\":\"quantitative\",\"title\":\"Year Published\"},{\"field\":\"numberofDOIs\",\"type\":\"quantitative\",\"title\":\"# of DOIs\"}]}}],\"config\":{\"view\":{\"stroke\":null},\"axis\":{\"grid\":false}}}" ;
+        ns3:depiction <http://nanomine.org/viz/52086c0fea1fefab_depiction> .
+
+    <http://nanomine.org/viz/52086c0fea1fefab_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:48:32.421000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "6bbac10e-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:q3cp0km5r7 a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/52086c0fea1fefab_depiction> ;
+        ns8:hasAssertion ns1:q3cp0km5r7_assertion ;
+        ns8:hasProvenance ns1:q3cp0km5r7_provenance ;
+        ns8:hasPublicationInfo ns1:q3cp0km5r7_pubinfo .
+
+    ns1:q3cp0km5r7_assertion a ns8:Assertion .
+
+    ns1:q3cp0km5r7_provenance a ns8:Provenance .
+
+    ns1:q3cp0km5r7_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:q3cp0km5r7_pubinfo {
+    ns1:q3cp0km5r7_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:48:32.422000+00:00"^^xsd:dateTime .
+}
+

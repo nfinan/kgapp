@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:8ah3cjk3gu a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/0d0d62530d74b8b0_depiction> ;
+        ns2:hasAssertion ns1:8ah3cjk3gu_assertion ;
+        ns2:hasProvenance ns1:8ah3cjk3gu_provenance ;
+        ns2:hasPublicationInfo ns1:8ah3cjk3gu_pubinfo .
+
+    ns1:8ah3cjk3gu_assertion a ns2:Assertion .
+
+    ns1:8ah3cjk3gu_provenance a ns2:Provenance .
+
+    ns1:8ah3cjk3gu_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:8ah3cjk3gu_pubinfo {
+    ns1:8ah3cjk3gu_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:41:47.970000+00:00"^^xsd:dateTime .
+}
+
+ns1:8ah3cjk3gu_assertion {
+    <http://nanomine.org/viz/0d0d62530d74b8b0> a ns3:Chart ;
+        ns4:description "Materials processing information is curated into NanoMine as a sequence of common processing steps. This histogram displays those processing steps and their frequency of occurrence in the knowledge graph." ;
+        ns4:title "Histogram of Basic Processing Steps" ;
+        ns6:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          prov:wasGeneratedBy [ a sio:Procedure ;
+                                sio:hasPart [ a [ rdfs:label ?label ] ]
+                              ]
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":300,\"width\":600,\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":\"label\",\"type\":\"nominal\",\"axis\":{\"title\":\"Processing Steps\",\"labelFontSize\":14,\"titleFontSize\":16}},\"x\":{\"aggregate\":\"count\",\"field\":\"label\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":14,\"titleFontSize\":16}}}}" ;
+        ns5:depiction <http://nanomine.org/viz/0d0d62530d74b8b0_depiction> .
+
+    <http://nanomine.org/viz/0d0d62530d74b8b0_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:41:47.970000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "7aa826da-f53a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

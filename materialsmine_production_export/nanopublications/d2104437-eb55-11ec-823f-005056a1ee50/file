@@ -1,0 +1,47 @@
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://open.vocab.org/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://www.nanopub.org/nschema#> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:319bYs8hFExqzVFFh4Ptpi_assertion> {
+    <http://nanomine.org/nmr/dataset/381> a ns3:Dataset ;
+        ns3:distribution <http://nanomine.org/nmr/xml/L381_S16_Zheng_2018> .
+
+    <http://nanomine.org/nmr/xml/L381_S16_Zheng_2018?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns3:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns2:hasContentType "text/xml" ;
+        ns1:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns1:contributor <http://nanomine.org/user/0807205> ;
+        ns1:created "2021-07-23T03:02:52.828000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "78a433ba-eb62-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns1:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns1:FileFormat .
+}
+
+<urn:319bYs8hFExqzVFFh4Ptpi_pubinfo> {
+    <urn:319bYs8hFExqzVFFh4Ptpi_assertion> ns1:contributor <http://nanomine.org/user/0807205> ;
+        ns1:created "2021-07-23T03:02:52.829000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:319bYs8hFExqzVFFh4Ptpi> a ns5:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/nmr/xml/L381_S16_Zheng_2018?format=xml> ;
+        ns5:hasAssertion <urn:319bYs8hFExqzVFFh4Ptpi_assertion> ;
+        ns5:hasProvenance <urn:319bYs8hFExqzVFFh4Ptpi_provenance> ;
+        ns5:hasPublicationInfo <urn:319bYs8hFExqzVFFh4Ptpi_pubinfo> .
+
+    <urn:319bYs8hFExqzVFFh4Ptpi_assertion> a ns5:Assertion .
+
+    <urn:319bYs8hFExqzVFFh4Ptpi_provenance> a ns5:Provenance .
+
+    <urn:319bYs8hFExqzVFFh4Ptpi_pubinfo> a ns5:PublicationInfo .
+}
+

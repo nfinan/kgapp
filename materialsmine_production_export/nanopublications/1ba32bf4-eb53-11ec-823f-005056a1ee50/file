@@ -1,0 +1,207 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L242_S5_Narayanan_2006_provenance {
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006> ns2:wasGeneratedBy <http://materialsmine.org/entry/L242_S5_Narayanan_2006_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L242_S5_Narayanan_2006_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L242_S5_Narayanan_2006_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L242_S5_Narayanan_2006_characterization_raman-spectroscopy> a <http://materialsmine.org/ns/RamanSpectroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/princeton-instruments-model-eev-37>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L242_S5_Narayanan_2006_description_attr_29>,
+                    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L242_S5_Narayanan_2006_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_1> .
+
+    <http://materialsmine.org/ns/princeton-instruments-model-eev-37> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Princeton Instruments model EEV-37" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_mixing> .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_mixing_description> .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_mixing_description> a ns3:Description ;
+        ns3:hasValue "Polymer nanocomposites for this study were prepared by the free-radical polymerization of the monomer with spherical particles of  alumina��� 26 nm average diameter (Nanophase Technologies Corporation)." .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_1_molding> .
+
+    <http://materialsmine.org/sample/L242_S5_Narayanan_2006_solution_processing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    ns1:L242_S5_Narayanan_2006_assertion ns2:wasDerivedFrom ns1:L242_S5_Narayanan_2006_assertion,
+            <http://nanomine.org/pub/MTI4ODg1LjEyNDUzMzczNDE4_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/MzIxMjMzLjQ1NjIwNjE4NjAz/MaterialsmineXMLImport> ;
+                ns2:used ns1:L242_S5_Narayanan_2006_assertion,
+                    <http://nanomine.org/pub/MTI4ODg1LjEyNDUzMzczNDE4_assertion> ],
+            <http://materialsmine.org/entry/L242_S5_Narayanan_2006_characterization_description>,
+            <http://materialsmine.org/entry/L242_S5_Narayanan_2006_characterization_equipment>,
+            <http://materialsmine.org/entry/L242_S5_Narayanan_2006_characterization_raman-spectroscopy> .
+}
+
+ns1:L242_S5_Narayanan_2006_assertion {
+    <http://materialsmine.org/sample/l242-s1-narayanan-2006> ns3:hasRole <http://materialsmine.org/sample/l242-s1-narayanan-2006_control_role> .
+
+    <http://materialsmine.org/compound/AluminiumOxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Aluminium oxide" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Nanophase Technologies Corporation" ] ;
+        ns5:altLabel "alumina" .
+
+    <http://materialsmine.org/compound/PolyMethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(methyl methacrylate)" ;
+        ns5:notation "PMMA" .
+
+    <http://materialsmine.org/sample/l242-s1-narayanan-2006_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l242-s5-narayanan-2006> .
+
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006_filler_0> a <http://materialsmine.org/compound/AluminiumOxide> ;
+        ns3:hasAttribute [ a ns3:Width ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 2.6e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 3.95e+00 ],
+            <http://materialsmine.org/sample/l242-s5-narayanan-2006_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l242-s5-narayanan-2006_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l242-s5-narayanan-2006> ] .
+
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns3:hasValue 5e-03 .
+
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns3:hasValue 1.460874e-03 .
+
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006_matrix_0> a <http://materialsmine.org/compound/PolyMethylMethacrylate> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.15e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PMMA" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l242-s5-narayanan-2006> ] .
+
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "alumina in poly(methyl methacrylate)" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue 1.040971e+02 ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l242-s5-narayanan-2006_filler_0>,
+            <http://materialsmine.org/sample/l242-s5-narayanan-2006_matrix_0> .
+}
+
+ns1:L242_S5_Narayanan_2006_pubinfo {
+    ns1:L242_S5_Narayanan_2006_assertion ns4:created "2021-07-22T17:59:43.535000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/MzIxMjMzLjQ1NjIwNjE4NjAz/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1103/PhysRevLett.97.075505> .
+
+    <http://dx.doi.org/10.1103/PhysRevLett.97.075505> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Dynamics and Internal Stress at the Nanoscale Related to Unique Thermomechanical Behavior in Polymer Nanocomposites" ;
+        ns4:created 2006 ;
+        ns4:creator <http://materialsmine.org/author/bansal-a>,
+            <http://materialsmine.org/author/lewis-s>,
+            <http://materialsmine.org/author/lurio-l-b>,
+            <http://materialsmine.org/author/narayanan-r-aravinda>,
+            <http://materialsmine.org/author/schadler-l-s>,
+            <http://materialsmine.org/author/thiyagarajan-p> ;
+        ns4:isPartOf <http://materialsmine.org/publication/physical-review-letters> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Dynamics and Internal Stress at the Nanoscale Related to Unique Thermomechanical Behavior in Polymer Nanocomposites" ;
+        ns7:authorList ( <http://materialsmine.org/author/lurio-l-b> <http://materialsmine.org/author/schadler-l-s> <http://materialsmine.org/author/bansal-a> <http://materialsmine.org/author/lewis-s> <http://materialsmine.org/author/thiyagarajan-p> <http://materialsmine.org/author/narayanan-r-aravinda> ) ;
+        ns7:volume 97 ;
+        ns3:hasPart <http://materialsmine.org/sample/l242-s5-narayanan-2006> ;
+        rdfs:seeAlso <https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.97.075505> .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/intense-pulsed-neutron-source-division-argonne-national-laboratory-argonne-illinois-60439-usa> a ns4:Location ;
+        rdfs:label "Intense Pulsed Neutron Source Division, Argonne National Laboratory, Argonne, Illinois 60439, USA" .
+
+    <http://materialsmine.org/publication/physical-review-letters> ns4:publisher <publisher:american-physical-society> ;
+        ns4:title "Physical Review Letters" .
+
+    <http://materialsmine.org/sample/l242-s5-narayanan-2006> ns2:wasAttributedTo <http://materialsmine.org/author/bansal-a>,
+            <http://materialsmine.org/author/lewis-s>,
+            <http://materialsmine.org/author/lurio-l-b>,
+            <http://materialsmine.org/author/narayanan-r-aravinda>,
+            <http://materialsmine.org/author/schadler-l-s>,
+            <http://materialsmine.org/author/thiyagarajan-p> .
+
+    <publisher:american-physical-society> rdfs:label "American Physical Society" ;
+        ns2:atLocation <http://materialsmine.org/location/intense-pulsed-neutron-source-division-argonne-national-laboratory-argonne-illinois-60439-usa> .
+
+    <http://materialsmine.org/author/bansal-a> a ns2:Agent ;
+        rdfs:label "Bansal, A." ;
+        ns6:name "Bansal, A." .
+
+    <http://materialsmine.org/author/lewis-s> a ns2:Agent ;
+        rdfs:label "Lewis, S." ;
+        ns6:name "Lewis, S." .
+
+    <http://materialsmine.org/author/lurio-l-b> a ns2:Agent ;
+        rdfs:label "Lurio, L. B." ;
+        ns6:name "Lurio, L. B." .
+
+    <http://materialsmine.org/author/narayanan-r-aravinda> a ns2:Agent ;
+        rdfs:label "Narayanan, R. Aravinda" ;
+        ns6:name "Narayanan, R. Aravinda" .
+
+    <http://materialsmine.org/author/schadler-l-s> a ns2:Agent ;
+        rdfs:label "Schadler, L. S." ;
+        ns6:name "Schadler, L. S." .
+
+    <http://materialsmine.org/author/thiyagarajan-p> a ns2:Agent ;
+        rdfs:label "Thiyagarajan, P." ;
+        ns6:name "Thiyagarajan, P." .
+}
+

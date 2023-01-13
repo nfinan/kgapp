@@ -1,0 +1,47 @@
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:iFNu1zWBkoktv76uwV9pHX_pubinfo> {
+    <urn:iFNu1zWBkoktv76uwV9pHX_assertion> ns1:contributor <http://nanomine.org/user/9999999999> ;
+        ns1:created "2021-07-22T13:23:22.562000+00:00"^^xsd:dateTime .
+}
+
+<urn:iFNu1zWBkoktv76uwV9pHX_assertion> {
+    <http://nanomine.org/nmr/dataset/191> a ns2:Dataset ;
+        ns2:distribution <http://nanomine.org/nmr/xml/L191_S4_Xie_2004> .
+
+    <http://nanomine.org/nmr/xml/L191_S4_Xie_2004?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns2:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns4:hasContentType "text/xml" ;
+        ns1:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns1:contributor <http://nanomine.org/user/9999999999> ;
+        ns1:created "2021-07-22T13:23:22.561000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "fce0c0c6-eaef-11eb-9f8d-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns1:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns1:FileFormat .
+}
+
+{
+    <urn:iFNu1zWBkoktv76uwV9pHX> a ns6:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/nmr/xml/L191_S4_Xie_2004?format=xml> ;
+        ns6:hasAssertion <urn:iFNu1zWBkoktv76uwV9pHX_assertion> ;
+        ns6:hasProvenance <urn:iFNu1zWBkoktv76uwV9pHX_provenance> ;
+        ns6:hasPublicationInfo <urn:iFNu1zWBkoktv76uwV9pHX_pubinfo> .
+
+    <urn:iFNu1zWBkoktv76uwV9pHX_assertion> a ns6:Assertion .
+
+    <urn:iFNu1zWBkoktv76uwV9pHX_provenance> a ns6:Provenance .
+
+    <urn:iFNu1zWBkoktv76uwV9pHX_pubinfo> a ns6:PublicationInfo .
+}
+

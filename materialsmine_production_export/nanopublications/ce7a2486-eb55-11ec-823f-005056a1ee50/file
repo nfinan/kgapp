@@ -1,0 +1,66 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:stn8k3yh1r_pubinfo {
+    ns1:stn8k3yh1r_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-23T21:34:09.369000+00:00"^^xsd:dateTime .
+}
+
+ns1:stn8k3yh1r_assertion {
+    <http://nanomine.org/viz/fe85f205d1c0748b> a ns3:Chart ;
+        ns2:description "When engineering materials for applications, one or more properties may require optimization. This plot demonstrates how to express qualitative ranges of properties using sequence generators, layers, and ranged area marks (y and y2 encoding channels). Points are superimposed on these arbitrarily defined regions, highlighting high-stiffness and low-density samples in green. Hover over a point to view a tooltip with additional sample information. In this example, the x- and y-axis domains are hardcoded and the area marks are clipped." ;
+        ns2:title "Representing Regions of a Plot with Ranged Area Marks" ;
+        ns5:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ; a [ rdfs:label ?Matrix ] ] ;
+          sio:hasAttribute [ a mm:Density ; sio:hasValue ?Density ; sio:hasUnit om-2:gramPerCubicCentimetre ] ,
+                           [ a mm:TensileModulus ; sio:hasValue ?E_GPa ; sio:hasUnit om-2:gigapascal ] .
+  OPTIONAL{
+    ?sample sio:hasComponentPart [ sio:hasRole [ a mm:Filler ] ; a [ rdfs:label ?Filler ] ; sio:hasAttribute [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] ] 
+  }
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"}],\"layer\":[{\"data\":{\"sequence\":{\"start\":0.9,\"stop\":1.5,\"step\":0.01,\"as\":\"i\"}},\"transform\":[{\"calculate\":\"2.5 * pow(datum.i, 4)\",\"as\":\"Excellent\"},{\"calculate\":\"1.75 * pow(datum.i, 4)\",\"as\":\"VeryGood\"},{\"calculate\":\"1.25 * pow(datum.i, 4)\",\"as\":\"Good\"},{\"calculate\":\"1 * pow(datum.i, 4)\",\"as\":\"Fair\"},{\"calculate\":\"0.75 * pow(datum.i, 4)\",\"as\":\"Poor\"}],\"layer\":[{\"mark\":{\"type\":\"area\",\"color\":\"#0f9246\",\"clip\":true,\"opacity\":0.3},\"encoding\":{\"y\":{\"field\":\"Excellent\",\"type\":\"quantitative\"},\"y2\":{\"datum\":5}}},{\"mark\":{\"type\":\"area\",\"color\":\"#7ebb42\",\"clip\":true,\"opacity\":0.3},\"encoding\":{\"y\":{\"field\":\"VeryGood\",\"type\":\"quantitative\"},\"y2\":{\"field\":\"Excellent\"}}},{\"mark\":{\"type\":\"area\",\"color\":\"#fdcb08\",\"clip\":true,\"opacity\":0.3},\"encoding\":{\"y\":{\"field\":\"Good\",\"type\":\"quantitative\"},\"y2\":{\"field\":\"VeryGood\"}}},{\"mark\":{\"type\":\"area\",\"color\":\"#f68e1f\",\"clip\":true,\"opacity\":0.3},\"encoding\":{\"y\":{\"field\":\"Fair\",\"type\":\"quantitative\"},\"y2\":{\"field\":\"Good\"}}},{\"mark\":{\"type\":\"area\",\"color\":\"#ef4723\",\"clip\":true,\"opacity\":0.3},\"encoding\":{\"y\":{\"field\":\"Poor\",\"type\":\"quantitative\"},\"y2\":{\"field\":\"Fair\"}}},{\"mark\":{\"type\":\"area\",\"color\":\"#bc1f26\",\"clip\":true,\"opacity\":0.3},\"encoding\":{\"y\":{\"field\":\"Poor\",\"type\":\"quantitative\"}}}],\"encoding\":{\"x\":{\"field\":\"i\",\"type\":\"quantitative\"}}},{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"Density\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10,\"domain\":[1,1.4]},\"title\":\"Density (g/cm^3)\"},\"y\":{\"field\":\"E_GPa\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10,\"domain\":[2,3.5]},\"title\":\"Tensile Modulus (GPa)\"},\"size\":{\"condition\":{\"selection\":\"hover\",\"value\":150},\"value\":30},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Density\",\"type\":\"quantitative\",\"title\":\"Density (g/cm^3)\"},{\"field\":\"E_GPa\",\"type\":\"quantitative\",\"title\":\"Tensile Modulus (GPa)\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"title\":\"Filler Amt. (vol.%)\",\"format\":\".3p\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns7:depiction <http://nanomine.org/viz/fe85f205d1c0748b_depiction> .
+
+    <http://nanomine.org/viz/fe85f205d1c0748b_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-23T21:34:09.368000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "102568c8-6438-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:stn8k3yh1r a ns8:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/fe85f205d1c0748b_depiction> ;
+        ns8:hasAssertion ns1:stn8k3yh1r_assertion ;
+        ns8:hasProvenance ns1:stn8k3yh1r_provenance ;
+        ns8:hasPublicationInfo ns1:stn8k3yh1r_pubinfo .
+
+    ns1:stn8k3yh1r_assertion a ns8:Assertion .
+
+    ns1:stn8k3yh1r_provenance a ns8:Provenance .
+
+    ns1:stn8k3yh1r_pubinfo a ns8:PublicationInfo .
+}
+

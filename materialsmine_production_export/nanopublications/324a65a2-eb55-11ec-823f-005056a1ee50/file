@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:8eq4ojy8kx_assertion {
+    <http://nanomine.org/viz/b2ab54a749b1a20c> a ns3:Chart ;
+        ns2:description "As researchers develop new materials and means of incorporating them into nanocomposites, these materials will appear in the scientific literature through published research articles. This interactive chart gives a breakdown of materials (with the role of Matrix) in nanocomposites curated into the MaterialsMine knowledge graph. To consolidate the bar chart, those materials with the fewest associated DOIs are grouped into a single column. Hover over the bar chart to the left to view a tooltip with the material name and a yearly breakdown of the material's appearance in publications." ;
+        ns2:title "Prevalence of Materials in Publications Over Time (Matrix Edition)" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?doi ?Year ?Material WHERE {
+  ?doi sio:hasPart ?sample ;
+       dct:created ?Year .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Material ] ; sio:hasRole [ a mm:Matrix ] ] .
+  FILTER(?Year > 0)
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"Material\"]}},\"transform\":[{\"aggregate\":[{\"op\":\"count\",\"as\":\"count_Material\"}],\"groupby\":[\"Material\"]},{\"window\":[{\"op\":\"row_number\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"count_Material\",\"order\":\"descending\"}]},{\"calculate\":\"datum.rank < 10 ? datum.Material : 'All Others'\",\"as\":\"ranked_Material\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"ranked_Material\",\"type\":\"nominal\",\"title\":\"Matrix Material\",\"sort\":{\"order\":\"descending\",\"field\":\"count_Material\"}},\"y\":{\"field\":\"count_Material\",\"type\":\"quantitative\",\"title\":\"Count of Articles (All Years)\"},\"color\":{\"field\":\"Material\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"Material\",\"type\":\"nominal\"}]}},{\"layer\":[{\"mark\":{\"type\":\"area\",\"color\":\"#dddddd\"},\"encoding\":{\"y\":{\"aggregate\":\"distinct\",\"field\":\"doi\",\"title\":\"Count of Articles per Year\"}}},{\"transform\":[{\"filter\":{\"selection\":\"highlight\"}}],\"mark\":\"bar\",\"encoding\":{\"y\":{\"aggregate\":\"count\"},\"color\":{\"field\":\"Material\",\"type\":\"nominal\"}}}],\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\",\"title\":\"Year of Publication\"}}}],\"config\":{\"axis\":{\"titleFontSize\":14}}}" ;
+        ns4:depiction <http://nanomine.org/viz/b2ab54a749b1a20c_depiction> .
+
+    <http://nanomine.org/viz/b2ab54a749b1a20c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-05T21:04:36.999000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "d91c12ba-261f-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:8eq4ojy8kx_pubinfo {
+    ns1:8eq4ojy8kx_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-05T21:04:36.999000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:8eq4ojy8kx a ns8:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/b2ab54a749b1a20c_depiction> ;
+        ns8:hasAssertion ns1:8eq4ojy8kx_assertion ;
+        ns8:hasProvenance ns1:8eq4ojy8kx_provenance ;
+        ns8:hasPublicationInfo ns1:8eq4ojy8kx_pubinfo .
+
+    ns1:8eq4ojy8kx_assertion a ns8:Assertion .
+
+    ns1:8eq4ojy8kx_provenance a ns8:Provenance .
+
+    ns1:8eq4ojy8kx_pubinfo a ns8:PublicationInfo .
+}
+

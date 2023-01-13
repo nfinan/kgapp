@@ -1,0 +1,241 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://www.w3.org/ns/prov#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix ns8: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L247_S4_Huang_2016_assertion {
+    <http://materialsmine.org/compound/Poly2HydroxyethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(2-hydroxyethyl methacrylate)" ;
+        ns3:notation "PHEMA" .
+
+    <http://materialsmine.org/compound/PolyMethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(methyl methacrylate)" ;
+        ns3:altLabel "VH-001" ;
+        ns3:notation "PMMA" .
+
+    <http://materialsmine.org/sample/l247-s4-huang-2016_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l247-s4-huang-2016> .
+
+    <http://materialsmine.org/sample/l247-s4-huang-2016_matrix_0> a <http://materialsmine.org/compound/Poly2HydroxyethylMethacrylate> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Aladdin-reagent" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.15e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PHEMA" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l247-s4-huang-2016> ] .
+
+    <http://materialsmine.org/sample/l247-s4-huang-2016_matrix_1> a <http://materialsmine.org/compound/PolyMethylMethacrylate> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "VH-001" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Mitsubishi Rayon Corporation" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.18e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PMMA" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l247-s4-huang-2016> ] .
+
+    <http://materialsmine.org/sample/l247-s4-huang-2016> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label " in poly(2-hydroxyethyl methacrylate)" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/ElectricalConductivity> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/siemensPerMetre> ;
+                ns2:hasValue 1.52e-09 ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l247-s4-huang-2016_matrix_0>,
+            <http://materialsmine.org/sample/l247-s4-huang-2016_matrix_1> ;
+        ns2:hasRole <http://materialsmine.org/sample/l247-s4-huang-2016_control_role> .
+}
+
+ns1:L247_S4_Huang_2016_provenance {
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/novocontrol-gmbh-concept-40-broadband-dielectric-spectrometer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_attr_30> ],
+            [ a <http://materialsmine.org/ns/precision-premier-ii-ferroelectric-polarization-tester>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L247_S4_Huang_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns4:Activity .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/perkinelmer-paragon-1000>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L247_S4_Huang_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/jeol-jem-7401f>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/netzsch-tg209-f3>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L247_S4_Huang_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns4:Activity ;
+        ns4:used [ a <http://materialsmine.org/ns/jeol-jem-2100>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L247_S4_Huang_2016_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/ns/jeol-jem-2100> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JEM-2100" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/jeol-jem-7401f> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JEM 7401F" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/netzsch-tg209-f3> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "NETZSCH TG209 F3" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/novocontrol-gmbh-concept-40-broadband-dielectric-spectrometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Novocontrol GmbH Concept 40 broadband dielectric spectrometer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/perkinelmer-paragon-1000> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "PerkinElmer Paragon 1000" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/precision-premier-ii-ferroelectric-polarization-tester> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Precision Premier II ferroelectric polarization tester" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L247_S4_Huang_2016_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns2:hasValue 1.6e+02 .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    ns1:L247_S4_Huang_2016_assertion ns4:wasDerivedFrom ns1:L247_S4_Huang_2016_assertion,
+            <http://nanomine.org/pub/NTcyNzQyLjY5MzEwMTIzNDM_assertion> ;
+        ns4:wasGeneratedBy [ a <http://nanomine.org/setl/Njg0NDg0LjE4NDkyNDY3MTg/MaterialsmineXMLImport> ;
+                ns4:used ns1:L247_S4_Huang_2016_assertion,
+                    <http://nanomine.org/pub/NTcyNzQyLjY5MzEwMTIzNDM_assertion> ],
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_description>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_equipment>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L247_S4_Huang_2016_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L247_S4_Huang_2016_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L247_S4_Huang_2016_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+}
+
+ns1:L247_S4_Huang_2016_pubinfo {
+    ns1:L247_S4_Huang_2016_assertion ns6:created "2021-07-22T18:22:30.080000+00:00"^^xsd:dateTime ;
+        ns4:wasAttributedTo <http://nanomine.org/setl/Njg0NDg0LjE4NDkyNDY3MTg/MaterialsmineXMLImport> ;
+        ns4:wasQuotedFrom <http://dx.doi.org/10.1021/acsami.6b06650> .
+
+    <http://dx.doi.org/10.1021/acsami.6b06650> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns6:BibliographicResource ;
+        rdfs:label "Core@Double-Shell Structured Nanocomposites: A Route to High Dielectric Constant and Low Loss Material" ;
+        ns6:created 2016 ;
+        ns6:creator <http://materialsmine.org/author/he-jinliang>,
+            <http://materialsmine.org/author/huang-xingyi>,
+            <http://materialsmine.org/author/huang-yanhui>,
+            <http://materialsmine.org/author/jiang-pingkai>,
+            <http://materialsmine.org/author/schadler-linda-s> ;
+        ns6:isPartOf <http://materialsmine.org/publication/acs-applied-materials-interfaces> ;
+        ns6:language <http://materialsmine.org/language/english> ;
+        ns6:title "Core@Double-Shell Structured Nanocomposites: A Route to High Dielectric Constant and Low Loss Material" ;
+        ns7:authorList ( <http://materialsmine.org/author/jiang-pingkai> <http://materialsmine.org/author/he-jinliang> <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/huang-xingyi> <http://materialsmine.org/author/huang-yanhui> ) ;
+        ns7:volume 8 ;
+        ns2:hasPart <http://materialsmine.org/sample/l247-s4-huang-2016> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/acsami.6b06650> ;
+        ns8:keyword "Atrp",
+            "Batio3",
+            "Core@Double-Shell",
+            "High Dielectric Constant",
+            "Low Loss",
+            "Nanocomposites" .
+
+    <http://materialsmine.org/language/english> a ns6:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-polymer-science-and-engineering-shanghai-key-laboratory-of-electrical-insulation-and-thermal-aging-shanghai-jiao-tong-university-shanghai-200240-china> a ns6:Location ;
+        rdfs:label "Department of Polymer Science and Engineering, Shanghai Key Laboratory of Electrical Insulation and Thermal Aging, Shanghai Jiao Tong University, Shanghai 200240, China" .
+
+    <http://materialsmine.org/publication/acs-applied-materials-interfaces> ns6:publisher <publisher:american-chemical-society> ;
+        ns6:title "ACS Applied Materials & Interfaces" .
+
+    <http://materialsmine.org/sample/l247-s4-huang-2016> ns4:wasAttributedTo <http://materialsmine.org/author/he-jinliang>,
+            <http://materialsmine.org/author/huang-xingyi>,
+            <http://materialsmine.org/author/huang-yanhui>,
+            <http://materialsmine.org/author/jiang-pingkai>,
+            <http://materialsmine.org/author/schadler-linda-s> .
+
+    <publisher:american-chemical-society> rdfs:label "American Chemical Society" ;
+        ns4:atLocation <http://materialsmine.org/location/department-of-polymer-science-and-engineering-shanghai-key-laboratory-of-electrical-insulation-and-thermal-aging-shanghai-jiao-tong-university-shanghai-200240-china> .
+
+    <http://materialsmine.org/author/he-jinliang> a ns4:Agent ;
+        rdfs:label "He, Jinliang" ;
+        ns5:name "He, Jinliang" .
+
+    <http://materialsmine.org/author/huang-xingyi> a ns4:Agent ;
+        rdfs:label "Huang, Xingyi" ;
+        ns5:name "Huang, Xingyi" .
+
+    <http://materialsmine.org/author/huang-yanhui> a ns4:Agent ;
+        rdfs:label "Huang, Yanhui" ;
+        ns5:name "Huang, Yanhui" .
+
+    <http://materialsmine.org/author/jiang-pingkai> a ns4:Agent ;
+        rdfs:label "Jiang, Pingkai" ;
+        ns5:name "Jiang, Pingkai" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns4:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns5:name "Schadler, Linda S." .
+}
+

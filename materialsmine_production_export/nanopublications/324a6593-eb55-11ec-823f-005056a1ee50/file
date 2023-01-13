@@ -1,0 +1,55 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:4ymf5f2p56 a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/70531c8d6c9f80c7_depiction> ;
+        ns3:hasAssertion ns1:4ymf5f2p56_assertion ;
+        ns3:hasProvenance ns1:4ymf5f2p56_provenance ;
+        ns3:hasPublicationInfo ns1:4ymf5f2p56_pubinfo .
+
+    ns1:4ymf5f2p56_assertion a ns3:Assertion .
+
+    ns1:4ymf5f2p56_provenance a ns3:Provenance .
+
+    ns1:4ymf5f2p56_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:4ymf5f2p56_pubinfo {
+    ns1:4ymf5f2p56_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-09T01:46:28.521000+00:00"^^xsd:dateTime .
+}
+
+ns1:4ymf5f2p56_assertion {
+    <http://nanomine.org/viz/70531c8d6c9f80c7> a ns2:Chart ;
+        ns4:description "In a SPARQL query, you will often find Compact URIs, or CURIEs, as an abbreviated syntax for URIs. The PREFIX declarations at the top of the query define the namespaces corresponding to each abbreviation, and conventional prefixes can be looked up at prefix.cc. This chart displays the top 20 most common CURIEs found within SPARQL queries of charts in the knowledge graph, and may help identify important vocabularies to know when composing SPARQL queries in MaterialsMine. The tokenization and filtering of SPARQL queries is performed within Vega-Lite using regular expressions." ;
+        ns4:title "Compact URIs (CURIEs) Among Gallery Charts" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX schema: <http://schema.org/>
+SELECT * WHERE {
+  ?chart a sio:Chart ;
+         schema:query ?SPARQL .
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"split(datum.SPARQL, ' ')\",\"as\":\"SPARQL_Token\"},{\"flatten\":[\"SPARQL_Token\"]},{\"filter\":\"test(/^(?!<).*:.+/g, datum.SPARQL_Token) == true\"},{\"calculate\":\"replace(datum.SPARQL_Token, /[^a-zA-Z:]/, '')\",\"as\":\"CURIE_Token\"},{\"aggregate\":[{\"op\":\"count\",\"as\":\"CURIE_count\"}],\"groupby\":[\"CURIE_Token\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"CURIE_count\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank <= 20\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"CURIE_Token\",\"type\":\"nominal\",\"sort\":{\"order\":\"descending\",\"encoding\":\"y\"},\"title\":null},\"y\":{\"field\":\"CURIE_count\",\"type\":\"quantitative\",\"title\":\"Count of Occurrences\"},\"tooltip\":[{\"field\":\"CURIE_Token\",\"type\":\"nominal\",\"title\":\"Compact URI\"},{\"field\":\"CURIE_count\",\"type\":\"quantitative\",\"title\":\"Count\"}]},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":14,\"labelLimit\":300}}}" ;
+        ns8:depiction <http://nanomine.org/viz/70531c8d6c9f80c7_depiction> .
+
+    <http://nanomine.org/viz/70531c8d6c9f80c7_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-09T01:46:28.520000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "b85f40d0-28a2-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

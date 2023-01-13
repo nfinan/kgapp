@@ -1,0 +1,58 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:7ztgx5zn73_pubinfo {
+    ns1:7ztgx5zn73_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-12T16:51:06.107000+00:00"^^xsd:dateTime .
+}
+
+ns1:7ztgx5zn73_assertion {
+    <http://nanomine.org/viz/5dcfaf1d6d8fb8c2> a ns4:Chart ;
+        ns2:description "The isotype grid on the left represents each chart in the gallery, and the scatter plots on the right show the distribution of words and CURIEs in the chart descriptions and queries, respectively. Select one or more (shift-click for multiple) icons to filter the plots on the right. Counts and rank order are displayed as log-log plots to see whether the distributions follow Zipf's empirical law (red line). Use the mouse to zoom, and hover over a point to view a tooltip with the word/CURIE and its count among the selected charts." ;
+        ns2:title "Token Analysis of Chart Descriptions and Queries (Zipf Plots)" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX schema: <http://schema.org/>
+SELECT * WHERE {
+  ?chart a sio:Chart ;
+         dct:title ?Title ;
+         dct:description ?Description ;
+         schema:query ?Query .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}]},{\"calculate\":\"ceil(datum.rank/10)\",\"as\":\"row\"},{\"calculate\":\"datum.rank - datum.row*10\",\"as\":\"col\"},{\"calculate\":\"floor(random()*255)\",\"as\":\"rand_R\"},{\"calculate\":\"floor(random()*255)\",\"as\":\"rand_G\"},{\"calculate\":\"floor(random()*255)\",\"as\":\"rand_B\"},{\"calculate\":\"'rgb(' + datum.rand_R + ', ' + datum.rand_G + ', ' + datum.rand_B + ')'\",\"as\":\"rand_RGB\"}],\"selection\":{\"select\":{\"type\":\"multi\"}},\"mark\":{\"type\":\"point\",\"shape\":\"M0,.5L.6,.8L.5,.1L1,-.3L.3,-.4L0,-1L-.3,-.4L-1,-.3L-.5,.1L-.6,.8L0,.5Z\",\"filled\":true,\"size\":150},\"encoding\":{\"x\":{\"field\":\"col\",\"type\":\"ordinal\",\"axis\":null},\"y\":{\"field\":\"row\",\"type\":\"ordinal\",\"axis\":null},\"color\":{\"condition\":{\"selection\":\"select\",\"field\":\"rand_RGB\",\"type\":\"nominal\",\"scale\":null},\"value\":\"#dddddd\"},\"tooltip\":{\"field\":\"Title\",\"type\":\"nominal\"}}},{\"transform\":[{\"filter\":{\"selection\":\"select\"}}],\"vconcat\":[{\"title\":\"Words in Chart Description\",\"height\":150,\"transform\":[{\"calculate\":\"split(datum.Description, ' ')\",\"as\":\"Description_Token\"},{\"flatten\":[\"Description_Token\"]},{\"calculate\":\"lower(datum.Description_Token)\",\"as\":\"Word_Token_specialchars\"},{\"calculate\":\"replace(datum.Word_Token_specialchars, /[^a-zA-Z]/g, '')\",\"as\":\"Word_Token\"},{\"aggregate\":[{\"op\":\"count\",\"as\":\"Word_count\"}],\"groupby\":[\"Word_Token\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"Word_count\",\"order\":\"descending\"}]},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"Word_count\",\"order\":\"descending\"}]}],\"layer\":[{\"transform\":[{\"regression\":\"Word_count\",\"on\":\"row_number\",\"method\":\"pow\"}],\"mark\":{\"type\":\"line\",\"color\":\"firebrick\"}},{\"selection\":{\"zoom1\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":\"point\",\"encoding\":{\"tooltip\":[{\"field\":\"Word_Token\",\"type\":\"nominal\",\"title\":\"Word\"},{\"field\":\"Word_count\",\"type\":\"quantitative\",\"title\":\"Count\"}]}}],\"encoding\":{\"x\":{\"field\":\"row_number\",\"type\":\"quantitative\",\"sort\":{\"order\":\"descending\",\"encoding\":\"y\"},\"title\":\"Rank Order\",\"scale\":{\"type\":\"log\",\"padding\":5,\"nice\":false}},\"y\":{\"field\":\"Word_count\",\"type\":\"quantitative\",\"title\":\"Count of Occurrences\",\"scale\":{\"type\":\"log\",\"padding\":5,\"nice\":false}}}},{\"title\":\"CURIEs in SPARQL Query\",\"height\":150,\"transform\":[{\"calculate\":\"split(datum.Query, ' ')\",\"as\":\"SPARQL_Token\"},{\"flatten\":[\"SPARQL_Token\"]},{\"filter\":\"test(/^(?!<).*:.+/g, datum.SPARQL_Token) == true\"},{\"calculate\":\"replace(datum.SPARQL_Token, /[^a-zA-Z:]/g, '')\",\"as\":\"CURIE_Token\"},{\"aggregate\":[{\"op\":\"count\",\"as\":\"CURIE_count\"}],\"groupby\":[\"CURIE_Token\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"CURIE_count\",\"order\":\"descending\"}]},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"CURIE_count\",\"order\":\"descending\"}]}],\"layer\":[{\"transform\":[{\"regression\":\"CURIE_count\",\"on\":\"row_number\",\"method\":\"pow\"}],\"mark\":{\"type\":\"line\",\"color\":\"firebrick\"}},{\"selection\":{\"zoom2\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":\"point\",\"encoding\":{\"tooltip\":[{\"field\":\"CURIE_Token\",\"type\":\"nominal\",\"title\":\"Compact URI\"},{\"field\":\"CURIE_count\",\"type\":\"quantitative\",\"title\":\"Count\"}]}}],\"encoding\":{\"x\":{\"field\":\"row_number\",\"type\":\"quantitative\",\"sort\":{\"order\":\"descending\",\"encoding\":\"y\"},\"title\":\"Rank Order\",\"scale\":{\"type\":\"log\",\"padding\":5,\"nice\":false}},\"y\":{\"field\":\"CURIE_count\",\"type\":\"quantitative\",\"title\":\"Count of Occurrences\",\"scale\":{\"type\":\"log\",\"padding\":5,\"nice\":false}}}}]}],\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns6:depiction <http://nanomine.org/viz/5dcfaf1d6d8fb8c2_depiction> .
+
+    <http://nanomine.org/viz/5dcfaf1d6d8fb8c2_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-12T16:51:06.106000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "97961e32-2b7c-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:7ztgx5zn73 a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/5dcfaf1d6d8fb8c2_depiction> ;
+        ns8:hasAssertion ns1:7ztgx5zn73_assertion ;
+        ns8:hasProvenance ns1:7ztgx5zn73_provenance ;
+        ns8:hasPublicationInfo ns1:7ztgx5zn73_pubinfo .
+
+    ns1:7ztgx5zn73_assertion a ns8:Assertion .
+
+    ns1:7ztgx5zn73_provenance a ns8:Provenance .
+
+    ns1:7ztgx5zn73_pubinfo a ns8:PublicationInfo .
+}
+

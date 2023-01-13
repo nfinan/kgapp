@@ -1,0 +1,53 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:44gdydgbkf_assertion {
+    <http://nanomine.org/viz/b50dbe9388ae454d> a ns6:Chart ;
+        ns2:description "The Resource Description Framework (RDF), the metadata model for the MaterialsMine knowledge graph as well as many other semantic web resources, captures statements about resources in the subject-predicate-object expressions known as triples. These triples link resource IDs to each other and to data values to form a directed graph of information. This chart queries 10,000 random triples from the MaterialsMine knowledge graph (less than 0.1% of the total count of triples) and displays them in a 100x100 grid. Vega-Lite calculate transforms assign conditional opacity to each pixel according to the symmetries of the MaterialsMine logo. Hover over a pixel to view a tooltip with the triple (s-p-o)." ;
+        ns2:title "10,000 Triples" ;
+        ns3:query """SELECT DISTINCT * WHERE {
+  ?s ?p ?o .
+} 
+LIMIT 10000""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":500,\"width\":500,\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}]},{\"calculate\":\"ceil(datum.rank/100) - 50.5\",\"as\":\"row\"},{\"calculate\":\"datum.rank - (datum.row + 50.5)*100 + 49.5\",\"as\":\"col\"},{\"calculate\":\"pow(abs(datum.row) - 27, 2) + pow(abs(datum.col), 2) > 80 ? min((pow(abs(datum.row) - 27, 2) + pow(abs(datum.col), 2) - 80 ) / 60, 1) : 0\",\"as\":\"bin1\"},{\"calculate\":\"pow(abs(datum.col) - 27, 2) + pow(abs(datum.row), 2) > 80 ? min((pow(abs(datum.col) - 27, 2) + pow(abs(datum.row), 2) - 80 ) / 60, 1) : 0\",\"as\":\"bin2\"},{\"calculate\":\"pow(abs(datum.col) - 27, 2) + pow(abs(datum.row) - 18, 2) > 4 ? min((pow(abs(datum.col) - 27, 2) + pow(abs(datum.row) - 18, 2) - 4 ) / 12, 1) : 0\",\"as\":\"bin3\"},{\"calculate\":\"pow(abs(datum.col) - 18, 2) + pow(abs(datum.row) - 27, 2) > 4 ? min((pow(abs(datum.col) - 18, 2) + pow(abs(datum.row) - 27, 2) - 4 ) / 12, 1) : 0\",\"as\":\"bin4\"},{\"calculate\":\"min(datum.bin1, datum.bin2, datum.bin3, datum.bin4)\",\"as\":\"bin\"}],\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"rect\",\"strokeWidth\":0.5},\"encoding\":{\"x\":{\"field\":\"col\",\"type\":\"ordinal\",\"axis\":null},\"y\":{\"field\":\"row\",\"type\":\"ordinal\",\"axis\":null},\"color\":{\"condition\":{\"selection\":\"hover\",\"value\":\"white\"},\"value\":\"rgb(8,35,60)\"},\"stroke\":{\"condition\":{\"selection\":\"hover\",\"value\":\"black\"},\"value\":null},\"fillOpacity\":{\"field\":\"bin\",\"type\":\"quantitative\",\"scale\":null},\"tooltip\":[{\"field\":\"s\",\"type\":\"nominal\"},{\"field\":\"p\",\"type\":\"nominal\"},{\"field\":\"o\",\"type\":\"nominal\"}]},\"view\":{\"stroke\":null}}" ;
+        ns5:depiction <http://nanomine.org/viz/b50dbe9388ae454d_depiction> .
+
+    <http://nanomine.org/viz/b50dbe9388ae454d_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-12T23:54:00.158000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "abb7623c-2bb7-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:44gdydgbkf a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/b50dbe9388ae454d_depiction> ;
+        ns8:hasAssertion ns1:44gdydgbkf_assertion ;
+        ns8:hasProvenance ns1:44gdydgbkf_provenance ;
+        ns8:hasPublicationInfo ns1:44gdydgbkf_pubinfo .
+
+    ns1:44gdydgbkf_assertion a ns8:Assertion .
+
+    ns1:44gdydgbkf_provenance a ns8:Provenance .
+
+    ns1:44gdydgbkf_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:44gdydgbkf_pubinfo {
+    ns1:44gdydgbkf_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-12T23:54:00.159000+00:00"^^xsd:dateTime .
+}
+

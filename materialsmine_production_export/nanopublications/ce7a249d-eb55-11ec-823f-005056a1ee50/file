@@ -1,0 +1,56 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:xcebqzicmg_pubinfo {
+    ns1:xcebqzicmg_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-12T19:11:24.785000+00:00"^^xsd:dateTime .
+}
+
+ns1:xcebqzicmg_assertion {
+    <http://nanomine.org/viz/afcfc3ec61c82618> a ns6:Chart ;
+        ns2:description "A hapax legomenon, a word or expression that appears only once in a given context, is studied in corpus linguistics as an indicator of linguistic variety. Here, the collection of chart descriptions in the knowledge graph forms our basis for analysis, where unique expressions were tokenized and tallied inside Vega-Lite using regular expressions. This multi-hued display shows charts with the topmost counts of hapaxes among those published to the gallery, where individual tokens are presented as colored rectangles. Hover over these marks to manifest tooltips with the token's designation and affiliated chart. The description associated with the present chart has been meticulously crafted to encompass a considerable variety of aforementioned expressions. Consequently, the data graphic before your eyes should bequeath prominence to itself!" ;
+        ns2:title "Hapax Legomena" ;
+        ns4:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT * WHERE {
+  ?chart a sio:Chart ;
+         dct:title ?Title ;
+         dct:description ?Description .
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"split(datum.Description, ' ')\",\"as\":\"Description_Token\"},{\"flatten\":[\"Description_Token\"]},{\"calculate\":\"lower(datum.Description_Token)\",\"as\":\"Word_Token_specialchars\"},{\"calculate\":\"replace(datum.Word_Token_specialchars, /^[^a-zA-Z]+|[^a-zA-Z]+$/g, '')\",\"as\":\"Word_Token\"},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"Token_Count_All\"}],\"groupby\":[\"Word_Token\"]},{\"filter\":\"datum.Token_Count_All == 1\"},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"HL_count\"}],\"groupby\":[\"chart\"]},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"HL_count\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank <= 10\"}],\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\"}},\"mark\":\"bar\",\"encoding\":{\"y\":{\"field\":\"Title\",\"type\":\"nominal\",\"sort\":{\"encoding\":\"x\",\"order\":\"descending\"},\"title\":null,\"axis\":{\"orient\":\"right\"}},\"x\":{\"aggregate\":\"count\",\"title\":\"Count of Hapax Legomena\"},\"color\":{\"field\":\"Word_Token\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":1},\"value\":0.4},\"tooltip\":[{\"field\":\"Word_Token\",\"type\":\"nominal\",\"title\":\"Hapax\"},{\"field\":\"Title\",\"type\":\"nominal\",\"title\":\"Chart Title\"}]},\"config\":{\"axis\":{\"labelFontSize\":12,\"labelLimit\":400,\"titleFontSize\":14}}}" ;
+        ns5:depiction <http://nanomine.org/viz/afcfc3ec61c82618_depiction> .
+
+    <http://nanomine.org/viz/afcfc3ec61c82618_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-12T19:11:24.784000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "31868fbe-2b90-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:xcebqzicmg a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/afcfc3ec61c82618_depiction> ;
+        ns8:hasAssertion ns1:xcebqzicmg_assertion ;
+        ns8:hasProvenance ns1:xcebqzicmg_provenance ;
+        ns8:hasPublicationInfo ns1:xcebqzicmg_pubinfo .
+
+    ns1:xcebqzicmg_assertion a ns8:Assertion .
+
+    ns1:xcebqzicmg_provenance a ns8:Provenance .
+
+    ns1:xcebqzicmg_pubinfo a ns8:PublicationInfo .
+}
+

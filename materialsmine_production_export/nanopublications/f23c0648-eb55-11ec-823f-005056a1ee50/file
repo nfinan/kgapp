@@ -1,0 +1,47 @@
+@prefix ns1: <http://schema.org/> .
+@prefix ns2: <http://open.vocab.org/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:hALj8nW3LCpsswaYbGgW4h_assertion> {
+    <http://nanomine.org/nmr/dataset/268> a ns1:Dataset ;
+        ns1:distribution <http://nanomine.org/nmr/xml/L268_S14_Chen_2007> .
+
+    <http://nanomine.org/nmr/xml/L268_S14_Chen_2007?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns1:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns2:hasContentType "text/xml" ;
+        ns4:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns4:contributor <http://nanomine.org/user/9999999999> ;
+        ns4:created "2021-07-22T21:08:35.093000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "fa0b36b0-eb30-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns4:FileFormat .
+}
+
+{
+    <urn:hALj8nW3LCpsswaYbGgW4h> a ns6:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/nmr/xml/L268_S14_Chen_2007?format=xml> ;
+        ns6:hasAssertion <urn:hALj8nW3LCpsswaYbGgW4h_assertion> ;
+        ns6:hasProvenance <urn:hALj8nW3LCpsswaYbGgW4h_provenance> ;
+        ns6:hasPublicationInfo <urn:hALj8nW3LCpsswaYbGgW4h_pubinfo> .
+
+    <urn:hALj8nW3LCpsswaYbGgW4h_assertion> a ns6:Assertion .
+
+    <urn:hALj8nW3LCpsswaYbGgW4h_provenance> a ns6:Provenance .
+
+    <urn:hALj8nW3LCpsswaYbGgW4h_pubinfo> a ns6:PublicationInfo .
+}
+
+<urn:hALj8nW3LCpsswaYbGgW4h_pubinfo> {
+    <urn:hALj8nW3LCpsswaYbGgW4h_assertion> ns4:contributor <http://nanomine.org/user/9999999999> ;
+        ns4:created "2021-07-22T21:08:35.094000+00:00"^^xsd:dateTime .
+}
+

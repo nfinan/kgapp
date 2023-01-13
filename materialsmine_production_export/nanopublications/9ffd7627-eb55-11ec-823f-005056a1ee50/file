@@ -1,0 +1,46 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://materialsmine.org/nanpub/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:NTc1MjEzLjk1MjY0NTAwMTg a ns2:Nanopublication ;
+        ns2:hasAssertion ns5:L203_S4_Ma_2009 ;
+        ns2:hasProvenance ns1:NTc1MjEzLjk1MjY0NTAwMTg_provenance ;
+        ns2:hasPublicationInfo ns1:NTc1MjEzLjk1MjY0NTAwMTg_pubinfo .
+
+    ns1:NTc1MjEzLjk1MjY0NTAwMTg_provenance a ns2:Provenance .
+
+    ns1:NTc1MjEzLjk1MjY0NTAwMTg_pubinfo a ns2:PublicationInfo .
+
+    [] a ns2:Assertion .
+}
+
+ns1:NTc1MjEzLjk1MjY0NTAwMTg_pubinfo {
+    ns5:L203_S4_Ma_2009 ns4:created "2021-07-22T13:53:49.619000+00:00"^^xsd:dateTime ;
+        ns3:wasAttributedTo <http://nanomine.org/setl/NjA0MDA4Ljc2NDU2Mzg2Nzk/MaterialsmineXMLImport> .
+}
+
+ns5:L203_S4_Ma_2009 {
+    ns5:L203_S4_Ma_2009_nanopub a ns2:Nanopublication ;
+        ns2:hasAssertion ns5:L203_S4_Ma_2009_assertion ;
+        ns2:hasProvenance ns5:L203_S4_Ma_2009_provenance ;
+        ns2:hasPublicationInfo ns5:L203_S4_Ma_2009_pubinfo .
+
+    ns5:L203_S4_Ma_2009_assertion a ns2:Assertion .
+
+    ns5:L203_S4_Ma_2009_provenance a ns2:Provenance .
+
+    ns5:L203_S4_Ma_2009_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:NTc1MjEzLjk1MjY0NTAwMTg_provenance {
+    ns5:L203_S4_Ma_2009 ns3:wasDerivedFrom ns5:L203_S4_Ma_2009,
+            ns1:NTkzNjIuNzQ2MjY0MDIxNA_assertion ;
+        ns3:wasGeneratedBy [ a <http://nanomine.org/setl/NjA0MDA4Ljc2NDU2Mzg2Nzk/MaterialsmineXMLImport> ;
+                ns3:used ns5:L203_S4_Ma_2009,
+                    ns1:NTkzNjIuNzQ2MjY0MDIxNA_assertion ] .
+}
+

@@ -1,0 +1,61 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:7ripoivdni a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/3495dfbdc3108660_depiction> ;
+        ns2:hasAssertion ns1:7ripoivdni_assertion ;
+        ns2:hasProvenance ns1:7ripoivdni_provenance ;
+        ns2:hasPublicationInfo ns1:7ripoivdni_pubinfo .
+
+    ns1:7ripoivdni_assertion a ns2:Assertion .
+
+    ns1:7ripoivdni_provenance a ns2:Provenance .
+
+    ns1:7ripoivdni_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:7ripoivdni_assertion {
+    <http://nanomine.org/viz/3495dfbdc3108660> a ns3:Chart ;
+        ns6:description "A bump chart shows the progression of a quantitative variable between categorical states. This example shows a series of materials processing steps as a simple bump chart, where the y axis indicates the type of process step that was curated. These example data were curated from Goertzen et al. (2007, doi: 10.1016/j.compositesa.2008.02.006)." ;
+        ns6:title "Bump Chart" ;
+        ns8:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT DISTINCT ?sample ?ProcessType ?ParamType ?stepNo
+WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          prov:wasGeneratedBy [ a ?ProcessType ; sio:hasPart ?step ] .
+  ?step sio:hasParameter [ a ?ParamType ; sio:hasAttribute ?x ] .
+  FILTER(?ProcessType != sio:Procedure && ?ParamType != sio:Parameter)
+  BIND(REPLACE(STR(?step), "http://materialsmine.org/sample/L223_S2_Goertzen_2008_solution_processing_step_", "") AS ?stepNo)
+  VALUES ?sample { <http://materialsmine.org/sample/l223-s2-goertzen-2008> }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"toNumber(datum.stepNo)\",\"as\":\"stepNo\"},{\"calculate\":\"replace(datum.ParamType, /^.*org.ns./, '')\",\"as\":\"ParamLabel\"}],\"width\":400,\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"y\":{\"field\":\"ParamLabel\",\"type\":\"ordinal\",\"title\":\"Step Type\"},\"x\":{\"field\":\"stepNo\",\"type\":\"quantitative\",\"title\":\"Step Number\"},\"order\":{\"field\":\"stepNo\",\"type\":\"ordinal\"},\"tooltip\":[{\"field\":\"stepNo\",\"type\":\"quantitative\",\"title\":\"Step\"},{\"field\":\"ParamLabel\",\"type\":\"nominal\",\"title\":\"Step Type\"}]},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns7:depiction <http://nanomine.org/viz/3495dfbdc3108660_depiction> .
+
+    <http://nanomine.org/viz/3495dfbdc3108660_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-12-22T16:24:42.564000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "ab114ff0-6343-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns6:FileFormat .
+}
+
+ns1:7ripoivdni_pubinfo {
+    ns1:7ripoivdni_assertion ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-12-22T16:24:42.564000+00:00"^^xsd:dateTime .
+}
+

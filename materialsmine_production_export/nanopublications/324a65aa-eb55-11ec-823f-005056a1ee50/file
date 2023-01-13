@@ -1,0 +1,71 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:9u6wmwh9gl a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/9ef57029472b8c96_depiction> ;
+        ns2:hasAssertion ns1:9u6wmwh9gl_assertion ;
+        ns2:hasProvenance ns1:9u6wmwh9gl_provenance ;
+        ns2:hasPublicationInfo ns1:9u6wmwh9gl_pubinfo .
+
+    ns1:9u6wmwh9gl_assertion a ns2:Assertion .
+
+    ns1:9u6wmwh9gl_provenance a ns2:Provenance .
+
+    ns1:9u6wmwh9gl_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:9u6wmwh9gl_pubinfo {
+    ns1:9u6wmwh9gl_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-21T16:21:45.369000+00:00"^^xsd:dateTime .
+}
+
+ns1:9u6wmwh9gl_assertion {
+    <http://nanomine.org/viz/9ef57029472b8c96> a ns3:Chart ;
+        ns4:description "The locally-estimated scatterplot smoothing (LOESS) transform in Vega-Lite produces locally weighted regressions over a sliding window of nearest points, resulting in a smoothed trendline. Here, we plot thermogravimetric analysis (TGA) data linked to samples containing \"Poly(methyl methacrylate)\" and show the average trend as a red curve. Hover over a gray line to view the sample ID, in addition to the filler type and mass fraction (if applicable)." ;
+        ns4:title "Loess Regression on Thermogravimetric Analysis Data" ;
+        ns7:query """PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart ?matrix ;
+          sio:hasAttribute [ a mm:WeightLoss ; 
+                             sio:hasValue ?WL;
+                             sio:inRelationTo [ a mm:Temperature ; 
+                                                sio:hasValue ?T ;
+                                                sio:hasUnit om-2:degreeCelsius ] ] .
+  ?matrix a [ rdfs:label "Poly(methyl methacrylate)" ] ;
+          sio:hasRole [ a mm:Matrix ] .
+  OPTIONAL{
+    ?sample sio:hasComponentPart ?filler .
+    ?filler a [ rdfs:label ?Filler ] ;
+          sio:hasRole [ a mm:Filler ] ;
+          sio:hasAttribute [ a mm:MassFraction ; 
+                             sio:hasValue ?MassFraction ] .
+  }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./,'')\",\"as\":\"Sample ID\"}],\"layer\":[{\"height\":300,\"width\":500,\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"mark\":{\"type\":\"line\",\"color\":\"#dddddd\",\"opacity\":0.7},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"hover\",\"field\":\"sample\",\"type\":\"nominal\",\"legend\":null},\"value\":\"#dddddd\"},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\"}]}},{\"transform\":[{\"loess\":\"WL\",\"on\":\"T\"}],\"mark\":{\"type\":\"line\",\"color\":\"firebrick\"}}],\"encoding\":{\"x\":{\"field\":\"T\",\"type\":\"quantitative\",\"scale\":{\"padding\":5,\"nice\":false},\"title\":\"Temperature (C)\"},\"y\":{\"field\":\"WL\",\"type\":\"quantitative\",\"title\":\"% of Initial Mass\"}},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12}}}" ;
+        ns5:depiction <http://nanomine.org/viz/9ef57029472b8c96_depiction> .
+
+    <http://nanomine.org/viz/9ef57029472b8c96_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-21T16:21:45.368000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "fbd47b40-328a-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

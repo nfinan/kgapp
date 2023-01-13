@@ -1,0 +1,81 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:bmz98o2trv_assertion {
+    <http://nanomine.org/viz/9db086bc27b1b9a9> a ns4:Chart ;
+        ns2:description "The glass transition temperature (Tg) of a polymer can be measured through dynamic mechanical analysis (DMA), characterized by a drop in storage modulus and a peak in both the loss modulus and tan delta curves. While the glass transition occurs across a range of temperatures, the single Tg value assigned to a test specimen from DMA data is guided by standards such as ASTM E1640. Here, DMA results are shown, and the normalized tan delta curves have been shifted by the reported value of Tg in NanoMine." ;
+        ns2:title "Determining Tg from DMA, Part I: Tan Delta" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ,
+                           [ a nm:ViscoelasticProperty ] ,
+                           [ a nm:TanDelta ;
+                             sio:hasValue ?TanDelta ; 
+                             sio:inRelationTo [ a nm:Temperature ;
+                                                sio:hasValue ?TemperatureC ;
+                                                sio:hasUnit [ rdfs:label "Celsius" ] ]
+                           ]  .
+  ?doi sio:hasPart ?sample .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] .
+  }
+
+  BIND((?TemperatureC - ?Tg) AS ?offsetTemp )
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":800,\"height\":495,\"transform\":[{\"joinaggregate\":[{\"op\":\"min\",\"field\":\"TanDelta\",\"as\":\"TDmin\"},{\"op\":\"max\",\"field\":\"TanDelta\",\"as\":\"TDmax\"},{\"op\":\"argmax\",\"field\":\"TanDelta\",\"as\":\"TDargmax\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"(datum.TanDelta - datum.TDmin) / (datum.TDmax - datum.TDmin)\",\"as\":\"normTD\"},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"}],\"layer\":[{\"mark\":{\"type\":\"line\"},\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]},\"myhighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"encoding\":{\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"y\":{\"field\":\"normTD\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Tan Delta (normalized)\",\"titleFontSize\":20,\"labelFontSize\":20},\"scale\":{\"type\":\"linear\",\"domain\":[0,1]}},\"x\":{\"field\":\"offsetTemp\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Temperature (shifted by reported Tg value) [Celsius]\",\"titleFontSize\":20,\"labelFontSize\":20,\"labelFlush\":false},\"scale\":{\"domain\":[-100,100]}},\"color\":{\"field\":\"TDargmax.offsetTemp\",\"type\":\"quantitative\",\"scale\":{\"scheme\":\"goldgreen\",\"domainMid\":0},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":1},\"value\":0.1},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Tg\",\"type\":\"quantitative\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"format\":\".3p\"},{\"field\":\"Loading_vol\",\"type\":\"quantitative\",\"format\":\".3p\"}],\"strokeWidth\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":3},\"value\":1}}},{\"mark\":{\"type\":\"rule\",\"color\":\"#777\"},\"encoding\":{\"x\":{\"datum\":0}}}]}" ;
+        ns6:depiction <http://nanomine.org/viz/9db086bc27b1b9a9_depiction> .
+
+    <http://nanomine.org/viz/9db086bc27b1b9a9_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:02:33.200000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "c2a3bea8-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:bmz98o2trv_pubinfo {
+    ns1:bmz98o2trv_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:02:33.201000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:bmz98o2trv a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/9db086bc27b1b9a9_depiction> ;
+        ns8:hasAssertion ns1:bmz98o2trv_assertion ;
+        ns8:hasProvenance ns1:bmz98o2trv_provenance ;
+        ns8:hasPublicationInfo ns1:bmz98o2trv_pubinfo .
+
+    ns1:bmz98o2trv_assertion a ns8:Assertion .
+
+    ns1:bmz98o2trv_provenance a ns8:Provenance .
+
+    ns1:bmz98o2trv_pubinfo a ns8:PublicationInfo .
+}
+

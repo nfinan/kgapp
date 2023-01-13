@@ -1,0 +1,41 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.w3.org/2006/vcard/ns#> .
+@prefix ns4: <http://w3.org/ns/dcat#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:2boyaypy8y_pubinfo {
+    ns1:2boyaypy8y_assertion ns2:contributor <http://nanomine.org/user/1124548> ;
+        ns2:created "2021-08-04T14:25:12.771000+00:00"^^xsd:dateTime .
+}
+
+ns1:2boyaypy8y_assertion {
+    <http://nanomine.org/dataset/12ba3128-a626-4abe-b419-9fdb98db07f5> a <http://www.w3.org/ns/dcat#Dataset> ;
+        ns2:description "Test_data" ;
+        ns2:issued "2021-08-04"^^<https://www.w3.org/2001/XMLSchema#date> ;
+        ns2:modified "2021-08-04"^^<https://www.w3.org/2001/XMLSchema#date> ;
+        ns2:title "Test_data" ;
+        ns4:contactpoint <http://orcid.org/0000-0003-2688-8995> .
+
+    <http://orcid.org/0000-0003-2688-8995> a ns3:individual ;
+        ns3:email "mary.bastawrous@colorado.edu" ;
+        ns3:family-name "Bastawrous" ;
+        ns3:given-name "Mary" ;
+        ns5:name "Mary Bastawrous" .
+}
+
+{
+    ns1:2boyaypy8y a ns6:Nanopublication ;
+        ns6:hasAssertion ns1:2boyaypy8y_assertion ;
+        ns6:hasProvenance ns1:2boyaypy8y_provenance ;
+        ns6:hasPublicationInfo ns1:2boyaypy8y_pubinfo .
+
+    ns1:2boyaypy8y_assertion a ns6:Assertion .
+
+    ns1:2boyaypy8y_provenance a ns6:Provenance .
+
+    ns1:2boyaypy8y_pubinfo a ns6:PublicationInfo .
+}
+

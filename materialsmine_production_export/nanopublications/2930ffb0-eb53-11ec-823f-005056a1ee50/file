@@ -1,0 +1,2554 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L255_S3_Logakis_2009_provenance {
+    <http://materialsmine.org/sample/l255-s3-logakis-2009> ns2:wasGeneratedBy <http://materialsmine.org/entry/L255_S3_Logakis_2009_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/novocontrol-alpha-analyzer>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L255_S3_Logakis_2009_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/zeiss-em-912>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L255_S3_Logakis_2009_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/L255_S3_Logakis_2009_description_attr_29>,
+                    <http://materialsmine.org/sample/L255_S3_Logakis_2009_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L255_S3_Logakis_2009_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns3:Procedure ;
+        ns4:description "samples were prepared by diluting the masterbatch with PA" ;
+        ns3:hasPart <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_1> .
+
+    <http://materialsmine.org/ns/novocontrol-alpha-analyzer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Novocontrol Alpha analyzer" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/zeiss-em-912> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Zeiss EM 912" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kiloelectronvolt> ;
+        ns3:hasValue 1.2e+02 .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_description>,
+            <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixing_description> a ns3:Description ;
+        ns3:hasValue "a masterbatch of 20 wt.% MWCNT in PA was diluted with PA" .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns3:hasValue "dissolving" .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_1_molding> .
+
+    <http://materialsmine.org/sample/L255_S3_Logakis_2009_melt_mixing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kiloelectronvolt> rdfs:label "keV" .
+
+    ns1:L255_S3_Logakis_2009_assertion ns2:wasDerivedFrom ns1:L255_S3_Logakis_2009_assertion,
+            <http://nanomine.org/pub/NDgxMzA2LjgwNzg3MjA4MjY_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/Mzg4OTMuODU0NjU3NTA2Njk/MaterialsmineXMLImport> ;
+                ns2:used ns1:L255_S3_Logakis_2009_assertion,
+                    <http://nanomine.org/pub/NDgxMzA2LjgwNzg3MjA4MjY_assertion> ],
+            <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_description>,
+            <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_equipment>,
+            <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L255_S3_Logakis_2009_characterization_transmission-electron-microscopy> .
+}
+
+ns1:L255_S3_Logakis_2009_assertion {
+    <http://materialsmine.org/sample/l255-s1-logakis-2009> ns3:hasRole <http://materialsmine.org/sample/l255-s1-logakis-2009_control_role> .
+
+    <http://localhost/nmr/blob?id=597a3116e74a1d1577231251> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/l255-s3-logakis-2009> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=597a3116e74a1d1577231251" .
+
+    <http://localhost/nmr/blob?id=597a311ce74a1d1577231262> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/l255-s3-logakis-2009> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=597a311ce74a1d1577231262" .
+
+    <http://materialsmine.org/compound/MultiWallCarbonNanotubes> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Multi-wall carbon nanotubes" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Hyperion Catalysis International, Cambridge, MA, USA" ] ;
+        ns5:altLabel "multi-walled carbon nanotubes" ;
+        ns5:notation "MWCNT" .
+
+    <http://materialsmine.org/compound/Nylon6> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Nylon 6" ;
+        ns5:notation "PA 6" .
+
+    <http://materialsmine.org/sample/l255-s1-logakis-2009_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l255-s3-logakis-2009> .
+
+    <http://materialsmine.org/sample/l255-s3-logakis-2009_filler_0> a <http://materialsmine.org/compound/MultiWallCarbonNanotubes> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.6e+00 ],
+            <http://materialsmine.org/sample/l255-s3-logakis-2009_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l255-s3-logakis-2009_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l255-s3-logakis-2009> ] .
+
+    <http://materialsmine.org/sample/l255-s3-logakis-2009_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns3:hasValue 2.5e-02 .
+
+    <http://materialsmine.org/sample/l255-s3-logakis-2009_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns3:hasValue 1.696558e-02 .
+
+    <http://materialsmine.org/sample/l255-s3-logakis-2009_matrix_0> a <http://materialsmine.org/compound/Nylon6> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PA 6" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Hyperion Catalysis International, Cambridge, MA, USA" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.75e+00 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l255-s3-logakis-2009> ] .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/l255-s3-logakis-2009> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "multi-walled carbon nanotubes in polyamide 6" ;
+        ns3:hasAttribute [ ns3:hasValue 4.695577e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.192946e-02 ] ],
+            [ ns3:hasValue 8.257245e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.274645e+01 ] ],
+            [ ns3:hasValue 3.825634e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.346192e-01 ] ],
+            [ ns3:hasValue 2.5059e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.090909e+00 ] ],
+            [ ns3:hasValue 1.198925e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.998283e+00 ] ],
+            [ ns3:hasValue 2.336134e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.987332e+02 ] ],
+            [ ns3:hasValue 2.896131e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 8.909549e+04 ] ],
+            [ ns3:hasValue 9.139785e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.437952e-02 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.800508e+03 ] ],
+            [ ns3:hasValue 5.94086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.010843e+03 ] ],
+            [ ns3:hasValue 6.431172e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.969052e+01 ] ],
+            [ ns3:hasValue 3.529521e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.281694e-01 ] ],
+            [ ns3:hasValue 1.77957e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.780678e+00 ] ],
+            [ ns3:hasValue 6.599678e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.820327e+01 ] ],
+            [ ns3:hasValue 8.225806e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.506333e+04 ] ],
+            [ ns3:hasValue 5.336699e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 4.262678e+01 ] ],
+            [ ns3:hasValue 1.704301e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.648051e-01 ] ],
+            [ ns3:hasValue 1.38172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.531908e+05 ] ],
+            [ ns3:hasValue 1.22043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.456541e+03 ] ],
+            [ ns3:hasValue 1.370968e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.31423e+02 ] ],
+            [ ns3:hasValue 1.575269e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.415086e+00 ] ],
+            [ ns3:hasValue 1.585915e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.172144e+03 ] ],
+            [ ns3:hasValue 1.258065e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 6.587912e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.192946e-02 ] ],
+            [ ns3:hasValue 6.182796e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.331747e+04 ] ],
+            [ ns3:hasValue 1.413978e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101931e-01 ] ],
+            [ ns3:hasValue 8.978495e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.081367e+02 ] ],
+            [ ns3:hasValue 1.296365e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 3.703028e+04 ] ],
+            [ ns3:hasValue 2.926432e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.037238e+01 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.263947e+03 ] ],
+            [ ns3:hasValue 1.494624e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.726448e+05 ] ],
+            [ ns3:hasValue 4.623656e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.977628e+00 ] ],
+            [ ns3:hasValue 7.152553e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.592741e+05 ] ],
+            [ ns3:hasValue 1.598219e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 5.915892e+00 ] ],
+            [ ns3:hasValue 1.225806e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.490397e+03 ] ],
+            [ ns3:hasValue 4.327703e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.909282e-02 ] ],
+            [ ns3:hasValue 4.150527e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.403468e-01 ] ],
+            [ ns3:hasValue 4.155175e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.245181e-02 ] ],
+            [ ns3:hasValue 2.756859e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -3.974855e+01 ] ],
+            [ ns3:hasValue 4.301249e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.053879e+02 ] ],
+            [ ns3:hasValue 5.159425e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.302525e-02 ] ],
+            [ ns3:hasValue 1.080645e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.181951e+04 ] ],
+            [ ns3:hasValue 5.645161e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 1.344086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.004969e+02 ] ],
+            [ ns3:hasValue 4.892091e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.943671e-02 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns3:hasValue 9.134655e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.883236e+05 ] ],
+            [ ns3:hasValue 2.823431e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.992263e+01 ] ],
+            [ ns3:hasValue 2.02836e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.922349e+02 ] ],
+            [ ns3:hasValue 1.269483e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.034816e+01 ] ],
+            [ ns3:hasValue 2.02836e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.922349e+02 ] ],
+            [ ns3:hasValue 4.794985e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.350638e-02 ] ],
+            [ ns3:hasValue 4.186183e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 4.921278e-01 ] ],
+            [ ns3:hasValue 2.429564e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.815426e-01 ] ],
+            [ ns3:hasValue 4.086022e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.185639e-02 ] ],
+            [ ns3:hasValue 1.534946e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 2.566412e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.868472e-01 ] ],
+            [ ns3:hasValue 3.256321e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 3.187701e+02 ] ],
+            [ ns3:hasValue 1.598219e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 5.915892e+00 ] ],
+            [ ns3:hasValue 2.34154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.013297e+01 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.636669e+03 ] ],
+            [ ns3:hasValue 2.688172e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 9.134655e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.883236e+05 ] ],
+            [ ns3:hasValue 6.80342e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 9.905094e+02 ] ],
+            [ ns3:hasValue 1.263441e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.849179e+05 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.723987e+00 ] ],
+            [ ns3:hasValue 1.354839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.498456e+02 ] ],
+            [ ns3:hasValue 1.349462e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.972795e+05 ] ],
+            [ ns3:hasValue 4.21341e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.157921e+02 ] ],
+            [ ns3:hasValue 1.427851e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.288795e+05 ] ],
+            [ ns3:hasValue 9.916619e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 2.387621e+04 ] ],
+            [ ns3:hasValue 3.163086e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.08434e+03 ] ],
+            [ ns3:hasValue 1.241935e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.311818e+04 ] ],
+            [ ns3:hasValue 1.795699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132046e+00 ] ],
+            [ ns3:hasValue 6.344086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.912964e+04 ] ],
+            [ ns3:hasValue 2.688172e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419463e-01 ] ],
+            [ ns3:hasValue 2.688172e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419463e-01 ] ],
+            [ ns3:hasValue 1.054377e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.332687e+04 ] ],
+            [ ns3:hasValue 1.650538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.951633e+01 ] ],
+            [ ns3:hasValue 1.548387e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 6.075269e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 3.094722e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.697556e+04 ] ],
+            [ ns3:hasValue 4.044552e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.544489e+02 ] ],
+            [ ns3:hasValue 2.390355e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.959817e+01 ] ],
+            [ ns3:hasValue 8.458098e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 4.293952e+05 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue -3e+01 ],
+            [ ns3:hasValue 3.520772e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746733e+00 ] ],
+            [ ns3:hasValue 3.882555e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.326997e+02 ] ],
+            [ ns3:hasValue 1.198925e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.044084e+03 ] ],
+            [ ns3:hasValue 3.903014e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.977439e-01 ] ],
+            [ ns3:hasValue 4.153052e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.050889e-01 ] ],
+            [ ns3:hasValue 3.029974e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.755138e+05 ] ],
+            [ ns3:hasValue 2.572492e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.313052e+05 ] ],
+            [ ns3:hasValue 1.107527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.786055e+04 ] ],
+            [ ns3:hasValue 1.685995e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.996724e+03 ] ],
+            [ ns3:hasValue 1.053763e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.951633e+01 ] ],
+            [ ns3:hasValue 1.61828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e-01 ] ],
+            [ ns3:hasValue 3.503084e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.535925e+03 ] ],
+            [ ns3:hasValue 1.489247e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.802848e+02 ] ],
+            [ ns3:hasValue 7.284946e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.357388e+01 ] ],
+            [ ns3:hasValue 1.649997e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.674758e+04 ] ],
+            [ ns3:hasValue 8.870968e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.951633e+01 ] ],
+            [ ns3:hasValue 5.913978e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.456541e+03 ] ],
+            [ ns3:hasValue 4.66642e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.524873e+02 ] ],
+            [ ns3:hasValue 1.655914e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.707426e+00 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.570205e+03 ] ],
+            [ ns3:hasValue 1.58436e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.584893e+00 ] ],
+            [ ns3:hasValue 1.812099e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 5.537382e+04 ] ],
+            [ ns3:hasValue 1.267002e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.674758e+04 ] ],
+            [ ns3:hasValue 7.956989e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.408424e+04 ] ],
+            [ ns3:hasValue 1.225806e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.585636e+04 ] ],
+            [ ns3:hasValue 1.188172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 1.488405e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.260662e+05 ] ],
+            [ ns3:hasValue 1.522543e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.088465e+03 ] ],
+            [ ns3:hasValue 1.649997e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.674758e+04 ] ],
+            [ ns3:hasValue 1.11828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.569426e+04 ] ],
+            [ ns3:hasValue 1.865541e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.088465e+03 ] ],
+            [ ns3:hasValue 1.906149e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.728009e+02 ] ],
+            [ ns3:hasValue 3.849945e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 4.765988e+02 ] ],
+            [ ns3:hasValue 1.456989e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 1.112903e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.490397e+03 ] ],
+            [ ns3:hasValue 1.191349e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87279e+00 ] ],
+            [ ns3:hasValue 1.865541e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.088465e+03 ] ],
+            [ ns3:hasValue 4.153052e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.050889e-01 ] ],
+            [ ns3:hasValue 2.535332e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.264168e+02 ] ],
+            [ ns3:hasValue 3.825634e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.346192e-01 ] ],
+            [ ns3:hasValue 1.413978e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101931e-01 ] ],
+            [ ns3:hasValue 1.274194e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.711785e+00 ] ],
+            [ ns3:hasValue 7.307472e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.896026e+01 ] ],
+            [ ns3:hasValue 1.612903e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.331747e-02 ] ],
+            [ ns3:hasValue 2.935061e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101327e+00 ] ],
+            [ ns3:hasValue 1.204301e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.60006e-02 ] ],
+            [ ns3:hasValue 3.079849e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.992065e+01 ] ],
+            [ ns3:hasValue 1.222567e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 3.814421e+00 ] ],
+            [ ns3:hasValue 1.591398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ a ns3:Frequency ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                ns3:hasValue 9.5e+01 ],
+            [ ns3:hasValue 2.388811e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 1.371743e+01 ] ],
+            [ ns3:hasValue 4.66642e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.524873e+02 ] ],
+            [ ns3:hasValue 2.910951e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.199218e+04 ] ],
+            [ ns3:hasValue 1.236559e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.90757e-02 ] ],
+            [ ns3:hasValue 3.746505e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.403909e-01 ] ],
+            [ ns3:hasValue 4.330337e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.146528e-02 ] ],
+            [ ns3:hasValue 8.081993e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.971011e+05 ] ],
+            [ ns3:hasValue 3.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.677961e-01 ] ],
+            [ ns3:hasValue 5.322581e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.367198e+01 ] ],
+            [ ns3:hasValue 1.987131e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.589248e+02 ] ],
+            [ ns3:hasValue 7.903226e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.263947e+03 ] ],
+            [ ns3:hasValue 1.516129e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.316552e+02 ] ],
+            [ ns3:hasValue 2.758286e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.391834e+00 ] ],
+            [ ns3:hasValue 1.752688e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.319207e-01 ] ],
+            [ ns3:hasValue 1.602151e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.474245e-01 ] ],
+            [ ns3:hasValue 4.420506e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.44305e-02 ] ],
+            [ ns3:hasValue 9.510028e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 1.5935e+03 ] ],
+            [ ns3:hasValue 1.134409e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.437046e+03 ] ],
+            [ ns3:hasValue 3.387411e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.403468e-01 ] ],
+            [ ns3:hasValue 8.225806e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.506333e+04 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.678125e+05 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.344355e+03 ] ],
+            [ ns3:hasValue 5.830009e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.909282e-02 ] ],
+            [ ns3:hasValue 7.153943e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.706048e+00 ] ],
+            [ ns3:hasValue 2.691856e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -9.767892e+00 ] ],
+            [ ns3:hasValue 1.069279e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 2.64631e+00 ] ],
+            [ ns3:hasValue 3.746505e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.403909e-01 ] ],
+            [ ns3:hasValue 8.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.624699e+05 ] ],
+            [ ns3:hasValue 4.961257e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.917614e+01 ] ],
+            [ ns3:hasValue 5.215054e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.04169e-01 ] ],
+            [ ns3:hasValue 6.612903e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.316552e+02 ] ],
+            [ ns3:hasValue 2.691856e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -9.767892e+00 ] ],
+            [ ns3:hasValue 2.390355e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.959817e+01 ] ],
+            [ ns3:hasValue 1.754107e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.21627e+00 ] ],
+            [ ns3:hasValue 4.301249e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.053879e+02 ] ],
+            [ ns3:hasValue 2.120435e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -8.03675e+01 ] ],
+            [ ns3:hasValue 2.823431e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.992263e+01 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.678125e+05 ] ],
+            [ ns3:hasValue 7.284946e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.357388e+01 ] ],
+            [ ns3:hasValue 6.532258e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.816104e+05 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.539408e+03 ] ],
+            [ ns3:hasValue 2.024071e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.420832e+03 ] ],
+            [ ns3:hasValue 2.34097e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.195218e+01 ] ],
+            [ ns3:hasValue 3.165524e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.484332e-01 ] ],
+            [ ns3:hasValue 3.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87099e+00 ] ],
+            [ ns3:hasValue 1.494624e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.281529e+01 ] ],
+            [ ns3:hasValue 6.451613e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.066849e-01 ] ],
+            [ ns3:hasValue 2.64131e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.122981e+02 ] ],
+            [ ns3:hasValue 6.97648e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 6.145088e+01 ] ],
+            [ ns3:hasValue 2.996981e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.05029e+01 ] ],
+            [ ns3:hasValue 4.150527e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.403468e-01 ] ],
+            [ ns3:hasValue 1.408602e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.929346e+01 ] ],
+            [ ns3:hasValue 1.403328e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.32269e+03 ] ],
+            [ ns3:hasValue 1.88172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.751328e-02 ] ],
+            [ ns3:hasValue 3.030711e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.260662e+05 ] ],
+            [ ns3:hasValue 1.473118e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.526266e+01 ] ],
+            [ ns3:hasValue 3.163086e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.08434e+03 ] ],
+            [ ns3:hasValue 1.427851e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.288795e+05 ] ],
+            [ ns3:hasValue 3.870968e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482382e-02 ] ],
+            [ ns3:hasValue 4.044552e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.544489e+02 ] ],
+            [ ns3:hasValue 1.94584e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.539866e+02 ] ],
+            [ ns3:hasValue 1.456989e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 1.306452e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.786611e+02 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.877507e+01 ] ],
+            [ ns3:hasValue 3.709677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.624699e-01 ] ],
+            [ ns3:hasValue 1.583872e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 1.483871e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.46107e+01 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633484e+04 ] ],
+            [ ns3:hasValue 3.577246e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.49572e+03 ] ],
+            [ ns3:hasValue 4.892091e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.943671e-02 ] ],
+            [ ns3:hasValue 1.354839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.153763e+02 ] ],
+            [ ns3:hasValue 3.178825e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.290159e+00 ] ],
+            [ ns3:hasValue 1.193548e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.175595e+05 ] ],
+            [ ns3:hasValue 4.151739e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.615784e-01 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.761216e+03 ] ],
+            [ ns3:hasValue 6.344086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 1.172043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.859177e+04 ] ],
+            [ ns3:hasValue 9.134655e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.883236e+05 ] ],
+            [ ns3:hasValue 1.458115e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.755138e+05 ] ],
+            [ ns3:hasValue 1.973953e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.29207e+02 ] ],
+            [ ns3:hasValue 3.185251e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.318002e-01 ] ],
+            [ ns3:hasValue 8.257245e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.274645e+01 ] ],
+            [ ns3:hasValue 1.817204e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.522894e-01 ] ],
+            [ ns3:hasValue 1.61828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.785896e+01 ] ],
+            [ ns3:hasValue 1.94584e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.539866e+02 ] ],
+            [ ns3:hasValue 1.424731e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.367198e+01 ] ],
+            [ ns3:hasValue 1.795699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132046e+00 ] ],
+            [ ns3:hasValue 2.390355e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.959817e+01 ] ],
+            [ ns3:hasValue 6.075269e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 2.34154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.013297e+01 ] ],
+            [ ns3:hasValue 1.510753e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.081367e+02 ] ],
+            [ ns3:hasValue 1.532691e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.059201e-01 ] ],
+            [ ns3:hasValue 6.451613e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.585636e+04 ] ],
+            [ ns3:hasValue 1.180108e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.539408e+03 ] ],
+            [ ns3:hasValue 4.05914e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.525719e+00 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 9.714881e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.219628e+05 ] ],
+            [ ns3:hasValue 2.64131e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.122981e+02 ] ],
+            [ ns3:hasValue 2.759159e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.506793e+00 ] ],
+            [ ns3:hasValue 3.386422e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.575143e-01 ] ],
+            [ ns3:hasValue 1.053763e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.951633e+01 ] ],
+            [ ns3:hasValue 9.83871e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.257512e+04 ] ],
+            [ ns3:hasValue 7.849462e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 9.02617e+05 ] ],
+            [ ns3:hasValue 1.363156e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 1.425267e+02 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns3:hasValue 9.83871e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 3.295223e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.762602e+03 ] ],
+            [ ns3:hasValue 1.44086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.790307e+05 ] ],
+            [ ns3:hasValue 2.691856e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -9.767892e+00 ] ],
+            [ ns3:hasValue 2.926432e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.037238e+01 ] ],
+            [ ns3:hasValue 1.112903e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.895109e+00 ] ],
+            [ ns3:hasValue 8.333333e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 1.333333e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.785896e+01 ] ],
+            [ ns3:hasValue 8.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.624699e+05 ] ],
+            [ ns3:hasValue 2.996981e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.05029e+01 ] ],
+            [ ns3:hasValue 2.120435e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.103482e+02 ] ],
+            [ ns3:hasValue 1.054291e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.954569e+00 ] ],
+            [ ns3:hasValue 6.599678e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.820327e+01 ] ],
+            [ ns3:hasValue 1.392473e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.564514e+03 ] ],
+            [ ns3:hasValue 6.451613e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.585636e+04 ] ],
+            [ ns3:hasValue 4.695577e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.192946e-02 ] ],
+            [ ns3:hasValue 3.029974e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.755138e+05 ] ],
+            [ ns3:hasValue 2.628386e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.858801e+01 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 1.392473e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 2.064342e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.910494e-01 ] ],
+            [ ns3:hasValue 3.386422e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.575143e-01 ] ],
+            [ ns3:hasValue 4.330337e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.146528e-02 ] ],
+            [ ns3:hasValue 1.155914e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.144321e+04 ] ],
+            [ ns3:hasValue 3.178825e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.290159e+00 ] ],
+            [ ns3:hasValue 1.225806e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.585636e+04 ] ],
+            [ ns3:hasValue 4.794985e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.350638e-02 ] ],
+            [ ns3:hasValue 3.242807e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.407677e+01 ] ],
+            [ ns3:hasValue 1.054377e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.332687e+04 ] ],
+            [ ns3:hasValue 8.064516e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.551005e+04 ] ],
+            [ ns3:hasValue 2.446814e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.924565e+01 ] ],
+            [ ns3:hasValue 4.408602e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.723987e+00 ] ],
+            [ ns3:hasValue 8.870968e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.951633e+01 ] ],
+            [ ns3:hasValue 1.5e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.829343e+01 ] ],
+            [ ns3:hasValue 3.029974e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.755138e+05 ] ],
+            [ ns3:hasValue 1.684273e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.202928e+04 ] ],
+            [ ns3:hasValue 5.383117e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.240359e+01 ] ],
+            [ ns3:hasValue 6.075269e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220818e+04 ] ],
+            [ ns3:hasValue 1.865541e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.088465e+03 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.235517e+04 ] ],
+            [ ns3:hasValue 1.419355e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.889499e+01 ] ],
+            [ ns3:hasValue 1.392473e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.564514e+03 ] ],
+            [ ns3:hasValue 3.803544e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.808667e+02 ] ],
+            [ ns3:hasValue 3.594784e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.932981e+00 ] ],
+            [ ns3:hasValue 7.849462e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 9.02617e+05 ] ],
+            [ ns3:hasValue 6.236559e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.926984e+05 ] ],
+            [ ns3:hasValue 5.383117e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.240359e+01 ] ],
+            [ ns3:hasValue 6.612903e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.790307e+05 ] ],
+            [ ns3:hasValue 9.123401e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.541785e-02 ] ],
+            [ ns3:hasValue 2.628386e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1e+02 ] ],
+            [ ns3:hasValue 9.946237e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.551005e+04 ] ],
+            [ ns3:hasValue 1.053763e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.408424e+04 ] ],
+            [ ns3:hasValue 6.91831e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 2.768818e+05 ] ],
+            [ ns3:hasValue 2.702154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.506701e+00 ] ],
+            [ ns3:hasValue 3.010753e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e-01 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.738286e+05 ] ],
+            [ ns3:hasValue 1.752688e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.541863e+00 ] ],
+            [ ns3:hasValue 5.645161e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 5.215054e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.04169e-01 ] ],
+            [ ns3:hasValue 9.139785e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.32367e+01 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220818e+04 ] ],
+            [ ns3:hasValue 1.069892e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.191227e+05 ] ],
+            [ ns3:hasValue 4.892091e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.943671e-02 ] ],
+            [ ns3:hasValue 1.754107e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.21627e+00 ] ],
+            [ ns3:hasValue 1.370662e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.971011e+05 ] ],
+            [ ns3:hasValue 1.488912e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.932338e+04 ] ],
+            [ ns3:hasValue 8.257245e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.274645e+01 ] ],
+            [ ns3:hasValue 1.327957e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.382023e+05 ] ],
+            [ ns3:hasValue 1.650538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e+05 ] ],
+            [ ns3:hasValue 1.685995e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.996724e+03 ] ],
+            [ ns3:hasValue 2.935061e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101327e+00 ] ],
+            [ ns3:hasValue 2.311828e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.474245e-01 ] ],
+            [ ns3:hasValue 1.543011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 3.295223e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.762602e+03 ] ],
+            [ ns3:hasValue 2.365591e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.169272e+00 ] ],
+            [ ns3:hasValue 6.599678e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.820327e+01 ] ],
+            [ ns3:hasValue 6.690438e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.183675e+00 ] ],
+            [ ns3:hasValue 1.347022e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.125893e+04 ] ],
+            [ ns3:hasValue 3.650549e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.563191e-01 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.269718e+03 ] ],
+            [ ns3:hasValue 1.155914e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.144321e+04 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.269718e+03 ] ],
+            [ ns3:hasValue 7.912002e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.146528e-02 ] ],
+            [ ns3:hasValue 2.064342e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.910494e-01 ] ],
+            [ ns3:hasValue 8.010753e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.570205e+03 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue -1e+02 ],
+            [ ns3:hasValue 1.069892e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.191227e+05 ] ],
+            [ ns3:hasValue 1.344086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 1.75459e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.359026e+03 ] ],
+            [ ns3:hasValue 7.849462e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.687199e+04 ] ],
+            [ ns3:hasValue 1.505376e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.053357e+02 ] ],
+            [ ns3:hasValue 2.066218e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.299729e+03 ] ],
+            [ ns3:hasValue 1.61828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.785896e+01 ] ],
+            [ ns3:hasValue 1.054043e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.199218e+04 ] ],
+            [ ns3:hasValue 9.712045e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.814189e+05 ] ],
+            [ ns3:hasValue 1.166667e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.667776e+04 ] ],
+            [ ns3:hasValue 3.630781e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 7.823579e+03 ] ],
+            [ ns3:hasValue 9.714881e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.219628e+05 ] ],
+            [ ns3:hasValue 1.973953e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.29207e+02 ] ],
+            [ ns3:hasValue 3.529521e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.281694e-01 ] ],
+            [ ns3:hasValue 1.684273e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.202928e+04 ] ],
+            [ ns3:hasValue 1.650538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e+05 ] ],
+            [ ns3:hasValue 1.906149e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.728009e+02 ] ],
+            [ ns3:hasValue 2.224079e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -9.052224e+01 ] ],
+            [ ns3:hasValue 3.097359e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.789347e+04 ] ],
+            [ ns3:hasValue 3.504192e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.299729e+03 ] ],
+            [ ns3:hasValue 3.825634e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.346192e-01 ] ],
+            [ ns3:hasValue 1.88172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.751328e-02 ] ],
+            [ ns3:hasValue 1.253666e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 7.905105e-02 ] ],
+            [ ns3:hasValue 1.354839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.153763e+02 ] ],
+            [ ns3:hasValue 3.803544e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.808667e+02 ] ],
+            [ ns3:hasValue 6.451613e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.138167e-01 ] ],
+            [ ns3:hasValue 2.473118e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 1.112903e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.570205e+03 ] ],
+            [ ns3:hasValue 5.336699e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 4.262678e+01 ] ],
+            [ ns3:hasValue 3.379755e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.216333e+00 ] ],
+            [ ns3:hasValue 1.107527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.639646e+05 ] ],
+            [ ns3:hasValue 2.02836e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.922349e+02 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.269718e+03 ] ],
+            [ ns3:hasValue 4.155175e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.245181e-02 ] ],
+            [ ns3:hasValue 1.166667e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.667776e+04 ] ],
+            [ ns3:hasValue 4.21341e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.157921e+02 ] ],
+            [ ns3:hasValue 4.66642e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.524873e+02 ] ],
+            [ ns3:hasValue 6.532258e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.816104e+05 ] ],
+            [ ns3:hasValue 4.408602e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.723987e+00 ] ],
+            [ ns3:hasValue 6.021505e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.829343e+01 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 1.510753e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 6.182796e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.153763e+02 ] ],
+            [ ns3:hasValue 6.082628e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.336364e+01 ] ],
+            [ ns3:hasValue 1.607527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.628432e+00 ] ],
+            [ ns3:hasValue 6.021505e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.64994e+02 ] ],
+            [ ns3:hasValue 1.905461e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 2.210633e+02 ] ],
+            [ ns3:hasValue 2.619279e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 2.283193e-01 ] ],
+            [ ns3:hasValue 1.494624e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.726448e+05 ] ],
+            [ ns3:hasValue 1.428268e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.883236e+05 ] ],
+            [ ns3:hasValue 1.365591e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.555607e+05 ] ],
+            [ ns3:hasValue 1.344086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 1.373889e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.436836e+00 ] ],
+            [ ns3:hasValue 3.096681e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 7.849462e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.687199e+04 ] ],
+            [ ns3:hasValue 2.926432e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.037238e+01 ] ],
+            [ ns3:hasValue 5.830009e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.909282e-02 ] ],
+            [ ns3:hasValue 1.537634e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.541863e+00 ] ],
+            [ ns3:hasValue 1.483871e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.46107e+01 ] ],
+            [ ns3:hasValue 9.712045e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.814189e+05 ] ],
+            [ ns3:hasValue 1.446237e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.207723e+00 ] ],
+            [ ns3:hasValue 9.892473e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.687199e+04 ] ],
+            [ ns3:hasValue 6.075269e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220818e+04 ] ],
+            [ ns3:hasValue 1.585915e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.172144e+03 ] ],
+            [ ns3:hasValue 1.870968e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 6.082628e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.336364e+01 ] ],
+            [ ns3:hasValue 3.386422e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.575143e-01 ] ],
+            [ ns3:hasValue 1.182796e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.637645e+02 ] ],
+            [ ns3:hasValue 3.095701e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.705632e+04 ] ],
+            [ ns3:hasValue 8.763441e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.010843e+03 ] ],
+            [ ns3:hasValue 1.946408e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.396568e+02 ] ],
+            [ ns3:hasValue 1.83759e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.398453e+02 ] ],
+            [ ns3:hasValue 9.569892e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.302429e+01 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.719476e+04 ] ],
+            [ ns3:hasValue 4.327703e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.909282e-02 ] ],
+            [ ns3:hasValue 2.619279e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 2.283193e-01 ] ],
+            [ ns3:hasValue 8.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.726448e+05 ] ],
+            [ ns3:hasValue 2.777387e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 5.527088e+03 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.274894e+03 ] ],
+            [ ns3:hasValue 1.166667e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.697201e+01 ] ],
+            [ ns3:hasValue 1.397849e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.829466e-01 ] ],
+            [ ns3:hasValue 2.566412e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.868472e-01 ] ],
+            [ ns3:hasValue 1.794263e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.490329e+02 ] ],
+            [ ns3:hasValue 3.049426e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.915215e+01 ] ],
+            [ ns3:hasValue 1.510753e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.081367e+02 ] ],
+            [ ns3:hasValue 1e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.072618e+04 ] ],
+            [ ns3:hasValue 1.83759e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.398453e+02 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 1.263441e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.849179e+05 ] ],
+            [ ns3:hasValue 2.196661e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.598059e+03 ] ],
+            [ ns3:hasValue 3.11828e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 2.34097e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.195218e+01 ] ],
+            [ ns3:hasValue 2.224079e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.001934e+02 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87099e+00 ] ],
+            [ ns3:hasValue 1.83759e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.398453e+02 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.738286e+05 ] ],
+            [ ns3:hasValue 1.591398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e+05 ] ],
+            [ ns3:hasValue 2.808947e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.5948e+01 ] ],
+            [ ns3:hasValue 1.054291e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.954569e+00 ] ],
+            [ ns3:hasValue 5.806452e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.747749e+00 ] ],
+            [ ns3:hasValue 1.22043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.456541e+03 ] ],
+            [ ns3:hasValue 5.94086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.010843e+03 ] ],
+            [ ns3:hasValue 2.541447e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.233156e+01 ] ],
+            [ ns3:hasValue 9.714881e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.219628e+05 ] ],
+            [ ns3:hasValue 7.903226e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.514122e+03 ] ],
+            [ ns3:hasValue 1.155914e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.197457e+03 ] ],
+            [ ns3:hasValue 1.042754e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 9.531856e+01 ] ],
+            [ ns3:hasValue 1.522543e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.088465e+03 ] ],
+            [ ns3:hasValue 2.142442e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.583893e-01 ] ],
+            [ ns3:hasValue 1.180108e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.539408e+03 ] ],
+            [ ns3:hasValue 2.200512e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.475239e+02 ] ],
+            [ ns3:hasValue 6.989247e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.257512e-02 ] ],
+            [ ns3:hasValue 1.344086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.169272e+00 ] ],
+            [ ns3:hasValue 4.417818e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.300372e-02 ] ],
+            [ ns3:hasValue 1.048387e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.788387e+04 ] ],
+            [ ns3:hasValue 1.204301e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.569426e+04 ] ],
+            [ ns3:hasValue 1.347022e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.125893e+04 ] ],
+            [ ns3:hasValue 1.253666e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 7.905105e-02 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 2.808947e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.5948e+01 ] ],
+            [ ns3:hasValue 1.076332e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.585015e+04 ] ],
+            [ ns3:hasValue 2.572492e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.313052e+05 ] ],
+            [ ns3:hasValue 1.693548e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.747749e+00 ] ],
+            [ ns3:hasValue 3.504192e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.299729e+03 ] ],
+            [ ns3:hasValue 1.397849e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.829466e-01 ] ],
+            [ ns3:hasValue 2.908544e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.525778e+05 ] ],
+            [ ns3:hasValue 2.792048e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.516477e+05 ] ],
+            [ ns3:hasValue 1.354839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.498456e+02 ] ],
+            [ ns3:hasValue 1.403328e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.32269e+03 ] ],
+            [ ns3:hasValue 1.575269e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e+05 ] ],
+            [ ns3:hasValue 7.849462e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.977628e+00 ] ],
+            [ ns3:hasValue 1.467742e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.061112e+03 ] ],
+            [ ns3:hasValue 8.225806e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.585636e+04 ] ],
+            [ ns3:hasValue 3.457862e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.670146e-01 ] ],
+            [ ns3:hasValue 1.296365e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 3.703028e+04 ] ],
+            [ ns3:hasValue 6.021505e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.514122e+03 ] ],
+            [ ns3:hasValue 1.548387e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 3.803544e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.808667e+02 ] ],
+            [ ns3:hasValue 8.419413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.149197e+05 ] ],
+            [ ns3:hasValue 2.566412e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.868472e-01 ] ],
+            [ ns3:hasValue 6.182796e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.153763e+02 ] ],
+            [ ns3:hasValue 2.200512e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.475239e+02 ] ],
+            [ ns3:hasValue 2.625803e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.379555e+05 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ ns3:hasValue 2.5059e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.090909e+00 ] ],
+            [ ns3:hasValue 2.908544e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.525778e+05 ] ],
+            [ ns3:hasValue 3.242807e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.407677e+01 ] ],
+            [ ns3:hasValue 4.150527e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.403468e-01 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.274894e+03 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns3:hasValue 3.379755e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.216333e+00 ] ],
+            [ ns3:hasValue 2.908544e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.525778e+05 ] ],
+            [ ns3:hasValue 4.15376e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.336007e-02 ] ],
+            [ ns3:hasValue 4.946237e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.541863e+00 ] ],
+            [ ns3:hasValue 1.370662e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.971011e+05 ] ],
+            [ ns3:hasValue 4.476196e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 7.915092e-01 ] ],
+            [ ns3:hasValue 1.44086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.956147e+02 ] ],
+            [ ns3:hasValue 1.096774e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.378723e-01 ] ],
+            [ ns3:hasValue 4.330337e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.146528e-02 ] ],
+            [ ns3:hasValue 3.049426e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.915215e+01 ] ],
+            [ ns3:hasValue 3.594172e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.436836e+00 ] ],
+            [ ns3:hasValue 2.541447e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.233156e+01 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.154987e+04 ] ],
+            [ ns3:hasValue 3.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.84664e+00 ] ],
+            [ ns3:hasValue 7.152553e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.592741e+05 ] ],
+            [ ns3:hasValue 2.572492e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.313052e+05 ] ],
+            [ ns3:hasValue 2.756859e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -3.007737e+01 ] ],
+            [ ns3:hasValue 4.949319e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 1.851599e+05 ] ],
+            [ ns3:hasValue 4.961257e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.917614e+01 ] ],
+            [ ns3:hasValue 5.913978e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.456541e+03 ] ],
+            [ ns3:hasValue 3.596184e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.13838e+00 ] ],
+            [ ns3:hasValue 9.892473e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.185639e-02 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.959031e+04 ] ],
+            [ ns3:hasValue 1.354839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.839234e+00 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns3:hasValue 4.301249e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.053879e+02 ] ],
+            [ ns3:hasValue 1.370662e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.971011e+05 ] ],
+            [ ns3:hasValue 1.182796e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.637645e+02 ] ],
+            [ ns3:hasValue 1.752688e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.541863e+00 ] ],
+            [ ns3:hasValue 3.163086e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.08434e+03 ] ],
+            [ ns3:hasValue 3.030711e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.260662e+05 ] ],
+            [ ns3:hasValue 4.476196e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 7.915092e-01 ] ],
+            [ ns3:hasValue 3.594172e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.436836e+00 ] ],
+            [ ns3:hasValue 1.231183e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.45075e+02 ] ],
+            [ ns3:hasValue 1.419355e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.889499e+01 ] ],
+            [ ns3:hasValue 1.655914e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.707426e+00 ] ],
+            [ ns3:hasValue 1.191349e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87279e+00 ] ],
+            [ ns3:hasValue 6.72043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.895109e+00 ] ],
+            [ ns3:hasValue 6.344086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.912964e+04 ] ],
+            [ ns3:hasValue 1.768817e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.191227e-01 ] ],
+            [ ns3:hasValue 2.293331e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.840729e+01 ] ],
+            [ ns3:hasValue 8.419413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.149197e+05 ] ],
+            [ ns3:hasValue 4.83871e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482382e-02 ] ],
+            [ ns3:hasValue 4.301075e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 7.005405e-02 ] ],
+            [ ns3:hasValue 1.274194e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.711785e+00 ] ],
+            [ ns3:hasValue 1.086022e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.295425e+05 ] ],
+            [ ns3:hasValue 1.602151e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.474245e-01 ] ],
+            [ ns3:hasValue 6.505376e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.235517e+04 ] ],
+            [ ns3:hasValue 1.516129e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.572973e-01 ] ],
+            [ ns3:hasValue 1.575269e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e+05 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.456541e+03 ] ],
+            [ ns3:hasValue 1.817204e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.522894e-01 ] ],
+            [ ns3:hasValue 1.795699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.389495e-02 ] ],
+            [ ns3:hasValue 1.198925e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.998283e+00 ] ],
+            [ ns3:hasValue 1.794263e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.490329e+02 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.800508e+03 ] ],
+            [ ns3:hasValue 2.096774e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 4.420506e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.44305e-02 ] ],
+            [ ns3:hasValue 7.096774e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.785896e+01 ] ],
+            [ ns3:hasValue 1.446237e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.802848e+02 ] ],
+            [ ns3:hasValue 1.53577e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.959176e+04 ] ],
+            [ ns3:hasValue 8.333333e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.214253e+05 ] ],
+            [ ns3:hasValue 3.308721e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.834311e+01 ] ],
+            [ ns3:hasValue 1.22043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.501899e+02 ] ],
+            [ ns3:hasValue 1.650538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.951633e+01 ] ],
+            [ ns3:hasValue 1.258065e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 4.086022e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.185639e-02 ] ],
+            [ ns3:hasValue 1.682796e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.691807e+00 ] ],
+            [ ns3:hasValue 8.494624e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.526241e+01 ] ],
+            [ ns3:hasValue 2.628386e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1e+02 ] ],
+            [ ns3:hasValue 2.756859e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -3.974855e+01 ] ],
+            [ ns3:hasValue 3.709677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.624699e-01 ] ],
+            [ ns3:hasValue 3.594784e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.932981e+00 ] ],
+            [ ns3:hasValue 2.566412e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -5.038685e+01 ] ],
+            [ ns3:hasValue 5.159425e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.302525e-02 ] ],
+            [ ns3:hasValue 1.363156e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 1.425267e+02 ] ],
+            [ ns3:hasValue 8.081993e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.971011e+05 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.344355e+03 ] ],
+            [ ns3:hasValue 1.026882e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.691807e+00 ] ],
+            [ ns3:hasValue 1.188172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 2.224079e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.001934e+02 ] ],
+            [ ns3:hasValue 3.387411e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.403468e-01 ] ],
+            [ ns3:hasValue 1.269483e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.034816e+01 ] ],
+            [ ns3:hasValue 1.516129e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.316552e+02 ] ],
+            [ ns3:hasValue 2.446814e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.924565e+01 ] ],
+            [ ns3:hasValue 3.293059e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.163773e+04 ] ],
+            [ ns3:hasValue 1.629032e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.460586e+05 ] ],
+            [ ns3:hasValue 2.759159e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.506793e+00 ] ],
+            [ ns3:hasValue 4.151739e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.615784e-01 ] ],
+            [ ns3:hasValue 3.594784e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.932981e+00 ] ],
+            [ ns3:hasValue 1.387097e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.288629e+05 ] ],
+            [ ns3:hasValue 1.989247e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.624699e-01 ] ],
+            [ ns3:hasValue 1.263278e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.180667e+05 ] ],
+            [ ns3:hasValue 6.587912e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.192946e-02 ] ],
+            [ ns3:hasValue 8.419413e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.149197e+05 ] ],
+            [ ns3:hasValue 1.428268e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.883236e+05 ] ],
+            [ ns3:hasValue 1.421436e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 2.215044e+03 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.456541e+03 ] ],
+            [ ns3:hasValue 6.431172e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.969052e+01 ] ],
+            [ ns3:hasValue 1.421436e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 2.215044e+03 ] ],
+            [ ns3:hasValue 2.756859e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -3.007737e+01 ] ],
+            [ ns3:hasValue 8.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.726448e+05 ] ],
+            [ ns3:hasValue 8.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397009e+03 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.719476e+04 ] ],
+            [ ns3:hasValue 2.808263e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.335822e+02 ] ],
+            [ ns3:hasValue 2.741935e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.90757e-02 ] ],
+            [ ns3:hasValue 2.688172e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 4.90757e-02 ] ],
+            [ ns3:hasValue 1.672043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.648051e-01 ] ],
+            [ ns3:hasValue 3.746505e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.403909e-01 ] ],
+            [ ns3:hasValue 1.827335e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 8.844659e+00 ] ],
+            [ ns3:hasValue 2.541447e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.233156e+01 ] ],
+            [ ns3:hasValue 1.672043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.648051e-01 ] ],
+            [ ns3:hasValue 1.794263e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.490329e+02 ] ],
+            [ ns3:hasValue 3.903014e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.977439e-01 ] ],
+            [ ns3:hasValue 2.171639e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -7.021277e+01 ] ],
+            [ ns3:hasValue 4.569892e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 1.38172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.531908e+05 ] ],
+            [ ns3:hasValue 1.317204e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.415086e+00 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.154987e+04 ] ],
+            [ ns3:hasValue 4.794985e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.350638e-02 ] ],
+            [ ns3:hasValue 2.311828e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.474245e-01 ] ],
+            [ ns3:hasValue 1.107527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 1.054043e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.199218e+04 ] ],
+            [ ns3:hasValue 9.139785e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.32367e+01 ] ],
+            [ ns3:hasValue 1.053763e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.934105e+03 ] ],
+            [ ns3:hasValue 6.048387e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 9.02617e+05 ] ],
+            [ ns3:hasValue 1.333333e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.785896e+01 ] ],
+            [ ns3:hasValue 4.05914e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.525719e+00 ] ],
+            [ ns3:hasValue 1.427851e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.288795e+05 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.636669e+03 ] ],
+            [ ns3:hasValue 2.817366e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.638216e+00 ] ],
+            [ ns3:hasValue 1.44086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 1.488405e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.260662e+05 ] ],
+            [ ns3:hasValue 1.370968e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.254182e+05 ] ],
+            [ ns3:hasValue 4.623656e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.977628e+00 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.877507e+01 ] ],
+            [ ns3:hasValue 6.690438e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.183675e+00 ] ],
+            [ ns3:hasValue 5.159425e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.302525e-02 ] ],
+            [ ns3:hasValue 1.946408e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.396568e+02 ] ],
+            [ ns3:hasValue 1.327957e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.382023e+05 ] ],
+            [ ns3:hasValue 9.139785e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.437952e-02 ] ],
+            [ ns3:hasValue 9.677419e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.053357e+02 ] ],
+            [ ns3:hasValue 2.758286e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.391834e+00 ] ],
+            [ ns3:hasValue 1.267002e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.674758e+04 ] ],
+            [ ns3:hasValue 6.021505e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.514122e+03 ] ],
+            [ ns3:hasValue 2.935061e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101327e+00 ] ],
+            [ ns3:hasValue 2.756859e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -3.007737e+01 ] ],
+            [ ns3:hasValue 2.566412e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -5.038685e+01 ] ],
+            [ ns3:hasValue 3.529521e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.281694e-01 ] ],
+            [ ns3:hasValue 1.387097e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.121886e+05 ] ],
+            [ ns3:hasValue 6.204793e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 1.717537e+04 ] ],
+            [ ns3:hasValue 4.153052e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.050889e-01 ] ],
+            [ ns3:hasValue 4.660084e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.922631e+01 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.421447e+03 ] ],
+            [ ns3:hasValue 2.801552e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.458774e-01 ] ],
+            [ ns3:hasValue 3.097359e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.789347e+04 ] ],
+            [ ns3:hasValue 2.02162e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.205029e+02 ] ],
+            [ ns3:hasValue 4.15376e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.336007e-02 ] ],
+            [ ns3:hasValue 4.070517e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.548216e-02 ] ],
+            [ ns3:hasValue 1.489247e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.802848e+02 ] ],
+            [ ns3:hasValue 1.048387e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.788387e+04 ] ],
+            [ ns3:hasValue 4.746392e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 1.107426e+04 ] ],
+            [ ns3:hasValue 1.080645e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.777018e+03 ] ],
+            [ ns3:hasValue 6.082628e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.336364e+01 ] ],
+            [ ns3:hasValue 1.112903e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.570205e+03 ] ],
+            [ ns3:hasValue 1.236559e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.90757e-02 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.738286e+05 ] ],
+            [ ns3:hasValue 1.373889e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.436836e+00 ] ],
+            [ ns3:hasValue 1.75459e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.359026e+03 ] ],
+            [ ns3:hasValue 4.695577e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.192946e-02 ] ],
+            [ ns3:hasValue 1.317204e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.415086e+00 ] ],
+            [ ns3:hasValue 1.376344e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.191227e+05 ] ],
+            [ ns3:hasValue 1.054043e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.199218e+04 ] ],
+            [ ns3:hasValue 1.247312e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.053357e+02 ] ],
+            [ ns3:hasValue 1.752688e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.319207e-01 ] ],
+            [ ns3:hasValue 3.903014e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.977439e-01 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.235517e+04 ] ],
+            [ ns3:hasValue 3.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101931e-01 ] ],
+            [ ns3:hasValue 3.379755e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.216333e+00 ] ],
+            [ ns3:hasValue 9.510028e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 1.5935e+03 ] ],
+            [ ns3:hasValue 5e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.60006e-02 ] ],
+            [ ns3:hasValue 2.200512e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.475239e+02 ] ],
+            [ ns3:hasValue 3.577246e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.49572e+03 ] ],
+            [ ns3:hasValue 3.504192e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.299729e+03 ] ],
+            [ ns3:hasValue 9.916619e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 2.387621e+04 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.761216e+03 ] ],
+            [ ns3:hasValue 3.870968e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482382e-02 ] ],
+            [ ns3:hasValue 1.494624e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.281529e+01 ] ],
+            [ ns3:hasValue 2.064342e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.910494e-01 ] ],
+            [ ns3:hasValue 1.048387e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.514122e+03 ] ],
+            [ ns3:hasValue 3.339153e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 1.906664e+01 ] ],
+            [ ns3:hasValue 1.380055e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.984526e+01 ] ],
+            [ ns3:hasValue 2.293331e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.840729e+01 ] ],
+            [ ns3:hasValue 1.774194e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.435188e-02 ] ],
+            [ ns3:hasValue 4.417818e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.300372e-02 ] ],
+            [ ns3:hasValue 2.024071e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.420832e+03 ] ],
+            [ ns3:hasValue 1.75459e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.359026e+03 ] ],
+            [ ns3:hasValue 1.488912e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.932338e+04 ] ],
+            [ ns3:hasValue 1.269483e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 6.034816e+01 ] ],
+            [ ns3:hasValue 4.516129e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.531908e-01 ] ],
+            [ ns3:hasValue 1.973953e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.29207e+02 ] ],
+            [ ns3:hasValue 1.428268e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.883236e+05 ] ],
+            [ ns3:hasValue 2.096774e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 2.34097e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.195218e+01 ] ],
+            [ ns3:hasValue 1.026882e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.691807e+00 ] ],
+            [ ns3:hasValue 1.684273e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.202928e+04 ] ],
+            [ ns3:hasValue 2.288426e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.07433e+03 ] ],
+            [ ns3:hasValue 8.333333e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 1.473118e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.526266e+01 ] ],
+            [ ns3:hasValue 2.566412e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -5.038685e+01 ] ],
+            [ ns3:hasValue 7.903226e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.10789e+04 ] ],
+            [ ns3:hasValue 2.625803e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.379555e+05 ] ],
+            [ ns3:hasValue 3.339153e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 1.906664e+01 ] ],
+            [ ns3:hasValue 5.806452e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.747749e+00 ] ],
+            [ ns3:hasValue 1.344086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.004969e+02 ] ],
+            [ ns3:hasValue 6.431172e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.969052e+01 ] ],
+            [ ns3:hasValue 1.720893e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.377102e+03 ] ],
+            [ ns3:hasValue 1.076332e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.585015e+04 ] ],
+            [ ns3:hasValue 2.388811e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 1.371743e+01 ] ],
+            [ ns3:hasValue 1.193548e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.175595e+05 ] ],
+            [ ns3:hasValue 6.021505e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.829343e+01 ] ],
+            [ ns3:hasValue 9.123401e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.541785e-02 ] ],
+            [ ns3:hasValue 1.989247e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.624699e-01 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.421447e+03 ] ],
+            [ ns3:hasValue 3.295223e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.762602e+03 ] ],
+            [ ns3:hasValue 1.380055e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.984526e+01 ] ],
+            [ ns3:hasValue 9.712045e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.814189e+05 ] ],
+            [ ns3:hasValue 2.204301e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.116055e-02 ] ],
+            [ ns3:hasValue 1.191349e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87279e+00 ] ],
+            [ ns3:hasValue 2.224079e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -9.052224e+01 ] ],
+            [ ns3:hasValue 2.473118e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 6.91831e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 2.768818e+05 ] ],
+            [ ns3:hasValue 1.812099e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 5.537382e+04 ] ],
+            [ ns3:hasValue 7.096774e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.785896e+01 ] ],
+            [ ns3:hasValue 3.630781e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 7.823579e+03 ] ],
+            [ ns3:hasValue 3.030711e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.260662e+05 ] ],
+            [ ns3:hasValue 1.042754e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 9.531856e+01 ] ],
+            [ ns3:hasValue 2.204301e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.116055e-02 ] ],
+            [ ns3:hasValue 1.583872e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 1.58436e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.584893e+00 ] ],
+            [ ns3:hasValue 1.865591e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.222528e-02 ] ],
+            [ ns3:hasValue 1.736559e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.04169e-01 ] ],
+            [ ns3:hasValue 9.677419e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.319207e-01 ] ],
+            [ ns3:hasValue 1.774194e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.435188e-02 ] ],
+            [ ns3:hasValue 1.516129e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.572973e-01 ] ],
+            [ ns3:hasValue 2.935347e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.647863e-01 ] ],
+            [ ns3:hasValue 1.685995e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.996724e+03 ] ],
+            [ ns3:hasValue 4.186183e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 4.921278e-01 ] ],
+            [ ns3:hasValue 3.457862e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.670146e-01 ] ],
+            [ ns3:hasValue 8.010753e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.570205e+03 ] ],
+            [ ns3:hasValue 1.94584e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.539866e+02 ] ],
+            [ ns3:hasValue 1.827335e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 8.844659e+00 ] ],
+            [ ns3:hasValue 1.075269e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.389495e-02 ] ],
+            [ ns3:hasValue 6.236559e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.926984e+05 ] ],
+            [ ns3:hasValue 9.123401e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.541785e-02 ] ],
+            [ ns3:hasValue 3.094722e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.697556e+04 ] ],
+            [ ns3:hasValue 1.870968e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 9.731183e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419463e-01 ] ],
+            [ ns3:hasValue 2.935347e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.647863e-01 ] ],
+            [ ns3:hasValue 6.72043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.895109e+00 ] ],
+            [ ns3:hasValue 2.066218e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.299729e+03 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.960784e+02 ] ],
+            [ ns3:hasValue 3.178825e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.290159e+00 ] ],
+            [ ns3:hasValue 2.120435e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -8.03675e+01 ] ],
+            [ ns3:hasValue 1.198925e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.707426e+00 ] ],
+            [ ns3:hasValue 1.080645e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.777018e+03 ] ],
+            [ ns3:hasValue 1.086022e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.074975e+04 ] ],
+            [ ns3:hasValue 5e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.60006e-02 ] ],
+            [ ns3:hasValue 1.774194e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.032884e-01 ] ],
+            [ ns3:hasValue 2.196661e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.598059e+03 ] ],
+            [ ns3:hasValue 8.387097e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.395472e-01 ] ],
+            [ ns3:hasValue 1.905461e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 2.210633e+02 ] ],
+            [ ns3:hasValue 1.537634e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.929346e+01 ] ],
+            [ ns3:hasValue 2.688172e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 4.90757e-02 ] ],
+            [ ns3:hasValue 1.53577e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.959176e+04 ] ],
+            [ ns3:hasValue 1.575269e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.415086e+00 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.45075e+02 ] ],
+            [ ns3:hasValue 3.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.677961e-01 ] ],
+            [ ns3:hasValue 1.370968e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.31423e+02 ] ],
+            [ ns3:hasValue 6.182796e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.331747e+04 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.45075e+02 ] ],
+            [ ns3:hasValue 1.649997e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.674758e+04 ] ],
+            [ ns3:hasValue 6.505376e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.152092e+05 ] ],
+            [ ns3:hasValue 4.660084e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.922631e+01 ] ],
+            [ ns3:hasValue 3.882555e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.326997e+02 ] ],
+            [ ns3:hasValue 8.333333e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.214253e+05 ] ],
+            [ ns3:hasValue 1.446237e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.780678e+00 ] ],
+            [ ns3:hasValue 2.429564e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.815426e-01 ] ],
+            [ ns3:hasValue 1.854839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101931e-01 ] ],
+            [ ns3:hasValue 1.720893e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.377102e+03 ] ],
+            [ ns3:hasValue 1.252688e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.554751e+02 ] ],
+            [ ns3:hasValue 7.307472e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.896026e+01 ] ],
+            [ ns3:hasValue 9.731183e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.419463e-01 ] ],
+            [ ns3:hasValue 1.446237e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.780678e+00 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.220818e+04 ] ],
+            [ ns3:hasValue 1.076332e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.585015e+04 ] ],
+            [ ns3:hasValue 7.912002e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.146528e-02 ] ],
+            [ ns3:hasValue 1.403328e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.32269e+03 ] ],
+            [ ns3:hasValue 1.858193e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 3.563256e+03 ] ],
+            [ ns3:hasValue 1.225806e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.490397e+03 ] ],
+            [ ns3:hasValue 4.83871e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482382e-02 ] ],
+            [ ns3:hasValue 1.607527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.628432e+00 ] ],
+            [ ns3:hasValue 1.392473e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 3.202245e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 3.413755e-01 ] ],
+            [ ns3:hasValue 1.11828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.569426e+04 ] ],
+            [ ns3:hasValue 1.488405e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.260662e+05 ] ],
+            [ ns3:hasValue 3.308721e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.834311e+01 ] ],
+            [ ns3:hasValue 4.247312e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.474245e-01 ] ],
+            [ ns3:hasValue 2.792048e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.516477e+05 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633484e+04 ] ],
+            [ ns3:hasValue 1.107527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.786055e+04 ] ],
+            [ ns3:hasValue 1.505376e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.382023e+02 ] ],
+            [ ns3:hasValue 1.134409e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.437046e+03 ] ],
+            [ ns3:hasValue 2.792048e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.516477e+05 ] ],
+            [ ns3:hasValue 7.849462e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.977628e+00 ] ],
+            [ ns3:hasValue 2.817366e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.638216e+00 ] ],
+            [ ns3:hasValue 5.204316e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 6.87089e+02 ] ],
+            [ ns3:hasValue 1.586022e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.242625e+01 ] ],
+            [ ns3:hasValue 1.054377e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.332687e+04 ] ],
+            [ ns3:hasValue 3.049426e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.915215e+01 ] ],
+            [ ns3:hasValue 7.152553e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.592741e+05 ] ],
+            [ ns3:hasValue 6.587912e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.192946e-02 ] ],
+            [ ns3:hasValue 3.817844e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 2.850592e+01 ] ],
+            [ ns3:hasValue 1.144309e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 1.774194e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.032884e-01 ] ],
+            [ ns3:hasValue 1.263278e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.180667e+05 ] ],
+            [ ns3:hasValue 1.458115e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.755138e+05 ] ],
+            [ ns3:hasValue 2.336134e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.987332e+02 ] ],
+            [ ns3:hasValue 9.516129e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.62545e+00 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 1.682796e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.691807e+00 ] ],
+            [ ns3:hasValue 1.241935e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.311818e+04 ] ],
+            [ ns3:hasValue 1.446237e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.207723e+00 ] ],
+            [ ns3:hasValue 4.327703e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.909282e-02 ] ],
+            [ ns3:hasValue 4.566084e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.050889e-01 ] ],
+            [ ns3:hasValue 2.702154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.506701e+00 ] ],
+            [ ns3:hasValue 2.429564e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.815426e-01 ] ],
+            [ ns3:hasValue 2.120435e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.103482e+02 ] ],
+            [ ns3:hasValue 1.172043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.859177e+04 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87099e+00 ] ],
+            [ ns3:hasValue 6.451613e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.138167e-01 ] ],
+            [ ns3:hasValue 1.204301e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.60006e-02 ] ],
+            [ ns3:hasValue 4.155175e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.245181e-02 ] ],
+            [ ns3:hasValue 1.231183e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.45075e+02 ] ],
+            [ ns3:hasValue 3.520772e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746733e+00 ] ],
+            [ ns3:hasValue 1.564516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.972131e+01 ] ],
+            [ ns3:hasValue 3.311311e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 1.238142e+05 ] ],
+            [ ns3:hasValue 2.196661e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.598059e+03 ] ],
+            [ ns3:hasValue 1.075269e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.389495e-02 ] ],
+            [ ns3:hasValue 1.22043e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.501899e+02 ] ],
+            [ ns3:hasValue 3.079849e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.992065e+01 ] ],
+            [ ns3:hasValue 2.277786e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -5.957447e+01 ] ],
+            [ ns3:hasValue 6.048387e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 9.02617e+05 ] ],
+            [ ns3:hasValue 1.365591e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.555607e+05 ] ],
+            [ ns3:hasValue 2.389122e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.940039e+01 ] ],
+            [ ns3:hasValue 6.586022e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.234056e+05 ] ],
+            [ ns3:hasValue 9.892473e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.185639e-02 ] ],
+            [ ns3:hasValue 3.457862e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.670146e-01 ] ],
+            [ ns3:hasValue 2.896131e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 8.909549e+04 ] ],
+            [ ns3:hasValue 3.849945e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 4.765988e+02 ] ],
+            [ ns3:hasValue 1.987131e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.589248e+02 ] ],
+            [ ns3:hasValue 1.865591e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.222528e-02 ] ],
+            [ ns3:hasValue 4.961257e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.917614e+01 ] ],
+            [ ns3:hasValue 2.777387e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 5.527088e+03 ] ],
+            [ ns3:hasValue 1.505376e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.382023e+02 ] ],
+            [ ns3:hasValue 6.80342e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 9.905094e+02 ] ],
+            [ ns3:hasValue 1.144309e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 1.591398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e+05 ] ],
+            [ ns3:hasValue 1.344086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.169272e+00 ] ],
+            [ ns3:hasValue 2.120435e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.103482e+02 ] ],
+            [ ns3:hasValue 1.489274e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.697556e+04 ] ],
+            [ ns3:hasValue 3.256321e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 3.187701e+02 ] ],
+            [ ns3:hasValue 8.387097e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.395472e-01 ] ],
+            [ ns3:hasValue 6.075269e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.742681e+04 ] ],
+            [ ns3:hasValue 2.910951e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.199218e+04 ] ],
+            [ ns3:hasValue 4.420506e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.44305e-02 ] ],
+            [ ns3:hasValue 1.086022e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.295425e+05 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns3:hasValue 1.488912e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.932338e+04 ] ],
+            [ ns3:hasValue 1.583872e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 1.756726e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.598059e+03 ] ],
+            [ ns3:hasValue 2.288426e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.07433e+03 ] ],
+            [ ns3:hasValue 2.224079e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.001934e+02 ] ],
+            [ ns3:hasValue 9.677419e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.053357e+02 ] ],
+            [ ns3:hasValue 7.956989e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.408424e+04 ] ],
+            [ ns3:hasValue 3.185251e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.318002e-01 ] ],
+            [ ns3:hasValue 1.534946e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 2.759159e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.506793e+00 ] ],
+            [ ns3:hasValue 7.419355e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.572973e-01 ] ],
+            [ ns3:hasValue 1.347022e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.125893e+04 ] ],
+            [ ns3:hasValue 4.566084e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.050889e-01 ] ],
+            [ ns3:hasValue 3.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.84664e+00 ] ],
+            [ ns3:hasValue 1.387097e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.288629e+05 ] ],
+            [ ns3:hasValue 1.091398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.738286e+05 ] ],
+            [ ns3:hasValue 1.946408e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.396568e+02 ] ],
+            [ ns3:hasValue 3.079849e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.992065e+01 ] ],
+            [ ns3:hasValue 6.344086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 2.066218e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.299729e+03 ] ],
+            [ ns3:hasValue 4.070517e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.548216e-02 ] ],
+            [ ns3:hasValue 1.263278e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.180667e+05 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue 5e+01 ],
+            [ ns3:hasValue 9.677419e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.319207e-01 ] ],
+            [ ns3:hasValue 2.625803e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.379555e+05 ] ],
+            [ ns3:hasValue 1.408602e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.929346e+01 ] ],
+            [ ns3:hasValue 1.537634e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.541863e+00 ] ],
+            [ ns3:hasValue 6.021505e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.64994e+02 ] ],
+            [ ns3:hasValue 1.754107e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.21627e+00 ] ],
+            [ ns3:hasValue 1.380055e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.984526e+01 ] ],
+            [ ns3:hasValue 3.503084e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.535925e+03 ] ],
+            [ ns3:hasValue 1.612903e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.331747e-02 ] ],
+            [ ns3:hasValue 7.912002e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.146528e-02 ] ],
+            [ ns3:hasValue 2.446814e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.924565e+01 ] ],
+            [ ns3:hasValue 1.795699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.389495e-02 ] ],
+            [ ns3:hasValue 7.688172e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 1.096774e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633484e+04 ] ],
+            [ ns3:hasValue 9.83871e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 6.88172e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 9.526266e+01 ] ],
+            [ ns3:hasValue 4.417818e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.300372e-02 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 1.591398e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.255369e+01 ] ],
+            [ ns3:hasValue 2.277786e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -5.957447e+01 ] ],
+            [ ns3:hasValue 7.307472e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.896026e+01 ] ],
+            [ ns3:hasValue 1.756726e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.598059e+03 ] ],
+            [ ns3:hasValue 1.537634e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.929346e+01 ] ],
+            [ ns3:hasValue 2.64131e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.122981e+02 ] ],
+            [ ns3:hasValue 2.120435e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -8.03675e+01 ] ],
+            [ ns3:hasValue 1.682796e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.162984e+01 ] ],
+            [ ns3:hasValue 3.096681e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 4.070517e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.548216e-02 ] ],
+            [ ns3:hasValue 9.330916e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.020319e+00 ] ],
+            [ ns3:hasValue 1.424731e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.367198e+01 ] ],
+            [ ns3:hasValue 1.756726e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.598059e+03 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.539408e+03 ] ],
+            [ ns3:hasValue 2.483677e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.697386e+02 ] ],
+            [ ns3:hasValue 3.596184e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.13838e+00 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.269718e+03 ] ],
+            [ ns3:hasValue 1.144309e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 1.086022e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.074975e+04 ] ],
+            [ ns3:hasValue 2.293331e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.840729e+01 ] ],
+            [ ns3:hasValue 6.451613e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.066849e-01 ] ],
+            [ ns3:hasValue 3.387411e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.403468e-01 ] ],
+            [ ns3:hasValue 4.21341e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.157921e+02 ] ],
+            [ ns3:hasValue 8.081993e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.971011e+05 ] ],
+            [ ns3:hasValue 1.112903e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.895109e+00 ] ],
+            [ ns3:hasValue 3.293059e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.163773e+04 ] ],
+            [ ns3:hasValue 6.505376e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 8.235517e+04 ] ],
+            [ ns3:hasValue 4.247312e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.474245e-01 ] ],
+            [ ns3:hasValue 1.096774e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.633484e+04 ] ],
+            [ ns3:hasValue 2.628386e+01 ;
+                ns3:inRelationTo [ ns3:hasValue 1e+02 ] ],
+            [ ns3:hasValue 1.376344e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.191227e+05 ] ],
+            [ ns3:hasValue 2.817366e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.638216e+00 ] ],
+            [ ns3:hasValue 6.989247e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132046e+00 ] ],
+            [ ns3:hasValue 2.808263e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.335822e+02 ] ],
+            [ ns3:hasValue 2.688172e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 1.858193e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 3.563256e+03 ] ],
+            [ ns3:hasValue 2.801552e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.458774e-01 ] ],
+            [ ns3:hasValue 1.693548e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.747749e+00 ] ],
+            [ ns3:hasValue 1.268817e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.357388e+04 ] ],
+            [ ns3:hasValue 2.795699e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.780678e+00 ] ],
+            [ ns3:hasValue 1.107527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.639646e+05 ] ],
+            [ ns3:hasValue 2.277786e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -5.957447e+01 ] ],
+            [ ns3:hasValue 4.569892e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.328498e-02 ] ],
+            [ ns3:hasValue 1.489274e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.697556e+04 ] ],
+            [ ns3:hasValue 1.252688e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.554751e+02 ] ],
+            [ ns3:hasValue 1.650538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.707426e+00 ] ],
+            [ ns3:hasValue 9.247312e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.802848e+02 ] ],
+            [ ns3:hasValue 2.628386e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.858801e+01 ] ],
+            [ ns3:hasValue 2.171639e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -7.021277e+01 ] ],
+            [ ns3:hasValue 9.569892e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.302429e+01 ] ],
+            [ ns3:hasValue 3.650549e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.563191e-01 ] ],
+            [ ns3:hasValue 2.224079e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -9.052224e+01 ] ],
+            [ ns3:hasValue 1.11828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.222978e+01 ] ],
+            [ ns3:hasValue 4.301075e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 7.005405e-02 ] ],
+            [ ns3:hasValue 4.516129e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.531908e-01 ] ],
+            [ ns3:hasValue 1.72043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.20748e-01 ] ],
+            [ ns3:hasValue 4.15376e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.336007e-02 ] ],
+            [ ns3:hasValue 2.483677e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.697386e+02 ] ],
+            [ ns3:hasValue 2.389122e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.940039e+01 ] ],
+            [ ns3:hasValue 3.594172e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.436836e+00 ] ],
+            [ ns3:hasValue 8.602151e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.572973e-01 ] ],
+            [ ns3:hasValue 1.629032e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.460586e+05 ] ],
+            [ ns3:hasValue 8.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.397009e+03 ] ],
+            [ ns3:hasValue 2.246497e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.980353e+01 ] ],
+            [ ns3:hasValue 5.204316e-10 ;
+                ns3:inRelationTo [ ns3:hasValue 6.87089e+02 ] ],
+            [ ns3:hasValue 1.373889e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.436836e+00 ] ],
+            [ ns3:hasValue 6.612903e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.316552e+02 ] ],
+            [ ns3:hasValue 1.704301e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.648051e-01 ] ],
+            [ ns3:hasValue 1.198925e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.044084e+03 ] ],
+            [ ns3:hasValue 1.650538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.707426e+00 ] ],
+            [ ns3:hasValue 1.768817e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 8.191227e-01 ] ],
+            [ ns3:hasValue 3.242807e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.407677e+01 ] ],
+            [ ns3:hasValue 2.628386e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.858801e+01 ] ],
+            [ ns3:hasValue 8.064516e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.551005e+04 ] ],
+            [ ns3:hasValue 1.564516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.972131e+01 ] ],
+            [ ns3:hasValue 8.458098e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 4.293952e+05 ] ],
+            [ ns3:hasValue 1.44086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.790307e+05 ] ],
+            [ ns3:hasValue 2.996981e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 7.05029e+01 ] ],
+            [ ns3:hasValue 1.268817e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.357388e+04 ] ],
+            [ ns3:hasValue 1.247312e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.053357e+02 ] ],
+            [ ns3:hasValue 3.096681e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.410105e+04 ] ],
+            [ ns3:hasValue 2.935347e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.647863e-01 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.010843e+03 ] ],
+            [ ns3:hasValue 1.5e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.829343e+01 ] ],
+            [ ns3:hasValue 1.532691e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.059201e-01 ] ],
+            [ ns3:hasValue 4.151739e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.615784e-01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns3:hasValue 3.202245e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 3.413755e-01 ] ],
+            [ ns3:hasValue 1.166667e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.697201e+01 ] ],
+            [ ns3:hasValue 3.308721e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.834311e+01 ] ],
+            [ ns3:hasValue 2.34154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.013297e+01 ] ],
+            [ ns3:hasValue 7.903226e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.514122e+03 ] ],
+            [ ns3:hasValue 9.516129e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.62545e+00 ] ],
+            [ ns3:hasValue 3.097359e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.789347e+04 ] ],
+            [ ns3:hasValue 2.535332e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.264168e+02 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.960784e+02 ] ],
+            [ ns3:hasValue 4.566084e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.050889e-01 ] ],
+            [ ns3:hasValue 7.153943e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.706048e+00 ] ],
+            [ ns3:hasValue 1.112903e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.490397e+03 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.269718e+03 ] ],
+            [ ns3:hasValue 2.02162e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.205029e+02 ] ],
+            [ ns3:hasValue 1.064516e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.570205e+03 ] ],
+            [ ns3:hasValue 1.585915e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.172144e+03 ] ],
+            [ ns3:hasValue 1.38172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.816104e+05 ] ],
+            [ ns3:hasValue 8.763441e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.010843e+03 ] ],
+            [ ns3:hasValue 2.823431e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.992263e+01 ] ],
+            [ ns3:hasValue 1.58436e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.584893e+00 ] ],
+            [ ns3:hasValue 9.892473e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.687199e+04 ] ],
+            [ ns3:hasValue 1.306452e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.786611e+02 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns3:hasValue 3.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.87099e+00 ] ],
+            [ ns3:hasValue 3.650549e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 1.563191e-01 ] ],
+            [ ns3:hasValue 4.044552e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.544489e+02 ] ],
+            [ ns3:hasValue 1.458115e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.755138e+05 ] ],
+            [ ns3:hasValue 1.844086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.116055e-02 ] ],
+            [ ns3:hasValue 1.489274e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.697556e+04 ] ],
+            [ ns3:hasValue 3.882555e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.326997e+02 ] ],
+            [ ns3:hasValue 1.987131e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.589248e+02 ] ],
+            [ ns3:hasValue 3.11828e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.23577e-02 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.269718e+03 ] ],
+            [ ns3:hasValue 3.763441e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132046e+00 ] ],
+            [ ns3:hasValue 2.816475e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.518823e+00 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.855917e+02 ] ],
+            [ ns3:hasValue 3.311311e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 1.238142e+05 ] ],
+            [ ns3:hasValue 3.094722e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.697556e+04 ] ],
+            [ ns3:hasValue 1.107527e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.019902e+05 ] ],
+            [ ns3:hasValue 5.383117e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.240359e+01 ] ],
+            [ ns3:hasValue 2.801552e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 3.458774e-01 ] ],
+            [ ns3:hasValue 1.054291e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 5.954569e+00 ] ],
+            [ ns3:hasValue 6.97648e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 6.145088e+01 ] ],
+            [ ns3:hasValue 1.264207e-07 ;
+                ns3:inRelationTo [ ns3:hasValue 6.190995e+05 ] ],
+            [ ns3:hasValue 2.756859e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -3.974855e+01 ] ],
+            [ ns3:hasValue 3.095701e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.705632e+04 ] ],
+            [ ns3:hasValue 2.808947e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.5948e+01 ] ],
+            [ ns3:hasValue 1.043011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.959031e+04 ] ],
+            [ ns3:hasValue 3.763441e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132046e+00 ] ],
+            [ ns3:hasValue 3.503084e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.535925e+03 ] ],
+            [ ns3:hasValue 1.682796e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.162984e+01 ] ],
+            [ ns3:hasValue 9.946237e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 3.551005e+04 ] ],
+            [ ns3:hasValue 1.510753e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 1.209677e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 2.389122e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.940039e+01 ] ],
+            [ ns3:hasValue 6.989247e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 2.257512e-02 ] ],
+            [ ns3:hasValue 1.906149e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.728009e+02 ] ],
+            [ ns3:hasValue 1.844086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.116055e-02 ] ],
+            [ ns3:hasValue 8.225806e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.585636e+04 ] ],
+            [ ns3:hasValue 3.520772e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.746733e+00 ] ],
+            [ ns3:hasValue 8.494624e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.526241e+01 ] ],
+            [ ns3:hasValue 2.741935e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.90757e-02 ] ],
+            [ ns3:hasValue 1.150538e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.010843e+03 ] ],
+            [ ns3:hasValue 2.142442e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 1.583893e-01 ] ],
+            [ ns3:hasValue 3.596184e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.13838e+00 ] ],
+            [ ns3:hasValue 5.830009e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 4.909282e-02 ] ],
+            [ ns3:hasValue 2.702154e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 7.506701e+00 ] ],
+            [ ns3:hasValue 7.903226e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.10789e+04 ] ],
+            [ ns3:hasValue 8.709677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482382e-02 ] ],
+            [ ns3:hasValue 1.016129e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.004969e+02 ] ],
+            [ ns3:hasValue 3.095701e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.705632e+04 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 6.855917e+02 ] ],
+            [ ns3:hasValue 1.505376e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 3.053357e+02 ] ],
+            [ ns3:hasValue 1.198925e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.707426e+00 ] ],
+            [ ns3:hasValue 1.720893e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.377102e+03 ] ],
+            [ ns3:hasValue 2.246497e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.980353e+01 ] ],
+            [ ns3:hasValue 6.612903e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.790307e+05 ] ],
+            [ ns3:hasValue 1.264207e-07 ;
+                ns3:inRelationTo [ ns3:hasValue 6.190995e+05 ] ],
+            [ ns3:hasValue 1.016129e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.004969e+02 ] ],
+            [ ns3:hasValue 4.660084e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.922631e+01 ] ],
+            [ ns3:hasValue 2.758286e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.391834e+00 ] ],
+            [ ns3:hasValue 2.171639e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -7.021277e+01 ] ],
+            [ ns3:hasValue 3.293059e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.163773e+04 ] ],
+            [ ns3:hasValue 6.204793e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 1.717537e+04 ] ],
+            [ ns3:hasValue 1.080645e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.181951e+04 ] ],
+            [ ns3:hasValue 1.053763e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.934105e+03 ] ],
+            [ ns3:hasValue 7.419355e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.572973e-01 ] ],
+            [ ns3:hasValue 5.322581e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.367198e+01 ] ],
+            [ ns3:hasValue 2.535332e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.264168e+02 ] ],
+            [ ns3:hasValue 1.11828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 9.222978e+01 ] ],
+            [ ns3:hasValue 2.910951e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.199218e+04 ] ],
+            [ ns3:hasValue 1.155914e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.197457e+03 ] ],
+            [ ns3:hasValue 2.365591e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.169272e+00 ] ],
+            [ ns3:hasValue 8.172043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.723987e+00 ] ],
+            [ ns3:hasValue 1.522543e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.088465e+03 ] ],
+            [ ns3:hasValue 3.817844e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 2.850592e+01 ] ],
+            [ ns3:hasValue 2.795699e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.780678e+00 ] ],
+            [ ns3:hasValue 2.288426e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.07433e+03 ] ],
+            [ ns3:hasValue 1.53577e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.959176e+04 ] ],
+            [ ns3:hasValue 1.44086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 8.978495e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 7.081367e+02 ] ],
+            [ ns3:hasValue 1.354839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.839234e+00 ] ],
+            [ ns3:hasValue 9.83871e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.257512e+04 ] ],
+            [ ns3:hasValue 1.349462e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.972795e+05 ] ],
+            [ ns3:hasValue 3.185251e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 5.318002e-01 ] ],
+            [ ns3:hasValue 1.387097e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 6.121886e+05 ] ],
+            [ ns3:hasValue 1.44086e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.956147e+02 ] ],
+            [ ns3:hasValue 1.61828e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e-01 ] ],
+            [ ns3:hasValue 6.505376e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.152092e+05 ] ],
+            [ ns3:hasValue 2.808263e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.335822e+02 ] ],
+            [ ns3:hasValue 1.025437e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 4.738041e-02 ] ],
+            [ ns3:hasValue 1.025437e-12 ;
+                ns3:inRelationTo [ ns3:hasValue 4.738041e-02 ] ],
+            [ ns3:hasValue 2.336134e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 6.987332e+02 ] ],
+            [ ns3:hasValue 2.816475e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.518823e+00 ] ],
+            [ ns3:hasValue 3.577246e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.49572e+03 ] ],
+            [ ns3:hasValue 4.946237e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 2.541863e+00 ] ],
+            [ ns3:hasValue 1.069279e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 2.64631e+00 ] ],
+            [ ns3:hasValue 6.075269e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.742681e+04 ] ],
+            [ ns3:hasValue 6.989247e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.132046e+00 ] ],
+            [ ns3:hasValue 2.02162e-01 ;
+                ns3:inRelationTo [ ns3:hasValue -1.205029e+02 ] ],
+            [ ns3:hasValue 1.77957e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.780678e+00 ] ],
+            [ ns3:hasValue 1.053763e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.408424e+04 ] ],
+            [ ns3:hasValue 1.096774e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.378723e-01 ] ],
+            [ ns3:hasValue 1.446237e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.802848e+02 ] ],
+            [ ns3:hasValue 9.330916e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.020319e+00 ] ],
+            [ ns3:hasValue 2.5059e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 9.090909e+00 ] ],
+            [ ns3:hasValue 2.024071e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 3.420832e+03 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns3:hasValue 1.854839e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101931e-01 ] ],
+            [ ns3:hasValue 6.586022e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.234056e+05 ] ],
+            [ ns3:hasValue 1.38172e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.816104e+05 ] ],
+            [ ns3:hasValue 1.204301e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.569426e+04 ] ],
+            [ ns3:hasValue 3.165524e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.484332e-01 ] ],
+            [ ns3:hasValue 1.048387e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.514122e+03 ] ],
+            [ ns3:hasValue 5.967742e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.263947e+03 ] ],
+            [ ns3:hasValue 4.949319e-08 ;
+                ns3:inRelationTo [ ns3:hasValue 1.851599e+05 ] ],
+            [ ns3:hasValue 7.903226e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.263947e+03 ] ],
+            [ ns3:hasValue 7.688172e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 3.165524e+00 ;
+                ns3:inRelationTo [ ns3:hasValue 2.484332e-01 ] ],
+            [ ns3:hasValue 1.467742e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.061112e+03 ] ],
+            [ ns3:hasValue 1.736559e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 5.04169e-01 ] ],
+            [ ns3:hasValue 1.209677e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 7.930443e-01 ] ],
+            [ ns3:hasValue 3.44086e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.101931e-01 ] ],
+            [ ns3:hasValue 6.88172e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 9.526266e+01 ] ],
+            [ ns3:hasValue 8.602151e-04 ;
+                ns3:inRelationTo [ ns3:hasValue 1.572973e-01 ] ],
+            [ ns3:hasValue 2.246497e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.980353e+01 ] ],
+            [ ns3:hasValue 1.586022e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.242625e+01 ] ],
+            [ ns3:hasValue 2.816475e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 2.518823e+00 ] ],
+            [ ns3:hasValue 9.247312e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 4.802848e+02 ] ],
+            [ ns3:hasValue 4.746392e-09 ;
+                ns3:inRelationTo [ ns3:hasValue 1.107426e+04 ] ],
+            [ ns3:hasValue 3.010753e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.555596e-01 ] ],
+            [ ns3:hasValue 8.709677e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 1.482382e-02 ] ],
+            [ ns3:hasValue 1.72043e-03 ;
+                ns3:inRelationTo [ ns3:hasValue 5.20748e-01 ] ],
+            [ ns3:hasValue 9.330916e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 8.020319e+00 ] ],
+            [ ns3:hasValue 1e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.072618e+04 ] ],
+            [ ns3:hasValue 2.483677e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 4.697386e+02 ] ],
+            [ ns3:hasValue 1.267002e-01 ;
+                ns3:inRelationTo [ ns3:hasValue 1.674758e+04 ] ],
+            [ ns3:hasValue 1.295699e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 2.139e+02 ] ],
+            [ ns3:hasValue 1.222567e-11 ;
+                ns3:inRelationTo [ ns3:hasValue 3.814421e+00 ] ],
+            [ ns3:hasValue 1.543011e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 4.107553e+01 ] ],
+            [ ns3:hasValue 1.370968e-02 ;
+                ns3:inRelationTo [ ns3:hasValue 1.254182e+05 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l255-s3-logakis-2009_filler_0>,
+            <http://materialsmine.org/sample/l255-s3-logakis-2009_matrix_0> ;
+        ns3:isRepresentedBy <http://localhost/nmr/blob?id=597a3116e74a1d1577231251>,
+            <http://localhost/nmr/blob?id=597a311ce74a1d1577231262> .
+}
+
+ns1:L255_S3_Logakis_2009_pubinfo {
+    ns1:L255_S3_Logakis_2009_assertion ns4:created "2021-07-22T19:27:47.734000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/Mzg4OTMuODU0NjU3NTA2Njk/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/10.1016/j.polymer.2009.08.038> .
+
+    <http://dx.doi.org/10.1016/j.polymer.2009.08.038> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Electrical/dielectric properties and conduction mechanism in melt processed polyamide/multi-walled carbon nanotubes composites" ;
+        ns4:created 2009 ;
+        ns4:creator <http://materialsmine.org/author/logakis-e>,
+            <http://materialsmine.org/author/micusik-m>,
+            <http://materialsmine.org/author/omastova-m>,
+            <http://materialsmine.org/author/pandis-ch>,
+            <http://materialsmine.org/author/peoglos-v>,
+            <http://materialsmine.org/author/pionteck-j>,
+            <http://materialsmine.org/author/pissis-p>,
+            <http://materialsmine.org/author/potschke-p> ;
+        ns4:isPartOf <http://materialsmine.org/publication/polymer> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Electrical/dielectric properties and conduction mechanism in melt processed polyamide/multi-walled carbon nanotubes composites" ;
+        ns8:authorList ( <http://materialsmine.org/author/omastova-m> <http://materialsmine.org/author/micusik-m> <http://materialsmine.org/author/potschke-p> <http://materialsmine.org/author/pionteck-j> <http://materialsmine.org/author/pissis-p> <http://materialsmine.org/author/peoglos-v> <http://materialsmine.org/author/pandis-ch> <http://materialsmine.org/author/logakis-e> ) ;
+        ns8:volume 50 ;
+        ns3:hasPart <http://materialsmine.org/sample/l255-s3-logakis-2009> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0032386109007393?via%3Dihub> ;
+        ns7:keyword "Carbon Nanotubes Composites",
+            "Conduction Mechanism",
+            "Dielectric Properties" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-physics-national-technical-university-of-athens-zografou-campus-15780-athens-greece> a ns4:Location ;
+        rdfs:label "Department of Physics, National Technical University of Athens, Zografou Campus, 15780 Athens, Greece" .
+
+    <http://materialsmine.org/publication/polymer> ns4:publisher <publisher:elsevier> ;
+        ns4:title "Polymer" .
+
+    <http://materialsmine.org/sample/l255-s3-logakis-2009> ns2:wasAttributedTo <http://materialsmine.org/author/logakis-e>,
+            <http://materialsmine.org/author/micusik-m>,
+            <http://materialsmine.org/author/omastova-m>,
+            <http://materialsmine.org/author/pandis-ch>,
+            <http://materialsmine.org/author/peoglos-v>,
+            <http://materialsmine.org/author/pionteck-j>,
+            <http://materialsmine.org/author/pissis-p>,
+            <http://materialsmine.org/author/potschke-p> .
+
+    <publisher:elsevier> rdfs:label "Elsevier" ;
+        ns2:atLocation <http://materialsmine.org/location/department-of-physics-national-technical-university-of-athens-zografou-campus-15780-athens-greece> .
+
+    <http://materialsmine.org/author/logakis-e> a ns2:Agent ;
+        rdfs:label "Logakis, E." ;
+        ns6:name "Logakis, E." .
+
+    <http://materialsmine.org/author/micusik-m> a ns2:Agent ;
+        rdfs:label "Mi��u����k, M." ;
+        ns6:name "Mi��u����k, M." .
+
+    <http://materialsmine.org/author/omastova-m> a ns2:Agent ;
+        rdfs:label "Omastov��, M." ;
+        ns6:name "Omastov��, M." .
+
+    <http://materialsmine.org/author/pandis-ch> a ns2:Agent ;
+        rdfs:label "Pandis, Ch." ;
+        ns6:name "Pandis, Ch." .
+
+    <http://materialsmine.org/author/peoglos-v> a ns2:Agent ;
+        rdfs:label "Peoglos, V." ;
+        ns6:name "Peoglos, V." .
+
+    <http://materialsmine.org/author/pionteck-j> a ns2:Agent ;
+        rdfs:label "Pionteck, J." ;
+        ns6:name "Pionteck, J." .
+
+    <http://materialsmine.org/author/pissis-p> a ns2:Agent ;
+        rdfs:label "Pissis, P." ;
+        ns6:name "Pissis, P." .
+
+    <http://materialsmine.org/author/potschke-p> a ns2:Agent ;
+        rdfs:label "P��tschke, P." ;
+        ns6:name "P��tschke, P." .
+}
+

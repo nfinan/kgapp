@@ -1,0 +1,600 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/ontology/bibo/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:E116_S32_Prasad_2018_provenance {
+    <http://materialsmine.org/sample/e116-s32-prasad-2018> ns2:wasGeneratedBy <http://materialsmine.org/entry/E116_S32_Prasad_2018_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/dmta-v>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_description_attr_29>,
+                    <http://materialsmine.org/sample/E116_S32_Prasad_2018_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_rheometery> a <http://materialsmine.org/ns/PlateRheometery>,
+            <http://materialsmine.org/ns/Rheometery>,
+            ns3:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/versa-3d-dual-beam>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/E116_S32_Prasad_2018_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/ta-instruments-tga-q50>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_description_attr_29>,
+                    <http://materialsmine.org/sample/E116_S32_Prasad_2018_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/jeol-2010>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/E116_S32_Prasad_2018_description_attr_29>,
+                    <http://materialsmine.org/sample/E116_S32_Prasad_2018_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/E116_S32_Prasad_2018_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3> .
+
+    <http://materialsmine.org/ns/dmta-v> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DMTA V" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/jeol-2010> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-2010" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-tga-q50> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments TGA Q50" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/versa-3d-dual-beam> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Versa 3D Dual Beam" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_mixing> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_mixing_description> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_mixing_description> a ns3:Description ;
+        ns3:hasValue "the particles modified with APDEMS were redispersed in THF." .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasInput <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_ambientcondition>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_description>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_time> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation_description>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns3:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "After evaporation of the water or ethanol, the nanoparticle-polymer mixture was dried in a vacuum oven for 12 h." .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_drying-evaporation_time> a ns3:TimeInterval ;
+        ns3:hasUnit ns3:Hour ;
+        ns3:hasValue "12" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_1_time> a ns3:Parameter,
+            ns3:TimeInterval .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3> a <http://materialsmine.org/ns/Extrusion> ;
+        ns3:hasInput <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_2_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusiontemperature>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_residencetime>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_rotationmode>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_rotationspeed>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion> a <http://materialsmine.org/ns/Extrusion>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_residencetime>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_rotationmode>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_rotationspeed>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_twinscrewextrusion> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "180" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns3:hasValue "340" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_rotationmode> a <http://materialsmine.org/ns/RotationMode> ;
+        ns3:hasValue "CoRotation" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns3:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns3:hasValue "300" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusion_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_residencetime> a <http://materialsmine.org/ns/ResidenceTime>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_rotationmode> a <http://materialsmine.org/ns/RotationMode>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion> a <http://materialsmine.org/ns/TwinScrew>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_residencetime>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_rotationmode>,
+            <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_rotationspeed> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "180" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns3:hasValue "340" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_rotationmode> a <http://materialsmine.org/ns/RotationMode> ;
+        ns3:hasValue "CoRotation" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_solution_processing_step_3_twinscrewextrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns3:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns3:hasValue "300" .
+
+    ns3:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    ns1:E116_S32_Prasad_2018_assertion ns2:wasDerivedFrom ns1:E116_S32_Prasad_2018_assertion,
+            <http://nanomine.org/pub/MTc2MjQ5LjcwODkyNzk5Mzg3_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/MTE1MDkxLjgyNTQwNDAzNzk0/MaterialsmineXMLImport> ;
+                ns2:used ns1:E116_S32_Prasad_2018_assertion,
+                    <http://nanomine.org/pub/MTc2MjQ5LjcwODkyNzk5Mzg3_assertion> ],
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_description>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_equipment>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_equipmentused>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_rheometery>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/E116_S32_Prasad_2018_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns3:hasValue 1e+01,
+            2e+02 .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> rdfs:label "rpm" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> rdfs:label "seconds" .
+
+    <http://materialsmine.org/sample/E116_S32_Prasad_2018_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+
+ns1:E116_S32_Prasad_2018_pubinfo {
+    ns1:E116_S32_Prasad_2018_assertion ns5:created "2021-07-22T04:48:35.094000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/MTE1MDkxLjgyNTQwNDAzNzk0/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/unpublished/doi-tW6qZKdpLFShLQazV6U2Fw> .
+
+    <http://dx.doi.org/unpublished/doi-tW6qZKdpLFShLQazV6U2Fw> a <file:///apps/whyis/>,
+            ns5:BibliographicResource ;
+        rdfs:label "" ;
+        ns5:created ""^^xsd:integer ;
+        ns5:creator <http://materialsmine.org/author/prasad-aditya> ;
+        ns5:title "" ;
+        ns4:authorList ( <http://materialsmine.org/author/prasad-aditya> ) ;
+        ns3:hasPart <http://materialsmine.org/sample/e116-s32-prasad-2018> .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018> ns2:wasAttributedTo <http://materialsmine.org/author/prasad-aditya> .
+
+    <http://materialsmine.org/author/prasad-aditya> a ns2:Agent ;
+        rdfs:label "Prasad, Aditya" ;
+        ns6:name "Prasad, Aditya" .
+}
+
+ns1:E116_S32_Prasad_2018_assertion {
+    <http://materialsmine.org/sample/e116-s1-prasad-2018> ns3:hasRole <http://materialsmine.org/sample/e116-s1-prasad-2018_control_role> .
+
+    <http://localhost/nmr/blob?id=5b70938be74a1d7c81bebb4c> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70938be74a1d7c81bebb4c" .
+
+    <http://localhost/nmr/blob?id=5b70939ce74a1d7c81bebb5a> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70939ce74a1d7c81bebb5a" .
+
+    <http://localhost/nmr/blob?id=5b7093aae74a1d7c81bebb68> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7093aae74a1d7c81bebb68" .
+
+    <http://localhost/nmr/blob?id=5b7093b4e74a1d7c81bebb76> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7093b4e74a1d7c81bebb76" .
+
+    <http://localhost/nmr/blob?id=5b7093d3e74a1d7c81bebb84> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7093d3e74a1d7c81bebb84" .
+
+    <http://localhost/nmr/blob?id=5b7093f5e74a1d7c81bebb92> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7093f5e74a1d7c81bebb92" .
+
+    <http://localhost/nmr/blob?id=5b7093fee74a1d7c81bebba0> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7093fee74a1d7c81bebba0" .
+
+    <http://localhost/nmr/blob?id=5b70940ae74a1d7c81bebbae> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70940ae74a1d7c81bebbae" .
+
+    <http://localhost/nmr/blob?id=5b709418e74a1d7c81bebbbc> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709418e74a1d7c81bebbbc" .
+
+    <http://localhost/nmr/blob?id=5b709420e74a1d7c81bebbca> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709420e74a1d7c81bebbca" .
+
+    <http://localhost/nmr/blob?id=5b709432e74a1d7c81bebbd8> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709432e74a1d7c81bebbd8" .
+
+    <http://localhost/nmr/blob?id=5b70943de74a1d7c81bebbe6> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70943de74a1d7c81bebbe6" .
+
+    <http://localhost/nmr/blob?id=5b709447e74a1d7c81bebbf4> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709447e74a1d7c81bebbf4" .
+
+    <http://localhost/nmr/blob?id=5b709454e74a1d7c81bebc02> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709454e74a1d7c81bebc02" .
+
+    <http://localhost/nmr/blob?id=5b709466e74a1d7c81bebc10> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709466e74a1d7c81bebc10" .
+
+    <http://localhost/nmr/blob?id=5b709474e74a1d7c81bebc1e> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709474e74a1d7c81bebc1e" .
+
+    <http://localhost/nmr/blob?id=5b70947de74a1d7c81bebc2c> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70947de74a1d7c81bebc2c" .
+
+    <http://localhost/nmr/blob?id=5b70948be74a1d7c81bebc3a> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70948be74a1d7c81bebc3a" .
+
+    <http://localhost/nmr/blob?id=5b7094dee74a1d7c81bebc56> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7094dee74a1d7c81bebc56" .
+
+    <http://localhost/nmr/blob?id=5b7094eae74a1d7c81bebc64> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7094eae74a1d7c81bebc64" .
+
+    <http://localhost/nmr/blob?id=5b7094fbe74a1d7c81bebc72> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7094fbe74a1d7c81bebc72" .
+
+    <http://localhost/nmr/blob?id=5b709547e74a1d7c81bebc8e> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709547e74a1d7c81bebc8e" .
+
+    <http://localhost/nmr/blob?id=5b709551e74a1d7c81bebc9c> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709551e74a1d7c81bebc9c" .
+
+    <http://localhost/nmr/blob?id=5b70955de74a1d7c81bebcaa> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70955de74a1d7c81bebcaa" .
+
+    <http://localhost/nmr/blob?id=5b709568e74a1d7c81bebcb8> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709568e74a1d7c81bebcb8" .
+
+    <http://localhost/nmr/blob?id=5b709577e74a1d7c81bebcc6> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709577e74a1d7c81bebcc6" .
+
+    <http://localhost/nmr/blob?id=5b709584e74a1d7c81bebcd4> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709584e74a1d7c81bebcd4" .
+
+    <http://localhost/nmr/blob?id=5b709591e74a1d7c81bebce2> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b709591e74a1d7c81bebce2" .
+
+    <http://localhost/nmr/blob?id=5b70959be74a1d7c81bebcf0> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b70959be74a1d7c81bebcf0" .
+
+    <http://localhost/nmr/blob?id=5b7095a9e74a1d7c81bebcfe> a ns3:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns6:depiction "http://localhost/nmr/blob?id=5b7095a9e74a1d7c81bebcfe" .
+
+    <http://materialsmine.org/compound/Aminopropyldimethylethoxysilane> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/PolyMethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(methyl methacrylate)" ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID6658> ;
+        ns7:notation "PMMA" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Nissan, Inc." ] ;
+        ns7:altLabel "MEK-ST",
+            "silica" .
+
+    <http://materialsmine.org/ns/Amorphous> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "amorphous" ;
+        rdfs:subClassOf <http://materialsmine.org/ns/CrystalPhase> .
+
+    <http://materialsmine.org/sample/e116-s1-prasad-2018_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/e116-s32-prasad-2018> .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns3:hasAttribute [ a ns3:AspectRatio ;
+                ns3:hasValue 1e+00 ],
+            [ a <http://materialsmine.org/ns/Amorphous>,
+                    <http://materialsmine.org/ns/CrystalPhase> ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.65e+00 ],
+            [ a ns3:Width ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 1.5e+01 ],
+            <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns3:isSurroundedBy <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns5:description "reported" ;
+        ns3:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0_surface_0> a <http://materialsmine.org/compound/Aminopropyldimethylethoxysilane> ;
+        rdfs:label "aminopropyldimethylethoxysilane" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Gelest, Inc." ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e116-s32-prasad-2018> ] ;
+        ns7:notation "APDEMS" .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns5:description "computed by NanoMine" ;
+        ns3:hasValue 9.005571e-03 .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018_matrix_0> a <http://materialsmine.org/compound/PolyMethylMethacrylate> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Scientific Polymer Products,        Inc." ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.18e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PMMA" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/e116-s32-prasad-2018> ] .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/e116-s32-prasad-2018> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in poly(methyl methacrylate)" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns5:description "�� value" ;
+                ns3:hasValue 5.96e+00 ],
+            [ a <file:///apps/whyis/nan> ;
+                ns5:description "��" ;
+                ns3:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns3:hasValue 6.301e+01 ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/e116-s32-prasad-2018_filler_0>,
+            <http://materialsmine.org/sample/e116-s32-prasad-2018_matrix_0> ;
+        ns3:isRepresentedBy <http://localhost/nmr/blob?id=5b70938be74a1d7c81bebb4c>,
+            <http://localhost/nmr/blob?id=5b70939ce74a1d7c81bebb5a>,
+            <http://localhost/nmr/blob?id=5b7093aae74a1d7c81bebb68>,
+            <http://localhost/nmr/blob?id=5b7093b4e74a1d7c81bebb76>,
+            <http://localhost/nmr/blob?id=5b7093d3e74a1d7c81bebb84>,
+            <http://localhost/nmr/blob?id=5b7093f5e74a1d7c81bebb92>,
+            <http://localhost/nmr/blob?id=5b7093fee74a1d7c81bebba0>,
+            <http://localhost/nmr/blob?id=5b70940ae74a1d7c81bebbae>,
+            <http://localhost/nmr/blob?id=5b709418e74a1d7c81bebbbc>,
+            <http://localhost/nmr/blob?id=5b709420e74a1d7c81bebbca>,
+            <http://localhost/nmr/blob?id=5b709432e74a1d7c81bebbd8>,
+            <http://localhost/nmr/blob?id=5b70943de74a1d7c81bebbe6>,
+            <http://localhost/nmr/blob?id=5b709447e74a1d7c81bebbf4>,
+            <http://localhost/nmr/blob?id=5b709454e74a1d7c81bebc02>,
+            <http://localhost/nmr/blob?id=5b709466e74a1d7c81bebc10>,
+            <http://localhost/nmr/blob?id=5b709474e74a1d7c81bebc1e>,
+            <http://localhost/nmr/blob?id=5b70947de74a1d7c81bebc2c>,
+            <http://localhost/nmr/blob?id=5b70948be74a1d7c81bebc3a>,
+            <http://localhost/nmr/blob?id=5b7094dee74a1d7c81bebc56>,
+            <http://localhost/nmr/blob?id=5b7094eae74a1d7c81bebc64>,
+            <http://localhost/nmr/blob?id=5b7094fbe74a1d7c81bebc72>,
+            <http://localhost/nmr/blob?id=5b709547e74a1d7c81bebc8e>,
+            <http://localhost/nmr/blob?id=5b709551e74a1d7c81bebc9c>,
+            <http://localhost/nmr/blob?id=5b70955de74a1d7c81bebcaa>,
+            <http://localhost/nmr/blob?id=5b709568e74a1d7c81bebcb8>,
+            <http://localhost/nmr/blob?id=5b709577e74a1d7c81bebcc6>,
+            <http://localhost/nmr/blob?id=5b709584e74a1d7c81bebcd4>,
+            <http://localhost/nmr/blob?id=5b709591e74a1d7c81bebce2>,
+            <http://localhost/nmr/blob?id=5b70959be74a1d7c81bebcf0>,
+            <http://localhost/nmr/blob?id=5b7095a9e74a1d7c81bebcfe> .
+}
+

@@ -1,0 +1,71 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:owqmwqyl1s_assertion {
+    <http://nanomine.org/viz/dde347653aadf7a9> a ns4:Chart ;
+        ns2:description "In this chart, the sequence generator and calculate transform in Vega-Lite are used to plot a Weibull distribution, with shape and scale parameters previously known for this particular sample (Roy et al. 2005)." ;
+        ns2:title "Plotting a Weibull Distribution" ;
+        ns7:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ElectricalProperty ] ,
+                           [ a nm:ProbabilityOfFailure ;
+                             sio:hasValue ?probFailure ;
+                             sio:hasUnit [ rdfs:label "Percent" ] ;
+                             sio:inRelationTo [ a nm:BreakdownStrength ;
+                                                sio:hasValue ?breakdown ;
+                                                sio:hasUnit [ rdfs:label "Kilovolt per Millimeter" ] ]  
+                            ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] ,
+                               [ a [ rdfs:label ?Filler ] ; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?MassFraction ] ] .
+  FILTER(?sample = <http://materialsmine.org/sample/l155-s3-roy-2005>)
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":600,\"height\":400,\"transform\":[{\"calculate\":\"datum.probFailure / 100\",\"as\":\"Probability\"},{\"calculate\":\"format(datum.breakdown, '.4r')+' kV/mm'\",\"as\":\"Electric Field\"},{\"calculate\":\"replace(datum.sample,/^.*org.sample./,'')\",\"as\":\"Sample ID\"}],\"layer\":[{\"data\":{\"sequence\":{\"start\":0,\"stop\":1201,\"step\":10,\"as\":\"seq_x\"}},\"transform\":[{\"calculate\":\"1 - exp(-1 * pow((datum.seq_x / 447), 1.4))\",\"as\":\"seq_y\"}],\"mark\":{\"type\":\"line\",\"strokeDash\":[10,5]},\"encoding\":{\"x\":{\"field\":\"seq_x\",\"type\":\"quantitative\"},\"y\":{\"field\":\"seq_y\",\"type\":\"quantitative\"}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":100},\"encoding\":{\"x\":{\"field\":\"breakdown\",\"type\":\"quantitative\",\"title\":\"Electric Field (kV/mm)\"},\"y\":{\"field\":\"Probability\",\"type\":\"quantitative\",\"title\":\"Cumulative Probability of Failure\"},\"tooltip\":[{\"field\":\"Probability\",\"type\":\"quantitative\",\"format\":\".4r\"},{\"field\":\"Electric Field\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":16,\"labelFlush\":false}}}" ;
+        ns6:depiction <http://nanomine.org/viz/dde347653aadf7a9_depiction> .
+
+    <http://nanomine.org/viz/dde347653aadf7a9_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:33:30.026000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "1564fa5e-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:owqmwqyl1s a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/dde347653aadf7a9_depiction> ;
+        ns8:hasAssertion ns1:owqmwqyl1s_assertion ;
+        ns8:hasProvenance ns1:owqmwqyl1s_provenance ;
+        ns8:hasPublicationInfo ns1:owqmwqyl1s_pubinfo .
+
+    ns1:owqmwqyl1s_assertion a ns8:Assertion .
+
+    ns1:owqmwqyl1s_provenance a ns8:Provenance .
+
+    ns1:owqmwqyl1s_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:owqmwqyl1s_pubinfo {
+    ns1:owqmwqyl1s_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:33:30.027000+00:00"^^xsd:dateTime .
+}
+

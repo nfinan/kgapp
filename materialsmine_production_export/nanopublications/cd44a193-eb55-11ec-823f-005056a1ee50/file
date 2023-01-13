@@ -1,0 +1,84 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:nce223f8gm_pubinfo {
+    ns1:nce223f8gm_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:25:29.046000+00:00"^^xsd:dateTime .
+}
+
+ns1:nce223f8gm_assertion {
+    <http://nanomine.org/viz/c5fb76e52f4cc948> a ns6:Chart ;
+        ns2:description "In dynamic mechanical analysis (DMA), the viscoelastic behavior of polymers is studied by applying an sinusoidal stress and measuring the strain response. By varying temperature, one can identify the glass transition temperature, Tg. This plot contains data from Hu et al. (2004), which studied silica as a reinforcement in PMMA nanocomposites, with a color encoding representing the mass fraction of silica. Storage and loss modulus share the left y-axis, and tan delta is on the right y-axis scale. Curated values of Tg are represented by vertical rule marks. Hover over a point to display a tooltip and isolate data from the sample." ;
+        ns2:title "Extracting Tg from Dynamic Mechanical Analysis" ;
+        ns3:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1016/j.polymdegradstab.2004.02.001> sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ,
+                           ?attr ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  ?attr a ?AttrType ;
+        sio:hasValue ?value ;
+        sio:inRelationTo [ a nm:Temperature ;
+                           sio:hasValue ?TempC ;
+                           sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  OPTIONAL {
+    ?attr sio:hasUnit ?unit
+  }
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] ] .
+  }
+  FILTER( (?AttrType = nm:StorageModulus) || (?AttrType = nm:LossModulus) || (?AttrType = nm:TanDelta) )
+}
+
+
+""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"transform\":[{\"calculate\":\"replace(datum.AttrType,/^.*.org.ns./,'')\",\"as\":\"AttrTrim\"},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"SampleID\"}],\"layer\":[{\"mark\":{\"type\":\"rule\",\"point\":false},\"encoding\":{\"x\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"zero\":false,\"padding\":10}},\"strokeWidth\":{\"condition\":{\"selection\":\"SampleSelect\",\"value\":2},\"value\":0}}},{\"selection\":{\"SampleSelect\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"SampleID\"]}},\"transform\":[{\"filter\":\"datum.AttrTrim != 'TanDelta'\"}],\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"x\":{\"field\":\"TempC\",\"type\":\"quantitative\",\"title\":\"Temperature (C)\"},\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Storage/Loss Modulus (MPa)\"},\"detail\":{\"field\":\"AttrType\",\"type\":\"nominal\"}}},{\"selection\":{\"SampleSelect2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"SampleID\"]}},\"transform\":[{\"filter\":\"datum.AttrTrim == 'TanDelta'\"}],\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"x\":{\"field\":\"TempC\",\"type\":\"quantitative\"},\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Tan Delta\"}}}],\"encoding\":{\"shape\":{\"field\":\"AttrTrim\",\"type\":\"nominal\",\"title\":\"Attribute Type\"},\"color\":{\"field\":\"Loading_mass\",\"type\":\"ordinal\",\"legend\":{\"title\":\"Mass % Filler\",\"format\":\".1p\"}},\"opacity\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"SampleSelect\"},{\"selection\":\"SampleSelect2\"}]},\"value\":1},\"value\":0},\"tooltip\":[{\"field\":\"AttrTrim\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Value\"},{\"field\":\"TempC\",\"type\":\"quantitative\",\"title\":\"Temperature (C)\"},{\"field\":\"SampleID\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Loading_mass\",\"type\":\"quantitative\",\"title\":\"Mass % of Filler\",\"format\":\".2p\"},{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"}]},\"resolve\":{\"scale\":{\"y\":\"independent\"}},\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":16},\"legend\":{\"titleFontSize\":16,\"labelFontSize\":14}}}" ;
+        ns7:depiction <http://nanomine.org/viz/c5fb76e52f4cc948_depiction> .
+
+    <http://nanomine.org/viz/c5fb76e52f4cc948_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:25:29.043000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "f6b4a11e-f548-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:nce223f8gm a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/c5fb76e52f4cc948_depiction> ;
+        ns8:hasAssertion ns1:nce223f8gm_assertion ;
+        ns8:hasProvenance ns1:nce223f8gm_provenance ;
+        ns8:hasPublicationInfo ns1:nce223f8gm_pubinfo .
+
+    ns1:nce223f8gm_assertion a ns8:Assertion .
+
+    ns1:nce223f8gm_provenance a ns8:Provenance .
+
+    ns1:nce223f8gm_pubinfo a ns8:PublicationInfo .
+}
+

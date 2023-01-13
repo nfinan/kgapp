@@ -1,0 +1,72 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:tlf9denb7d_assertion {
+    <http://nanomine.org/viz/753a084de01f1f49> a ns3:Chart ;
+        ns2:description "This chart provides an example of querying multiple attribute types and using the pivot transform in Vega-Lite to assign each unique attribute type to its own data field. Click-drag in the bottom chart to define a selection brush that cross-filters the other charts based on the year the data were published. Hover over tick marks for tooltips with additional sample info." ;
+        ns2:title "Using Pivot Transform to Query Multiple Attribute Types" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:created ?Year ;
+       sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ; a [ rdfs:label ?Matrix] ] ,
+                               [ sio:hasRole [ a nm:Filler ] ; a [ rdfs:label ?Filler] ; 
+                                 sio:hasAttribute [ a nm:MassFraction ; sio:hasValue ?MassFraction] ] ;
+          sio:hasAttribute ?attr .
+  ?attr a ?AttrType ;
+        sio:hasValue ?value .
+  ?AttrType rdfs:subClassOf nm:ElectricalProperty .
+  OPTIONAL {
+    ?attr sio:hasUnit [ rdfs:label ?unit ]
+  }
+  FILTER(?Year > 0)
+  FILTER((?AttrType = nm:DC_DielectricConstant) || (?AttrType = nm:ElectricalConductivity) || (?AttrType = nm:DielectricRealPermittivity))
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"(datum.unit == 'Siemens per Centimeter') ? (datum.value * 100) : datum.value\",\"as\":\"ConvertedValue\"},{\"calculate\":\"replace(datum.AttrType,/^.*.org.ns./,'')\",\"as\":\"AttrTrim\"},{\"pivot\":\"AttrTrim\",\"groupby\":[\"doi\",\"Year\",\"sample\",\"Matrix\",\"Filler\",\"MassFraction\"],\"value\":\"ConvertedValue\"},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"ID\"},{\"calculate\":\"replace(datum.doi,/^.*.org./,'')\",\"as\":\"DOI\"}],\"vconcat\":[{\"height\":50,\"width\":500,\"transform\":[{\"filter\":\"datum.ElectricalConductivity > 0\"}],\"selection\":{\"zoom\":{\"type\":\"interval\",\"encodings\":[\"x\"],\"bind\":\"scales\"},\"legendSelect\":{\"type\":\"single\",\"bind\":\"legend\",\"fields\":[\"Filler\"]}},\"mark\":{\"type\":\"tick\",\"thickness\":2},\"encoding\":{\"x\":{\"field\":\"ElectricalConductivity\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Electrical Conductivity (S/m)\"},\"color\":{\"condition\":{\"selection\":\"brushYear\",\"field\":\"Filler\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"}},\"value\":\"gray\"},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"brushYear\"},{\"selection\":\"legendSelect\"}]},\"value\":1},\"value\":0.5},\"size\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"brushYear\"},{\"selection\":\"legendSelect\"}]},\"value\":25},\"value\":5},\"tooltip\":[{\"field\":\"ElectricalConductivity\",\"type\":\"quantitative\",\"format\":\"e\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"ID\",\"type\":\"nominal\"}]}},{\"width\":500,\"transform\":[{\"filter\":\"datum.DC_DielectricConstant > 0\"}],\"selection\":{\"zoom\":{\"type\":\"interval\",\"encodings\":[\"x\"],\"bind\":\"scales\"}},\"mark\":{\"type\":\"tick\",\"thickness\":2},\"encoding\":{\"x\":{\"field\":\"DC_DielectricConstant\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"DC Dielectric Constant\"},\"color\":{\"condition\":{\"selection\":\"brushYear\",\"field\":\"Filler\",\"type\":\"nominal\"},\"value\":\"gray\"},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"brushYear\"},{\"selection\":\"legendSelect\"}]},\"value\":1},\"value\":0.5},\"size\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"brushYear\"},{\"selection\":\"legendSelect\"}]},\"value\":25},\"value\":5},\"tooltip\":[{\"field\":\"DC_DielectricConstant\",\"type\":\"quantitative\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"ID\",\"type\":\"nominal\"}]}},{\"width\":500,\"transform\":[{\"filter\":\"datum.DielectricRealPermittivity > 0\"}],\"selection\":{\"zoom\":{\"type\":\"interval\",\"encodings\":[\"x\"],\"bind\":\"scales\"}},\"mark\":{\"type\":\"tick\",\"thickness\":2},\"encoding\":{\"x\":{\"field\":\"DielectricRealPermittivity\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"title\":\"Dielectric Real Permittivity\"},\"color\":{\"condition\":{\"selection\":\"brushYear\",\"field\":\"Filler\",\"type\":\"nominal\"},\"value\":\"gray\"},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"brushYear\"},{\"selection\":\"legendSelect\"}]},\"value\":1},\"value\":0.5},\"size\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"brushYear\"},{\"selection\":\"legendSelect\"}]},\"value\":25},\"value\":5},\"tooltip\":[{\"field\":\"DielectricRealPermittivity\",\"type\":\"quantitative\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".2p\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"ID\",\"type\":\"nominal\"}]}},{\"width\":500,\"selection\":{\"brushYear\":{\"type\":\"interval\",\"encodings\":[\"x\"]}},\"mark\":{\"type\":\"point\",\"shape\":\"diamond\",\"filled\":true,\"size\":75},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"quantitative\",\"scale\":{\"type\":\"sqrt\",\"zero\":false,\"padding\":20,\"nice\":false},\"axis\":{\"format\":\"r\",\"title\":\"Year of Publication\"}},\"opacity\":{\"condition\":{\"selection\":\"legendSelect\",\"value\":1},\"value\":0}}}],\"config\":{\"axis\":{\"titleFontSize\":18,\"labelFontSize\":14},\"legend\":{\"titleFontSize\":16,\"labelFontSize\":12,\"labelLimit\":250,\"orient\":\"none\",\"legendX\":525}}}" ;
+        ns6:depiction <http://nanomine.org/viz/753a084de01f1f49_depiction> .
+
+    <http://nanomine.org/viz/753a084de01f1f49_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:25:02.970000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "e72a6cf6-f548-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:tlf9denb7d a ns8:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/753a084de01f1f49_depiction> ;
+        ns8:hasAssertion ns1:tlf9denb7d_assertion ;
+        ns8:hasProvenance ns1:tlf9denb7d_provenance ;
+        ns8:hasPublicationInfo ns1:tlf9denb7d_pubinfo .
+
+    ns1:tlf9denb7d_assertion a ns8:Assertion .
+
+    ns1:tlf9denb7d_provenance a ns8:Provenance .
+
+    ns1:tlf9denb7d_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:tlf9denb7d_pubinfo {
+    ns1:tlf9denb7d_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:25:02.971000+00:00"^^xsd:dateTime .
+}
+

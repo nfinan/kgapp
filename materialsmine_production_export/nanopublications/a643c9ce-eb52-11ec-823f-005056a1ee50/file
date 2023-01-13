@@ -1,0 +1,274 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix ns8: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L114_S10_Hong_2006_assertion {
+    <http://materialsmine.org/sample/l114-s1-hong-2006> ns3:hasRole <http://materialsmine.org/sample/l114-s1-hong-2006_control_role> .
+
+    <http://materialsmine.org/compound/PolyEthylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(ethylene)" ;
+        ns4:altLabel "DOW 681I" ;
+        ns4:notation "LDPE" .
+
+    <http://materialsmine.org/compound/ZincOxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Zinc oxide" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Nanophase Technologies Corporation" ] ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID14806> ;
+        ns4:altLabel "zinc oxide" ;
+        ns4:notation "ZnO" .
+
+    <http://materialsmine.org/sample/l114-s1-hong-2006_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l114-s10-hong-2006> .
+
+    <http://materialsmine.org/sample/l114-s10-hong-2006_filler_0> a <http://materialsmine.org/compound/ZincOxide> ;
+        ns3:hasAttribute [ a ns3:Width ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 4.9e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 5.61e+00 ],
+            <http://materialsmine.org/sample/l114-s10-hong-2006_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l114-s10-hong-2006_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l114-s10-hong-2006> ] .
+
+    <http://materialsmine.org/sample/l114-s10-hong-2006_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns2:description "computed by NanoMine" ;
+        ns3:hasValue 7.481814e-01 .
+
+    <http://materialsmine.org/sample/l114-s10-hong-2006_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns2:description "reported" ;
+        ns3:hasValue 3.3e-01 .
+
+    <http://materialsmine.org/sample/l114-s10-hong-2006_matrix_0> a <http://materialsmine.org/compound/PolyEthylene> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "LDPE" ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns3:hasValue "DOW 681I" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Dow Chemical" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 9.3e-01 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l114-s10-hong-2006> ] .
+
+    <http://materialsmine.org/sample/l114-s10-hong-2006> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "zinc oxide in low density polyethylene" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/VolumeResistivity> ;
+                ns2:description "Resistivity under an applied field strength of 10 kV/cm." ;
+                ns3:hasValue 3.611539e+17 ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l114-s10-hong-2006_filler_0>,
+            <http://materialsmine.org/sample/l114-s10-hong-2006_matrix_0> .
+}
+
+ns1:L114_S10_Hong_2006_provenance {
+    <http://materialsmine.org/sample/l114-s10-hong-2006> ns5:wasGeneratedBy <http://materialsmine.org/entry/L114_S10_Hong_2006_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_electrometry> a <http://materialsmine.org/ns/Electrometry>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/jeol-jsm-6335f>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L114_S10_Hong_2006_description_attr_29>,
+                    <http://materialsmine.org/sample/L114_S10_Hong_2006_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L114_S10_Hong_2006_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns3:Procedure ;
+        ns2:description "Process for uniform distribution of filler particles" ;
+        ns3:hasPart <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1> .
+
+    <http://materialsmine.org/ns/jeol-jsm-6335f> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL JSM-6335F" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_description>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixer>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_temperature>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_time> .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_mixer>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_temperature>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_description> a ns3:Description ;
+        ns3:hasValue "ZnO/LDPE nanocomposites were produced by melt mixing commercial grade DOW 681I and ZnO nanoparticles in a Haake batch mixer. To avoid any thermal degradation of the polymer matrix, the mixing time was set to 10���13 min at 200��C." .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns3:hasValue "Haake batch mixer system 90" .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns3:hasValue "mechanical mixing" .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_temperature> a <obo:PATO_0000146> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "200" .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_time> a ns3:TimeInterval ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_time_uncertainty> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns3:hasValue "11.5" .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixing_time_uncertainty> a ns3:StandardDeviation,
+            ns3:UncertaintyValue ;
+        ns3:hasValue "1.5" .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_temperature> a ns3:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_time> a ns3:Parameter,
+            ns3:TimeInterval .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_description>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_molding>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_temperature> .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_molding_description>,
+            <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_molding_temperature> .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_molding_description> a ns3:Description ;
+        ns3:hasValue "The mixtures were then hot-pressed at approximately 170��C to form a disc-shaped specimen." .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_molding_temperature> a <obo:PATO_0000146> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "170" .
+
+    <http://materialsmine.org/sample/L114_S10_Hong_2006_melt_mixing_step_1_temperature> a ns3:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L114_S10_Hong_2006_assertion ns5:wasDerivedFrom ns1:L114_S10_Hong_2006_assertion,
+            <http://nanomine.org/pub/NzEyNTMyLjA2NDUwNDQzMzM_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NDA0MTIwLjEwMzM4NTE1MjY0/MaterialsmineXMLImport> ;
+                ns5:used ns1:L114_S10_Hong_2006_assertion,
+                    <http://nanomine.org/pub/NzEyNTMyLjA2NDUwNDQzMzM_assertion> ],
+            <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_description>,
+            <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_electrometry>,
+            <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L114_S10_Hong_2006_characterization_scanning-electron-microscopy> .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+
+ns1:L114_S10_Hong_2006_pubinfo {
+    ns1:L114_S10_Hong_2006_assertion ns2:created "2021-07-22T07:35:00.296000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NDA0MTIwLjEwMzM4NTE1MjY0/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1007/s10853-006-0331-1> .
+
+    <http://dx.doi.org/10.1007/s10853-006-0331-1> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns2:BibliographicResource ;
+        rdfs:label "Electrical behavior of low density polyethylene containing an inhomogeneous distribution of ZnO nanoparticles" ;
+        ns2:created 2006 ;
+        ns2:creator <http://materialsmine.org/author/hong-j-i>,
+            <http://materialsmine.org/author/martensson-e>,
+            <http://materialsmine.org/author/schadler-l-s>,
+            <http://materialsmine.org/author/siegel-r-w> ;
+        ns2:isPartOf <http://materialsmine.org/publication/journal-of-materials-science> ;
+        ns2:language <http://materialsmine.org/language/english> ;
+        ns2:title "Electrical behavior of low density polyethylene containing an inhomogeneous distribution of ZnO nanoparticles" ;
+        ns7:authorList ( <http://materialsmine.org/author/martensson-e> <http://materialsmine.org/author/siegel-r-w> <http://materialsmine.org/author/schadler-l-s> <http://materialsmine.org/author/hong-j-i> ) ;
+        ns7:volume 41 ;
+        ns3:hasPart <http://materialsmine.org/sample/l114-s10-hong-2006> ;
+        rdfs:seeAlso <http://link.springer.com/10.1007/s10853-006-0331-1> ;
+        ns8:keyword "Filler Concentration",
+            "Filler Distribution",
+            "Filler Particle",
+            "Filler Volume Fraction",
+            "Ldpe" .
+
+    <http://materialsmine.org/language/english> a ns2:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/materials-science-and-engineering-department-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-troy-usa> a ns2:Location ;
+        rdfs:label "Materials Science and Engineering Department and Rensselaer Nanotechnology Center, Rensselaer Polytechnic Institute, Troy, USA" .
+
+    <http://materialsmine.org/publication/journal-of-materials-science> ns2:publisher <publisher:springer-verlag> ;
+        ns2:title "Journal of Materials Science" .
+
+    <http://materialsmine.org/sample/l114-s10-hong-2006> ns5:wasAttributedTo <http://materialsmine.org/author/hong-j-i>,
+            <http://materialsmine.org/author/martensson-e>,
+            <http://materialsmine.org/author/schadler-l-s>,
+            <http://materialsmine.org/author/siegel-r-w> .
+
+    <publisher:springer-verlag> rdfs:label "Springer-Verlag" ;
+        ns5:atLocation <http://materialsmine.org/location/materials-science-and-engineering-department-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-troy-usa> .
+
+    <http://materialsmine.org/author/hong-j-i> a ns5:Agent ;
+        rdfs:label "Hong, J. I." ;
+        ns6:name "Hong, J. I." .
+
+    <http://materialsmine.org/author/martensson-e> a ns5:Agent ;
+        rdfs:label "M��rtensson, E." ;
+        ns6:name "M��rtensson, E." .
+
+    <http://materialsmine.org/author/schadler-l-s> a ns5:Agent ;
+        rdfs:label "Schadler, L. S." ;
+        ns6:name "Schadler, L. S." .
+
+    <http://materialsmine.org/author/siegel-r-w> a ns5:Agent ;
+        rdfs:label "Siegel, R. W." ;
+        ns6:name "Siegel, R. W." .
+}
+

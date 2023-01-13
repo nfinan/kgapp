@@ -1,0 +1,387 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L385_S6_Bailey_2019_assertion {
+    <http://materialsmine.org/compound/OctaAminophenylPolyhedralOligomericSilsesquioxane> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Octa(aminophenyl) polyhedral oligomeric silsesquioxane" ;
+        ns4:altLabel "octa(aminophenyl) polyhedral oligomeric silsesquioxane" ;
+        ns4:notation "OAPS" .
+
+    <http://materialsmine.org/compound/Poly2VinylPyridine> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(2-vinyl pyridine)" ;
+        ns4:notation "P2VP" .
+
+    <http://materialsmine.org/sample/l385-s6-bailey-2019_filler_0> a <http://materialsmine.org/compound/OctaAminophenylPolyhedralOligomericSilsesquioxane> ;
+        ns2:hasAttribute [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.8e+00 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.1e+00 ],
+            <http://materialsmine.org/sample/l385-s6-bailey-2019_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l385-s6-bailey-2019_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l385-s6-bailey-2019> ] .
+
+    <http://materialsmine.org/sample/l385-s6-bailey-2019_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 4.915103e-02 .
+
+    <http://materialsmine.org/sample/l385-s6-bailey-2019_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 5e-02 .
+
+    <http://materialsmine.org/sample/l385-s6-bailey-2019_matrix_0> a <http://materialsmine.org/compound/Poly2VinylPyridine> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.12e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "P2VP" ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Polymer Source or Scientific Polymer Products" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l385-s6-bailey-2019> ] .
+
+    <http://materialsmine.org/sample/l385-s6-bailey-2019> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "octa(aminophenyl) polyhedral oligomeric silsesquioxane in poly(2-vinylpyridine)" ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l385-s6-bailey-2019_filler_0>,
+            <http://materialsmine.org/sample/l385-s6-bailey-2019_matrix_0> .
+}
+
+ns1:L385_S6_Bailey_2019_provenance {
+    <http://materialsmine.org/sample/l385-s6-bailey-2019> ns5:wasGeneratedBy <http://materialsmine.org/entry/L385_S6_Bailey_2019_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_coolingrate> a <http://materialsmine.org/ns/CoolingRate>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/solartron-modulab-xm-mts>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_description_attr_29>,
+                    <http://materialsmine.org/sample/L385_S6_Bailey_2019_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/ta-instruments-q2000>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_cooling_rate_attr_25>,
+                    <http://materialsmine.org/sample/L385_S6_Bailey_2019_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L385_S6_Bailey_2019_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns3:description """(P2VP) was received from Polymer Source or Scientific Polymer
+Products and used as received. All polymer molar mass moments and
+distributions were verified by gel permeation chromatography
+(GPC) relative to narrow polystyrene standards, and all dispersities
+were <1.3, as listed in Table S1. Partially deuterated poly(2-
+vinylpyridine) (dP2VP) was synthesized at the Center for Nanophase
+Materials Science at Oak Ridge National Laboratory. The deuterium-
+to-hydrogen ratio (measured by elastic recoil detection) is
+approximately 1:2, and the weight-averaged molecular weight and
+dispersity (measured by GPC) are 100 kg/mol and 1.2, respectively.
+Dry octa(aminophenyl) polyhedral oligomeric silsesquioxane (OAPS)
+powder was used as received.
+PNCs were fabricated by solution mixing and drying. Solutions of
+Materials and PNC Preparation. All poly(2-vinylpyridine)
+OAPS in MeOH (cOAPS ��� 20 g/L) and P2VP in MeOH (cP2VP ��� 50
+g/L) were fabricated and allowed to stir for several hours. Once
+completely dissolved, the requisite amount of OAPS/MeOH was
+added dropwise to P2VP/MeOH solutions while stirring. P2VP/
+OAPS/MeOH solutions were stirred for at least 24 h before
+deposition and annealing, as further described below.""" ;
+        ns2:hasPart <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8> .
+
+    <http://materialsmine.org/ns/solartron-modulab-xm-mts> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Solartron ModuLab XM MTS" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/ta-instruments-q2000> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments Q2000" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_cooling_rate_attr_25> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_additive>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_amount> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_additive_additive>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_additive_amount> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "OAPS" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "20.0" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1> a <http://materialsmine.org/ns/Solvent> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_solvent>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_solventname> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns2:hasValue "MeOH" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_additive>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_amount> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_additive_additive>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_additive_amount> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "P2VP" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "50.0" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3> a <http://materialsmine.org/ns/Solvent> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_solvent>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_solventname> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns2:hasValue "MeOH" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_3_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_mixing>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_mixingmethod> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_4_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_additive>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_amount> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_additive_additive>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_additive_amount> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "OAPS" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_additive_amount> a ns2:Quantity ;
+        ns2:hasValue "20.0" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_amount> a ns2:Parameter,
+            ns2:Quantity .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6> a <http://materialsmine.org/ns/Solvent> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_5_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_solvent>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_solventname> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_solvent> a <http://materialsmine.org/ns/Solvent>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_solvent_solventname> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_solvent_solventname> a <http://materialsmine.org/ns/SolventName> ;
+        ns2:hasValue "MeOH" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_solventname> a <http://materialsmine.org/ns/SolventName>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_6_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixing>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixingmethod>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_time> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixing_time> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "24.0" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_7_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_ambientcondition>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_temperature>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_time> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "170.0" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "24.0" .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_solution_processing_step_8_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> rdfs:label "C/min" .
+
+    ns1:L385_S6_Bailey_2019_assertion ns5:wasDerivedFrom ns1:L385_S6_Bailey_2019_assertion,
+            <http://nanomine.org/pub/MjQ0MjIuNTI1NjYyMDIyMDEz_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NDUxMTA3LjI4MDQ2MTMwMTU2/MaterialsmineXMLImport> ;
+                ns5:used ns1:L385_S6_Bailey_2019_assertion,
+                    <http://nanomine.org/pub/MjQ0MjIuNTI1NjYyMDIyMDEz_assertion> ],
+            <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_coolingrate>,
+            <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_description>,
+            <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L385_S6_Bailey_2019_characterization_equipment> .
+
+    <http://materialsmine.org/sample/L385_S6_Bailey_2019_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns2:Hour rdfs:label "hours" .
+}
+
+ns1:L385_S6_Bailey_2019_pubinfo {
+    ns1:L385_S6_Bailey_2019_assertion ns3:created "2021-07-23T03:37:14.835000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NDUxMTA3LjI4MDQ2MTMwMTU2/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1021/acs.macromol.8b02646> .
+
+    <http://dx.doi.org/10.1021/acs.macromol.8b02646> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Multiscale Dynamics of Small, Attractive Nanoparticles and Entangled Polymers in Polymer Nanocomposites" ;
+        ns3:created 2019 ;
+        ns3:creator <http://materialsmine.org/author/bailey-eric-j>,
+            <http://materialsmine.org/author/composto-russell-j>,
+            <http://materialsmine.org/author/griffin-philip-j>,
+            <http://materialsmine.org/author/winey-karen-i> ;
+        ns3:isPartOf <http://materialsmine.org/publication/macromolecules> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Multiscale Dynamics of Small, Attractive Nanoparticles and Entangled Polymers in Polymer Nanocomposites" ;
+        ns7:authorList ( <http://materialsmine.org/author/winey-karen-i> <http://materialsmine.org/author/composto-russell-j> <http://materialsmine.org/author/griffin-philip-j> <http://materialsmine.org/author/bailey-eric-j> ) ;
+        ns7:volume 52 ;
+        ns2:hasPart <http://materialsmine.org/sample/l385-s6-bailey-2019> ;
+        rdfs:seeAlso <https://pubs.acs.org/doi/10.1021/acs.macromol.8b02646> .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/publication/macromolecules> ns3:title "Macromolecules" .
+
+    <http://materialsmine.org/sample/l385-s6-bailey-2019> ns5:wasAttributedTo <http://materialsmine.org/author/bailey-eric-j>,
+            <http://materialsmine.org/author/composto-russell-j>,
+            <http://materialsmine.org/author/griffin-philip-j>,
+            <http://materialsmine.org/author/winey-karen-i> .
+
+    <http://materialsmine.org/author/bailey-eric-j> a ns5:Agent ;
+        rdfs:label "Bailey, Eric J." ;
+        ns6:name "Bailey, Eric J." .
+
+    <http://materialsmine.org/author/composto-russell-j> a ns5:Agent ;
+        rdfs:label "Composto, Russell J." ;
+        ns6:name "Composto, Russell J." .
+
+    <http://materialsmine.org/author/griffin-philip-j> a ns5:Agent ;
+        rdfs:label "Griffin, Philip J." ;
+        ns6:name "Griffin, Philip J." .
+
+    <http://materialsmine.org/author/winey-karen-i> a ns5:Agent ;
+        rdfs:label "Winey, Karen I." ;
+        ns6:name "Winey, Karen I." .
+}
+

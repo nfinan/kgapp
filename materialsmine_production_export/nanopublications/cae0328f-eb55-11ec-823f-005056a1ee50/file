@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:afkvm0u82l a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/d5fa600ff9e0bc7c_depiction> ;
+        ns2:hasAssertion ns1:afkvm0u82l_assertion ;
+        ns2:hasProvenance ns1:afkvm0u82l_provenance ;
+        ns2:hasPublicationInfo ns1:afkvm0u82l_pubinfo .
+
+    ns1:afkvm0u82l_assertion a ns2:Assertion .
+
+    ns1:afkvm0u82l_provenance a ns2:Provenance .
+
+    ns1:afkvm0u82l_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:afkvm0u82l_assertion {
+    <http://nanomine.org/viz/d5fa600ff9e0bc7c> a ns3:Chart ;
+        ns5:description "Many natural phenomena (human languages, city populations, individual wealth) exhibit inverse rank-frequency relationships, where the frequency of the second-ranked item is half of the first-ranked, the third-ranked is a third, and so on. This chart explores the distribution of curated materials attributes, ranking each attribute type by the number of occurrences in the knowledge graph. A linear regression representing Zipf's law is shown in red, along with the R^2 value. Hover over a point to view a tooltip with the Attribute Type, Rank, and Count." ;
+        ns5:title "Do Our Curated Materials Attributes Follow Zipf's Law?" ;
+        ns8:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+SELECT DISTINCT ?AttrType (COUNT(DISTINCT ?attr) AS ?Count) WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute ?attr .
+  ?attr a ?AttrType ;
+        sio:hasValue ?value .
+  FILTER NOT EXISTS { ?attr sio:inRelationTo ?otherAttr }
+} 
+GROUP BY ?AttrType
+ORDER BY DESC (?Count)""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":600,\"height\":400,\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"Rank\"}]},{\"calculate\":\"replace(datum.AttrType,/^http...nanomine.org.ns./,'nm:')\",\"as\":\"Attr0\"},{\"calculate\":\"replace(datum.Attr0,/^http...semanticscience.org.resource./,'sio:')\",\"as\":\"Attribute\"}],\"layer\":[{\"transform\":[{\"regression\":\"Count\",\"on\":\"Rank\",\"method\":\"pow\"}],\"mark\":{\"type\":\"line\",\"color\":\"firebrick\"},\"encoding\":{\"x\":{\"field\":\"Rank\",\"type\":\"quantitative\"},\"y\":{\"field\":\"Count\",\"type\":\"quantitative\"}}},{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"Rank\",\"type\":\"quantitative\",\"sort\":{\"field\":\"Rank\"},\"scale\":{\"type\":\"log\",\"nice\":false,\"padding\":10}},\"y\":{\"field\":\"Count\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\",\"nice\":false,\"padding\":10}},\"size\":{\"condition\":{\"selection\":\"highlight\",\"value\":150},\"value\":75},\"tooltip\":[{\"field\":\"Attribute\",\"type\":\"nominal\"},{\"field\":\"Rank\",\"type\":\"quantitative\"},{\"field\":\"Count\",\"type\":\"quantitative\"}]}},{\"transform\":[{\"calculate\":\"log(datum.Count)\",\"as\":\"log_count\"},{\"calculate\":\"log(datum.Rank)\",\"as\":\"log_rank\"},{\"regression\":\"log_count\",\"on\":\"log_rank\",\"method\":\"linear\",\"params\":true},{\"calculate\":\"'R^2: '+format(datum.rSquared, '.2f')\",\"as\":\"R2\"}],\"mark\":{\"type\":\"text\",\"color\":\"firebrick\",\"x\":\"width\",\"align\":\"right\",\"y\":-5},\"encoding\":{\"text\":{\"type\":\"nominal\",\"field\":\"R2\"}}}],\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":16,\"labelFlush\":false}}}" ;
+        ns6:depiction <http://nanomine.org/viz/d5fa600ff9e0bc7c_depiction> .
+
+    <http://nanomine.org/viz/d5fa600ff9e0bc7c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T17:37:53.443000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "b2674262-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+ns1:afkvm0u82l_pubinfo {
+    ns1:afkvm0u82l_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T17:37:53.444000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,933 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://www.w3.org/ns/prov#> .
+@prefix ns3: <http://purl.org/ontology/bibo/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:E139_S7_Hassinger_2016_pubinfo {
+    ns1:E139_S7_Hassinger_2016_assertion ns4:created "2021-07-22T05:13:59.167000+00:00"^^xsd:dateTime ;
+        ns2:wasAttributedTo <http://nanomine.org/setl/NTYxMTYwLjY1MzczNDY5Nzg/MaterialsmineXMLImport> ;
+        ns2:wasQuotedFrom <http://dx.doi.org/unpublished/doi-nnzNriDmKkz2NFA7BCR2dG> .
+
+    <http://dx.doi.org/unpublished/doi-nnzNriDmKkz2NFA7BCR2dG> a <file:///apps/whyis/>,
+            ns4:BibliographicResource ;
+        rdfs:label "" ;
+        ns4:created ""^^xsd:integer ;
+        ns4:title "" ;
+        ns3:authorList () ;
+        ns5:hasPart <http://materialsmine.org/sample/e139-s7-hassinger-2016> .
+}
+
+ns1:E139_S7_Hassinger_2016_provenance {
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016> ns2:wasGeneratedBy <http://materialsmine.org/entry/E139_S7_Hassinger_2016_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns5:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_description> a ns5:Description,
+            ns5:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns5:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_rheometery> a <http://materialsmine.org/ns/PlateRheometery>,
+            <http://materialsmine.org/ns/Rheometery>,
+            ns5:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns5:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/versa-3d-dual-beam>,
+                    ns5:Device ;
+                ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns5:Measuring,
+            ns2:Activity .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns5:Measuring,
+            ns2:Activity ;
+        ns2:used [ a <http://materialsmine.org/ns/jeol-2010>,
+                    ns5:Device ;
+                ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_accelerating_voltage_attr_20>,
+                    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_description_attr_29>,
+                    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/E139_S7_Hassinger_2016_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns5:Procedure ;
+        ns5:hasPart <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3> .
+
+    <http://materialsmine.org/ns/jeol-2010> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JEOL-2010" ;
+        rdfs:subClassOf ns5:Device .
+
+    <http://materialsmine.org/ns/versa-3d-dual-beam> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Versa 3D Dual Beam" ;
+        rdfs:subClassOf ns5:Device .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns5:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns5:hasOutput <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_output> ;
+        ns5:hasParameter <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_mixing> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_description> a ns5:Description,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns5:Parameter ;
+        ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_mixing_description> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_mixing_description> a ns5:Description ;
+        ns5:hasValue """the particles modified with APDEMS were redispersed in
+          THF. Note: the PP did not dissolve in the ethanol. The
+          APDEMS-modified silica in THF was either mixed with the adequate
+          amount of PP or precipitated out in water""" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns5:hasInput <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_0_output> ;
+        ns5:hasOutput <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_output> ;
+        ns5:hasParameter <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_ambientcondition>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_description>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_time> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_description> a ns5:Description,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns5:Parameter ;
+        ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation_ambientcondition>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation_description>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns5:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation_description> a ns5:Description ;
+        ns5:hasValue """After evaporation of the water or ethanol, the
+          nanoparticle-polymer mixture was dried in a vacuum oven for 12
+          h.""" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_drying-evaporation_time> a ns5:TimeInterval ;
+        ns5:hasUnit ns5:Hour ;
+        ns5:hasValue "12.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_1_time> a ns5:Parameter,
+            ns5:TimeInterval .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3> a <http://materialsmine.org/ns/Extrusion> ;
+        ns5:hasInput <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_2_output> ;
+        ns5:hasOutput <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output> ;
+        ns5:hasParameter <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_amperage>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extruder>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusiontemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_innerbarreldiameter>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_melttemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_power>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_pressureatdie>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_residencetime>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_rotationspeed>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_screwchannelwidth>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_screwdiameter>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_screwlength>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_throughput>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_torque>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_voltage> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_amperage> a <http://materialsmine.org/ns/Amperage>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extruder> a <http://materialsmine.org/ns/Extruder>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion> a <http://materialsmine.org/ns/Extrusion>,
+            ns5:Parameter ;
+        ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_amperage>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_extruder>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_innerbarreldiameter>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_melttemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_output>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_power>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_pressureatdie>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_residencetime>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_rotationspeed>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_screwchannelwidth>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_screwdiameter>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_screwlength>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_singlescrewextrusion>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_throughput>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_torque>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_voltage> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_amperage> a <http://materialsmine.org/ns/Amperage> ;
+        ns5:hasValue "2.4" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns5:hasValue "Randcastle Extrusion System, Inc" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns5:hasValue "180.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_innerbarreldiameter> a <http://materialsmine.org/ns/InnerBarrelDiameter> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "0.56" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_melttemperature> a <http://materialsmine.org/ns/MeltTemperature> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns5:hasValue "185.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_output> a <http://materialsmine.org/ns/Output> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_power> a <http://materialsmine.org/ns/Power> ;
+        ns5:hasValue "297.6" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilopascal> ;
+        ns5:hasValue "413.6854374" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns5:hasValue "200.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns5:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns5:hasValue "20.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_screwchannelwidth> a <http://materialsmine.org/ns/ScrewChannelWidth> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "9.8" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_screwdiameter> a <http://materialsmine.org/ns/ScrewDiameter> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "12.7" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_screwlength> a <http://materialsmine.org/ns/ScrewLength> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "342.9" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_singlescrewextrusion> a <http://materialsmine.org/ns/SingleScrew> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_throughput> a <http://materialsmine.org/ns/Throughput> ;
+        ns5:hasValue "0.054" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_torque> a <http://materialsmine.org/ns/Torque> ;
+        ns5:hasValue "142.0935332" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusion_voltage> a <http://materialsmine.org/ns/Voltage> ;
+        ns5:hasValue "124.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_innerbarreldiameter> a <http://materialsmine.org/ns/InnerBarrelDiameter>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_melttemperature> a <http://materialsmine.org/ns/MeltTemperature>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_amperage> a <http://materialsmine.org/ns/Amperage> ;
+        ns5:hasValue "2.4" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_melttemperature> a <http://materialsmine.org/ns/MeltTemperature> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns5:hasValue "185.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_power> a <http://materialsmine.org/ns/Power> ;
+        ns5:hasValue "297.6" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilopascal> ;
+        ns5:hasValue "413.6854374" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_throughput> a <http://materialsmine.org/ns/Throughput> ;
+        ns5:hasValue "0.054" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_torque> a <http://materialsmine.org/ns/Torque> ;
+        ns5:hasValue "142.0935332" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_voltage> a <http://materialsmine.org/ns/Voltage> ;
+        ns5:hasValue "124.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_power> a <http://materialsmine.org/ns/Power>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_residencetime> a <http://materialsmine.org/ns/ResidenceTime>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_screwchannelwidth> a <http://materialsmine.org/ns/ScrewChannelWidth>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_screwdiameter> a <http://materialsmine.org/ns/ScrewDiameter>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_screwlength> a <http://materialsmine.org/ns/ScrewLength>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion> a <http://materialsmine.org/ns/SingleScrew>,
+            ns5:Parameter ;
+        ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_amperage>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_extruder>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_extrusiontemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_innerbarreldiameter>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_melttemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_output>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_power>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_pressureatdie>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_residencetime>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_rotationspeed>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_screwchannelwidth>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_screwdiameter>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_screwlength>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_throughput>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_torque>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_voltage> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_amperage> a <http://materialsmine.org/ns/Amperage> ;
+        ns5:hasValue "2.4" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_extruder> a <http://materialsmine.org/ns/Extruder> ;
+        ns5:hasValue "Randcastle Extrusion System, Inc" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_extrusiontemperature> a <http://materialsmine.org/ns/ExtrusionTemperature> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns5:hasValue "180.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_innerbarreldiameter> a <http://materialsmine.org/ns/InnerBarrelDiameter> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "0.56" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_melttemperature> a <http://materialsmine.org/ns/MeltTemperature> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns5:hasValue "185.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_output> a <http://materialsmine.org/ns/Output> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_power> a <http://materialsmine.org/ns/Power> ;
+        ns5:hasValue "297.6" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_pressureatdie> a <http://materialsmine.org/ns/PressureAtDie> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilopascal> ;
+        ns5:hasValue "413.6854374" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_residencetime> a <http://materialsmine.org/ns/ResidenceTime> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> ;
+        ns5:hasValue "200.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_rotationspeed> a <http://materialsmine.org/ns/RotationSpeed> ;
+        ns5:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns5:hasValue "20.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_screwchannelwidth> a <http://materialsmine.org/ns/ScrewChannelWidth> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "9.8" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_screwdiameter> a <http://materialsmine.org/ns/ScrewDiameter> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "12.7" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_screwlength> a <http://materialsmine.org/ns/ScrewLength> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> ;
+        ns5:hasValue "342.9" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_throughput> a <http://materialsmine.org/ns/Throughput> ;
+        ns5:hasValue "0.054" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_torque> a <http://materialsmine.org/ns/Torque> ;
+        ns5:hasValue "142.0935332" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_singlescrewextrusion_voltage> a <http://materialsmine.org/ns/Voltage> ;
+        ns5:hasValue "124.0" .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_throughput> a <http://materialsmine.org/ns/Throughput>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_torque> a <http://materialsmine.org/ns/Torque>,
+            ns5:Parameter .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_voltage> a <http://materialsmine.org/ns/Voltage>,
+            ns5:Parameter .
+
+    ns5:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> rdfs:label "kV" .
+
+    ns1:E139_S7_Hassinger_2016_assertion ns2:wasDerivedFrom ns1:E139_S7_Hassinger_2016_assertion,
+            <http://nanomine.org/pub/MjY4MjEzLjUzNTA2MjkwNjg_assertion> ;
+        ns2:wasGeneratedBy [ a <http://nanomine.org/setl/NTYxMTYwLjY1MzczNDY5Nzg/MaterialsmineXMLImport> ;
+                ns2:used ns1:E139_S7_Hassinger_2016_assertion,
+                    <http://nanomine.org/pub/MjY4MjEzLjUzNTA2MjkwNjg_assertion> ],
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_description>,
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_equipmentused>,
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_rheometery>,
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/E139_S7_Hassinger_2016_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_accelerating_voltage_attr_20> a <file:///apps/whyis/method_attr.uri> ;
+        ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/kilovolt> ;
+        ns5:hasValue 1e+01,
+            2e+02 .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns5:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output> a <http://materialsmine.org/ns/Output>,
+            ns5:Parameter ;
+        ns5:hasAttribute <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_amperage>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_melttemperature>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_power>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_pressureatdie>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_throughput>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_torque>,
+            <http://materialsmine.org/sample/E139_S7_Hassinger_2016_solution_processing_step_3_output_voltage> .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> rdfs:label "rpm" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/second-Time> rdfs:label "seconds" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/kilopascal> rdfs:label "kPa" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/millimetre> rdfs:label "mm" .
+}
+
+ns1:E139_S7_Hassinger_2016_assertion {
+    <http://materialsmine.org/sample/e139-s1-hassinger-2016> ns5:hasRole <http://materialsmine.org/sample/e139-s1-hassinger-2016_control_role> .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-1.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-1.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-10.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-10.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-11.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-11.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-12.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-12.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-13.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-13.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-14.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-14.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-15.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-15.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-16.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-16.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-17.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-17.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-18.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-18.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-19.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-19.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-2.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-2.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-20.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-20.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-21.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-21.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-22.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-22.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-23.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-23.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-24.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-24.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-25.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-25.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-26.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-26.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-27.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-27.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-28.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-28.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-29.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-29.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-3.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-3.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-30.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-30.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-31.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-31.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-32.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-32.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-33.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-33.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-34.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-34.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-35.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-35.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-36.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-36.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-37.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-37.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-38.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-38.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-39.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-39.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-4.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-4.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-40.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-40.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-41.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-41.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-42.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-42.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-43.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-43.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-44.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-44.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-45.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-45.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-46.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-46.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-47.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-47.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-5.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-5.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-6.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-6.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-7.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-7.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-8.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-8.tif" .
+
+    <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-9.tif> a <http://materialsmine.org/ns/GrayscaleImage>,
+            ns5:Image ;
+        ns2:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns2:Activity ;
+                ns2:used <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns6:depiction "/XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-9.tif" .
+
+    <http://materialsmine.org/compound/Aminopropyldimethylethoxysilane> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/PolyPropylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(propylene)" ;
+        rdfs:subClassOf <http://rdf.ncbi.nlm.nih.gov/pubchem/compound/CID8252.0> ;
+        ns7:notation "PP" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns5:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns5:hasValue "Nissan Inc." ] ;
+        ns7:altLabel "MEK-ST",
+            "silica" .
+
+    <http://materialsmine.org/ns/Amorphous> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "amorphous" ;
+        rdfs:subClassOf <http://materialsmine.org/ns/CrystalPhase> .
+
+    <http://materialsmine.org/sample/e139-s1-hassinger-2016_control_role> a ns5:ControlRole ;
+        ns5:inRelationTo <http://materialsmine.org/sample/e139-s7-hassinger-2016> .
+
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns5:hasAttribute [ a ns5:Width ;
+                ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns5:hasValue 1.5e+01 ],
+            [ a <http://materialsmine.org/ns/Amorphous>,
+                    <http://materialsmine.org/ns/CrystalPhase> ],
+            [ a ns5:AspectRatio ;
+                ns5:hasValue 1e+00 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns5:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0_volume_fraction> ;
+        ns5:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns5:inRelationTo <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns5:isSurroundedBy <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns5:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0_surface_0> a <http://materialsmine.org/compound/Aminopropyldimethylethoxysilane> ;
+        rdfs:label "aminopropyldimethylethoxysilane" ;
+        ns5:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns5:hasValue "Gelest, Inc." ] ;
+        ns5:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns5:inRelationTo <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] ;
+        ns7:notation "APDEMS" .
+
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns5:hasValue 6.541448e-03 .
+
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016_matrix_0> a <http://materialsmine.org/compound/PolyPropylene> ;
+        ns5:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns5:hasValue "Borealis" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns5:hasValue "PP" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns5:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns5:hasValue 8.55e-01 ] ;
+        ns5:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns5:inRelationTo <http://materialsmine.org/sample/e139-s7-hassinger-2016> ] .
+
+    <http://materialsmine.org/ns/GrayscaleImage> rdfs:label "Grayscale Image" .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/e139-s7-hassinger-2016> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in polypropylene" ;
+        ns5:hasComponentPart <http://materialsmine.org/sample/e139-s7-hassinger-2016_filler_0>,
+            <http://materialsmine.org/sample/e139-s7-hassinger-2016_matrix_0> ;
+        ns5:isRepresentedBy <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-1.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-10.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-11.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-12.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-13.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-14.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-15.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-16.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-17.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-18.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-19.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-2.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-20.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-21.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-22.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-23.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-24.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-25.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-26.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-27.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-28.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-29.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-3.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-30.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-31.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-32.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-33.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-34.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-35.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-36.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-37.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-38.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-39.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-4.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-40.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-41.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-42.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-43.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-44.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-45.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-46.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-47.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-5.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-6.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-7.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-8.tif>,
+            <file:///XMLCONV/media/S7/20182411132400/sample12-20rpm60kx-9.tif> .
+}
+

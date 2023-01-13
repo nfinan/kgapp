@@ -1,0 +1,348 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://www.w3.org/ns/prov#> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix ns8: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L138_S5_Zikry_2007_assertion {
+    <http://materialsmine.org/sample/l138-s1-zikry-2007> ns2:hasRole <http://materialsmine.org/sample/l138-s1-zikry-2007_control_role> .
+
+    <http://localhost/nmr/blob?id=5956c3a4e74a1d5e0d1815e2> a ns2:Image ;
+        ns6:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns6:Activity ;
+                ns6:used <http://materialsmine.org/sample/l138-s5-zikry-2007> ] ;
+        ns5:depiction "http://localhost/nmr/blob?id=5956c3a4e74a1d5e0d1815e2" .
+
+    <http://materialsmine.org/compound/Ethyltriethoxysilicate> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/PolyAcrylamide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(acrylamide)" ;
+        ns4:notation "PAAM" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns4:altLabel "silica" ;
+        ns4:notation "SiO2" .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/l138-s1-zikry-2007_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l138-s5-zikry-2007> .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l138-s5-zikry-2007> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 1.25e-03 .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0_surface_0> a <http://materialsmine.org/compound/Ethyltriethoxysilicate> ;
+        rdfs:label "ethyltriethoxysilicate" ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l138-s5-zikry-2007> ] ;
+        ns4:notation "ETES" .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 6.371832e-04 .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007_matrix_0> a <http://materialsmine.org/compound/PolyAcrylamide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PAAM" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.35e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l138-s5-zikry-2007> ] .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in polyacrylamide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ ns2:hasValue 2.104501e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.958591e+04 ] ],
+            [ ns2:hasValue 1.363929e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 5.019847e+05 ] ],
+            [ ns2:hasValue 2.11312e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.736103e+06 ] ],
+            [ ns2:hasValue 1.167556e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.980624e+06 ] ],
+            [ ns2:hasValue 2.074923e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.150849e+05 ] ],
+            [ ns2:hasValue 5.21823e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 5.025178e+04 ] ],
+            [ ns2:hasValue 1.317541e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.98171e+06 ] ],
+            [ ns2:hasValue 2.153118e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+03 ] ],
+            [ ns2:hasValue 1.317541e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.98171e+06 ] ],
+            [ ns2:hasValue 1.253151e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.987937e+06 ] ],
+            [ ns2:hasValue 5.21823e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 5.025178e+04 ] ],
+            [ ns2:hasValue 1.302248e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.995756e+06 ] ],
+            [ ns2:hasValue 2.134034e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.868476e+03 ] ],
+            [ ns2:hasValue 1.302248e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.995756e+06 ] ],
+            [ ns2:hasValue 2.082313e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.376487e+06 ] ],
+            [ ns2:hasValue 1.167556e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.980624e+06 ] ],
+            [ ns2:hasValue 2.089665e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.555779e+04 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ ns2:hasValue 1.253151e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.987937e+06 ] ],
+            [ ns2:hasValue 1.384574e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 9.973964e+05 ] ],
+            [ ns2:hasValue 1.363929e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 5.019847e+05 ] ],
+            [ ns2:hasValue 2.104501e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.958591e+04 ] ],
+            [ ns2:hasValue 2.153118e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+03 ] ],
+            [ ns2:hasValue 2.115153e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.753039e+03 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 2.5e+01 ],
+            [ ns2:hasValue 2.086288e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.240372e+06 ] ],
+            [ ns2:hasValue 2.115153e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.753039e+03 ] ],
+            [ ns2:hasValue 1.594545e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.075082e+04 ] ],
+            [ ns2:hasValue 2.085807e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.646866e+05 ] ],
+            [ ns2:hasValue 2.086288e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.240372e+06 ] ],
+            [ ns2:hasValue 5.21823e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 5.025178e+04 ] ],
+            [ ns2:hasValue 2.089665e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.555779e+04 ] ],
+            [ ns2:hasValue 1.317541e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.98171e+06 ] ],
+            [ ns2:hasValue 1.363929e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 5.019847e+05 ] ],
+            [ ns2:hasValue 2.085807e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.646866e+05 ] ],
+            [ ns2:hasValue 1.302248e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.995756e+06 ] ],
+            [ ns2:hasValue 1.31958e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.14858e+05 ] ],
+            [ ns2:hasValue 2.085807e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.646866e+05 ] ],
+            [ ns2:hasValue 2.086288e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.240372e+06 ] ],
+            [ ns2:hasValue 1.31958e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.14858e+05 ] ],
+            [ ns2:hasValue 1.594545e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.075082e+04 ] ],
+            [ ns2:hasValue 1.167556e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.980624e+06 ] ],
+            [ ns2:hasValue 2.089665e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.555779e+04 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns2:hasValue 2.134034e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.868476e+03 ] ],
+            [ ns2:hasValue 2.153118e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1e+03 ] ],
+            [ ns2:hasValue 2.074923e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.150849e+05 ] ],
+            [ ns2:hasValue 2.082313e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.376487e+06 ] ],
+            [ ns2:hasValue 2.11312e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.736103e+06 ] ],
+            [ ns2:hasValue 1.384574e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 9.973964e+05 ] ],
+            [ ns2:hasValue 2.11312e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.736103e+06 ] ],
+            [ ns2:hasValue 1.253151e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.987937e+06 ] ],
+            [ ns2:hasValue 2.134034e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.868476e+03 ] ],
+            [ ns2:hasValue 1.384574e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 9.973964e+05 ] ],
+            [ ns2:hasValue 2.074923e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.150849e+05 ] ],
+            [ ns2:hasValue 2.104501e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.958591e+04 ] ],
+            [ ns2:hasValue 2.082313e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.376487e+06 ] ],
+            [ ns2:hasValue 1.31958e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.14858e+05 ] ],
+            [ ns2:hasValue 2.115153e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.753039e+03 ] ],
+            [ ns2:hasValue 1.594545e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.075082e+04 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l138-s5-zikry-2007_filler_0>,
+            <http://materialsmine.org/sample/l138-s5-zikry-2007_matrix_0> ;
+        ns2:isRepresentedBy <http://localhost/nmr/blob?id=5956c3a4e74a1d5e0d1815e2> .
+}
+
+ns1:L138_S5_Zikry_2007_pubinfo {
+    ns1:L138_S5_Zikry_2007_assertion ns3:created "2021-07-22T09:25:03.660000+00:00"^^xsd:dateTime ;
+        ns6:wasAttributedTo <http://nanomine.org/setl/NTk2NDcwLjg2NTI3MzIxMDk/MaterialsmineXMLImport> ;
+        ns6:wasQuotedFrom <http://dx.doi.org/10.1080/00914030701729057> .
+
+    <http://dx.doi.org/10.1080/00914030701729057> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Dielectric Behavior of Silica/Polyacrylamide Nanocomposites" ;
+        ns3:created 2008 ;
+        ns3:creator <http://materialsmine.org/author/zikry-a-a-f> ;
+        ns3:isPartOf <http://materialsmine.org/publication/international-journal-of-polymeric-materials> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Dielectric Behavior of Silica/Polyacrylamide Nanocomposites" ;
+        ns7:authorList ( <http://materialsmine.org/author/zikry-a-a-f> ) ;
+        ns7:volume 57 ;
+        ns2:hasPart <http://materialsmine.org/sample/l138-s5-zikry-2007> ;
+        rdfs:seeAlso <http://www.tandfonline.com/doi/abstract/10.1080/00914030701729057> ;
+        ns8:keyword "Dielectric",
+            "Nanocomposites",
+            "Polyacrylamide",
+            "Silica" .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-chemistry-helwan-university-cairo-egypt> a ns3:Location ;
+        rdfs:label "Department of Chemistry, Helwan University, Cairo, Egypt" .
+
+    <http://materialsmine.org/publication/international-journal-of-polymeric-materials> ns3:publisher <publisher:taylor-francis-group> ;
+        ns3:title "International Journal of Polymeric Materials" .
+
+    <http://materialsmine.org/sample/l138-s5-zikry-2007> ns6:wasAttributedTo <http://materialsmine.org/author/zikry-a-a-f> .
+
+    <publisher:taylor-francis-group> rdfs:label "Taylor & Francis Group" ;
+        ns6:atLocation <http://materialsmine.org/location/department-of-chemistry-helwan-university-cairo-egypt> .
+
+    <http://materialsmine.org/author/zikry-a-a-f> a ns6:Agent ;
+        rdfs:label "Zikry, A. A. F." ;
+        ns5:name "Zikry, A. A. F." .
+}
+
+ns1:L138_S5_Zikry_2007_provenance {
+    <http://materialsmine.org/sample/l138-s5-zikry-2007> ns6:wasGeneratedBy <http://materialsmine.org/entry/L138_S5_Zikry_2007_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_acceleratingvoltage> a <http://materialsmine.org/ns/AcceleratingVoltage>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_dielectric-and-impedance-spectroscopy-analysis> a <http://materialsmine.org/ns/DielectricandImpedanceSpectroscopyAnalysis>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/hioki-3532-lcr-meter>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L138_S5_Zikry_2007_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L138_S5_Zikry_2007_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3> .
+
+    <http://materialsmine.org/ns/hioki-3532-lcr-meter> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "HioKi (3532) LCR meter" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixingmethod> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "dissolving" .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1_additive> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1_additive_additive> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "SiO2" .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2_additive> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2_additive_additive> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "potassium persulfate" .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_mixing>,
+            <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_mixingmethod> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L138_S5_Zikry_2007_solution_processing_step_3_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    ns1:L138_S5_Zikry_2007_assertion ns6:wasDerivedFrom ns1:L138_S5_Zikry_2007_assertion,
+            <http://nanomine.org/pub/MzIxMTI1Ljg5NDUyNDU3MTM3_assertion> ;
+        ns6:wasGeneratedBy [ a <http://nanomine.org/setl/NTk2NDcwLjg2NTI3MzIxMDk/MaterialsmineXMLImport> ;
+                ns6:used ns1:L138_S5_Zikry_2007_assertion,
+                    <http://nanomine.org/pub/MzIxMTI1Ljg5NDUyNDU3MTM3_assertion> ],
+            <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_acceleratingvoltage>,
+            <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_dielectric-and-impedance-spectroscopy-analysis>,
+            <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_equipment>,
+            <http://materialsmine.org/entry/L138_S5_Zikry_2007_characterization_transmission-electron-microscopy> .
+}
+

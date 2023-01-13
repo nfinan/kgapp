@@ -1,0 +1,61 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:w617sm9wx5 a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/10f320c588769cb5_depiction> ;
+        ns3:hasAssertion ns1:w617sm9wx5_assertion ;
+        ns3:hasProvenance ns1:w617sm9wx5_provenance ;
+        ns3:hasPublicationInfo ns1:w617sm9wx5_pubinfo .
+
+    ns1:w617sm9wx5_assertion a ns3:Assertion .
+
+    ns1:w617sm9wx5_provenance a ns3:Provenance .
+
+    ns1:w617sm9wx5_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:w617sm9wx5_assertion {
+    <http://nanomine.org/viz/10f320c588769cb5> a ns2:Chart ;
+        ns4:description "These normalized stacked area charts show the prevalence of matrix and filler materials over time (as determined by year the data were published). Hover over either plot to highlight individual series and display a tooltip." ;
+        ns4:title "What Are the Most Common Nanocomposite Materials in the Knowledge Graph?" ;
+        ns5:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+SELECT ?Year ?Material ?Role (count(distinct ?sample) as ?Count) WHERE {
+  ?doi dct:created ?Year ;
+       sio:hasPart ?sample .
+  ?sample sio:hasComponentPart [ sio:hasRole [ a [ rdfs:label ?Role ] ] ;
+                                 a [ rdfs:label ?Material ] ] .
+  FILTER (?Year > 0)
+} 
+GROUP BY ?Year ?Material ?Role""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"vconcat\":[{\"selection\":{\"matrixSelect\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"fields\":[\"Material\"],\"clear\":\"mouseout\"}},\"width\":650,\"height\":200,\"transform\":[{\"filter\":{\"field\":\"Role\",\"equal\":\"Matrix\"}}],\"mark\":\"area\",\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"quantitative\",\"axis\":null},\"y\":{\"field\":\"Count\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":{\"title\":\"Matrix\",\"labels\":false,\"ticks\":false,\"grid\":false}},\"color\":{\"field\":\"Material\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"}},\"opacity\":{\"condition\":{\"selection\":\"matrixSelect\",\"value\":1},\"value\":0.2},\"tooltip\":[{\"field\":\"Material\",\"type\":\"nominal\",\"title\":\"Matrix Material\"},{\"field\":\"Year\",\"type\":\"quantitative\",\"format\":\"d\"},{\"field\":\"Count\",\"type\":\"quantitative\",\"title\":\"# Samples\"}]}},{\"selection\":{\"fillerSelect\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"fields\":[\"Material\"],\"clear\":\"mouseout\"}},\"width\":650,\"height\":200,\"transform\":[{\"filter\":{\"field\":\"Role\",\"equal\":\"Filler\"}}],\"mark\":\"area\",\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"quantitative\",\"axis\":{\"domain\":false,\"format\":\"d\",\"labelFontSize\":14,\"labelFlush\":false,\"ticks\":false,\"grid\":false},\"title\":\"Year\"},\"y\":{\"field\":\"Count\",\"type\":\"quantitative\",\"stack\":\"normalize\",\"axis\":{\"title\":\"Filler\",\"labels\":false,\"ticks\":false,\"grid\":false}},\"color\":{\"field\":\"Material\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20c\"}},\"opacity\":{\"condition\":{\"selection\":\"fillerSelect\",\"value\":1},\"value\":0.2},\"tooltip\":[{\"field\":\"Material\",\"type\":\"nominal\",\"title\":\"Filler Material\"},{\"field\":\"Year\",\"type\":\"quantitative\",\"format\":\"d\"},{\"field\":\"Count\",\"type\":\"quantitative\",\"title\":\"# Samples\"}]}}],\"config\":{\"legend\":{\"disable\":true},\"axis\":{\"titleFontSize\":24}},\"resolve\":{\"scale\":{\"color\":\"independent\"}}}" ;
+        ns7:depiction <http://nanomine.org/viz/10f320c588769cb5_depiction> .
+
+    <http://nanomine.org/viz/10f320c588769cb5_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:07:45.664000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "7ce20996-f546-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:w617sm9wx5_pubinfo {
+    ns1:w617sm9wx5_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:07:45.665000+00:00"^^xsd:dateTime .
+}
+

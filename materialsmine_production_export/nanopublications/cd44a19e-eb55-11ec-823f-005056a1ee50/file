@@ -1,0 +1,65 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:oj6d8dv6it_assertion {
+    <http://nanomine.org/viz/b87cf06443a4abbc> a ns4:Chart ;
+        ns2:description "Looking for year-to-year trends in a material attribute? This exploratory visualization shows a basic meta-analysis of reported values of glass transition temperature, Tg, of polymer nanocomposite samples as a function of the year their associated research articles were published. Click in the colored bars below (or Shift-click for multiple) to select matrix and filler materials to display in the tick chart. Double-click a bar to reset the selection. Hover over tick marks to view the Tg value as well as additional metadata linked to that sample." ;
+        ns2:title "Meta-Analysis: Benchmarking Materials Attributes" ;
+        ns6:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:created ?Year ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ; a [ rdfs:label ?Matrix ] ] ,
+                               [ sio:hasRole [ a mm:Filler ] ; a [ rdfs:label ?Filler ] ; 
+                                 sio:hasAttribute [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] ] ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg ; sio:hasUnit om-2:degreeCelsius ] .
+  FILTER(?Year > 0)
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"}],\"vconcat\":[{\"width\":500,\"mark\":\"tick\",\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (C)\"},\"color\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"matrix_select\"},{\"selection\":\"filler_select\"}]},\"field\":\"Year\",\"type\":\"ordinal\",\"legend\":null},\"value\":\"#ddd\"},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"matrix_select\"},{\"selection\":\"filler_select\"}]},\"value\":1},\"value\":0.2},\"tooltip\":[{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Tg (C)\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}},{\"hconcat\":[{\"selection\":{\"matrix_select\":{\"type\":\"multi\",\"fields\":[\"Matrix\"]},\"matrix_select2\":{\"type\":\"multi\",\"fields\":[\"Matrix\"],\"empty\":\"none\"}},\"transform\":[{\"filter\":{\"selection\":\"filler_select\"}}],\"width\":240,\"height\":50,\"title\":{\"text\":\"Matrix Materials\",\"offset\":-10},\"mark\":{\"type\":\"bar\",\"size\":30},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"scale\":{\"nice\":false},\"axis\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"opacity\":{\"condition\":{\"selection\":\"matrix_select\",\"value\":1},\"value\":0.4},\"stroke\":{\"condition\":{\"selection\":\"matrix_select\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":{\"field\":\"Matrix\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}},{\"selection\":{\"filler_select\":{\"type\":\"multi\",\"fields\":[\"Filler\"]},\"filler_select2\":{\"type\":\"multi\",\"fields\":[\"Filler\"],\"empty\":\"none\"}},\"transform\":[{\"filter\":{\"selection\":\"matrix_select\"}}],\"width\":240,\"height\":50,\"title\":{\"text\":\"Filler Materials\",\"offset\":-10},\"mark\":{\"type\":\"bar\",\"size\":30},\"encoding\":{\"x\":{\"aggregate\":\"count\",\"scale\":{\"nice\":false},\"axis\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"filler_select\",\"value\":1},\"value\":0.4},\"stroke\":{\"condition\":{\"selection\":\"filler_select\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":{\"field\":\"Filler\",\"type\":\"nominal\"}},\"view\":{\"stroke\":null}}]},{\"hconcat\":[{\"transform\":[{\"filter\":{\"selection\":\"matrix_select2\"}},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"Matrix\"]},{\"filter\":\"datum.rank == 1\"},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"Matrix\",\"order\":\"ascending\"}]}],\"width\":240,\"mark\":\"text\",\"encoding\":{\"text\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null}},\"view\":{\"stroke\":null}},{\"transform\":[{\"filter\":{\"selection\":\"filler_select2\"}},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"Filler\"]},{\"filter\":\"datum.rank == 1\"},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}],\"sort\":[{\"field\":\"Filler\",\"order\":\"ascending\"}]}],\"width\":240,\"mark\":\"text\",\"encoding\":{\"text\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null}},\"view\":{\"stroke\":null}},{\"height\":200,\"width\":10,\"mark\":\"text\",\"view\":{\"stroke\":null}}]}],\"resolve\":{\"scale\":{\"color\":\"independent\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/b87cf06443a4abbc_depiction> .
+
+    <http://nanomine.org/viz/b87cf06443a4abbc_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-30T13:13:30.427000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "4871f414-6972-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+ns1:oj6d8dv6it_pubinfo {
+    ns1:oj6d8dv6it_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-30T13:13:30.427000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:oj6d8dv6it a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/b87cf06443a4abbc_depiction> ;
+        ns8:hasAssertion ns1:oj6d8dv6it_assertion ;
+        ns8:hasProvenance ns1:oj6d8dv6it_provenance ;
+        ns8:hasPublicationInfo ns1:oj6d8dv6it_pubinfo .
+
+    ns1:oj6d8dv6it_assertion a ns8:Assertion .
+
+    ns1:oj6d8dv6it_provenance a ns8:Provenance .
+
+    ns1:oj6d8dv6it_pubinfo a ns8:PublicationInfo .
+}
+

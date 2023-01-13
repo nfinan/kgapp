@@ -1,0 +1,606 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://www.w3.org/ns/prov#> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L232_S6_Krentz_2016_assertion {
+    <http://materialsmine.org/sample/l232-s1-krentz-2016> ns2:hasRole <http://materialsmine.org/sample/l232-s1-krentz-2016_control_role> .
+
+    <http://localhost/nmr/blob?id=597164b6e74a1d157720c704> a ns2:Image ;
+        ns6:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/TEMMicroscopy>,
+                    ns6:Activity ;
+                ns6:used <http://materialsmine.org/sample/l232-s6-krentz-2016> ] ;
+        ns5:depiction "http://localhost/nmr/blob?id=597164b6e74a1d157720c704" .
+
+    <http://materialsmine.org/compound/Anthracene> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/PolyPropylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(propylene)" ;
+        ns4:altLabel "Borclean HB311BF" .
+
+    <http://materialsmine.org/compound/PolyStearylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Nissan Chemical" ] ;
+        ns4:altLabel "silica" ;
+        ns4:notation "Silica" .
+
+    <http://materialsmine.org/ns/TEMMicroscopy> rdfs:label "TEM Microscopy" .
+
+    <http://materialsmine.org/sample/l232-s1-krentz-2016_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l232-s6-krentz-2016> .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.4e+01 ],
+            <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l232-s6-krentz-2016> ] ;
+        ns2:isSurroundedBy <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_surface_0>,
+            <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_surface_1> .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns3:description "reported" ;
+        ns2:hasValue 2e-02 .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_surface_0> a <http://materialsmine.org/compound/PolyStearylMethacrylate> ;
+        rdfs:label "poly(stearyl methacrylate)" ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l232-s6-krentz-2016> ] ;
+        ns4:notation "PSMA" .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_surface_1> a <http://materialsmine.org/compound/Anthracene> ;
+        rdfs:label "Anthracene" ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l232-s6-krentz-2016> ] .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns3:description "computed by NanoMine" ;
+        ns2:hasValue 6.655447e-03 .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016_matrix_0> a <http://materialsmine.org/compound/PolyPropylene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Borealis AG" ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "Borclean HB311BF" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 8.7e-01 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l232-s6-krentz-2016> ] .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "silica in polypropylene" ;
+        ns2:hasAttribute [ ns2:hasValue 2.671161e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.820691e-02 ] ],
+            [ ns2:hasValue 3.288861e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 6.80207e+02 ] ],
+            [ ns2:hasValue 2.61573e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 9.997237e+05 ] ],
+            [ ns2:hasValue 2.848036e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.842882e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ ns2:hasValue 2.498776e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.543319e+01 ] ],
+            [ ns2:hasValue 2.671161e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.891828e-01 ] ],
+            [ ns2:hasValue 5.970389e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.470287e+02 ] ],
+            [ ns2:hasValue 2.653184e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.409803e+05 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 1.991841e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.213269e+02 ] ],
+            [ ns2:hasValue 8.547088e-04 ;
+                ns2:inRelationTo [ ns2:hasValue 1.703335e-01 ] ],
+            [ ns2:hasValue 2.659176e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.847181e+02 ] ],
+            [ ns2:hasValue 9.835424e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.805004e+02 ] ],
+            [ ns2:hasValue 2.668165e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 9.855336e-03 ] ],
+            [ ns2:hasValue 1.519911e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.610504e-02 ] ],
+            [ ns2:hasValue 9.490142e-04 ;
+                ns2:inRelationTo [ ns2:hasValue 4.292833e+05 ] ],
+            [ ns2:hasValue 3.604277e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 9.749576e-03 ] ],
+            [ ns2:hasValue 1.898493e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.672446e+05 ] ],
+            [ ns2:hasValue 3.288861e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 6.80207e+02 ] ],
+            [ ns2:hasValue 2.107966e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.124797e+04 ] ],
+            [ ns2:hasValue 3.189909e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.331679e+02 ] ],
+            [ ns2:hasValue 2.668165e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 9.855336e-03 ] ],
+            [ ns2:hasValue 2.61573e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 9.997237e+05 ] ],
+            [ ns2:hasValue 2.848036e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.589611e+03 ] ],
+            [ ns2:hasValue 2.434241e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.100629e+04 ] ],
+            [ ns2:hasValue 3.604277e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 9.749576e-03 ] ],
+            [ ns2:hasValue 2.848036e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.842882e+02 ] ],
+            [ ns2:hasValue 2.92354e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.156448e+01 ] ],
+            [ ns2:hasValue 2.668165e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.039465e+01 ] ],
+            [ ns2:hasValue 8.01432e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.587368e+02 ] ],
+            [ ns2:hasValue 2.848036e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.842882e+02 ] ],
+            [ ns2:hasValue 1.991841e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.213269e+02 ] ],
+            [ ns2:hasValue 1.898493e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.672446e+05 ] ],
+            [ ns2:hasValue 3.604277e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 9.749576e-03 ] ],
+            [ ns2:hasValue 3.189909e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.331679e+02 ] ],
+            [ ns2:hasValue 1.9267e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.101485e+02 ] ],
+            [ ns2:hasValue 9.490142e-04 ;
+                ns2:inRelationTo [ ns2:hasValue 4.292833e+05 ] ],
+            [ ns2:hasValue 2.92354e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.156448e+01 ] ],
+            [ ns2:hasValue 2.466297e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.039646e+03 ] ],
+            [ ns2:hasValue 2.671161e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.820691e-02 ] ],
+            [ ns2:hasValue 2.668165e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 9.855336e-03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ ns2:hasValue 5.970389e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.470287e+02 ] ],
+            [ ns2:hasValue 2.61573e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 9.997237e+05 ] ],
+            [ ns2:hasValue 1.500156e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.108403e+00 ] ],
+            [ ns2:hasValue 9.511396e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.640634e+02 ] ],
+            [ ns2:hasValue 1.601568e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.925089e-01 ] ],
+            [ ns2:hasValue 2.434241e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.100629e+04 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 5.970389e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.470287e+02 ] ],
+            [ ns2:hasValue 5.02011e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.404225e+02 ] ],
+            [ ns2:hasValue 3.288861e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 6.80207e+02 ] ],
+            [ ns2:hasValue 2.92354e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.156448e+01 ] ],
+            [ ns2:hasValue 6.459364e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.166979e+02 ] ],
+            [ ns2:hasValue 2.498776e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.543319e+01 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns3:description "unspecified, assumed to be room temperature" ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 2.5e+01 ],
+            [ ns2:hasValue 2.434241e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.100629e+04 ] ],
+            [ ns2:hasValue 2.92354e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.770183e-02 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 6.459364e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.166979e+02 ] ],
+            [ ns2:hasValue 1.500156e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.108403e+00 ] ],
+            [ ns2:hasValue 1.991841e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.213269e+02 ] ],
+            [ ns2:hasValue 2.666667e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.340609e+00 ] ],
+            [ ns2:hasValue 1.898493e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.672446e+05 ] ],
+            [ ns2:hasValue 2.666667e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.340609e+00 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns3:description "scale parameter, DC 63% Breakdown Strength" ;
+                ns2:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns2:hasValue 7.02e+02 ],
+            [ ns2:hasValue 1.519911e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.610504e-02 ] ],
+            [ ns2:hasValue 2.653184e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.409803e+05 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ ns2:hasValue 2.65618e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.462794e+04 ] ],
+            [ ns2:hasValue 9.511396e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.640634e+02 ] ],
+            [ ns2:hasValue 2.107966e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.124797e+04 ] ],
+            [ ns2:hasValue 8.547088e-04 ;
+                ns2:inRelationTo [ ns2:hasValue 1.703335e-01 ] ],
+            [ ns2:hasValue 2.65618e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.462794e+04 ] ],
+            [ ns2:hasValue 1.519911e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.610504e-02 ] ],
+            [ ns2:hasValue 2.466297e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.039646e+03 ] ],
+            [ ns2:hasValue 2.659176e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.847181e+02 ] ],
+            [ ns2:hasValue 2.65618e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.462794e+04 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 9.511396e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.640634e+02 ] ],
+            [ a <file:///apps/whyis/nan> ;
+                ns3:description "scale parameter, AC 63% Breakdown Strength" ;
+                ns2:hasUnit <http://materialsmine.org/ns/unit/kv-mm> ;
+                ns2:hasValue 1.49e+02 ],
+            [ ns2:hasValue 2.654682e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.866876e+03 ] ],
+            [ ns2:hasValue 2.671161e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.891828e-01 ] ],
+            [ ns2:hasValue 2.848036e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.589611e+03 ] ],
+            [ ns2:hasValue 2.466297e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.039646e+03 ] ],
+            [ ns2:hasValue 2.671161e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.820691e-02 ] ],
+            [ ns2:hasValue 8.01432e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.587368e+02 ] ],
+            [ ns2:hasValue 2.498776e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.543319e+01 ] ],
+            [ ns2:hasValue 2.668165e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.039465e+01 ] ],
+            [ ns2:hasValue 5.02011e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.404225e+02 ] ],
+            [ ns2:hasValue 9.835424e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.805004e+02 ] ],
+            [ ns2:hasValue 2.654682e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.866876e+03 ] ],
+            [ ns2:hasValue 2.848036e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 2.589611e+03 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 5.02011e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.404225e+02 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 1.9267e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.101485e+02 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 8.01432e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.587368e+02 ] ],
+            [ ns2:hasValue 1.9267e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.101485e+02 ] ],
+            [ ns2:hasValue 1.601568e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.925089e-01 ] ],
+            [ ns2:hasValue 2.92354e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.770183e-02 ] ],
+            [ ns2:hasValue 2.668165e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.039465e+01 ] ],
+            [ ns2:hasValue 2.92354e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.770183e-02 ] ],
+            [ ns2:hasValue 2.671161e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.891828e-01 ] ],
+            [ ns2:hasValue 2.659176e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.847181e+02 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 9.835424e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.805004e+02 ] ],
+            [ ns2:hasValue 1.601568e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 3.925089e-01 ] ],
+            [ ns2:hasValue 2.653184e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.409803e+05 ] ],
+            [ ns2:hasValue 2.107966e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 4.124797e+04 ] ],
+            [ ns2:hasValue 2.666667e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.340609e+00 ] ],
+            [ ns2:hasValue 1.500156e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.108403e+00 ] ],
+            [ ns2:hasValue 6.459364e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.166979e+02 ] ],
+            [ a <http://materialsmine.org/ns/ProbabilityOfFailure> ;
+                ns2:hasValue 3.189909e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/BreakdownStrength> ;
+                        ns2:hasValue 1.331679e+02 ] ],
+            [ ns2:hasValue 8.547088e-04 ;
+                ns2:inRelationTo [ ns2:hasValue 1.703335e-01 ] ],
+            [ ns2:hasValue 9.490142e-04 ;
+                ns2:inRelationTo [ ns2:hasValue 4.292833e+05 ] ],
+            [ ns2:hasValue 2.654682e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.866876e+03 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l232-s6-krentz-2016_filler_0>,
+            <http://materialsmine.org/sample/l232-s6-krentz-2016_matrix_0> ;
+        ns2:isRepresentedBy <http://localhost/nmr/blob?id=597164b6e74a1d157720c704> .
+}
+
+ns1:L232_S6_Krentz_2016_provenance {
+    <http://materialsmine.org/sample/l232-s6-krentz-2016> ns6:wasGeneratedBy <http://materialsmine.org/entry/L232_S6_Krentz_2016_material_melt_mixing_procedure> .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/ta-instruments-q100>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L232_S6_Krentz_2016_equipment_attr_30>,
+                    <http://materialsmine.org/sample/L232_S6_Krentz_2016_heating_rate_attr_24> ] .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_heatingrate> a <http://materialsmine.org/ns/HeatingRate>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_thermogravimetric-analysis> a <http://materialsmine.org/ns/ThermogravimetricAnalysis>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L232_S6_Krentz_2016_material_melt_mixing_procedure> a <http://materialsmine.org/ns/MeltMixing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2> .
+
+    <http://materialsmine.org/ns/ta-instruments-q100> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "TA Instruments Q100" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_heating_rate_attr_24> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> ;
+        ns2:hasValue 1e+01 .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_description>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_time> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "reflux" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "30" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_ambientcondition>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_temperature>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_time> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating_ambientcondition>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating_temperature>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating_time> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating_ambientcondition> a <http://materialsmine.org/ns/AmbientCondition> ;
+        ns2:hasValue "vacuum" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "120" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "72" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_description>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixer>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_rpm>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_temperature>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_time> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_description>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_mixer>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_rpm>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_temperature>,
+            <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_time> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_description> a ns2:Description ;
+        ns2:hasValue "The masterbatch was diluted to a 2 wt % loading of silica via melt mixing" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "twin-screw Thermo-Haake melt compounder" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_rpm> a <http://materialsmine.org/ns/RotationalFrequency> ;
+        ns2:hasUnit <http://purl.obolibrary.org/obo/NCIT_C70469> ;
+        ns2:hasValue "60" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "185" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "10" .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_rpm> a <http://materialsmine.org/ns/RotationalFrequency>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L232_S6_Krentz_2016_melt_mixing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://purl.obolibrary.org/obo/NCIT_C70469> rdfs:label "rpm" .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsiusPerMinute-Time> rdfs:label "deg C/min" .
+
+    ns1:L232_S6_Krentz_2016_assertion ns6:wasDerivedFrom ns1:L232_S6_Krentz_2016_assertion,
+            <http://nanomine.org/pub/NjQzMTA3LjIwMzczNjM0NjM_assertion> ;
+        ns6:wasGeneratedBy [ a <http://nanomine.org/setl/OTgzOTIuODg5MjEyMjQ1ODI/MaterialsmineXMLImport> ;
+                ns6:used ns1:L232_S6_Krentz_2016_assertion,
+                    <http://nanomine.org/pub/NjQzMTA3LjIwMzczNjM0NjM_assertion> ],
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_description>,
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_equipment>,
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_heatingrate>,
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_thermogravimetric-analysis>,
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_transmission-electron-microscopy>,
+            <http://materialsmine.org/entry/L232_S6_Krentz_2016_characterization_xray-diffraction-and-scattering> .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+}
+
+ns1:L232_S6_Krentz_2016_pubinfo {
+    ns1:L232_S6_Krentz_2016_assertion ns3:created "2021-07-22T17:15:43.400000+00:00"^^xsd:dateTime ;
+        ns6:wasAttributedTo <http://nanomine.org/setl/OTgzOTIuODg5MjEyMjQ1ODI/MaterialsmineXMLImport> ;
+        ns6:wasQuotedFrom <http://dx.doi.org/10.1002/app.44347> .
+
+    <http://dx.doi.org/10.1002/app.44347> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns3:BibliographicResource ;
+        rdfs:label "Morphologically dependent alternating���current and direct���current breakdown strength in silica-polypropylene nanocomposites" ;
+        ns3:created 2017 ;
+        ns3:creator <http://materialsmine.org/author/bell-michael>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/hillborg-henrik>,
+            <http://materialsmine.org/author/khani-mohammad-m>,
+            <http://materialsmine.org/author/krentz-timothy>,
+            <http://materialsmine.org/author/nelson-j-keith>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/zhao-su> ;
+        ns3:isPartOf <http://materialsmine.org/publication/journal-of-applied-polymer-science> ;
+        ns3:language <http://materialsmine.org/language/english> ;
+        ns3:title "Morphologically dependent alternating���current and direct���current breakdown strength in silica-polypropylene nanocomposites" ;
+        ns8:authorList ( <http://materialsmine.org/author/schadler-linda-s> <http://materialsmine.org/author/hillborg-henrik> <http://materialsmine.org/author/zhao-su> <http://materialsmine.org/author/nelson-j-keith> <http://materialsmine.org/author/benicewicz-brian-c> <http://materialsmine.org/author/bell-michael> <http://materialsmine.org/author/khani-mohammad-m> <http://materialsmine.org/author/krentz-timothy> ) ;
+        ns8:volume 134 ;
+        ns2:hasPart <http://materialsmine.org/sample/l232-s6-krentz-2016> ;
+        rdfs:seeAlso <http://onlinelibrary.wiley.com/doi/10.1002/app.44347/abstract> ;
+        ns7:keyword "Composites",
+            "Dielectric Materials",
+            "Nanotechnology",
+            "Polypropylene" .
+
+    <http://materialsmine.org/language/english> a ns3:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/publication/journal-of-applied-polymer-science> ns3:title "Journal of Applied Polymer Science" .
+
+    <http://materialsmine.org/sample/l232-s6-krentz-2016> ns6:wasAttributedTo <http://materialsmine.org/author/bell-michael>,
+            <http://materialsmine.org/author/benicewicz-brian-c>,
+            <http://materialsmine.org/author/hillborg-henrik>,
+            <http://materialsmine.org/author/khani-mohammad-m>,
+            <http://materialsmine.org/author/krentz-timothy>,
+            <http://materialsmine.org/author/nelson-j-keith>,
+            <http://materialsmine.org/author/schadler-linda-s>,
+            <http://materialsmine.org/author/zhao-su> .
+
+    <http://materialsmine.org/author/bell-michael> a ns6:Agent ;
+        rdfs:label "Bell, Michael" ;
+        ns5:name "Bell, Michael" .
+
+    <http://materialsmine.org/author/benicewicz-brian-c> a ns6:Agent ;
+        rdfs:label "Benicewicz, Brian C." ;
+        ns5:name "Benicewicz, Brian C." .
+
+    <http://materialsmine.org/author/hillborg-henrik> a ns6:Agent ;
+        rdfs:label "Hillborg, Henrik" ;
+        ns5:name "Hillborg, Henrik" .
+
+    <http://materialsmine.org/author/khani-mohammad-m> a ns6:Agent ;
+        rdfs:label "Khani, Mohammad M." ;
+        ns5:name "Khani, Mohammad M." .
+
+    <http://materialsmine.org/author/krentz-timothy> a ns6:Agent ;
+        rdfs:label "Krentz, Timothy" ;
+        ns5:name "Krentz, Timothy" .
+
+    <http://materialsmine.org/author/nelson-j-keith> a ns6:Agent ;
+        rdfs:label "Nelson, J. Keith" ;
+        ns5:name "Nelson, J. Keith" .
+
+    <http://materialsmine.org/author/schadler-linda-s> a ns6:Agent ;
+        rdfs:label "Schadler, Linda S." ;
+        ns5:name "Schadler, Linda S." .
+
+    <http://materialsmine.org/author/zhao-su> a ns6:Agent ;
+        rdfs:label "Zhao, Su" ;
+        ns5:name "Zhao, Su" .
+}
+

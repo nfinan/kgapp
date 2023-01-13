@@ -1,0 +1,68 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:8g8db3a1wm_assertion {
+    <http://nanomine.org/viz/5da5d9680a09f20c> a ns4:Chart ;
+        ns6:description "This interactive line plot shows a time-series ranking of materials characterization method types (based on the number of materials systems linked to each method in a particular year). Select from the donut chart to isolate one or more characterization methods, and hover over the line plot to view tooltips for individual points. Click on a point to display a table containing DOIs of research articles linked to that point. Ctrl-click on a DOI to open the research article in a new tab." ;
+        ns6:title "Popularity of Materials Characterization Methods" ;
+        ns2:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+SELECT DISTINCT ?doi ?Year ?Title ?CharacterizationType ?Matrix ?Filler WHERE {
+  ?doi sio:hasPart [ a nm:PolymerNanocomposite ;
+                     sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ; a [ rdfs:label ?Matrix] ] ,
+                                          [ sio:hasRole [ a nm:Filler ] ; a [ rdfs:label ?Filler] ]
+                   ] ;
+       dct:created ?Year ;
+       dct:title ?Title .
+  ?x prov:wasQuotedFrom ?doi, [ a dct:BibliographicResource ] ;
+     prov:wasGeneratedBy [ a ?CharacterizationType ;
+     prov:used [ a sio:Device ] ]
+  FILTER(?Year > 0)
+  FILTER(!REGEX(STR(?doi), "unpublished"))
+  FILTER(REGEX(STR(?CharacterizationType), "materialsmine"))
+} """ ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.doi,'http://dx.doi.org/','')\",\"as\":\"AbbrevDOI\"},{\"calculate\":\"replace(datum.CharacterizationType,'http://nanomine.org/ns/','')\",\"as\":\"CharType\"},{\"joinaggregate\":[{\"op\":\"count\",\"field\":\"doi\",\"as\":\"CountThisYear\"}],\"groupby\":[\"Year\",\"CharType\"]},{\"window\":[{\"op\":\"dense_rank\",\"field\":\"CountThisYear\",\"as\":\"CharRankThisYear\"}],\"sort\":[{\"field\":\"CountThisYear\",\"order\":\"descending\"}],\"groupby\":[\"Year\"]},{\"filter\":\"datum.CharRankThisYear < 11\"}],\"vconcat\":[{\"width\":700,\"layer\":[{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"CharType\"]}},\"mark\":{\"type\":\"line\",\"orient\":\"vertical\",\"interpolate\":\"monotone\",\"strokeWidth\":3},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"CharRankThisYear\",\"type\":\"ordinal\",\"title\":\"Rank\"},\"color\":{\"field\":\"CharType\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20c\"},\"legend\":null},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"highlight\"},{\"selection\":\"PieSelect\"}]},\"value\":1},\"value\":0.02}}},{\"transform\":[{\"filter\":{\"selection\":\"PieSelect\"}}],\"selection\":{\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"CharType\",\"Year\"],\"nearest\":true},\"PointSelect\":{\"type\":\"single\",\"fields\":[\"CharType\",\"Year\"],\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"color\":\"black\",\"filled\":true,\"size\":50},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"CharRankThisYear\",\"type\":\"ordinal\"},\"fillOpacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0},\"stroke\":{\"condition\":{\"selection\":\"PointSelect\",\"value\":\"black\"},\"value\":null},\"tooltip\":[{\"field\":\"CharType\",\"type\":\"nominal\",\"title\":\"Type\"},{\"field\":\"Year\",\"type\":\"quantitative\"},{\"field\":\"CharRankThisYear\",\"type\":\"quantitative\",\"title\":\"Rank\"},{\"field\":\"CountThisYear\",\"type\":\"quantitative\",\"title\":\"# Materials Systems\"}]}}]},{\"hconcat\":[{\"title\":{\"text\":[\"Characterization Methods\"],\"orient\":\"top\",\"dy\":80,\"anchor\":\"start\",\"subtitle\":[\"Select from the donut chart below\",\"(Shift-click to select multiple) to\",\"isolate characterization method(s).\",\"Double-click to reset.\"]},\"height\":400,\"selection\":{\"highlight3\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"CharType\"]},\"PieSelect\":{\"type\":\"multi\",\"fields\":[\"CharType\"]}},\"mark\":{\"type\":\"arc\",\"strokeWidth\":2,\"innerRadius\":50,\"cornerRadius\":5},\"encoding\":{\"theta\":{\"aggregate\":\"count\",\"field\":\"CharType\",\"type\":\"quantitative\"},\"color\":{\"field\":\"CharType\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"highlight3\"},{\"selection\":\"PieSelect\"}]},\"value\":1},\"value\":0.2},\"stroke\":{\"condition\":{\"selection\":\"PieSelect\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"CharType\",\"type\":\"nominal\",\"title\":\"Type\"}]}},{\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"PieSelect\"},{\"selection\":\"PointSelect\"}]}},{\"window\":[{\"op\":\"row_number\",\"as\":\"row_number\"}]},{\"filter\":{\"field\":\"row_number\",\"lt\":21}}],\"hconcat\":[{\"title\":{\"text\":\"Matrix Material\",\"anchor\":\"start\",\"dx\":20},\"mark\":{\"type\":\"text\",\"align\":\"left\",\"fontSize\":10,\"limit\":120},\"encoding\":{\"text\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null,\"scale\":{\"paddingInner\":0}}}},{\"title\":{\"text\":\"Filler Material\",\"anchor\":\"start\",\"dx\":20},\"mark\":{\"type\":\"text\",\"align\":\"left\",\"fontSize\":10,\"limit\":120},\"encoding\":{\"text\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null,\"scale\":{\"paddingInner\":0}}}},{\"title\":{\"text\":\"DOI (Ctrl-click to open)\",\"anchor\":\"start\",\"dx\":20},\"selection\":{\"LinkHighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"fields\":[\"AbbrevDOI\"],\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"text\",\"align\":\"left\",\"fontSize\":10},\"encoding\":{\"text\":{\"field\":\"AbbrevDOI\",\"type\":\"nominal\"},\"y\":{\"field\":\"row_number\",\"type\":\"ordinal\",\"axis\":null,\"scale\":{\"paddingInner\":0}},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"LinkHighlight\",\"value\":\"blue\"},\"value\":\"black\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"}]}}]}]}],\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12},\"view\":{\"stroke\":null}}}" ;
+        ns7:depiction <http://nanomine.org/viz/5da5d9680a09f20c_depiction> .
+
+    <http://nanomine.org/viz/5da5d9680a09f20c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T17:14:59.982000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "7fc1ac1a-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns6:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns6:FileFormat .
+}
+
+{
+    ns1:8g8db3a1wm a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/5da5d9680a09f20c_depiction> ;
+        ns8:hasAssertion ns1:8g8db3a1wm_assertion ;
+        ns8:hasProvenance ns1:8g8db3a1wm_provenance ;
+        ns8:hasPublicationInfo ns1:8g8db3a1wm_pubinfo .
+
+    ns1:8g8db3a1wm_assertion a ns8:Assertion .
+
+    ns1:8g8db3a1wm_provenance a ns8:Provenance .
+
+    ns1:8g8db3a1wm_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:8g8db3a1wm_pubinfo {
+    ns1:8g8db3a1wm_assertion ns6:contributor <http://nanomine.org/user/0984876> ;
+        ns6:created "2021-08-04T17:14:59.983000+00:00"^^xsd:dateTime .
+}
+

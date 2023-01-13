@@ -1,0 +1,41 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.nanopub.org/nschema#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:NDAwNjk0LjE3NTYwOTA2ODQ_assertion {
+    <http://orcid.org/0000-0003-2688-8995> a ns2:Person ;
+        ns2:familyName "Bastawrous" ;
+        ns2:givenName "Mary" ;
+        ns2:mainEntityOfPage "http://orcid.org/0000-0003-2688-8995" .
+}
+
+{
+    ns1:NDAwNjk0LjE3NTYwOTA2ODQ a ns4:Nanopublication ;
+        ns3:isAbout <http://orcid.org/0000-0003-2688-8995> ;
+        ns4:hasAssertion ns1:NDAwNjk0LjE3NTYwOTA2ODQ_assertion ;
+        ns4:hasProvenance ns1:NDAwNjk0LjE3NTYwOTA2ODQ_provenance ;
+        ns4:hasPublicationInfo ns1:NDAwNjk0LjE3NTYwOTA2ODQ_pubinfo .
+
+    ns1:NDAwNjk0LjE3NTYwOTA2ODQ_assertion a ns4:Assertion .
+
+    ns1:NDAwNjk0LjE3NTYwOTA2ODQ_provenance a ns4:Provenance .
+
+    ns1:NDAwNjk0LjE3NTYwOTA2ODQ_pubinfo a ns4:PublicationInfo .
+}
+
+ns1:NDAwNjk0LjE3NTYwOTA2ODQ_provenance {
+    ns1:NDAwNjk0LjE3NTYwOTA2ODQ_assertion ns5:wasDerivedFrom <http://orcid.org/0000-0003-2688-8995> ;
+        ns5:wasGeneratedBy [ a <http://vocab.rpi.edu/whyis/KnowledgeImport> ;
+                ns5:used <http://orcid.org/0000-0003-2688-8995> ] ;
+        ns5:wasQuotedFrom <http://orcid.org/0000-0003-2688-8995> .
+}
+
+ns1:NDAwNjk0LjE3NTYwOTA2ODQ_pubinfo {
+    ns1:NDAwNjk0LjE3NTYwOTA2ODQ_assertion ns6:created "2021-08-04T14:23:37.190000+00:00"^^xsd:dateTime ;
+        ns6:modified "2021-08-04T14:23:36.643000+00:00"^^xsd:dateTime .
+}
+

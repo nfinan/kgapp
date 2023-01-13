@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:w3empfg03p_pubinfo {
+    ns1:w3empfg03p_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2022-03-13T23:58:12.237000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:w3empfg03p a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/cf3086e0f385c9c8_depiction> ;
+        ns3:hasAssertion ns1:w3empfg03p_assertion ;
+        ns3:hasProvenance ns1:w3empfg03p_provenance ;
+        ns3:hasPublicationInfo ns1:w3empfg03p_pubinfo .
+
+    ns1:w3empfg03p_assertion a ns3:Assertion .
+
+    ns1:w3empfg03p_provenance a ns3:Provenance .
+
+    ns1:w3empfg03p_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:w3empfg03p_assertion {
+    <http://nanomine.org/viz/cf3086e0f385c9c8> a ns4:Chart ;
+        ns2:description "These faceted plots show the relative size (in number of characters) of select charts from the gallery using the area of point marks. Orange circles indicate the length of the SPARQL query, and blue circles indicate the length of the Vega-Lite specification. Hover over a point to view a tooltip, and Ctrl-click to visit the chart in a new tab. This chart is adapted from an earlier example to include a Vega-Lite chart that demonstrates federated querying, with an update to the figure numbers in the accompanying manuscript." ;
+        ns2:title "Comparison of Query and Chart Specifications III" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX schema: <http://schema.org/>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT ?chartURI ?Title 
+  (strlen(str(?Query)) AS ?QueryCharLength)
+  (strlen(str(?Title)) AS ?TitleCharLength)
+  (strlen(str(?Description)) AS ?DescriptionCharLength)
+  (strlen(str(?VLSpec)) AS ?VLSpecCharLength) 
+WHERE {
+  ?chartURI a sio:Chart ;
+            schema:query ?Query ;
+            dct:title ?Title ;
+            dct:description ?Description ;
+            sio:hasValue ?VLSpec .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"fold\":[\"QueryCharLength\",\"VLSpecCharLength\"],\"as\":[\"MetadataType\",\"CharLength\"]}],\"hconcat\":[{\"transform\":[{\"filter\":{\"field\":\"Title\",\"oneOf\":[\"Relating Tensile Properties to Raw Tensile Test Data\",\"DBS Calculator Using Weibull Plot and Linear Regression\",\"Prevalence of Materials in Publications Over Time (Filler Edition)\",\"Entity Resolution of Nanocomposite Filler Materials\",\"Evolution of Interactive Charts\",\"What is Viscoelasticity?\"]}}],\"width\":50,\"height\":40,\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"facet\":{\"field\":\"Title\",\"type\":\"nominal\",\"columns\":2,\"header\":{\"title\":\"Figure 2\",\"labelFontSize\":0,\"titleFontSize\":12},\"sort\":[\"Relating Tensile Properties to Raw Tensile Test Data\",\"DBS Calculator Using Weibull Plot and Linear Regression\",\"Prevalence of Materials in Publications Over Time (Filler Edition)\",\"Entity Resolution of Nanocomposite Filler Materials\",\"Evolution of Interactive Charts\",\"What is Viscoelasticity?\"]},\"x\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"axis\":null},\"size\":{\"field\":\"CharLength\",\"type\":\"quantitative\",\"legend\":{\"title\":\"Character count\",\"values\":[1000,5000,10000],\"format\":\"s\",\"strokeColor\":\"#444444\",\"padding\":5,\"orient\":\"none\",\"legendX\":228,\"legendY\":40},\"scale\":{\"range\":[0,1000]}},\"color\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"QueryCharLength\",\"VLSpecCharLength\"],\"range\":[\"#e49444\",\"#5778a4\"]},\"legend\":{\"labelExpr\":\"datum.label == 'QueryCharLength' ? 'SPARQL query' : 'Vega-Lite spec'\",\"title\":null,\"orient\":\"none\",\"legendX\":228,\"legendY\":150,\"strokeColor\":\"#444444\",\"padding\":5.5}},\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"CharLength\",\"type\":\"quantitative\",\"title\":\"# Chars\"},{\"field\":\"MetadataType\",\"type\":\"nominal\",\"title\":\"Metadata\"}]}},{\"transform\":[{\"filter\":{\"field\":\"Title\",\"oneOf\":[\"Visualizing Structure-Property Relationships\",\"Popularity of Materials Characterization Methods\",\"Meta-Analysis of Charts Gallery\"]}}],\"width\":50,\"height\":40,\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"facet\":{\"field\":\"Title\",\"type\":\"nominal\",\"columns\":1,\"header\":{\"title\":\"Figure 3\",\"labelFontSize\":0,\"titleFontSize\":12},\"sort\":[\"Visualizing Structure-Property Relationships\",\"Popularity of Materials Characterization Methods\",\"Meta-Analysis of Charts Gallery\"]},\"x\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"axis\":null},\"size\":{\"field\":\"CharLength\",\"type\":\"quantitative\"},\"color\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"VLSpecCharLength\",\"QueryCharLength\"]}},\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"CharLength\",\"type\":\"quantitative\",\"title\":\"# Chars\"},{\"field\":\"MetadataType\",\"type\":\"nominal\",\"title\":\"Metadata\"}]}},{\"transform\":[{\"filter\":{\"field\":\"Title\",\"oneOf\":[\"Federated Querying on DBpedia\"]}}],\"width\":50,\"height\":40,\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"facet\":{\"field\":\"Title\",\"type\":\"nominal\",\"columns\":1,\"header\":{\"title\":\"Figure 4\",\"labelFontSize\":0,\"titleFontSize\":12}},\"x\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"axis\":null},\"size\":{\"field\":\"CharLength\",\"type\":\"quantitative\"},\"color\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"VLSpecCharLength\",\"QueryCharLength\"]}},\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"CharLength\",\"type\":\"quantitative\",\"title\":\"# Chars\"},{\"field\":\"MetadataType\",\"type\":\"nominal\",\"title\":\"Metadata\"}]}},{\"transform\":[{\"filter\":{\"field\":\"Title\",\"oneOf\":[\"Minimalist Histogram\"]}}],\"width\":50,\"height\":40,\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"facet\":{\"field\":\"Title\",\"type\":\"nominal\",\"columns\":1,\"header\":{\"title\":\"Figure 6\",\"labelFontSize\":0,\"titleFontSize\":12}},\"x\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"axis\":null},\"size\":{\"field\":\"CharLength\",\"type\":\"quantitative\"},\"color\":{\"field\":\"MetadataType\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"VLSpecCharLength\",\"QueryCharLength\"]}},\"href\":{\"field\":\"chartURI\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"CharLength\",\"type\":\"quantitative\",\"title\":\"# Chars\"},{\"field\":\"MetadataType\",\"type\":\"nominal\",\"title\":\"Metadata\"}]}}],\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns5:depiction <http://nanomine.org/viz/cf3086e0f385c9c8_depiction> .
+
+    <http://nanomine.org/viz/cf3086e0f385c9c8_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2022-03-13T23:58:12.236000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "70bc645e-a329-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

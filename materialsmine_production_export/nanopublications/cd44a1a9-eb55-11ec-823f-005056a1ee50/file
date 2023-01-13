@@ -1,0 +1,58 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:qkyhjoiddn a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/3fa84d8bdea1fc61_depiction> ;
+        ns2:hasAssertion ns1:qkyhjoiddn_assertion ;
+        ns2:hasProvenance ns1:qkyhjoiddn_provenance ;
+        ns2:hasPublicationInfo ns1:qkyhjoiddn_pubinfo .
+
+    ns1:qkyhjoiddn_assertion a ns2:Assertion .
+
+    ns1:qkyhjoiddn_provenance a ns2:Provenance .
+
+    ns1:qkyhjoiddn_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:qkyhjoiddn_pubinfo {
+    ns1:qkyhjoiddn_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:44:59.657000+00:00"^^xsd:dateTime .
+}
+
+ns1:qkyhjoiddn_assertion {
+    <http://nanomine.org/viz/3fa84d8bdea1fc61> a ns3:Chart ;
+        ns4:description "A histogram of the attributes associated with samples in NanoMine, ranked by the number of samples per attribute. Hovering over a bar displays a tooltip with the URI of the attribute, the definition of the attribute, and the count of samples in NanoMine linked to the attribute through the construct { ?sample sio:hasAttribute [ a ?attribute ]  }. This chart also features customized background and label colors." ;
+        ns4:title "Attributes and Definitions from the NanoMine Ontology" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX nm: <http://materialsmine.org/ns/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a ?attr ] .
+  ?attr skos:definition ?def .
+} """ ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":750,\"height\":445,\"transform\":[{\"calculate\":\"replace(datum.attr,/http:.*org.ns./,'nm:')\",\"as\":\"Attribute URI\"},{\"calculate\":\"datum.def\",\"as\":\"Definition\"},{\"joinaggregate\":[{\"op\":\"count\",\"field\":\"sample\",\"as\":\"Sample Count\"}],\"groupby\":[\"attr\"]}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"bar\",\"stroke\":\"transparent\"},\"encoding\":{\"x\":{\"field\":\"Attribute URI\",\"type\":\"nominal\",\"axis\":{\"titleFontSize\":24,\"labels\":false,\"title\":\"Attributes\",\"ticks\":false,\"titleY\":20},\"sort\":\"-y\"},\"y\":{\"field\":\"Sample Count\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":16,\"titleFontSize\":24,\"title\":\"Number of Samples\",\"grid\":false},\"scale\":{\"type\":\"log\"}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.8},\"value\":1},\"tooltip\":[{\"field\":\"Attribute URI\",\"type\":\"nominal\"},{\"field\":\"Definition\",\"type\":\"nominal\"},{\"field\":\"Sample Count\",\"type\":\"quantitative\"}],\"color\":{\"condition\":{\"selection\":\"highlight\",\"aggregate\":\"count\",\"type\":\"quantitative\",\"scale\":{\"scheme\":{\"name\":\"darkmulti\",\"extent\":[0.2,0.9]},\"type\":\"log\"},\"legend\":null},\"value\":\"#888\"}},\"config\":{\"background\":\"#333\",\"axis\":{\"titleColor\":\"#eee\",\"labelColor\":\"#eee\",\"tickColor\":\"#eee\"},\"view\":{\"stroke\":\"transparent\"},\"padding\":50}}" ;
+        ns8:depiction <http://nanomine.org/viz/3fa84d8bdea1fc61_depiction> .
+
+    <http://nanomine.org/viz/3fa84d8bdea1fc61_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:44:59.656000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "ece96970-f53a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

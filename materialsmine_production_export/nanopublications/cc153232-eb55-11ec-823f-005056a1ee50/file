@@ -1,0 +1,70 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://open.vocab.org/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:c6c08i24bs_assertion {
+    <http://nanomine.org/viz/ea59f50735c1efec> a ns5:Chart ;
+        ns4:description "This chart is supplemented with images from Wikipedia of the chemical structure for the select matrix materials plotted. In this case, the images have been added as a separate layer and their position values have been manually encoded. This chart shows kernel density estimates of elongation at break values for DGEBA Epoxy Resin, Poly(methyl methacrylate), and Poly(vinyl alcohol)." ;
+        ns4:title "Embedding Images in Vega-Lite Charts from URLs" ;
+        ns7:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ElongationAtBreak ;
+                             sio:hasValue ?ElongBreak ;
+                             sio:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ] ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] ,
+                               [ a [ rdfs:label ?Filler ] ; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:MassFraction ;
+                                                    sio:hasValue ?MassFraction ] ] .
+  FILTER(
+    (?Matrix = "DGEBA Epoxy Resin") || 
+    (?Matrix = "Poly(methyl methacrylate)") || 
+    (?Matrix = "Poly(vinyl alcohol)")
+  )
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":575,\"layer\":[{\"transform\":[{\"lookup\":\"Matrix\",\"from\":{\"data\":{\"values\":[{\"name\":\"DGEBA Epoxy Resin\",\"ix\":16,\"iy\":0.18,\"imgURL\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Bisphenol_A_diglycidyl_ether_200.svg/1920px-Bisphenol_A_diglycidyl_ether_200.svg.png\"},{\"name\":\"Poly(methyl methacrylate)\",\"ix\":7,\"iy\":0.45,\"imgURL\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/PMMA_repeating_unit.svg/800px-PMMA_repeating_unit.svg.png\"},{\"name\":\"Poly(vinyl alcohol)\",\"ix\":43,\"iy\":0.17,\"imgURL\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Polyvinyl_Alcohol_Structural_Formula_V1.svg/1024px-Polyvinyl_Alcohol_Structural_Formula_V1.svg.png\"}]},\"key\":\"name\",\"fields\":[\"ix\",\"iy\",\"imgURL\"]}},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"Matrix\"]},{\"filter\":\"datum.rank == 1\"}],\"mark\":{\"type\":\"image\",\"width\":250,\"height\":100},\"encoding\":{\"x\":{\"field\":\"ix\",\"type\":\"quantitative\"},\"y\":{\"field\":\"iy\",\"type\":\"quantitative\"},\"url\":{\"field\":\"imgURL\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.5}}},{\"transform\":[{\"density\":\"ElongBreak\",\"groupby\":[\"Matrix\"],\"extent\":[0,50]}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"],\"empty\":\"none\"}},\"mark\":{\"type\":\"area\",\"interpolate\":\"monotone\"},\"encoding\":{\"x\":{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Elongation at Break (%)\"},\"y\":{\"field\":\"density\",\"type\":\"quantitative\",\"title\":\"Kernel Density Estimate\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.5},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":24,\"labelFontSize\":14},\"legend\":{\"titleFontSize\":16,\"labelFontSize\":14,\"labelLimit\":200}}}" ;
+        ns6:depiction <http://nanomine.org/viz/ea59f50735c1efec_depiction> .
+
+    <http://nanomine.org/viz/ea59f50735c1efec_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns2:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:33:57.677000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "25e02318-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+{
+    ns1:c6c08i24bs a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/ea59f50735c1efec_depiction> ;
+        ns8:hasAssertion ns1:c6c08i24bs_assertion ;
+        ns8:hasProvenance ns1:c6c08i24bs_provenance ;
+        ns8:hasPublicationInfo ns1:c6c08i24bs_pubinfo .
+
+    ns1:c6c08i24bs_assertion a ns8:Assertion .
+
+    ns1:c6c08i24bs_provenance a ns8:Provenance .
+
+    ns1:c6c08i24bs_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:c6c08i24bs_pubinfo {
+    ns1:c6c08i24bs_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:33:57.677000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,69 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:mx1txrl330_assertion {
+    <http://nanomine.org/viz/311448fc489b3031> a ns2:Chart ;
+        ns5:description "Building upon an earlier example of an interactive UpSet plot for exploring co-occurring materials, this Vega-Lite specification demonstrates a more general template for visualizing SPARQL results as an UpSet plot. Using the following variable names in the SPARQL query: source, target, item, all, and group_key, you can adapt the query to return different types of data. For example, this plot shows curated processing steps for nanocomposite samples in the knowledge graph. Click the pie chart to select an element and filter the rest of the plot, and double-click in the pie chart to reset the selection. These types of plots work best when each item typically contains two or more elements, and those elements come from a relatively short list." ;
+        ns5:title "Reusable Upset Plot Template (Co-Occurring Processing Steps)" ;
+        ns3:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?item ?source ?target (GROUP_CONCAT(DISTINCT ?all; SEPARATOR=" & ") AS ?group_key) WHERE {
+  {
+    SELECT ?item ?source ?target ?all WHERE {
+      ?doi a dct:BibliographicResource ;
+           sio:hasPart ?item .
+      ?item a mm:PolymerNanocomposite ;
+            prov:wasGeneratedBy ?process .
+      ?process sio:hasPart ?part1, ?part2, ?any .
+      ?part1 a [ rdfs:label ?source ] .
+      ?part2 a [ rdfs:label ?target ] .
+      ?any a [ rdfs:label ?all ] .
+      FILTER(?part1 != ?part2)
+    } ORDER BY ?all
+  }
+} GROUP BY ?item ?source ?target""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"item\",\"as\":\"source_count\"}],\"groupby\":[\"source\"]},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"item\",\"as\":\"target_count\"}],\"groupby\":[\"target\"]},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"set_rank\"}],\"sort\":[{\"field\":\"source_count\",\"order\":\"descending\"}]},{\"filter\":\"datum.set_rank <= 15\"},{\"filter\":{\"selection\":\"item_select\"}},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"item\",\"as\":\"target_count_selection\"}],\"groupby\":[\"target\"]},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"item\",\"as\":\"group_key_count\"}],\"groupby\":[\"group_key\"]},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"group_key_count\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank <= 22\"},{\"joinaggregate\":[{\"op\":\"distinct\",\"field\":\"item\",\"as\":\"source_count_selection\"}],\"groupby\":[\"source\"]}],\"hconcat\":[{\"vconcat\":[{\"layer\":[{\"selection\":{\"item_select\":{\"type\":\"single\",\"fields\":[\"source\"]},\"item_select2\":{\"type\":\"single\",\"fields\":[\"source\"],\"empty\":\"none\"}},\"height\":140,\"width\":200,\"mark\":\"arc\",\"encoding\":{\"theta\":{\"aggregate\":\"mean\",\"field\":\"source_count\"},\"order\":{\"field\":\"source_count\",\"type\":\"quantitative\",\"sort\":\"descending\"},\"color\":{\"field\":\"source\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"tooltip\":[{\"field\":\"source\",\"type\":\"nominal\",\"title\":\"Item\"},{\"field\":\"source_count\",\"type\":\"nominal\",\"title\":\"Total Set Size\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"item_select2\"}},{\"sample\":1}],\"mark\":{\"type\":\"text\",\"color\":\"white\"},\"encoding\":{\"text\":{\"field\":\"source\",\"type\":\"nominal\"}}}],\"view\":{\"stroke\":null}},{\"transform\":[{\"fold\":[\"source\",\"target\"]}],\"layer\":[{\"transform\":[{\"filter\":\"datum.key == 'target'\"},{\"filter\":{\"selection\":\"item_select\"}}],\"mark\":{\"type\":\"bar\",\"color\":\"#dddddd\"},\"encoding\":{\"x\":{\"field\":\"target_count\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Author ID\"},{\"aggregate\":\"mean\",\"field\":\"target_count\",\"type\":\"nominal\",\"title\":\"Total Set Size\"}]}},{\"transform\":[{\"filter\":\"datum.key == 'target'\"},{\"filter\":{\"selection\":\"item_select\"}}],\"mark\":{\"type\":\"bar\",\"color\":\"#999999\"},\"encoding\":{\"x\":{\"field\":\"target_count_selection\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Author ID\"},{\"aggregate\":\"mean\",\"field\":\"target_count_selection\",\"type\":\"nominal\",\"title\":\"Size Displayed\"}]}},{\"transform\":[{\"filter\":\"datum.key == 'source'\"}],\"mark\":{\"type\":\"bar\",\"color\":\"#dddddd\"},\"encoding\":{\"x\":{\"field\":\"source_count\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Author ID\"},{\"aggregate\":\"mean\",\"field\":\"source_count\",\"type\":\"nominal\",\"title\":\"Total Set Size\"}]}},{\"transform\":[{\"filter\":\"datum.key == 'source'\"},{\"filter\":{\"selection\":\"item_select\"}}],\"mark\":{\"type\":\"bar\",\"color\":\"#4c78a8\"},\"encoding\":{\"x\":{\"field\":\"source_count_selection\",\"type\":\"quantitative\",\"scale\":{\"reverse\":true},\"axis\":{\"orient\":\"top\"},\"title\":null},\"color\":{\"field\":\"source\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"value\",\"type\":\"nominal\",\"title\":\"Author ID\"},{\"aggregate\":\"mean\",\"field\":\"source_count_selection\",\"type\":\"nominal\",\"title\":\"Size Displayed\"}]}}],\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"nominal\",\"axis\":null}}}]},{\"vconcat\":[{\"height\":150,\"width\":350,\"mark\":{\"type\":\"bar\",\"color\":\"#777777\"},\"encoding\":{\"x\":{\"field\":\"group_key\",\"type\":\"nominal\",\"sort\":{\"field\":\"group_key_count\",\"order\":\"descending\"},\"axis\":null},\"y\":{\"field\":\"group_key_count\",\"type\":\"quantitative\",\"title\":null},\"order\":{\"aggregate\":\"mean\",\"field\":\"group_key_count\"},\"tooltip\":[{\"field\":\"group_key\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"group_key_count\",\"type\":\"quantitative\",\"title\":\"Size\"}]}},{\"width\":349,\"layer\":[{\"transform\":[{\"fold\":[\"source\",\"target\"]},{\"window\":[{\"op\":\"rank\",\"as\":\"r1\"}],\"groupby\":[\"value\"]},{\"filter\":\"datum.r1 == 1\"},{\"window\":[{\"op\":\"dense_rank\",\"as\":\"AlphaRank\"}],\"sort\":[{\"field\":\"value\",\"order\":\"ascending\"}]},{\"calculate\":\"datum.AlphaRank % 2\",\"as\":\"even_odd\"}],\"mark\":\"rect\",\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"nominal\"},\"color\":{\"field\":\"even_odd\",\"type\":\"nominal\",\"scale\":{\"range\":[\"#ffffff\",\"#eeeeee\"]},\"legend\":null}}},{\"layer\":[{\"mark\":{\"type\":\"rule\",\"color\":\"#555555\",\"opacity\":1,\"strokeWidth\":2},\"encoding\":{\"y\":{\"field\":\"source\",\"type\":\"nominal\",\"title\":null,\"axis\":{\"labelAlign\":\"left\",\"labelPadding\":100,\"labelLimit\":100,\"ticks\":false}},\"y2\":{\"field\":\"target\"},\"tooltip\":[{\"field\":\"group_key\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"group_key_count\",\"type\":\"quantitative\",\"title\":\"Size\"}]}},{\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":75,\"color\":\"#555555\",\"opacity\":1},\"encoding\":{\"y\":{\"field\":\"source\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"group_key\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"group_key_count\",\"type\":\"quantitative\",\"title\":\"Size\"}]}},{\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":75,\"color\":\"#555555\",\"opacity\":1},\"encoding\":{\"y\":{\"field\":\"target\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"group_key\",\"type\":\"nominal\",\"title\":\"Intersection\"},{\"aggregate\":\"mean\",\"field\":\"group_key_count\",\"type\":\"quantitative\",\"title\":\"Size\"}]}}],\"encoding\":{\"x\":{\"field\":\"group_key\",\"type\":\"nominal\",\"sort\":{\"field\":\"group_key_count\",\"order\":\"descending\"},\"axis\":null}}}]}]}],\"config\":{\"concat\":{\"spacing\":0}},\"resolve\":{\"scale\":{\"color\":\"independent\"}}}" ;
+        ns4:depiction <http://nanomine.org/viz/311448fc489b3031_depiction> .
+
+    <http://nanomine.org/viz/311448fc489b3031_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-12-29T15:03:58.988000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "8cf604c8-68b8-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+{
+    ns1:mx1txrl330 a ns8:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/311448fc489b3031_depiction> ;
+        ns8:hasAssertion ns1:mx1txrl330_assertion ;
+        ns8:hasProvenance ns1:mx1txrl330_provenance ;
+        ns8:hasPublicationInfo ns1:mx1txrl330_pubinfo .
+
+    ns1:mx1txrl330_assertion a ns8:Assertion .
+
+    ns1:mx1txrl330_provenance a ns8:Provenance .
+
+    ns1:mx1txrl330_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:mx1txrl330_pubinfo {
+    ns1:mx1txrl330_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-12-29T15:03:58.988000+00:00"^^xsd:dateTime .
+}
+

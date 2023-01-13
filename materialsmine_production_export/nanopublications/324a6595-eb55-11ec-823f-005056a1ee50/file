@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:5weau5g5du a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/8eef8dfb7be997aa_depiction> ;
+        ns2:hasAssertion ns1:5weau5g5du_assertion ;
+        ns2:hasProvenance ns1:5weau5g5du_provenance ;
+        ns2:hasPublicationInfo ns1:5weau5g5du_pubinfo .
+
+    ns1:5weau5g5du_assertion a ns2:Assertion .
+
+    ns1:5weau5g5du_provenance a ns2:Provenance .
+
+    ns1:5weau5g5du_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:5weau5g5du_assertion {
+    <http://nanomine.org/viz/8eef8dfb7be997aa> a ns3:Chart ;
+        ns4:description "Arc marks in Vega-Lite, which typically use theta, radius, and color encodings, apparently accept x and y position encodings as well. This plot shows what such a plot looks like when x and y channels are binned. The color represents matrix material, and the theta encoding represents the fraction of all samples that fall within a particular binned region. Use the mouse to zoom in on the plot and see the marks diverge as the x-axis bins are dynamically computed, resembling the seeds of dandelion puffs caught in a gust of wind. (For best effect, aim the cursor at the vertical green line while zooming.)" ;
+        ns4:title "Dandelion Effect" ;
+        ns8:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg_C ; 
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] ] ,
+                               [ sio:hasRole [ a mm:Filler ] ;
+                                 a [ rdfs:label ?Filler ] ;
+                                 sio:hasAttribute [ a mm:VolumeFraction ; 
+                                                    sio:hasValue ?VolumeFraction] ]
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"layer\":[{\"height\":400,\"width\":400,\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]}},\"mark\":{\"type\":\"arc\",\"radius\":20,\"cornerRadius\":2,\"strokeWidth\":1},\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":10,\"extent\":{\"selection\":\"zoom\"}},\"scale\":{\"domainMin\":-0.05}},\"y\":{\"field\":\"Tg_C\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":10}},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"theta\":{\"aggregate\":\"count\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"aggregate\":\"count\"}]}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"rule\",\"opacity\":0.4,\"color\":\"darkgreen\"},\"encoding\":{\"x\":{\"datum\":0}}}]}" ;
+        ns7:depiction <http://nanomine.org/viz/8eef8dfb7be997aa_depiction> .
+
+    <http://nanomine.org/viz/8eef8dfb7be997aa_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-07T16:27:26.023000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "75176630-278b-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:5weau5g5du_pubinfo {
+    ns1:5weau5g5du_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-07T16:27:26.024000+00:00"^^xsd:dateTime .
+}
+

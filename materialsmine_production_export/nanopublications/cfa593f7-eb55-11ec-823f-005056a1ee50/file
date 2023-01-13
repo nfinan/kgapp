@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:y7vfoqxfgt_pubinfo {
+    ns1:y7vfoqxfgt_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-06T12:05:06.964000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:y7vfoqxfgt a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/27fcf74196675b24_depiction> ;
+        ns3:hasAssertion ns1:y7vfoqxfgt_assertion ;
+        ns3:hasProvenance ns1:y7vfoqxfgt_provenance ;
+        ns3:hasPublicationInfo ns1:y7vfoqxfgt_pubinfo .
+
+    ns1:y7vfoqxfgt_assertion a ns3:Assertion .
+
+    ns1:y7vfoqxfgt_provenance a ns3:Provenance .
+
+    ns1:y7vfoqxfgt_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:y7vfoqxfgt_assertion {
+    <http://nanomine.org/viz/27fcf74196675b24> a ns4:Chart ;
+        ns2:description "These faceted bar charts show a meta-analysis of the average (mean) author counts of research articles as grouped by Year, Journal, and Publisher. The charts only show the top k results, sorted by average author count. The red horizontal rule shows the average author count for all research articles in the knowledge graph. Note that these curated articles are not necessarily representative of the entire population of research articles." ;
+        ns2:title "Bibliometrics: Average Author Counts" ;
+        ns7:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?DOI ?Year ?Journal ?Publisher (COUNT(DISTINCT ?Author) AS ?AuthorCount) WHERE {
+  ?DOI a dct:BibliographicResource ;
+       dct:created ?Year ;
+       dct:creator ?Author ;
+       dct:isPartOf [ dct:title ?Journal ; dct:publisher [ rdfs:label ?Publisher ] ] 
+  FILTER ( ?Year > 0 )
+} GROUP BY ?DOI ?Year ?Journal ?Publisher""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"title\":\"Year\",\"layer\":[{\"transform\":[{\"aggregate\":[{\"op\":\"mean\",\"field\":\"AuthorCount\",\"as\":\"mean_grouped\"}],\"groupby\":[\"Year\"]},{\"window\":[{\"op\":\"row_number\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"mean_grouped\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank < 21\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"nominal\",\"sort\":{\"order\":\"descending\",\"field\":\"mean_grouped\"},\"title\":null},\"y\":{\"field\":\"mean_grouped\",\"type\":\"quantitative\",\"title\":\"Average Author Count\"},\"tooltip\":[{\"field\":\"Year\",\"type\":\"nominal\"}]}},{\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\"},\"encoding\":{\"y\":{\"aggregate\":\"mean\",\"field\":\"AuthorCount\"}}}]},{\"title\":\"Journal\",\"layer\":[{\"transform\":[{\"aggregate\":[{\"op\":\"mean\",\"field\":\"AuthorCount\",\"as\":\"mean_grouped\"}],\"groupby\":[\"Journal\"]},{\"window\":[{\"op\":\"row_number\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"mean_grouped\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank < 6\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Journal\",\"type\":\"nominal\",\"sort\":{\"order\":\"descending\",\"field\":\"mean_grouped\"},\"title\":null},\"y\":{\"field\":\"mean_grouped\",\"type\":\"quantitative\",\"title\":\"Average Author Count\"},\"tooltip\":[{\"field\":\"Journal\",\"type\":\"nominal\"}]}},{\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\"},\"encoding\":{\"y\":{\"aggregate\":\"mean\",\"field\":\"AuthorCount\"}}}]},{\"title\":\"Publisher\",\"layer\":[{\"transform\":[{\"aggregate\":[{\"op\":\"mean\",\"field\":\"AuthorCount\",\"as\":\"mean_grouped\"}],\"groupby\":[\"Publisher\"]},{\"window\":[{\"op\":\"row_number\",\"as\":\"rank\"}],\"sort\":[{\"field\":\"mean_grouped\",\"order\":\"descending\"}]},{\"filter\":\"datum.rank < 6\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Publisher\",\"type\":\"nominal\",\"sort\":{\"order\":\"descending\",\"field\":\"mean_grouped\"},\"title\":null},\"y\":{\"field\":\"mean_grouped\",\"type\":\"quantitative\",\"title\":\"Average Author Count\"},\"tooltip\":[{\"field\":\"Publisher\",\"type\":\"nominal\"}]}},{\"mark\":{\"type\":\"rule\",\"color\":\"firebrick\"},\"encoding\":{\"y\":{\"aggregate\":\"mean\",\"field\":\"AuthorCount\"}}}]}]}" ;
+        ns5:depiction <http://nanomine.org/viz/27fcf74196675b24_depiction> .
+
+    <http://nanomine.org/viz/27fcf74196675b24_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-06T12:05:06.963000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "a57a0556-269d-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

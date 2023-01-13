@@ -1,0 +1,66 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://xmlns.com/foaf/0.1/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:96oi3mndke_pubinfo {
+    ns1:96oi3mndke_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-23T15:27:39.107000+00:00"^^xsd:dateTime .
+}
+
+ns1:96oi3mndke_assertion {
+    <http://nanomine.org/viz/861d2fb12cc6faca> a ns7:Chart ;
+        ns2:description "A parallel coordinate plot can reveal broad trends based on the shape of lines that intersect the various axes, but it can sometimes be difficult to assess the density of lines in a particular range along a given axis. This chart uses cross-filtering histograms to enable interaction with the plot, using the \"resolve\": \"intersect\" property to enable selection brushes in more than one histogram at a time. Click-drag horizontally on a histogram to create a selection brush that filters the remaining points, and add a selection brush to another histogram to filter further. To remove the selection brush from a given histogram, click in the histogram area outside of the selection brush." ;
+        ns2:title "Interactive Parallel Coordinate Plot Filtered by Histograms" ;
+        ns3:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT * WHERE {
+  ?doi sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a mm:Matrix ] ; a [ rdfs:label ?Matrix ] ] ;
+          sio:hasAttribute [ a mm:TensileModulus ; sio:hasValue ?TensMod_GPa ; sio:hasUnit om-2:gigapascal ] ,
+                           [ a mm:ElongationAtBreak ; sio:hasValue ?Elong_Pct ; sio:hasUnit om-2:percent ] ,
+                           [ a mm:TensileStressAtBreak ; sio:hasValue ?TensStress_MPa ; sio:hasUnit om-2:megapascal ] , 
+                           [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg_C ; sio:hasUnit om-2:degreeCelsius ] .
+  OPTIONAL{
+    ?sample sio:hasComponentPart [ sio:hasRole [ a mm:Filler ] ; a [ rdfs:label ?Filler ] ; sio:hasAttribute [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] ] 
+  }
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*.doi.org./, '')\",\"as\":\"DOI\"},{\"calculate\":\"datum.TensMod_GPa\",\"as\":\"Tensile Modulus (GPa)\"},{\"calculate\":\"datum.Elong_Pct\",\"as\":\"% Elongation\"},{\"calculate\":\"datum.TensStress_MPa\",\"as\":\"Tensile Stress (MPa)\"},{\"calculate\":\"datum.Tg_C\",\"as\":\"Glass Transition Temp (C)\"},{\"calculate\":\"datum.VolFrac * 100\",\"as\":\"Filler Volume %\"}],\"vconcat\":[{\"repeat\":[\"% Elongation\",\"Filler Volume %\",\"Glass Transition Temp (C)\",\"Tensile Modulus (GPa)\",\"Tensile Stress (MPa)\"],\"spec\":{\"layer\":[{\"width\":115,\"height\":50,\"mark\":{\"type\":\"bar\",\"color\":\"#ddd\"},\"encoding\":{\"x\":{\"field\":{\"repeat\":\"repeat\"},\"type\":\"quantitative\",\"bin\":{\"maxbins\":15},\"title\":null},\"y\":{\"aggregate\":\"count\",\"title\":null}}},{\"width\":125,\"selection\":{\"coordinate_range\":{\"type\":\"interval\",\"resolve\":\"intersect\"}},\"transform\":[{\"filter\":{\"selection\":\"coordinate_range\"}}],\"mark\":{\"type\":\"bar\",\"color\":\"#777\"},\"encoding\":{\"x\":{\"field\":{\"repeat\":\"repeat\"},\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":5},\"bin\":{\"maxbins\":15}},\"y\":{\"aggregate\":\"count\"}}}],\"view\":{\"stroke\":\"#ddd\"}}},{\"transform\":[{\"fold\":[\"Tensile Modulus (GPa)\",\"% Elongation\",\"Tensile Stress (MPa)\",\"Glass Transition Temp (C)\",\"Filler Volume %\"]},{\"joinaggregate\":[{\"op\":\"min\",\"field\":\"value\",\"as\":\"min\"},{\"op\":\"max\",\"field\":\"value\",\"as\":\"max\"}],\"groupby\":[\"key\"]},{\"calculate\":\"(datum.value - datum.min) / (datum.max-datum.min)\",\"as\":\"norm_val\"},{\"calculate\":\"(datum.min + datum.max) / 2\",\"as\":\"mid\"}],\"layer\":[{\"width\":700,\"height\":300,\"mark\":{\"type\":\"rule\",\"color\":\"#ccc\"},\"encoding\":{\"detail\":{\"aggregate\":\"count\"},\"x\":{\"field\":\"key\",\"axis\":{\"domain\":false,\"title\":null}}}},{\"selection\":{\"line_hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"mark\":\"line\",\"encoding\":{\"color\":{\"condition\":{\"selection\":\"coordinate_range\",\"field\":\"Matrix\",\"type\":\"nominal\"},\"value\":\"#ccc\"},\"strokeDash\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"strokeWidth\":{\"condition\":{\"selection\":\"coordinate_range\",\"value\":2},\"value\":1},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"selection\":\"line_hover\",\"value\":1},\"value\":0.3},\"x\":{\"type\":\"nominal\",\"field\":\"key\"},\"y\":{\"type\":\"quantitative\",\"field\":\"norm_val\",\"axis\":null,\"scale\":{\"padding\":5,\"nice\":false}},\"tooltip\":[{\"field\":\"% Elongation\",\"type\":\"quantitative\"},{\"field\":\"Filler Volume %\",\"type\":\"quantitative\",\"format\":\".6r\"},{\"field\":\"Glass Transition Temp (C)\",\"type\":\"quantitative\"},{\"field\":\"Tensile Modulus (GPa)\",\"type\":\"quantitative\"},{\"field\":\"Tensile Stress (MPa)\",\"type\":\"quantitative\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}},{\"layer\":[{\"mark\":{\"type\":\"tick\",\"orient\":\"horizontal\",\"size\":8,\"color\":\"#ccc\"}},{\"mark\":{\"type\":\"text\",\"style\":\"label\"},\"encoding\":{\"text\":{\"aggregate\":\"min\",\"field\":\"max\",\"format\":\".4r\"}}}],\"encoding\":{\"x\":{\"type\":\"nominal\",\"field\":\"key\"},\"y\":{\"value\":5}}},{\"layer\":[{\"mark\":{\"type\":\"tick\",\"orient\":\"horizontal\",\"size\":8,\"color\":\"#ccc\"}},{\"mark\":{\"type\":\"text\",\"style\":\"label\"},\"encoding\":{\"text\":{\"aggregate\":\"min\",\"field\":\"mid\",\"format\":\".4r\"}}}],\"encoding\":{\"x\":{\"type\":\"nominal\",\"field\":\"key\"},\"y\":{\"value\":150}}},{\"layer\":[{\"mark\":{\"type\":\"tick\",\"orient\":\"horizontal\",\"size\":8,\"color\":\"#ccc\"}},{\"mark\":{\"type\":\"text\",\"style\":\"label\"},\"encoding\":{\"text\":{\"aggregate\":\"min\",\"field\":\"min\",\"format\":\".4r\"}}}],\"encoding\":{\"x\":{\"type\":\"nominal\",\"field\":\"key\"},\"y\":{\"value\":295}}}]}],\"config\":{\"view\":{\"stroke\":null},\"concat\":{\"spacing\":10}}}" ;
+        ns4:depiction <http://nanomine.org/viz/861d2fb12cc6faca_depiction> .
+
+    <http://nanomine.org/viz/861d2fb12cc6faca_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-12-23T15:27:39.107000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "dcf0644a-6404-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:96oi3mndke a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/861d2fb12cc6faca_depiction> ;
+        ns8:hasAssertion ns1:96oi3mndke_assertion ;
+        ns8:hasProvenance ns1:96oi3mndke_provenance ;
+        ns8:hasPublicationInfo ns1:96oi3mndke_pubinfo .
+
+    ns1:96oi3mndke_assertion a ns8:Assertion .
+
+    ns1:96oi3mndke_provenance a ns8:Provenance .
+
+    ns1:96oi3mndke_pubinfo a ns8:PublicationInfo .
+}
+

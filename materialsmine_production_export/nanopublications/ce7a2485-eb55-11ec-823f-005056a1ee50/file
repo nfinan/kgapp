@@ -1,0 +1,80 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:so96jhpta2_pubinfo {
+    ns1:so96jhpta2_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-29T19:57:07.236000+00:00"^^xsd:dateTime .
+}
+
+ns1:so96jhpta2_assertion {
+    <http://nanomine.org/viz/0d3e655f3074961c> a ns6:Chart ;
+        ns2:description "Vega-Lite lets you incrementally customize charts, including the specification of interactive elements. This concatenated data graphic shows two views of the same data: a static view (left) and an interactive view (right). The view on the right includes pan and zoom capability as well as selection parameters that drive conditional size and opacity encodings. Hover over a point to reveal a tooltip as well as all other points with the same Matrix material, where a black outline indicates points from the same research article DOI. Click on a point to show only those points from the same DOI, and Ctrl-click the DOI that appears below the scatter plot to open the research article in a new tab." ;
+        ns2:title "Static vs. Interactive Data Graphics" ;
+        ns4:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?doi sio:hasPart ?sample .
+  
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  
+  ?control_sample a mm:PolymerNanocomposite ;
+                  sio:hasRole [ a sio:ControlRole ; sio:inRelationTo ?sample ] ;
+                  sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                                     sio:hasValue ?Tg_control ;
+                                     sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a mm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a mm:Filler ] ;
+                                   sio:hasAttribute [ a mm:MassFraction ;
+                                                      sio:hasValue ?MassFrac ] ,
+                                                    [ a mm:VolumeFraction ;
+                                                      sio:hasValue ?VolFrac ] ] .
+  }
+  BIND(IF(BOUND(?MassFrac), ?MassFrac, 0) AS ?MassFracNorm)
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFracNorm)
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*dx.doi.org./, '')\",\"as\":\"DOI\"}],\"hconcat\":[{\"height\":300,\"width\":300,\"title\":\"Static Chart\",\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":true,\"size\":50},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Filler Amount (vol.%)\",\"axis\":{\"format\":\"p\"}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Glass Transition Temperature, Tg (C)\",\"axis\":{\"format\":\"s\"}},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null}}},{\"vconcat\":[{\"height\":300,\"width\":300,\"title\":\"Interactive Chart\",\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"hover_Matrix\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"]},\"hover_DOI\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"doi\"]},\"select\":{\"type\":\"single\",\"fields\":[\"doi\"]},\"select2\":{\"type\":\"single\",\"fields\":[\"doi\"],\"empty\":\"none\"}},\"transform\":[{\"filter\":{\"selection\":\"select\"}}],\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Filler Amount (vol.%)\",\"axis\":{\"format\":\"p\"}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"zero\":false,\"padding\":10},\"title\":\"Glass Transition Temperature, Tg (C)\",\"axis\":{\"format\":\"s\"}},\"color\":{\"condition\":{\"selection\":\"hover_Matrix\",\"field\":\"Matrix\",\"type\":\"nominal\"},\"value\":\"#cccccc\"},\"size\":{\"condition\":{\"selection\":\"hover_Matrix\",\"value\":50},\"value\":25},\"fillOpacity\":{\"condition\":{\"selection\":\"hover_Matrix\",\"value\":0.7},\"value\":0.01},\"stroke\":{\"condition\":{\"selection\":\"hover_DOI\",\"value\":\"black\"},\"value\":\"transparent\"},\"tooltip\":[{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"title\":\"Filler Amt (vol.%)\",\"format\":\".3p\"},{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Tg (C)\",\"format\":\".3r\"},{\"field\":\"Tg_control\",\"type\":\"quantitative\",\"title\":\"Control Tg (C)\",\"format\":\".3r\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}},{\"height\":20,\"width\":299,\"transform\":[{\"filter\":{\"selection\":\"select2\"}},{\"sample\":1}],\"selection\":{\"hover_link\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"text\",\"limit\":250,\"fontSize\":14},\"encoding\":{\"text\":{\"field\":\"DOI\",\"type\":\"nominal\"},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"color\":{\"condition\":{\"selection\":\"hover_link\",\"value\":\"blue\"},\"value\":\"black\"},\"tooltip\":{\"value\":\"Ctrl-click to open DOI in a new tab.\"}},\"view\":{\"stroke\":null}}]}],\"config\":{\"axis\":{\"labelBound\":true,\"labelFlush\":true,\"titleFontSize\":14,\"labelFontSize\":12},\"title\":{\"fontSize\":32}}}" ;
+        ns7:depiction <http://nanomine.org/viz/0d3e655f3074961c_depiction> .
+
+    <http://nanomine.org/viz/0d3e655f3074961c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-29T19:57:07.235000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "87faff9a-514e-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:so96jhpta2 a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/0d3e655f3074961c_depiction> ;
+        ns8:hasAssertion ns1:so96jhpta2_assertion ;
+        ns8:hasProvenance ns1:so96jhpta2_provenance ;
+        ns8:hasPublicationInfo ns1:so96jhpta2_pubinfo .
+
+    ns1:so96jhpta2_assertion a ns8:Assertion .
+
+    ns1:so96jhpta2_provenance a ns8:Provenance .
+
+    ns1:so96jhpta2_pubinfo a ns8:PublicationInfo .
+}
+

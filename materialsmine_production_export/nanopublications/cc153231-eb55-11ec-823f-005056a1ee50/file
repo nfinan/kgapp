@@ -1,0 +1,78 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:byctlfi99f a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/cd58a9b5e3bfbbd3_depiction> ;
+        ns3:hasAssertion ns1:byctlfi99f_assertion ;
+        ns3:hasProvenance ns1:byctlfi99f_provenance ;
+        ns3:hasPublicationInfo ns1:byctlfi99f_pubinfo .
+
+    ns1:byctlfi99f_assertion a ns3:Assertion .
+
+    ns1:byctlfi99f_provenance a ns3:Provenance .
+
+    ns1:byctlfi99f_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:byctlfi99f_pubinfo {
+    ns1:byctlfi99f_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-21T15:21:23.722000+00:00"^^xsd:dateTime .
+}
+
+ns1:byctlfi99f_assertion {
+    <http://nanomine.org/viz/cd58a9b5e3bfbbd3> a ns2:Chart ;
+        ns4:description "This chart demonstrates how to use the facet operator in Vega-Lite to display repeated views, grouped by a data field. In this case, the SPARQL query selects a set of attribute types and values with specified units from the knowledge graph using the VALUES clause, including the reported standard deviation. These layered plots show error bars corresponding to the bounds of standard deviation, and the plot includes interactivity by highlighting all corresponding data points for a given sample when a data point is selected. Data points are colored based on the DOI from which they were curated." ;
+        ns4:title "Faceted Plot with Error Bars and Cross-Filtering" ;
+        ns8:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?doi ?sample ?AttrType ?value ?StdDev ?Matrix ?Filler ?VolumeFraction WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute ?attr ;
+          sio:hasComponentPart ?matrix , ?filler .
+  ?attr a ?AttrType ; 
+        sio:hasValue ?value ; 
+        sio:hasUnit ?Unit ; 
+        sio:hasAttribute [ a sio:StandardDeviation ; 
+                           sio:hasValue ?StdDev ] .
+  ?matrix sio:hasRole [ a mm:Matrix ] ;
+          a [ rdfs:label ?Matrix ] .
+  ?filler sio:hasRole [ a mm:Filler ] ;
+          a [ rdfs:label ?Filler ] ;
+          sio:hasAttribute [ a mm:VolumeFraction ; 
+                             sio:hasValue ?VolumeFraction] .
+  VALUES ( ?AttrType ?Unit ) { 
+    ( mm:TensileModulus om-2:gigapascal ) 
+    ( mm:ElongationAtBreak om-2:percent ) 
+    ( mm:TensileStressAtYield om-2:megapascal ) 
+    ( mm:TensileStressAtBreak om-2:megapascal )
+  }
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.AttrType, /^.*.org.ns./,'')\",\"as\":\"Attr\"},{\"calculate\":\"datum.Attr == 'TensileModulus' ? 'Tensile Modulus (GPa)' : datum.Attr == 'ElongationAtBreak' ? 'Elongation at Break (%)' : datum.Attr == 'TensileStressAtYield' ? 'Yield Strength (MPa)' : datum.Attr == 'TensileStressAtBreak' ? 'Tensile Strength (MPa)' : ''\",\"as\":\"Attribute\"},{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*dx.doi.org./, '')\",\"as\":\"DOI\"}],\"facet\":{\"field\":\"Attribute\",\"title\":null,\"header\":{\"labelFontSize\":14,\"labelOrient\":\"left\",\"labelFontWeight\":\"bold\"}},\"spec\":{\"layer\":[{\"transform\":[{\"calculate\":\"datum.value - datum.StdDev\",\"as\":\"y_min\"},{\"calculate\":\"datum.value + datum.StdDev\",\"as\":\"y_max\"}],\"mark\":\"errorbar\",\"encoding\":{\"y\":{\"field\":\"y_min\",\"type\":\"quantitative\"},\"y2\":{\"field\":\"y_max\"},\"color\":{\"condition\":{\"selection\":\"select\",\"value\":\"black\"},\"value\":\"transparent\"}}},{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"sample\"]},\"select\":{\"type\":\"single\",\"fields\":[\"sample\"]}},\"mark\":{\"type\":\"point\",\"clip\":true,\"filled\":true},\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"scale\":{\"padding\":10,\"nice\":false},\"title\":null},\"fill\":{\"condition\":{\"selection\":\"select\",\"field\":\"doi\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"value\":\"#dddddd\"},\"size\":{\"condition\":{\"selection\":\"select\",\"value\":50},\"value\":0},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Attribute\",\"type\":\"nominal\"},{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Value\"},{\"field\":\"StdDev\",\"type\":\"quantitative\",\"title\":\"Std. dev.\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}],\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"scale\":{\"padding\":10,\"nice\":false},\"axis\":{\"format\":\".2p\"},\"title\":\"Filler Loading (vol.%)\"},\"opacity\":{\"condition\":{\"selection\":\"hover\",\"value\":1},\"value\":0.6}}},\"resolve\":{\"scale\":{\"y\":\"independent\",\"x\":\"independent\"}},\"config\":{\"facet\":{\"columns\":2},\"axis\":{\"labelFontSize\":12,\"titleFontSize\":14,\"format\":\".2s\"}}}" ;
+        ns7:depiction <http://nanomine.org/viz/cd58a9b5e3bfbbd3_depiction> .
+
+    <http://nanomine.org/viz/cd58a9b5e3bfbbd3_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-21T15:21:23.721000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "8d25f6ae-3282-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

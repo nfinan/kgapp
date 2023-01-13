@@ -1,0 +1,69 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://open.vocab.org/terms/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:xhg5jdko2c_pubinfo {
+    ns1:xhg5jdko2c_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:34:49.592000+00:00"^^xsd:dateTime .
+}
+
+ns1:xhg5jdko2c_assertion {
+    <http://nanomine.org/viz/219d819c1826cf9d> a ns4:Chart ;
+        ns2:description "Materials undergoing deformation can exhibit a combination of elastic and viscous behavior. Under static loads, viscoelastic behavior can manifest as stress relaxation or strain creep behavior. Another way to quantify material viscoelasticity is under dynamic loading conditions, for example in rheometry and dynamic mechanical analysis (DMA). For example, in DMA, a sinusoidal stress is applied and the strain response is measured. The in-phase component (storage modulus) and out-of-phase component (loss modulus) are related by the phase shift (delta), each of which can be influenced by temperature or strain rate. In this chart, temperature and frequency sweep data come from Stoeckelhuber et al. (Macromolecules 2011, DOI: 10.1021/ma1026077)." ;
+        ns2:title "What is Viscoelasticity?" ;
+        ns7:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1021/ma1026077> sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute ?attr ;
+          sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] .
+  ?attr a nm:StorageModulus ;
+        sio:hasValue ?DVvalue ; sio:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        sio:inRelationTo [ a ?TempOrFreq ; sio:hasValue ?IVvalue ; sio:hasUnit ?IVunit ]
+  OPTIONAL{
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ;
+                                   sio:hasRole [ a nm:Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ; sio:hasValue ?MassFraction] ] .
+  }
+  FILTER((?TempOrFreq = nm:Temperature) || (?TempOrFreq = nm:Frequency))
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample,/^.*org.sample./,'')\",\"as\":\"Sample ID\"}],\"vconcat\":[{\"data\":{\"sequence\":{\"start\":0,\"stop\":12.7,\"step\":0.1,\"as\":\"seq_x\"}},\"transform\":[{\"calculate\":\"sin(datum.seq_x)\",\"as\":\"stress\"},{\"calculate\":\"sin(datum.seq_x)\",\"as\":\"strain_elastic\"},{\"calculate\":\"sin(datum.seq_x - PI/2)\",\"as\":\"strain_viscoelastic\"},{\"calculate\":\"sin(datum.seq_x - PI)\",\"as\":\"strain_viscous\"}],\"hconcat\":[{\"title\":\"Perfectly Elastic\",\"width\":200,\"height\":150,\"transform\":[{\"fold\":[\"stress\",\"strain_elastic\"]}],\"mark\":\"line\",\"encoding\":{\"x\":{\"type\":\"quantitative\",\"field\":\"seq_x\",\"axis\":{\"title\":\"Time\",\"labels\":false}},\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Amplitude\",\"labels\":false}},\"color\":{\"field\":\"key\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"stress\",\"strain_elastic\"],\"range\":[\"#bbb\",\"firebrick\"]},\"legend\":null},\"strokeDash\":{\"field\":\"key\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"stress\",\"strain_elastic\"],\"range\":[[0],[5,5]]}}}},{\"title\":\"Viscoelastic\",\"width\":200,\"height\":150,\"transform\":[{\"fold\":[\"stress\",\"strain_viscoelastic\"]}],\"layer\":[{\"mark\":\"line\",\"encoding\":{\"x\":{\"type\":\"quantitative\",\"field\":\"seq_x\",\"axis\":{\"title\":\"Time\",\"labels\":false}},\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Amplitude\",\"labels\":false}},\"color\":{\"field\":\"key\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"stress\",\"strain_viscoelastic\"],\"range\":[\"#bbb\",\"firebrick\"]},\"legend\":null},\"strokeDash\":{\"field\":\"key\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"stress\",\"strain_viscoelastic\"],\"range\":[[0],[5,5]]}}}},{\"transform\":[{\"sample\":1}],\"mark\":\"rule\",\"encoding\":{\"x\":{\"datum\":\"1.571\",\"type\":\"quantitative\"}}},{\"transform\":[{\"sample\":1}],\"mark\":\"rule\",\"encoding\":{\"x\":{\"datum\":\"3.142\",\"type\":\"quantitative\"}}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"text\",\"fontSize\":10},\"encoding\":{\"x\":{\"datum\":\"2.35\",\"type\":\"quantitative\"},\"y\":{\"datum\":\"-0.85\",\"type\":\"quantitative\"},\"text\":{\"value\":\"delta\"}}}]},{\"title\":\"Purely Viscous\",\"width\":200,\"height\":150,\"transform\":[{\"calculate\":\"datum.stress\",\"as\":\"Applied Stress\"},{\"calculate\":\"datum.strain_viscous\",\"as\":\"Strain Response\"},{\"fold\":[\"Applied Stress\",\"Strain Response\"]}],\"mark\":\"line\",\"encoding\":{\"x\":{\"type\":\"quantitative\",\"field\":\"seq_x\",\"axis\":{\"title\":\"Time\",\"labels\":false}},\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Amplitude\",\"labels\":false}},\"color\":{\"field\":\"key\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"Applied Stress\",\"Strain Response\"],\"range\":[\"#bbb\",\"firebrick\"]},\"legend\":{\"title\":\"Legend\",\"symbolSize\":400}},\"strokeDash\":{\"field\":\"key\",\"type\":\"nominal\",\"scale\":{\"domain\":[\"Applied Stress\",\"Strain Response\"],\"range\":[[0],[5,5]]}}}}],\"resolve\":{\"scale\":{\"color\":\"independent\",\"strokeDash\":\"independent\"}}},{\"transform\":[{\"calculate\":\"replace(datum.TempOrFreq,/^.*.org.ns./,'')\",\"as\":\"TFTrim\"}],\"hconcat\":[{\"width\":365,\"height\":300,\"title\":\"Temperature Sweep\",\"transform\":[{\"filter\":\"datum.TFTrim == 'Temperature'\"}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"x\":{\"field\":\"IVvalue\",\"type\":\"quantitative\",\"title\":\"Temperature (C)\"},\"y\":{\"field\":\"DVvalue\",\"type\":\"quantitative\",\"title\":\"Storage Modulus (MPa)\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":null},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"highlight\"},{\"selection\":\"highlight2\"}]},\"value\":1},\"value\":0.05},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"IVvalue\",\"type\":\"quantitative\",\"title\":\"T (C)\"},{\"field\":\"DVvalue\",\"type\":\"quantitative\",\"title\":\"Storage Mod (GPa)\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}]}},{\"width\":365,\"height\":301,\"title\":\"Frequency Sweep\",\"transform\":[{\"filter\":\"datum.TFTrim == 'Frequency'\"}],\"selection\":{\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]}},\"mark\":{\"type\":\"line\",\"point\":true},\"encoding\":{\"x\":{\"field\":\"IVvalue\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Frequency (Hz)\",\"format\":\"e\"}},\"y\":{\"field\":\"DVvalue\",\"type\":\"quantitative\",\"title\":\"Storage Modulus (MPa)\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"highlight\"},{\"selection\":\"highlight2\"}]},\"value\":1},\"value\":0.05},\"detail\":{\"field\":\"sample\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"IVvalue\",\"type\":\"quantitative\",\"title\":\"T (C)\"},{\"field\":\"DVvalue\",\"type\":\"quantitative\",\"title\":\"Storage Mod (GPa)\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}]}}]}],\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12,\"labelFlush\":false},\"title\":{\"fontSize\":16}}}" ;
+        ns5:depiction <http://nanomine.org/viz/219d819c1826cf9d_depiction> .
+
+    <http://nanomine.org/viz/219d819c1826cf9d_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns3:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:34:49.591000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "44d19f0e-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:xhg5jdko2c a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/219d819c1826cf9d_depiction> ;
+        ns8:hasAssertion ns1:xhg5jdko2c_assertion ;
+        ns8:hasProvenance ns1:xhg5jdko2c_provenance ;
+        ns8:hasPublicationInfo ns1:xhg5jdko2c_pubinfo .
+
+    ns1:xhg5jdko2c_assertion a ns8:Assertion .
+
+    ns1:xhg5jdko2c_provenance a ns8:Provenance .
+
+    ns1:xhg5jdko2c_pubinfo a ns8:PublicationInfo .
+}
+

@@ -1,0 +1,76 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:30pe8p23wg a ns3:Nanopublication ;
+        ns2:isAbout <http://nanomine.org/viz/e0124877aacc67f0_depiction> ;
+        ns3:hasAssertion ns1:30pe8p23wg_assertion ;
+        ns3:hasProvenance ns1:30pe8p23wg_provenance ;
+        ns3:hasPublicationInfo ns1:30pe8p23wg_pubinfo .
+
+    ns1:30pe8p23wg_assertion a ns3:Assertion .
+
+    ns1:30pe8p23wg_provenance a ns3:Provenance .
+
+    ns1:30pe8p23wg_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:30pe8p23wg_assertion {
+    <http://nanomine.org/viz/e0124877aacc67f0> a ns2:Chart ;
+        ns5:description "Using Vega-Lite's sequence generator and calculate transform, this scatter plot shows the Guth-Gold equation as a dashed line. Young's modulus of nanocomposite samples were normalized by the Young's modulus of neat matrix control samples within the SPARQL query. Color encodings show the type of filler, and the size encodings represent the non-normalized Young's modulus of the nanocomposite. Hover over a point to display a tooltip and highlight all other points linked to the same article DOI, and use the mouse to pan and zoom." ;
+        ns5:title "Overlaying Equations in Vega-Lite: Guth-Gold Example" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:TensileModulus ;
+                             sio:hasValue ?TensModGPa ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] 
+                           ] .
+  ?control sio:hasRole [ a sio:ControlRole ;
+                         sio:inRelationTo ?sample ] ;
+           sio:hasAttribute [ a nm:TensileModulus ;
+                             sio:hasValue ?TensModGPa_control ;
+                             sio:hasUnit [ rdfs:label "Gigapascal" ] 
+                            ] .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ]; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?VolumeFraction ]
+                               ] ,
+                               [ a [ rdfs:label ?Matrix ];
+                                 sio:hasRole [ a nm:Matrix] ] .
+  ?doi sio:hasPart ?sample .
+  BIND ((?TensModGPa / ?TensModGPa_control) AS ?normE)
+}""" ;
+        ns2:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"transform\":[{\"calculate\":\"replace(datum.sample,/^.*org.sample./,'')\",\"as\":\"SampleID\"},{\"calculate\":\"replace(datum.doi,/^.*doi.org./,'')\",\"as\":\"DOI\"}],\"layer\":[{\"data\":{\"sequence\":{\"start\":0,\"stop\":1.01,\"step\":0.01,\"as\":\"seq_x\"}},\"transform\":[{\"calculate\":\"1 + (2.5 * datum.seq_x) + (14.1 * pow(datum.seq_x,2))\",\"as\":\"GuthGold\"}],\"mark\":{\"type\":\"line\",\"color\":\"#555\",\"strokeDash\":[10,5]},\"encoding\":{\"x\":{\"field\":\"seq_x\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,0.2]}},\"y\":{\"field\":\"GuthGold\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0.4,2.2]}}}},{\"data\":{\"values\":[{\"label\":\"E = Em(1 + 2.5*vf + 14.1*vf^2)\"}]},\"mark\":{\"type\":\"text\",\"font\":\"Times New Roman\",\"fontSize\":24,\"dx\":80,\"dy\":120,\"color\":\"#555\",\"fontStyle\":\"italic\"},\"encoding\":{\"text\":{\"field\":\"label\",\"type\":\"nominal\"}}},{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"doi\"]},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"clip\":true,\"filled\":true},\"encoding\":{\"x\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"title\":\"Volume Fraction\"},\"y\":{\"field\":\"normE\",\"type\":\"quantitative\",\"title\":\"Normalized Tensile Modulus (E/Em)\"},\"size\":{\"field\":\"TensModGPa\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,15],\"range\":[50,1000]},\"legend\":null},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"}},\"stroke\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"black\"},\"value\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.3},\"tooltip\":[{\"field\":\"TensModGPa\",\"type\":\"quantitative\",\"title\":\"Tensile Modulus (GPa)\"},{\"field\":\"TensModGPa_control\",\"type\":\"quantitative\",\"title\":\"Modulus (GPa) Neat Matrix\"},{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"format\":\".3p\",\"title\":\"Volume Fraction\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"SampleID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}],\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":16,\"labelFlush\":false},\"legend\":{\"titleFontSize\":16,\"labelFontSize\":12,\"labelLimit\":200}}}" ;
+        ns8:depiction <http://nanomine.org/viz/e0124877aacc67f0_depiction> .
+
+    <http://nanomine.org/viz/e0124877aacc67f0_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T17:25:52.868000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "04e828aa-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+ns1:30pe8p23wg_pubinfo {
+    ns1:30pe8p23wg_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T17:25:52.868000+00:00"^^xsd:dateTime .
+}
+

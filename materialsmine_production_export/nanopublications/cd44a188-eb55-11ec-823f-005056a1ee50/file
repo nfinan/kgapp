@@ -1,0 +1,67 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:k3o0z7ewb8_pubinfo {
+    ns1:k3o0z7ewb8_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:30:43.016000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:k3o0z7ewb8 a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/3d6fb87d8570f487_depiction> ;
+        ns3:hasAssertion ns1:k3o0z7ewb8_assertion ;
+        ns3:hasProvenance ns1:k3o0z7ewb8_provenance ;
+        ns3:hasPublicationInfo ns1:k3o0z7ewb8_pubinfo .
+
+    ns1:k3o0z7ewb8_assertion a ns3:Assertion .
+
+    ns1:k3o0z7ewb8_provenance a ns3:Provenance .
+
+    ns1:k3o0z7ewb8_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:k3o0z7ewb8_assertion {
+    <http://nanomine.org/viz/3d6fb87d8570f487> a ns4:Chart ;
+        ns2:description "Error bands summarize ranges of quantitative values using summary statistics. This chart takes DMA results of tan delta as a function of temperature, normalizes the peak of each series to 1, and offsets the temperature based on the reported glass transition temperature, Tg. X-axis values have been binned in order to compute the summary statistics. The gold line represents the mean of these data, and the green band shows the extent of the standard deviation. Since the glass transition temperature coincides with a peak in tan delta, we expect a peak in these data at around 0. Hover to display tooltips or use the mouse to pan and zoom." ;
+        ns2:title "Using Error Bands to Summarize Dense Data Series" ;
+        ns8:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ]
+                           ] ,
+                           [ a nm:ViscoelasticProperty ] ,
+                           [ a nm:TanDelta ;
+                             sio:hasValue ?TanDelta ; 
+                             sio:inRelationTo [ a nm:Temperature ;
+                                                sio:hasValue ?TemperatureC ;
+                                                sio:hasUnit [ rdfs:label "Celsius" ] ]
+                           ]  .
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":600,\"height\":400,\"transform\":[{\"joinaggregate\":[{\"op\":\"min\",\"field\":\"TanDelta\",\"as\":\"TDmin\"},{\"op\":\"max\",\"field\":\"TanDelta\",\"as\":\"TDmax\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"(datum.TanDelta - datum.TDmin) / (datum.TDmax - datum.TDmin)\",\"as\":\"normTD\"},{\"calculate\":\"datum.TemperatureC - datum.Tg\",\"as\":\"offsetTemp\"}],\"layer\":[{\"mark\":{\"type\":\"errorband\",\"extent\":\"stdev\",\"opacity\":0.5,\"interpolate\":\"monotone\",\"clip\":true,\"color\":\"rgb(37,119,64)\",\"borders\":{\"opacity\":1,\"strokeDash\":[10,5]}},\"encoding\":{\"y\":{\"field\":\"normTD\",\"type\":\"quantitative\",\"title\":\"Tan Delta (normalized)\"}}},{\"selection\":{\"pan\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"line\",\"opacity\":1,\"interpolate\":\"monotone\",\"clip\":true,\"color\":\"rgb(213,202,96)\",\"strokeWidth\":4},\"encoding\":{\"y\":{\"field\":\"normTD\",\"type\":\"quantitative\",\"aggregate\":\"mean\"}}}],\"encoding\":{\"x\":{\"field\":\"offsetTemp\",\"type\":\"quantitative\",\"bin\":{\"maxbins\":100},\"scale\":{\"domain\":[-100,100]},\"title\":\"Temperature (shifted by reported Tg value) [Celsius]\"}},\"config\":{\"axis\":{\"titleFontSize\":20,\"labelFontSize\":16,\"labelFlush\":false}}}" ;
+        ns7:depiction <http://nanomine.org/viz/3d6fb87d8570f487_depiction> .
+
+    <http://nanomine.org/viz/3d6fb87d8570f487_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:30:43.015000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "b1d92f6e-f549-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

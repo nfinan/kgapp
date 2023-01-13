@@ -1,0 +1,68 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ohtjxorg6j_pubinfo {
+    ns1:ohtjxorg6j_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-21T19:23:31.114000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:ohtjxorg6j a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/706e44751105cdbb_depiction> ;
+        ns3:hasAssertion ns1:ohtjxorg6j_assertion ;
+        ns3:hasProvenance ns1:ohtjxorg6j_provenance ;
+        ns3:hasPublicationInfo ns1:ohtjxorg6j_pubinfo .
+
+    ns1:ohtjxorg6j_assertion a ns3:Assertion .
+
+    ns1:ohtjxorg6j_provenance a ns3:Provenance .
+
+    ns1:ohtjxorg6j_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:ohtjxorg6j_assertion {
+    <http://nanomine.org/viz/706e44751105cdbb> a ns4:Chart ;
+        ns2:description "This faceted plot displays all values of attributes which are a subclass of Thermal Property, as well as the reported unit of measure. Values in degrees Celsius are converted to Kelvin within Vega-Lite and plotted as tick marks along the x-axis. Tick colors correspond to Matrix material. Gray bands show the 95% confidence interval calculated by Vega-Lite, grouped by Matrix material. Hover or click on a tick mark to isolate all samples containing a particular Matrix material." ;
+        ns2:title "Thermal Properties and Reported Units of Measure" ;
+        ns8:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT ?AttrType ?value ?Unit ?Matrix ?doi ?sample WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute ?attr ;
+          sio:hasComponentPart ?matrix .
+  ?attr a ?AttrType ; 
+        sio:hasValue ?value ; 
+        sio:hasUnit ?Unit .
+  ?matrix sio:hasRole [ a mm:Matrix ] ;
+          a [ rdfs:label ?Matrix ] .
+  ?AttrType rdfs:subClassOf* mm:ThermalProperty
+  VALUES ?Unit { om-2:degreeCelsius om-2:kelvin }
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.Unit, /^.*.org.resource.om.2./,'')\",\"as\":\"Unit_trim\"},{\"calculate\":\"replace(datum.AttrType, /^.*.org.ns./,'')\",\"as\":\"Attr_trim\"},{\"calculate\":\"replace(datum.sample, /^.*.org.sample./,'')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*dx.doi.org./,'')\",\"as\":\"DOI\"},{\"calculate\":\"datum.Unit_trim == 'degreeCelsius' ? datum.value + 273.15 : datum.value\",\"as\":\"value_conv\"}],\"facet\":{\"field\":\"Attr_trim\",\"type\":\"nominal\",\"title\":\"Reported Units of Measure\",\"header\":{\"titleOrient\":\"left\",\"labelFontSize\":12,\"titleFontSize\":14}},\"spec\":{\"layer\":[{\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"hover\"},{\"selection\":\"select\"}]}},{\"joinaggregate\":[{\"op\":\"ci0\",\"field\":\"value_conv\",\"as\":\"LB\"}],\"groupby\":[\"Matrix\"]},{\"joinaggregate\":[{\"op\":\"ci1\",\"field\":\"value_conv\",\"as\":\"UB\"}],\"groupby\":[\"Matrix\"]}],\"mark\":{\"type\":\"rect\",\"color\":\"#dddddd\"},\"encoding\":{\"x\":{\"field\":\"LB\",\"type\":\"quantitative\"},\"x2\":{\"field\":\"UB\"}}},{\"width\":300,\"height\":50,\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"]},\"select\":{\"type\":\"single\",\"fields\":[\"Matrix\"]}},\"mark\":\"tick\",\"encoding\":{\"x\":{\"field\":\"value_conv\",\"type\":\"quantitative\",\"title\":\"Temperature (converted to K)\"},\"y\":{\"field\":\"Unit_trim\",\"type\":\"nominal\",\"title\":null},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"hover\"},{\"selection\":\"select\"}]},\"value\":1},\"value\":0},\"size\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"hover\"},{\"selection\":\"select\"}]},\"value\":15},\"value\":0},\"tooltip\":[{\"field\":\"Attr_trim\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Reported value\"},{\"field\":\"Unit_trim\",\"type\":\"nominal\",\"title\":\"Reported units\"},{\"field\":\"value_conv\",\"type\":\"quantitative\",\"title\":\"Conv. value (K)\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}]},\"config\":{\"axis\":{\"labelFontSize\":12,\"titleFontSize\":14},\"facet\":{\"columns\":1}}}" ;
+        ns5:depiction <http://nanomine.org/viz/706e44751105cdbb_depiction> .
+
+    <http://nanomine.org/viz/706e44751105cdbb_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-10-21T19:23:31.113000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "602b783c-32a4-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

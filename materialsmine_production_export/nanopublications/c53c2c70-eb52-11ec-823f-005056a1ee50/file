@@ -1,0 +1,1342 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://www.w3.org/ns/dcat#> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L154_S3_Eitan_2005_provenance {
+    <http://materialsmine.org/sample/l154-s3-eitan-2005> ns3:wasGeneratedBy <http://materialsmine.org/entry/L154_S3_Eitan_2005_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/rheometrics-dmta-v>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_raman-spectroscopy> a <http://materialsmine.org/ns/RamanSpectroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/reinshaw-s2000>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L154_S3_Eitan_2005_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns2:hasPart <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_5> .
+
+    <http://materialsmine.org/ns/reinshaw-s2000> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Reinshaw S2000" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/rheometrics-dmta-v> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Rheometrics DMTA-V" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixer>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_description>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_mixer>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_description> a ns2:Description ;
+        ns2:hasValue "in a water ice bath" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "Fisher Scientific FS60" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "3" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_description>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_temperature>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "PC pellets were dried" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "125" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "2" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_chemicalused>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixingmethod>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "1" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_additive>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_description> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_additive_additive>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_additive_description> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "methanol" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_additive_description> a ns2:Description ;
+        ns2:hasValue "precipitation of the composite material" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_3_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_description>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_temperature>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation_description> a ns2:Description ;
+        ns2:hasValue "the composite material was dried under vacuum" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "70" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "16" .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_5> a <http://materialsmine.org/ns/Molding> ;
+        ns2:hasInput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_4_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_5_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_5_molding> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_solution_processing_step_5_molding> a <http://materialsmine.org/ns/Molding>,
+            ns2:Parameter .
+
+    ns1:L154_S3_Eitan_2005_assertion ns3:wasDerivedFrom ns1:L154_S3_Eitan_2005_assertion,
+            <http://nanomine.org/pub/MjIyNzI2LjY3NjAzNTc4NTI2_assertion> ;
+        ns3:wasGeneratedBy [ a <http://nanomine.org/setl/MTg0MjY0LjA0MzM1NDkzNzI/MaterialsmineXMLImport> ;
+                ns3:used ns1:L154_S3_Eitan_2005_assertion,
+                    <http://nanomine.org/pub/MjIyNzI2LjY3NjAzNTc4NTI2_assertion> ],
+            <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_description>,
+            <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_equipment>,
+            <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_raman-spectroscopy>,
+            <http://materialsmine.org/entry/L154_S3_Eitan_2005_characterization_scanning-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L154_S3_Eitan_2005_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    ns2:Hour rdfs:label "hours" .
+}
+
+ns1:L154_S3_Eitan_2005_pubinfo {
+    ns1:L154_S3_Eitan_2005_assertion ns4:created "2021-07-22T10:30:21.339000+00:00"^^xsd:dateTime ;
+        ns3:wasAttributedTo <http://nanomine.org/setl/MTg0MjY0LjA0MzM1NDkzNzI/MaterialsmineXMLImport> ;
+        ns3:wasQuotedFrom <http://dx.doi.org/10.1016/j.compscitech.2005.10.004> .
+
+    <http://dx.doi.org/10.1016/j.compscitech.2005.10.004> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Reinforcement mechanisms in MWCNT-filled polycarbonate" ;
+        ns4:created 2006 ;
+        ns4:creator <http://materialsmine.org/author/andrews-r>,
+            <http://materialsmine.org/author/brinson-l-c>,
+            <http://materialsmine.org/author/eitan-a>,
+            <http://materialsmine.org/author/fisher-f-t>,
+            <http://materialsmine.org/author/schadler-l-s> ;
+        ns4:isPartOf <http://materialsmine.org/publication/composites-science-and-technology> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Reinforcement mechanisms in MWCNT-filled polycarbonate" ;
+        ns5:authorList ( <http://materialsmine.org/author/schadler-l-s> <http://materialsmine.org/author/brinson-l-c> <http://materialsmine.org/author/andrews-r> <http://materialsmine.org/author/fisher-f-t> <http://materialsmine.org/author/eitan-a> ) ;
+        ns5:volume 66 ;
+        ns2:hasPart <http://materialsmine.org/sample/l154-s3-eitan-2005> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0266353805003623?via%3Dihub> ;
+        ns6:keyword "Complex Moduli",
+            "Mechanical Properties",
+            "Nanostructures",
+            "Particle-Reinforced Composites",
+            "Polymer���Matrix Composites" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/materials-science-and-engineering-rensselaer-polytechnic-institute-troy-ny-12180-usa> a ns4:Location ;
+        rdfs:label "Materials Science and Engineering, Rensselaer Polytechnic Institute, Troy, NY 12180, USA" .
+
+    <http://materialsmine.org/publication/composites-science-and-technology> ns4:publisher <publisher:elsevier> ;
+        ns4:title "Composites Science and Technology" .
+
+    <http://materialsmine.org/sample/l154-s3-eitan-2005> ns3:wasAttributedTo <http://materialsmine.org/author/andrews-r>,
+            <http://materialsmine.org/author/brinson-l-c>,
+            <http://materialsmine.org/author/eitan-a>,
+            <http://materialsmine.org/author/fisher-f-t>,
+            <http://materialsmine.org/author/schadler-l-s> .
+
+    <publisher:elsevier> rdfs:label "Elsevier" ;
+        ns3:atLocation <http://materialsmine.org/location/materials-science-and-engineering-rensselaer-polytechnic-institute-troy-ny-12180-usa> .
+
+    <http://materialsmine.org/author/andrews-r> a ns3:Agent ;
+        rdfs:label "Andrews, R." ;
+        ns7:name "Andrews, R." .
+
+    <http://materialsmine.org/author/brinson-l-c> a ns3:Agent ;
+        rdfs:label "Brinson, L.C." ;
+        ns7:name "Brinson, L.C." .
+
+    <http://materialsmine.org/author/eitan-a> a ns3:Agent ;
+        rdfs:label "Eitan, A." ;
+        ns7:name "Eitan, A." .
+
+    <http://materialsmine.org/author/fisher-f-t> a ns3:Agent ;
+        rdfs:label "Fisher, F.T." ;
+        ns7:name "Fisher, F.T." .
+
+    <http://materialsmine.org/author/schadler-l-s> a ns3:Agent ;
+        rdfs:label "Schadler, L.S." ;
+        ns7:name "Schadler, L.S." .
+}
+
+ns1:L154_S3_Eitan_2005_assertion {
+    <http://materialsmine.org/sample/l154-s1-eitan-2005> ns2:hasRole <http://materialsmine.org/sample/l154-s1-eitan-2005_control_role> .
+
+    <http://localhost/nmr/blob?id=595ea38de74a1d5e0d18e522> a ns2:Image ;
+        ns3:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/SEMMicroscopy>,
+                    ns3:Activity ;
+                ns3:used <http://materialsmine.org/sample/l154-s3-eitan-2005> ] ;
+        ns7:depiction "http://localhost/nmr/blob?id=595ea38de74a1d5e0d18e522" .
+
+    <http://localhost/nmr/blob?id=595ea592e74a1d5e0d18e79f> a ns2:Image ;
+        ns3:wasGeneratedBy [ a <http://materialsmine.org/ns/Microscopy>,
+                    <http://materialsmine.org/ns/SEMMicroscopy>,
+                    ns3:Activity ;
+                ns3:used <http://materialsmine.org/sample/l154-s3-eitan-2005> ] ;
+        ns7:depiction "http://localhost/nmr/blob?id=595ea592e74a1d5e0d18e79f" .
+
+    <http://materialsmine.org/compound/MultiWallCarbonNanotubes> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Multi-wall carbon nanotubes" ;
+        ns8:altLabel "multi-walled carbon nanotubes" ;
+        ns8:notation "MWCNT" .
+
+    <http://materialsmine.org/compound/PolyBisphenolACarbonate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(bisphenol A carbonate)" ;
+        ns8:altLabel "Lexan 121" ;
+        ns8:notation "PC" .
+
+    <http://materialsmine.org/sample/l154-s1-eitan-2005_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l154-s3-eitan-2005> .
+
+    <http://materialsmine.org/sample/l154-s3-eitan-2005_filler_0> a <http://materialsmine.org/compound/MultiWallCarbonNanotubes> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.6e+00 ],
+            <http://materialsmine.org/sample/l154-s3-eitan-2005_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l154-s3-eitan-2005_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l154-s3-eitan-2005> ] .
+
+    <http://materialsmine.org/sample/l154-s3-eitan-2005_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 5e-02 .
+
+    <http://materialsmine.org/sample/l154-s3-eitan-2005_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 2.371542e-02 .
+
+    <http://materialsmine.org/sample/l154-s3-eitan-2005_matrix_0> a <http://materialsmine.org/compound/PolyBisphenolACarbonate> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "General Electric" ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "Lexan 121" ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PC" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.2e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l154-s3-eitan-2005> ] .
+
+    <http://materialsmine.org/ns/SEMMicroscopy> rdfs:label "SEM Microscopy" .
+
+    <http://materialsmine.org/sample/l154-s3-eitan-2005> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "multi-walled carbon nanotubes in poly(bisphenol A carbonate)" ;
+        ns2:hasAttribute [ ns2:hasValue 4.916461e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.826236e-02 ] ],
+            [ ns2:hasValue 4.165401e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.925104e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 9.787858e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 5.908833e-02 ] ],
+            [ ns2:hasValue 1.073135e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.688485e+02 ] ],
+            [ ns2:hasValue 9.060157e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.583106e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 9.060157e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 5.583106e-02 ] ],
+            [ a <http://materialsmine.org/ns/TensileStressAtYield> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+                ns2:hasValue 7e+01 ],
+            [ ns2:hasValue 3.687454e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.157835e-02 ] ],
+            [ ns2:hasValue 2.366845e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.547846e+02 ] ],
+            [ ns2:hasValue 5.992614e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.646061e+02 ] ],
+            [ ns2:hasValue 8.668168e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.456704e-02 ] ],
+            [ ns2:hasValue 9.774971e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.729697e+02 ] ],
+            [ ns2:hasValue 2.730638e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.458598e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.490285e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.453034e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.067224e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 2.163121e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.581733e+02 ] ],
+            [ ns2:hasValue 2.37759e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.095124e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.687454e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.157835e-02 ] ],
+            [ ns2:hasValue 8.886238e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.416696e+02 ] ],
+            [ ns2:hasValue 1.943121e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.482424e+02 ] ],
+            [ ns2:hasValue 7.84732e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.970015e-02 ] ],
+            [ ns2:hasValue 1.343399e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.784363e+02 ] ],
+            [ ns2:hasValue 2.766392e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.795888e+02 ] ],
+            [ ns2:hasValue 3.665241e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.594639e+02 ] ],
+            [ ns2:hasValue 1.425103e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.509722e+02 ] ],
+            [ ns2:hasValue 1.06346e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.704527e+02 ] ],
+            [ ns2:hasValue 3.480463e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.671543e-02 ] ],
+            [ ns2:hasValue 1.229543e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.492725e+02 ] ],
+            [ ns2:hasValue 2.71214e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.491365e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.199708e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.967868e-02 ] ],
+            [ ns2:hasValue 7.778755e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.416325e-02 ] ],
+            [ ns2:hasValue 2.71214e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.491365e+02 ] ],
+            [ ns2:hasValue 4.051675e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.756386e+02 ] ],
+            [ ns2:hasValue 8.490285e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.453034e-02 ] ],
+            [ ns2:hasValue 2.766392e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.795888e+02 ] ],
+            [ ns2:hasValue 3.420089e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.773315e+02 ] ],
+            [ a <http://materialsmine.org/ns/ElongationAtBreak> ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 1e+01 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns2:hasValue 2.5e+01 ],
+            [ ns2:hasValue 3.549999e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.365238e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.089121e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.381449e-02 ] ],
+            [ ns2:hasValue 5.54102e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.724806e+02 ] ],
+            [ ns2:hasValue 1.229543e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.492725e+02 ] ],
+            [ ns2:hasValue 2.357985e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.565924e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.999928e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.614551e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.549999e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.365238e-02 ] ],
+            [ ns2:hasValue 8.668168e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.456704e-02 ] ],
+            [ ns2:hasValue 8.312403e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.443245e-02 ] ],
+            [ ns2:hasValue 8.886238e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.416696e+02 ] ],
+            [ ns2:hasValue 1.687082e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.128143e-02 ] ],
+            [ ns2:hasValue 1.364154e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.590909e+02 ] ],
+            [ ns2:hasValue 5.46628e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.733355e-02 ] ],
+            [ ns2:hasValue 3.549999e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.365238e-02 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.043219e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.063617e-02 ] ],
+            [ ns2:hasValue 5.003216e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.739463e+02 ] ],
+            [ ns2:hasValue 3.687454e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.157835e-02 ] ],
+            [ ns2:hasValue 2.199708e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.967868e-02 ] ],
+            [ ns2:hasValue 3.787879e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.530303e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.600872e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.415102e-02 ] ],
+            [ ns2:hasValue 2.375181e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.530897e+02 ] ],
+            [ ns2:hasValue 5.003216e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.739463e+02 ] ],
+            [ ns2:hasValue 4.923883e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.612723e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.28133e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 4.621183e-02 ] ],
+            [ ns2:hasValue 2.199708e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.967868e-02 ] ],
+            [ ns2:hasValue 2.285464e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.560703e+02 ] ],
+            [ ns2:hasValue 1.908523e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.68539e+02 ] ],
+            [ ns2:hasValue 6.714302e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.72142e+02 ] ],
+            [ ns2:hasValue 8.13452e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.442021e-02 ] ],
+            [ ns2:hasValue 3.089121e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.381449e-02 ] ],
+            [ ns2:hasValue 2.64063e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.420176e+02 ] ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ],
+            [ ns2:hasValue 4.780653e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.651369e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.711459e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.426114e-02 ] ],
+            [ ns2:hasValue 1.425103e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.778662e+02 ] ],
+            [ ns2:hasValue 2.218982e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.759198e+02 ] ],
+            [ ns2:hasValue 1.326466e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.306724e-02 ] ],
+            [ ns2:hasValue 7.067224e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 1.540936e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.61672e+02 ] ],
+            [ ns2:hasValue 7.127079e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.450303e+02 ] ],
+            [ ns2:hasValue 1.687082e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.128143e-02 ] ],
+            [ ns2:hasValue 6.423172e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.758182e+02 ] ],
+            [ ns2:hasValue 6.423172e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.758182e+02 ] ],
+            [ ns2:hasValue 3.665241e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.594639e+02 ] ],
+            [ ns2:hasValue 9.774971e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.729697e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.245107e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 2.154435e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.684586e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.04347e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 6.218407e-02 ] ],
+            [ ns2:hasValue 5.992614e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.646061e+02 ] ],
+            [ ns2:hasValue 4.051675e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.756386e+02 ] ],
+            [ ns2:hasValue 1.903274e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.598666e+02 ] ],
+            [ ns2:hasValue 1.304321e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.698388e+02 ] ],
+            [ ns2:hasValue 1.849333e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.509556e-02 ] ],
+            [ ns2:hasValue 2.995975e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.082897e-02 ] ],
+            [ ns2:hasValue 7.127079e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.450303e+02 ] ],
+            [ ns2:hasValue 7.245107e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 2.218982e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.759198e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.136293e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.16732e-03 ] ],
+            [ ns2:hasValue 7.28133e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.621183e-02 ] ],
+            [ ns2:hasValue 5.992614e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.646061e+02 ] ],
+            [ ns2:hasValue 5.086258e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.82954e-02 ] ],
+            [ ns2:hasValue 2.762181e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.403232e+02 ] ],
+            [ ns2:hasValue 1.943121e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.482424e+02 ] ],
+            [ ns2:hasValue 6.311061e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.073819e-02 ] ],
+            [ ns2:hasValue 4.455583e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.941256e-02 ] ],
+            [ ns2:hasValue 2.730638e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.458598e+02 ] ],
+            [ ns2:hasValue 2.995975e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.082897e-02 ] ],
+            [ ns2:hasValue 5.46628e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.733355e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.911238e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.361872e-02 ] ],
+            [ ns2:hasValue 6.139613e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.652765e+02 ] ],
+            [ ns2:hasValue 7.956637e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.440798e-02 ] ],
+            [ ns2:hasValue 8.846051e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.456704e-02 ] ],
+            [ ns2:hasValue 3.257021e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.743162e+02 ] ],
+            [ ns2:hasValue 5.086258e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.82954e-02 ] ],
+            [ ns2:hasValue 8.376776e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.711033e+02 ] ],
+            [ ns2:hasValue 1.136293e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.16732e-03 ] ],
+            [ ns2:hasValue 1.425103e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.778662e+02 ] ],
+            [ ns2:hasValue 4.208811e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.777196e-02 ] ],
+            [ ns2:hasValue 1.326466e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.306724e-02 ] ],
+            [ ns2:hasValue 5.071404e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.633168e+02 ] ],
+            [ ns2:hasValue 6.714302e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.72142e+02 ] ],
+            [ ns2:hasValue 1.092601e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.795794e+02 ] ],
+            [ ns2:hasValue 7.28133e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.621183e-02 ] ],
+            [ ns2:hasValue 2.375181e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.530897e+02 ] ],
+            [ ns2:hasValue 2.701988e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.509444e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.865336e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.129692e-02 ] ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ ns2:hasValue 1.229543e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.492725e+02 ] ],
+            [ ns2:hasValue 1.304321e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.698388e+02 ] ],
+            [ ns2:hasValue 2.71214e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.491365e+02 ] ],
+            [ ns2:hasValue 8.240664e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.741212e+02 ] ],
+            [ ns2:hasValue 9.774971e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.729697e+02 ] ],
+            [ ns2:hasValue 8.886238e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.403059e+02 ] ],
+            [ ns2:hasValue 1.601213e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.029671e-02 ] ],
+            [ ns2:hasValue 3.140396e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.784604e+02 ] ],
+            [ ns2:hasValue 1.603719e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.525592e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.916461e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.826236e-02 ] ],
+            [ ns2:hasValue 7.84732e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.970015e-02 ] ],
+            [ ns2:hasValue 9.787858e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.908833e-02 ] ],
+            [ ns2:hasValue 3.642821e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.45304e-02 ] ],
+            [ ns2:hasValue 1.343399e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.784363e+02 ] ],
+            [ ns2:hasValue 5.63694e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.651031e-02 ] ],
+            [ ns2:hasValue 5.54102e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.724806e+02 ] ],
+            [ ns2:hasValue 8.967334e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.470164e-02 ] ],
+            [ ns2:hasValue 2.357985e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.565924e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.021825e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.764748e-02 ] ],
+            [ ns2:hasValue 2.021825e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.764748e-02 ] ],
+            [ ns2:hasValue 6.533576e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.467717e-02 ] ],
+            [ ns2:hasValue 3.257021e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.743162e+02 ] ],
+            [ ns2:hasValue 2.980979e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.579934e+02 ] ],
+            [ ns2:hasValue 8.846051e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.456704e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.687082e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.128143e-02 ] ],
+            [ ns2:hasValue 1.125336e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.4723e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.429985e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 1.727335e-02 ] ],
+            [ ns2:hasValue 1.06346e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.704527e+02 ] ],
+            [ a <http://materialsmine.org/ns/MeasurementMethod> ],
+            [ ns2:hasValue 4.455583e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.941256e-02 ] ],
+            [ ns2:hasValue 6.711459e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.426114e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.311061e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 4.073819e-02 ] ],
+            [ ns2:hasValue 7.245107e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 2.37759e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.095124e-02 ] ],
+            [ ns2:hasValue 1.914482e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.54258e+02 ] ],
+            [ ns2:hasValue 1.603719e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.525592e+02 ] ],
+            [ ns2:hasValue 1.540936e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.61672e+02 ] ],
+            [ ns2:hasValue 1.985278e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.409909e-02 ] ],
+            [ ns2:hasValue 4.042417e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.79697e+02 ] ],
+            [ ns2:hasValue 1.05706e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.633623e+02 ] ],
+            [ ns2:hasValue 1.914482e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.54258e+02 ] ],
+            [ ns2:hasValue 4.043219e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.063617e-02 ] ],
+            [ ns2:hasValue 8.886238e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.403059e+02 ] ],
+            [ ns2:hasValue 1.343399e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.784363e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.282517e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.778629e-02 ] ],
+            [ ns2:hasValue 1.601213e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.029671e-02 ] ],
+            [ ns2:hasValue 1.425103e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.509722e+02 ] ],
+            [ ns2:hasValue 3.070291e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.669697e+02 ] ],
+            [ ns2:hasValue 7.600872e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.415102e-02 ] ],
+            [ ns2:hasValue 5.999928e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.614551e-02 ] ],
+            [ ns2:hasValue 5.004832e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.77697e+02 ] ],
+            [ ns2:hasValue 7.067224e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 2.555473e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.185671e-02 ] ],
+            [ ns2:hasValue 1.05706e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.633623e+02 ] ],
+            [ ns2:hasValue 5.999928e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.614551e-02 ] ],
+            [ ns2:hasValue 2.701988e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.509444e+02 ] ],
+            [ a <http://materialsmine.org/ns/TemperatureSweep> ],
+            [ ns2:hasValue 1.124326e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.548171e-02 ] ],
+            [ ns2:hasValue 2.630129e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.439384e+02 ] ],
+            [ ns2:hasValue 2.733356e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.294573e-02 ] ],
+            [ ns2:hasValue 2.630129e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.439384e+02 ] ],
+            [ ns2:hasValue 1.849333e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.509556e-02 ] ],
+            [ ns2:hasValue 6.423172e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.758182e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.84732e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 4.970015e-02 ] ],
+            [ ns2:hasValue 1.05706e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.633623e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.208811e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 2.777196e-02 ] ],
+            [ ns2:hasValue 1.540936e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.61672e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.985278e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 1.409909e-02 ] ],
+            [ ns2:hasValue 1.603719e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.525592e+02 ] ],
+            [ ns2:hasValue 1.073135e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.688485e+02 ] ],
+            [ ns2:hasValue 1.364154e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.590909e+02 ] ],
+            [ ns2:hasValue 9.709111e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.439394e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.480463e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.671543e-02 ] ],
+            [ ns2:hasValue 4.738578e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.87518e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.642821e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 2.45304e-02 ] ],
+            [ ns2:hasValue 1.221353e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.95645e-02 ] ],
+            [ ns2:hasValue 6.796196e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.38788e-02 ] ],
+            [ ns2:hasValue 2.021825e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.764748e-02 ] ],
+            [ ns2:hasValue 1.092601e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.795794e+02 ] ],
+            [ ns2:hasValue 4.3343e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.946232e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.733356e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.294573e-02 ] ],
+            [ ns2:hasValue 2.375181e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.530897e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.326466e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.306724e-02 ] ],
+            [ ns2:hasValue 3.376967e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.017498e-02 ] ],
+            [ ns2:hasValue 1.431578e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.584572e-02 ] ],
+            [ ns2:hasValue 5.822045e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.618221e-02 ] ],
+            [ ns2:hasValue 7.422989e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.397971e-02 ] ],
+            [ ns2:hasValue 2.701988e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.509444e+02 ] ],
+            [ ns2:hasValue 8.376776e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.711033e+02 ] ],
+            [ ns2:hasValue 9.359598e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.670909e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.37759e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.095124e-02 ] ],
+            [ ns2:hasValue 2.285464e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.560703e+02 ] ],
+            [ ns2:hasValue 7.308276e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.566667e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.355693e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.527674e-02 ] ],
+            [ ns2:hasValue 2.163121e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.581733e+02 ] ],
+            [ ns2:hasValue 2.555473e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.185671e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.165401e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.925104e-02 ] ],
+            [ ns2:hasValue 5.004832e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.77697e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.846051e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.456704e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.221353e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 6.95645e-02 ] ],
+            [ ns2:hasValue 3.642821e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.45304e-02 ] ],
+            [ ns2:hasValue 5.825927e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.800138e-02 ] ],
+            [ ns2:hasValue 2.720417e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.476676e+02 ] ],
+            [ ns2:hasValue 5.63694e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.651031e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.738578e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.87518e-02 ] ],
+            [ ns2:hasValue 4.780653e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.651369e+02 ] ],
+            [ ns2:hasValue 1.562564e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.900876e-02 ] ],
+            [ ns2:hasValue 4.208811e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.777196e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.601213e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 1.029671e-02 ] ],
+            [ ns2:hasValue 4.693946e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.091257e-02 ] ],
+            [ ns2:hasValue 3.65224e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.626667e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.3343e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.946232e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.668168e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.456704e-02 ] ],
+            [ ns2:hasValue 8.886238e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.403059e+02 ] ],
+            [ ns2:hasValue 7.127079e-03 ;
+                ns2:inRelationTo [ ns2:hasValue 1.450303e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.267004e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.326081e-02 ] ],
+            [ ns2:hasValue 2.285464e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.560703e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.849333e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 8.509556e-02 ] ],
+            [ ns2:hasValue 1.04347e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.218407e-02 ] ],
+            [ ns2:hasValue 1e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.454157e+02 ] ],
+            [ ns2:hasValue 4.051675e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.756386e+02 ] ],
+            [ ns2:hasValue 1.073135e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.688485e+02 ] ],
+            [ ns2:hasValue 9.787858e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.908833e-02 ] ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 1e-01 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gigapascal> ;
+                ns2:hasValue 3.3e+00 ],
+            [ ns2:hasValue 1.136293e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 7.16732e-03 ] ],
+            [ ns2:hasValue 2.911238e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.361872e-02 ] ],
+            [ ns2:hasValue 5.282517e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.778629e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.533576e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.467717e-02 ] ],
+            [ ns2:hasValue 1.124326e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.548171e-02 ] ],
+            [ ns2:hasValue 9.709111e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.439394e+02 ] ],
+            [ ns2:hasValue 4.042417e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.79697e+02 ] ],
+            [ ns2:hasValue 4.165401e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.925104e-02 ] ],
+            [ ns2:hasValue 4.043219e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.063617e-02 ] ],
+            [ ns2:hasValue 1.125336e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.4723e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 3.376967e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.017498e-02 ] ],
+            [ ns2:hasValue 5.54102e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.724806e+02 ] ],
+            [ ns2:hasValue 5.822045e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.618221e-02 ] ],
+            [ ns2:hasValue 3.070291e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.669697e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.13452e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.442021e-02 ] ],
+            [ ns2:hasValue 9.359598e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.670909e+02 ] ],
+            [ ns2:hasValue 5.282517e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.778629e-02 ] ],
+            [ ns2:hasValue 6.311061e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.073819e-02 ] ],
+            [ ns2:hasValue 5.071404e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.633168e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.431578e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.584572e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.086258e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.82954e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.124326e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 6.548171e-02 ] ],
+            [ ns2:hasValue 1.125336e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.4723e+02 ] ],
+            [ ns2:hasValue 3.865336e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.129692e-02 ] ],
+            [ ns2:hasValue 1.425103e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.509722e+02 ] ],
+            [ ns2:hasValue 2.762181e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.403232e+02 ] ],
+            [ ns2:hasValue 5.259936e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.469252e-02 ] ],
+            [ ns2:hasValue 3.089121e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.381449e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.177811e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.577842e-02 ] ],
+            [ a <http://materialsmine.org/ns/StrainAmplitude> ;
+                ns4:description "the samples were subjected to a sinusoidal strain of 0.03% (to ensure linear viscoelastic behavior)" ;
+                ns2:hasValue 3e-04 ],
+            [ ns2:hasValue 2.720417e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.476676e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.825927e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 3.800138e-02 ] ],
+            [ ns2:hasValue 2.218982e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.759198e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.413311e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 5.235845e-02 ] ],
+            [ ns2:hasValue 2.720417e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.476676e+02 ] ],
+            [ ns2:hasValue 4.738578e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.87518e-02 ] ],
+            [ ns2:hasValue 1.364154e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.590909e+02 ] ],
+            [ ns2:hasValue 2.980979e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.579934e+02 ] ],
+            [ ns2:hasValue 2.154435e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.684586e+02 ] ],
+            [ ns2:hasValue 3.865336e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.129692e-02 ] ],
+            [ ns2:hasValue 1.425103e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.778662e+02 ] ],
+            [ ns2:hasValue 7.308276e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.566667e+02 ] ],
+            [ ns2:hasValue 2.733356e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.294573e-02 ] ],
+            [ ns2:hasValue 5.259936e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.469252e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.889341e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.389406e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.422989e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.397971e-02 ] ],
+            [ a ns2:Frequency ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                ns2:hasValue 1e+00 ],
+            [ ns2:hasValue 4.3343e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.946232e-02 ] ],
+            [ ns2:hasValue 3.65224e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.626667e+02 ] ],
+            [ ns2:hasValue 9.709111e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.439394e+02 ] ],
+            [ ns2:hasValue 1.092601e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.795794e+02 ] ],
+            [ ns2:hasValue 8.886238e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.416696e+02 ] ],
+            [ ns2:hasValue 6.796196e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.38788e-02 ] ],
+            [ ns2:hasValue 6.714302e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.72142e+02 ] ],
+            [ ns2:hasValue 2.64063e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.420176e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.259936e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 3.469252e-02 ] ],
+            [ ns2:hasValue 3.567679e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.669648e+02 ] ],
+            [ ns2:hasValue 8.490285e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.453034e-02 ] ],
+            [ ns2:hasValue 2.766392e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.795888e+02 ] ],
+            [ ns2:hasValue 9.359598e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.670909e+02 ] ],
+            [ ns2:hasValue 1e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.454157e+02 ] ],
+            [ ns2:hasValue 2.630129e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.439384e+02 ] ],
+            [ ns2:hasValue 1.908523e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.68539e+02 ] ],
+            [ ns2:hasValue 3.567679e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.669648e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.778755e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.416325e-02 ] ],
+            [ ns2:hasValue 3.420089e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.773315e+02 ] ],
+            [ ns2:hasValue 3.787879e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.530303e+02 ] ],
+            [ ns2:hasValue 1.073928e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.716364e+02 ] ],
+            [ ns2:hasValue 3.787879e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.530303e+02 ] ],
+            [ ns2:hasValue 3.665241e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.594639e+02 ] ],
+            [ ns2:hasValue 2.64063e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.420176e+02 ] ],
+            [ ns2:hasValue 4.693946e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.091257e-02 ] ],
+            [ ns2:hasValue 3.257021e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.743162e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.693946e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 3.091257e-02 ] ],
+            [ ns2:hasValue 3.65224e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.626667e+02 ] ],
+            [ ns2:hasValue 5.825927e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.800138e-02 ] ],
+            [ ns2:hasValue 1.431578e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.584572e-02 ] ],
+            [ ns2:hasValue 1.562564e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.900876e-02 ] ],
+            [ ns2:hasValue 8.376776e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.711033e+02 ] ],
+            [ ns2:hasValue 1.903274e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.598666e+02 ] ],
+            [ ns2:hasValue 1e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.454157e+02 ] ],
+            [ ns2:hasValue 8.413311e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.235845e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.822045e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.618221e-02 ] ],
+            [ ns2:hasValue 2.366845e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.547846e+02 ] ],
+            [ ns2:hasValue 3.376967e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.017498e-02 ] ],
+            [ ns2:hasValue 2.429985e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.727335e-02 ] ],
+            [ ns2:hasValue 3.140396e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.784604e+02 ] ],
+            [ ns2:hasValue 6.711459e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.426114e-02 ] ],
+            [ ns2:hasValue 7.422989e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.397971e-02 ] ],
+            [ ns2:hasValue 1.943121e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.482424e+02 ] ],
+            [ ns2:hasValue 7.308276e-02 ;
+                ns2:inRelationTo [ ns2:hasValue 1.566667e+02 ] ],
+            [ ns2:hasValue 6.139613e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.652765e+02 ] ],
+            [ ns2:hasValue 1.304321e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.698388e+02 ] ],
+            [ a <http://materialsmine.org/ns/ViscoelasticProperty> ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 7.956637e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.440798e-02 ] ],
+            [ ns2:hasValue 2.911238e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.361872e-02 ] ],
+            [ ns2:hasValue 5.003216e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.739463e+02 ] ],
+            [ ns2:hasValue 4.916461e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.826236e-02 ] ],
+            [ ns2:hasValue 8.967334e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.470164e-02 ] ],
+            [ ns2:hasValue 8.240664e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.741212e+02 ] ],
+            [ ns2:hasValue 7.956637e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.440798e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 1.562564e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.900876e-02 ] ],
+            [ ns2:hasValue 5.004832e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.77697e+02 ] ],
+            [ ns2:hasValue 6.177811e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.577842e-02 ] ],
+            [ ns2:hasValue 2.357985e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.565924e+02 ] ],
+            [ ns2:hasValue 2.730638e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.458598e+02 ] ],
+            [ ns2:hasValue 3.567679e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.669648e+02 ] ],
+            [ ns2:hasValue 2.366845e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.547846e+02 ] ],
+            [ ns2:hasValue 6.355693e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.527674e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.995975e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 2.082897e-02 ] ],
+            [ ns2:hasValue 1.04347e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.218407e-02 ] ],
+            [ ns2:hasValue 3.420089e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.773315e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.312403e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.443245e-02 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ ns2:hasValue 1.985278e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.409909e-02 ] ],
+            [ ns2:hasValue 6.533576e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.467717e-02 ] ],
+            [ ns2:hasValue 6.889341e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 7.600872e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.415102e-02 ] ],
+            [ ns2:hasValue 6.139613e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.652765e+02 ] ],
+            [ ns2:hasValue 4.780653e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.651369e+02 ] ],
+            [ ns2:hasValue 3.070291e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.669697e+02 ] ],
+            [ ns2:hasValue 6.177811e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.577842e-02 ] ],
+            [ ns2:hasValue 6.889341e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.389406e-02 ] ],
+            [ ns2:hasValue 2.154435e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.684586e+02 ] ],
+            [ ns2:hasValue 1.073928e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.716364e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.63694e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.651031e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 4.455583e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.941256e-02 ] ],
+            [ ns2:hasValue 2.429985e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.727335e-02 ] ],
+            [ ns2:hasValue 2.762181e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.403232e+02 ] ],
+            [ ns2:hasValue 7.778755e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.416325e-02 ] ],
+            [ ns2:hasValue 8.413311e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.235845e-02 ] ],
+            [ ns2:hasValue 1.06346e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.704527e+02 ] ],
+            [ ns2:hasValue 3.267004e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.326081e-02 ] ],
+            [ ns2:hasValue 4.923883e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.612723e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 5.46628e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.733355e-02 ] ],
+            [ ns2:hasValue 1.914482e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.54258e+02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 6.796196e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 4.38788e-02 ] ],
+            [ ns2:hasValue 2.163121e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.581733e+02 ] ],
+            [ ns2:hasValue 1.908523e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.68539e+02 ] ],
+            [ ns2:hasValue 8.312403e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.443245e-02 ] ],
+            [ ns2:hasValue 8.240664e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.741212e+02 ] ],
+            [ ns2:hasValue 6.355693e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.527674e-02 ] ],
+            [ ns2:hasValue 1.073928e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 1.716364e+02 ] ],
+            [ ns2:hasValue 4.923883e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.612723e+02 ] ],
+            [ ns2:hasValue 4.042417e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 1.79697e+02 ] ],
+            [ ns2:hasValue 1.903274e+09 ;
+                ns2:inRelationTo [ ns2:hasValue 1.598666e+02 ] ],
+            [ ns2:hasValue 3.480463e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 8.671543e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 8.967334e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 7.470164e-02 ] ],
+            [ ns2:hasValue 8.13452e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 7.442021e-02 ] ],
+            [ a <http://materialsmine.org/ns/Stress> ;
+                ns2:hasValue 2.555473e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Strain> ;
+                        ns2:hasValue 9.185671e-02 ] ],
+            [ ns2:hasValue 3.267004e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 9.326081e-02 ] ],
+            [ ns2:hasValue 1.221353e+01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.95645e-02 ] ],
+            [ ns2:hasValue 2.980979e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.579934e+02 ] ],
+            [ ns2:hasValue 5.071404e+08 ;
+                ns2:inRelationTo [ ns2:hasValue 1.633168e+02 ] ],
+            [ a <http://materialsmine.org/ns/ElongationAtYield> ;
+                ns2:hasAttribute [ a ns2:StandardDeviation,
+                            ns2:UncertaintyValue ;
+                        ns2:hasValue 2e-01 ] ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ;
+                ns2:hasValue 4.8e+00 ],
+            [ ns2:hasValue 9.060157e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.583106e-02 ] ],
+            [ ns2:hasValue 3.140396e+07 ;
+                ns2:inRelationTo [ ns2:hasValue 1.784604e+02 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l154-s3-eitan-2005_filler_0>,
+            <http://materialsmine.org/sample/l154-s3-eitan-2005_matrix_0> ;
+        ns2:isRepresentedBy <http://localhost/nmr/blob?id=595ea38de74a1d5e0d18e522>,
+            <http://localhost/nmr/blob?id=595ea592e74a1d5e0d18e79f> .
+}
+

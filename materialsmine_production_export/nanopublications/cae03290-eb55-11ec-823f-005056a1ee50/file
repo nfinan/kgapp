@@ -1,0 +1,54 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://purl.org/dc/terms/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:avl0f1dclj_assertion {
+    <http://nanomine.org/viz/f009f212a2695187> a ns5:Chart ;
+        ns3:description "In Vega-Lite, layers can share encoding channels, enabling customization of data marks with minimal repetition in the spec. This chart displays a simple distribution with x and y encoding channels, layered with 7 different types of data marks (bar, area, line, rule, point, tick, text), with each mark assigned to a different color to differentiate. If a mark requires an additional encoding channel (such as the text mark here), the encoding can be specified in the given layer while the shared encoding channels remain outside. The layers are drawn in the order they are specified, so the top layer should be specified last." ;
+        ns3:title "Seven Layers of Data Marks" ;
+        ns6:query """PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?DOI a dct:BibliographicResource ;
+       dct:created ?Year
+}""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"layer\":[{\"mark\":{\"type\":\"bar\",\"color\":\"#f8b195\"}},{\"mark\":{\"type\":\"area\",\"color\":\"#f67280\"}},{\"mark\":{\"type\":\"line\",\"color\":\"#c06c84\"}},{\"mark\":{\"type\":\"rule\",\"color\":\"#6c5b7b\"}},{\"mark\":{\"type\":\"point\",\"color\":\"#355c7d\"}},{\"mark\":{\"type\":\"tick\",\"color\":\"#000000\"}},{\"mark\":{\"type\":\"text\",\"color\":\"#555555\",\"yOffset\":-10},\"encoding\":{\"text\":{\"aggregate\":\"count\"}}}],\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"aggregate\":\"count\"},\"opacity\":{\"value\":0.7}}}" ;
+        ns2:depiction <http://nanomine.org/viz/f009f212a2695187_depiction> .
+
+    <http://nanomine.org/viz/f009f212a2695187_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-21T21:54:16.891000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "8b0f2966-62a8-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns3:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns3:FileFormat .
+}
+
+ns1:avl0f1dclj_pubinfo {
+    ns1:avl0f1dclj_assertion ns3:contributor <http://nanomine.org/user/0984876> ;
+        ns3:created "2021-12-21T21:54:16.892000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:avl0f1dclj a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/f009f212a2695187_depiction> ;
+        ns8:hasAssertion ns1:avl0f1dclj_assertion ;
+        ns8:hasProvenance ns1:avl0f1dclj_provenance ;
+        ns8:hasPublicationInfo ns1:avl0f1dclj_pubinfo .
+
+    ns1:avl0f1dclj_assertion a ns8:Assertion .
+
+    ns1:avl0f1dclj_provenance a ns8:Provenance .
+
+    ns1:avl0f1dclj_pubinfo a ns8:PublicationInfo .
+}
+

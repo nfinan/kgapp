@@ -1,0 +1,47 @@
+@prefix ns1: <http://purl.org/dc/terms/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<urn:kQjZkFzcrBouN57uXRykDt_pubinfo> {
+    <urn:kQjZkFzcrBouN57uXRykDt_assertion> ns1:contributor <http://nanomine.org/user/0807205> ;
+        ns1:created "2021-07-23T02:42:34.298000+00:00"^^xsd:dateTime .
+}
+
+{
+    <urn:kQjZkFzcrBouN57uXRykDt> a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/nmr/xml/L379_S11_Liu_2017?format=xml> ;
+        ns2:hasAssertion <urn:kQjZkFzcrBouN57uXRykDt_assertion> ;
+        ns2:hasProvenance <urn:kQjZkFzcrBouN57uXRykDt_provenance> ;
+        ns2:hasPublicationInfo <urn:kQjZkFzcrBouN57uXRykDt_pubinfo> .
+
+    <urn:kQjZkFzcrBouN57uXRykDt_assertion> a ns2:Assertion .
+
+    <urn:kQjZkFzcrBouN57uXRykDt_provenance> a ns2:Provenance .
+
+    <urn:kQjZkFzcrBouN57uXRykDt_pubinfo> a ns2:PublicationInfo .
+}
+
+<urn:kQjZkFzcrBouN57uXRykDt_assertion> {
+    <http://nanomine.org/nmr/dataset/379> a ns4:Dataset ;
+        ns4:distribution <http://nanomine.org/nmr/xml/L379_S11_Liu_2017> .
+
+    <http://nanomine.org/nmr/xml/L379_S11_Liu_2017?format=xml> a <http://nanomine.org/ns/NanomineXMLFile>,
+            <http://purl.org/net/provenance/ns#File>,
+            ns4:DataDownload,
+            <https://www.iana.org/assignments/media-types/text>,
+            <https://www.iana.org/assignments/media-types/text/xml> ;
+        ns5:hasContentType "text/xml" ;
+        ns1:conformsTo <http://nanomine.org/nmr/schema/PNC_schema_041220> ;
+        ns1:contributor <http://nanomine.org/user/0807205> ;
+        ns1:created "2021-07-23T02:42:34.298000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "a2571e3c-eb5f-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/text> a ns1:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/text/xml> a ns1:FileFormat .
+}
+

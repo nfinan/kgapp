@@ -1,0 +1,52 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://schema.org/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:d2vnn1h3sf_assertion {
+    <http://nanomine.org/viz/779823a7ba05d274> a ns7:Chart ;
+        ns4:description "In a knowledge graph following the RDF (meta)data model, statements are captured in a directed graph comprising subject-predicate-object triads known as \"triples\". (For more information, see the RDF 1.1 Primer at https://www.w3.org/TR/rdf11-primer/). A subject can be a URI or a blank node, a predicate must be a URI, and an object can be a URI, blank node, or literal (number, string, date, etc.). The semantic relationships between items in the graph are captured in the connections, or predicates. To best understand how (meta)data are modeled in a given knowledge graph, a great place to start would be to look at the predicates. This simple Vega-Lite chart represents the counts of all predicates in the knowledge graph, colored by URI. Hover over a bar to view a tooltip with the URI of the predicate and its count." ;
+        ns4:title "Predicates to Know..." ;
+        ns2:query """SELECT ?pred (COUNT(?sub) AS ?Count) WHERE {
+  ?sub ?pred ?obj .
+} GROUP BY ?pred ORDER BY DESC (?Count)""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"Rank\"}]},{\"calculate\":\"datum.Rank < 10 ? datum.Rank : '>10'\",\"as\":\"Rank\"}],\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"Rank\",\"type\":\"ordinal\",\"axis\":{\"labelAngle\":0}},\"y\":{\"field\":\"Count\",\"type\":\"quantitative\",\"axis\":{\"format\":\"s\"}},\"color\":{\"field\":\"pred\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"tableau20\"}},\"tooltip\":[{\"field\":\"pred\",\"type\":\"nominal\",\"title\":\"Predicate\"},{\"field\":\"Count\",\"type\":\"quantitative\"}]}}" ;
+        ns6:depiction <http://nanomine.org/viz/779823a7ba05d274_depiction> .
+
+    <http://nanomine.org/viz/779823a7ba05d274_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-30T21:29:07.255000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "84f9fc34-69b7-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+{
+    ns1:d2vnn1h3sf a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/779823a7ba05d274_depiction> ;
+        ns8:hasAssertion ns1:d2vnn1h3sf_assertion ;
+        ns8:hasProvenance ns1:d2vnn1h3sf_provenance ;
+        ns8:hasPublicationInfo ns1:d2vnn1h3sf_pubinfo .
+
+    ns1:d2vnn1h3sf_assertion a ns8:Assertion .
+
+    ns1:d2vnn1h3sf_provenance a ns8:Provenance .
+
+    ns1:d2vnn1h3sf_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:d2vnn1h3sf_pubinfo {
+    ns1:d2vnn1h3sf_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-30T21:29:07.255000+00:00"^^xsd:dateTime .
+}
+

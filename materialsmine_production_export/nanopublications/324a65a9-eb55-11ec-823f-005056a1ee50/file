@@ -1,0 +1,71 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:9ohqlno2sj a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/784473f6de36ccd4_depiction> ;
+        ns2:hasAssertion ns1:9ohqlno2sj_assertion ;
+        ns2:hasProvenance ns1:9ohqlno2sj_provenance ;
+        ns2:hasPublicationInfo ns1:9ohqlno2sj_pubinfo .
+
+    ns1:9ohqlno2sj_assertion a ns2:Assertion .
+
+    ns1:9ohqlno2sj_provenance a ns2:Provenance .
+
+    ns1:9ohqlno2sj_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:9ohqlno2sj_pubinfo {
+    ns1:9ohqlno2sj_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-01T20:19:27.028000+00:00"^^xsd:dateTime .
+}
+
+ns1:9ohqlno2sj_assertion {
+    <http://nanomine.org/viz/784473f6de36ccd4> a ns3:Chart ;
+        ns4:description "Tensile toughness of a material describes its ability resist rupture under stress, often measured as the amount of energy per unit volume the material absorbs before breaking. Toughness is related to the total area under a stress-strain curve, which means that both strength and ductility play a role. In this chart, we use Vega-Lite's window and joinaggregate transforms to approximate the area under a stress-strain curve (using the trapezoidal rule), where the resulting value is then used as a numeric quantity for plotting. Use the mouse to pan and zoom in the scatter plot, select a point to highlight all tensile test data corresponding to the same research article, and hover over a point to see the sample information and calculated value of toughness. Click or double-click anywhere in the background of the scatter plot to reset the selection. This dataset is restricted to tensile test data with reported units of MPa (stress) vs. percent (strain)." ;
+        ns4:title "On-the-Fly Calculation of Tensile Toughness from Stress-Strain Data" ;
+        ns6:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart ?matrix_comp ;
+          sio:hasAttribute [ a mm:Stress ; sio:hasValue ?Stress ; sio:hasUnit ?StressUnit ;
+                             sio:inRelationTo [ a mm:Strain ; sio:hasValue ?Strain ; sio:hasUnit ?StrainUnit ] ] .
+  ?matrix_comp sio:hasRole [ a mm:Matrix ] ; a [ rdfs:label ?Matrix ] .
+  FILTER(?doi != <http://dx.doi.org/10.1021/acs.macromol.6b02158>)
+  FILTER(?doi != <http://dx.doi.org/unpublished-initial-create>)
+  OPTIONAL {
+      ?sample sio:hasComponentPart [ sio:hasRole [ a mm:Filler ] ; 
+                                     a [ rdfs:label ?Filler ] ;
+                                     sio:hasAttribute [ a mm:VolumeFraction ; sio:hasValue ?VolFrac ] ]
+  }
+  VALUES ( ?StressUnit ?StrainUnit ) { ( om-2:megapascal om-2:percent ) }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"},{\"filter\":\"datum.Stress > 0\"},{\"window\":[{\"op\":\"lag\",\"field\":\"Stress\",\"as\":\"Stress0\"}],\"sort\":[{\"field\":\"Strain\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"window\":[{\"op\":\"lag\",\"field\":\"Strain\",\"as\":\"Strain0\"}],\"sort\":[{\"field\":\"Strain\",\"order\":\"ascending\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"(datum.Strain - datum.Strain0) * (datum.Stress + datum.Stress0) / 2\",\"as\":\"area_increment\"},{\"joinaggregate\":[{\"op\":\"sum\",\"field\":\"area_increment\",\"as\":\"area_total\"}],\"groupby\":[\"sample\"]},{\"calculate\":\"datum.area_total / 100\",\"as\":\"ToughnessMJ_m3\"},{\"calculate\":\"datum.VolFrac > 0 ? datum.VolFrac : 0\",\"as\":\"VolFrac\"}],\"hconcat\":[{\"width\":350,\"height\":350,\"transform\":[{\"filter\":{\"selection\":\"highlight_doi\"}}],\"layer\":[{\"mark\":{\"type\":\"area\"},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"highlight_sample2\",\"value\":0.5},\"value\":0}}},{\"mark\":{\"type\":\"line\"},\"encoding\":{\"opacity\":{\"condition\":{\"selection\":\"highlight_sample\",\"value\":1},\"value\":0.5}}}],\"encoding\":{\"x\":{\"field\":\"Strain0\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":5},\"title\":\"Strain (%)\"},\"y\":{\"field\":\"Stress0\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":5},\"title\":\"Stress (MPa)\"},\"color\":{\"field\":\"sample\",\"type\":\"nominal\"}}},{\"width\":200,\"height\":350,\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight_doi\":{\"type\":\"single\",\"fields\":[\"doi\"]},\"highlight_doi2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"doi\"],\"empty\":\"none\"},\"highlight_sample\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"sample\"]},\"highlight_sample2\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"fields\":[\"sample\"],\"empty\":\"none\"}},\"transform\":[{\"filter\":{\"selection\":\"highlight_doi\"}},{\"window\":[{\"op\":\"rank\",\"as\":\"rank\"}],\"groupby\":[\"sample\"]},{\"filter\":\"datum.rank == 1\"}],\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"title\":\"Volume Fraction of Filler\"},\"y\":{\"field\":\"ToughnessMJ_m3\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"title\":\"Toughness (MJ/m3)\"},\"color\":{\"field\":\"sample\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight_doi\",\"value\":1},\"value\":0.05},\"size\":{\"condition\":{\"selection\":\"highlight_doi2\",\"value\":125},\"value\":50},\"tooltip\":[{\"field\":\"ToughnessMJ_m3\",\"type\":\"quantitative\",\"title\":\"Toughness (MJ/m3)\",\"format\":\".4r\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"title\":\"Vol.% Filler\",\"format\":\".2p\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}}],\"resolve\":{\"scale\":{\"y\":\"independent\"}},\"config\":{\"axis\":{\"titleFontSize\":14,\"labelFontSize\":12}}}" ;
+        ns5:depiction <http://nanomine.org/viz/784473f6de36ccd4_depiction> .
+
+    <http://nanomine.org/viz/784473f6de36ccd4_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-11-01T20:19:27.028000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "02fea48a-3b51-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

@@ -1,0 +1,80 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://schema.org/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:f9dtchdohg_assertion {
+    <http://nanomine.org/viz/b885d86d803e5ca6> a ns7:Chart ;
+        ns2:description "Thermal processing of a material to achieve a desired microstructure may require knowledge of the melting and crystallization temperature of the material. This chart displays samples from the knowledge graph with a reported value for both melting temperature, Tm, and crystallization temperature, Tc. Composite data marks show Tm, Tc, and the range between them using layered point and rule marks. Click on a data mark to display all others linked to the same DOI, and Ctrl-click on the DOI that appears to open the research article in a new tab." ;
+        ns2:title "Melting and Crystallization Temperatures of Polymer Nanocomposite Materials" ;
+        ns6:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:title ?Title ;
+       sio:hasPart ?sample .
+  
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute ?x1, ?x2 .
+  
+  ?x1 a mm:MeltingTemperature ;
+      sio:hasValue ?Tm ;
+      sio:hasUnit om-2:degreeCelsius .
+  ?x2 a mm:CrystallizationTemperature ; 
+      sio:hasValue ?Tc ;
+      sio:hasUnit om-2:degreeCelsius .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a mm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a mm:Filler ] ;
+                                   sio:hasAttribute [ a mm:MassFraction ;
+                                                      sio:hasValue ?MassFrac ] ] .
+  }
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFrac)
+}""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"}],\"layer\":[{\"width\":500,\"height\":300,\"mark\":{\"type\":\"rule\",\"size\":2,\"opacity\":0.5},\"encoding\":{\"y\":{\"field\":\"Tc\",\"type\":\"quantitative\",\"title\":\"Temperature (Celsius)\"},\"y2\":{\"field\":\"Tm\"}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"fields\":[\"doi\"]},\"highlight_measurement\":{\"type\":\"single\",\"fields\":[\"sample\",\"Tc\"],\"empty\":\"none\"}},\"transform\":[{\"fold\":[\"Tc\",\"Tm\"]}],\"mark\":{\"type\":\"point\",\"filled\":true,\"fillOpacity\":1},\"encoding\":{\"y\":{\"field\":\"value\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10}},\"shape\":{\"field\":\"key\",\"type\":\"nominal\",\"title\":\"Attribute\",\"legend\":{\"labelExpr\":\"datum.label == 'Tc' ? 'Crystallization Temperature, Tc' : datum.label == 'Tm' ? 'Melting Temperature, Tm' : 'other'\",\"labelLimit\":200}},\"size\":{\"condition\":{\"selection\":\"highlight\",\"value\":50},\"value\":0},\"tooltip\":[{\"field\":\"key\",\"type\":\"nominal\",\"title\":\"Attribute\"},{\"field\":\"value\",\"type\":\"quantitative\",\"title\":\"Value (Celsius)\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"MassFrac\",\"type\":\"quantitative\",\"format\":\".2p\",\"title\":\"Filler mass %\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"highlight_measurement\"}}],\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"encodings\":[\"text\"]}},\"mark\":{\"type\":\"text\",\"yOffset\":15,\"align\":\"left\"},\"encoding\":{\"y\":{\"field\":\"Tc\",\"type\":\"quantitative\"},\"text\":{\"field\":\"DOI\",\"type\":\"nominal\"},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Title\",\"type\":\"nominal\"}]}}],\"encoding\":{\"x\":{\"field\":\"MassFrac\",\"type\":\"quantitative\",\"scale\":{\"nice\":false,\"padding\":10},\"axis\":{\"format\":\"p\"},\"title\":\"Filler Amount (mass %)\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"tableau20\"}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":0}},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12}}}" ;
+        ns5:depiction <http://nanomine.org/viz/b885d86d803e5ca6_depiction> .
+
+    <http://nanomine.org/viz/b885d86d803e5ca6_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-18T17:09:33.342000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "4cd9e2b0-4892-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:f9dtchdohg a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/b885d86d803e5ca6_depiction> ;
+        ns8:hasAssertion ns1:f9dtchdohg_assertion ;
+        ns8:hasProvenance ns1:f9dtchdohg_provenance ;
+        ns8:hasPublicationInfo ns1:f9dtchdohg_pubinfo .
+
+    ns1:f9dtchdohg_assertion a ns8:Assertion .
+
+    ns1:f9dtchdohg_provenance a ns8:Provenance .
+
+    ns1:f9dtchdohg_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:f9dtchdohg_pubinfo {
+    ns1:f9dtchdohg_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-11-18T17:09:33.342000+00:00"^^xsd:dateTime .
+}
+

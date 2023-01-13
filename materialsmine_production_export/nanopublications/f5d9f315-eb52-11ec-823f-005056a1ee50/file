@@ -1,0 +1,244 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L209_S6_Ash_2001_assertion {
+    <http://materialsmine.org/sample/l209-s1-ash-2001> ns3:hasRole <http://materialsmine.org/sample/l209-s1-ash-2001_control_role> .
+
+    <http://materialsmine.org/compound/AluminiumOxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Aluminium oxide" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns3:hasValue "Nanophase Technologies" ] ;
+        ns4:altLabel "alumina" ;
+        ns4:notation "Al2O3" .
+
+    <http://materialsmine.org/compound/PolyMethylMethacrylate> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(methyl methacrylate)" ;
+        ns4:notation "PMMA" .
+
+    <http://materialsmine.org/sample/l209-s1-ash-2001_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l209-s6-ash-2001> .
+
+    <http://materialsmine.org/sample/l209-s6-ash-2001_filler_0> a <http://materialsmine.org/compound/AluminiumOxide> ;
+        ns3:hasAttribute [ a ns3:Width ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns3:hasValue 3.9e+01 ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 3.95e+00 ],
+            <http://materialsmine.org/sample/l209-s6-ash-2001_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l209-s6-ash-2001_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l209-s6-ash-2001> ] .
+
+    <http://materialsmine.org/sample/l209-s6-ash-2001_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns2:description "reported" ;
+        ns3:hasValue 5e-03 .
+
+    <http://materialsmine.org/sample/l209-s6-ash-2001_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns2:description "computed by NanoMine" ;
+        ns3:hasValue 1.460874e-03 .
+
+    <http://materialsmine.org/sample/l209-s6-ash-2001_matrix_0> a <http://materialsmine.org/compound/PolyMethylMethacrylate> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.15e+00 ],
+            [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "PMMA" ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l209-s6-ash-2001> ] .
+
+    <http://materialsmine.org/sample/l209-s6-ash-2001> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "alumina in poly(methyl methacrylate)" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns3:hasValue 1.0421e+02 ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l209-s6-ash-2001_filler_0>,
+            <http://materialsmine.org/sample/l209-s6-ash-2001_matrix_0> .
+}
+
+ns1:L209_S6_Ash_2001_provenance {
+    <http://materialsmine.org/sample/l209-s6-ash-2001> ns5:wasGeneratedBy <http://materialsmine.org/entry/L209_S6_Ash_2001_material_in-situ_polymerization_procedure> .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_differential-scanning-calorimetry> a <http://materialsmine.org/ns/DifferentialScanningCalorimetry>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/shimadzu-dsc-50>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L209_S6_Ash_2001_description_attr_29>,
+                    <http://materialsmine.org/sample/L209_S6_Ash_2001_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/rheometric-scientific-dmtav>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L209_S6_Ash_2001_description_attr_29>,
+                    <http://materialsmine.org/sample/L209_S6_Ash_2001_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_raman-spectroscopy> a <http://materialsmine.org/ns/RamanSpectroscopy>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/nicolet-magna-ir-750-spectrometer>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L209_S6_Ash_2001_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/phillips-cm-200>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L209_S6_Ash_2001_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L209_S6_Ash_2001_material_in-situ_polymerization_procedure> a <http://materialsmine.org/ns/In-SituPolymerization>,
+            ns3:Procedure ;
+        ns2:description "composite polymerization procedure was developed based on the work of Balke and Hamielec" ;
+        ns3:hasPart <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_0>,
+            <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1> .
+
+    <http://materialsmine.org/ns/nicolet-magna-ir-750-spectrometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Nicolet Magna-IR 750 Spectrometer" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/phillips-cm-200> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Phillips CM 200" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/rheometric-scientific-dmtav> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Rheometric Scientific DMTAV" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/ns/shimadzu-dsc-50> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Shimadzu DSC-50" ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_0> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_0_molding> .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_0_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasInput <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_description>,
+            <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_time> .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_drying-evaporation_description>,
+            <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_drying-evaporation_description> a ns3:Description ;
+        ns3:hasValue "cool to room temperature" .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_drying-evaporation_time> a ns3:TimeInterval ;
+        ns3:hasUnit ns3:Hour ;
+        ns3:hasValue "6" .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_in-situ_polymerization_step_1_time> a ns3:Parameter,
+            ns3:TimeInterval .
+
+    ns3:Hour rdfs:label "hours" .
+
+    ns1:L209_S6_Ash_2001_assertion ns5:wasDerivedFrom ns1:L209_S6_Ash_2001_assertion,
+            <http://nanomine.org/pub/MzcxMTQ3LjA4OTIyMTQ0NzA3_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NTM3MjIwLjYyNTc0NTgyOTQ/MaterialsmineXMLImport> ;
+                ns5:used ns1:L209_S6_Ash_2001_assertion,
+                    <http://nanomine.org/pub/MzcxMTQ3LjA4OTIyMTQ0NzA3_assertion> ],
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_description>,
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_differential-scanning-calorimetry>,
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_equipment>,
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_raman-spectroscopy>,
+            <http://materialsmine.org/entry/L209_S6_Ash_2001_characterization_transmission-electron-microscopy> .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L209_S6_Ash_2001_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+
+ns1:L209_S6_Ash_2001_pubinfo {
+    ns1:L209_S6_Ash_2001_assertion ns2:created "2021-07-22T14:56:47.930000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NTM3MjIwLjYyNTc0NTgyOTQ/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1016/S0167-577X(01)00626-7> .
+
+    <http://dx.doi.org/10.1016/S0167-577X(01)00626-7> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns2:BibliographicResource ;
+        rdfs:label "Glass transition behavior of alumina/polymethylmethacrylate nanocomposites" ;
+        ns2:created 2002 ;
+        ns2:creator <http://materialsmine.org/author/ash-b-j>,
+            <http://materialsmine.org/author/schadler-l-s>,
+            <http://materialsmine.org/author/siegel-r-w> ;
+        ns2:isPartOf <http://materialsmine.org/publication/materials-letters> ;
+        ns2:language <http://materialsmine.org/language/english> ;
+        ns2:title "Glass transition behavior of alumina/polymethylmethacrylate nanocomposites" ;
+        ns8:authorList ( <http://materialsmine.org/author/siegel-r-w> <http://materialsmine.org/author/schadler-l-s> <http://materialsmine.org/author/ash-b-j> ) ;
+        ns8:volume 55 ;
+        ns3:hasPart <http://materialsmine.org/sample/l209-s6-ash-2001> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0167577X01006267?via%3Dihub> ;
+        ns7:keyword "Glass Transition Temperature",
+            "Nanocomposite",
+            "Pmma" .
+
+    <http://materialsmine.org/language/english> a ns2:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-mrc-142-110-8th-street-troy-ny-12180-3590-usa> a ns2:Location ;
+        rdfs:label "Department of Materials Science and Engineering and Rensselaer Nanotechnology Center, Rensselaer Polytechnic Institute, MRC 142, 110 8th Street, Troy, NY 12180-3590, USA" .
+
+    <http://materialsmine.org/publication/materials-letters> ns2:publisher <publisher:north-holland> ;
+        ns2:title "Materials Letters" .
+
+    <http://materialsmine.org/sample/l209-s6-ash-2001> ns5:wasAttributedTo <http://materialsmine.org/author/ash-b-j>,
+            <http://materialsmine.org/author/schadler-l-s>,
+            <http://materialsmine.org/author/siegel-r-w> .
+
+    <publisher:north-holland> rdfs:label "North-Holland" ;
+        ns5:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-and-rensselaer-nanotechnology-center-rensselaer-polytechnic-institute-mrc-142-110-8th-street-troy-ny-12180-3590-usa> .
+
+    <http://materialsmine.org/author/ash-b-j> a ns5:Agent ;
+        rdfs:label "Ash, B.J" ;
+        ns6:name "Ash, B.J" .
+
+    <http://materialsmine.org/author/schadler-l-s> a ns5:Agent ;
+        rdfs:label "Schadler, L.S" ;
+        ns6:name "Schadler, L.S" .
+
+    <http://materialsmine.org/author/siegel-r-w> a ns5:Agent ;
+        rdfs:label "Siegel, R.W" ;
+        ns6:name "Siegel, R.W" .
+}
+

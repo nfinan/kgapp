@@ -1,0 +1,85 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:hu2d4j79ff_pubinfo {
+    ns1:hu2d4j79ff_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:04:06.322000+00:00"^^xsd:dateTime .
+}
+
+ns1:hu2d4j79ff_assertion {
+    <http://nanomine.org/viz/d0c4446ac8ddd0ed> a ns6:Chart ;
+        ns2:description "Filler particles may be treated with a particle surface treatment to improve dispersion within the matrix. Here, pie and donut charts serve as an abstract illustration of this concept alongside Glass Transition Temperature (Tg) data. Hover over a region in the pie or donut charts to see a tooltip with the Matrix, Filler, or Particle Surface Treatment. Click and drag in either scatter plot to define a selection window, then click and drag or scroll to adjust the selection window. To pan or zoom in a scatter plot, hold down Shift while dragging or scrolling." ;
+        ns2:title "Kaleidoscopic Nanocomposites" ;
+        ns4:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+
+SELECT DISTINCT * WHERE {
+  ?sample a nm:PolymerNanocomposite;
+          sio:hasComponentPart ?FillerPart ,
+                               ?MatrixPart .
+  
+  ?FillerPart sio:hasRole [ a nm:Filler ] ;
+              a [ rdfs:label ?Filler ] ;
+              sio:hasAttribute [ a nm:VolumeFraction ;
+                                 sio:hasValue ?VolFrac ] .
+  
+  ?MatrixPart sio:hasRole [ a nm:Matrix ] ;
+              a [ rdfs:label ?Matrix ] .
+  
+  ?sample sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  
+
+  ?controlsample sio:hasRole [ a sio:ControlRole ;
+                               sio:inRelationTo ?sample ] ;
+                 sio:hasAttribute [ a nm:GlassTransitionTemperature ;
+                                    sio:hasValue ?controlTg ;
+                                    sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  
+  BIND ( ?Tg - ?controlTg AS ?deltaTg )
+  
+  OPTIONAL {
+    ?FillerPart sio:isSurroundedBy [ sio:hasRole [ a nm:SurfaceTreatment ] ;
+                                     a [ rdfs:label ?SurfaceTreatmentType ] ] .
+  }
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"hconcat\":[{\"view\":{\"stroke\":null},\"transform\":[{\"filter\":{\"and\":[{\"selection\":\"deltaTgselect\"},{\"selection\":\"Tgselect\"}]}}],\"layer\":[{\"selection\":{\"matrixhighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"height\":495,\"width\":495,\"mark\":{\"type\":\"arc\",\"outerRadius\":353,\"innerRadius\":123,\"clip\":true},\"encoding\":{\"theta\":{\"field\":\"Matrix\",\"aggregate\":\"count\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"scheme\":\"accent\"}},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"}],\"opacity\":{\"condition\":{\"selection\":\"matrixhighlight\",\"value\":0.6},\"value\":1}}},{\"transform\":[{\"calculate\":\"datum.SurfaceTreatmentType\",\"as\":\"Particle Surface Treatment\"}],\"selection\":{\"PSThighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"arc\",\"outerRadius\":113,\"innerRadius\":83},\"encoding\":{\"theta\":{\"field\":\"Particle Surface Treatment\",\"aggregate\":\"count\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Particle Surface Treatment\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Particle Surface Treatment\",\"type\":\"nominal\"}],\"opacity\":{\"condition\":{\"selection\":\"PSThighlight\",\"value\":0.6},\"value\":1}}},{\"selection\":{\"fillerhighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"arc\",\"outerRadius\":73},\"encoding\":{\"theta\":{\"field\":\"Filler\",\"aggregate\":\"count\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\"}],\"opacity\":{\"condition\":{\"selection\":\"fillerhighlight\",\"value\":0.6},\"value\":1}}}]},{\"vconcat\":[{\"width\":205,\"height\":200,\"selection\":{\"deltaTgselect\":{\"type\":\"interval\",\"on\":\"[mousedown[!event.shiftKey],mouseup] > mousemove\",\"translate\":\"[mousedown[!event.shiftKey],mouseup] > mousemove\",\"zoom\":\"wheel![!event.shiftKey]\"},\"myzoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"on\":\"[mousedown[event.shiftKey],mouseup] > mousemove\",\"translate\":\"[mousedown[event.shiftKey],mouseup] > mousemove\",\"zoom\":\"wheel![event.shiftKey]\"}},\"mark\":{\"type\":\"point\",\"filled\":true},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Filler Volume Fraction\",\"titleFontSize\":16}},\"y\":{\"field\":\"deltaTg\",\"type\":\"quantitative\",\"axis\":{\"title\":\"delta Tg (PNC - matrix) (C)\",\"titleFontSize\":16}},\"color\":{\"condition\":{\"selection\":\"deltaTgselect\"},\"value\":\"#ccc\"},\"opacity\":{\"condition\":{\"selection\":\"Tgselect\",\"value\":0.7},\"value\":0}}},{\"width\":204,\"height\":200,\"selection\":{\"Tgselect\":{\"type\":\"interval\",\"on\":\"[mousedown[!event.shiftKey],mouseup] > mousemove\",\"translate\":\"[mousedown[!event.shiftKey],mouseup] > mousemove\",\"zoom\":\"wheel![!event.shiftKey]\"},\"myzoom2\":{\"type\":\"interval\",\"bind\":\"scales\",\"on\":\"[mousedown[event.shiftKey],mouseup] > mousemove\",\"translate\":\"[mousedown[event.shiftKey],mouseup] > mousemove\",\"zoom\":\"wheel![event.shiftKey]\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"opacity\":0.5},\"encoding\":{\"x\":{\"field\":\"VolFrac\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"title\":\"Filler Volume Fraction\",\"titleFontSize\":16}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"axis\":{\"title\":\"Tg (C)\",\"titleFontSize\":16}},\"color\":{\"condition\":{\"selection\":\"Tgselect\"},\"value\":\"#ccc\"},\"opacity\":{\"condition\":{\"selection\":\"deltaTgselect\",\"value\":0.7},\"value\":0}}}]}]}" ;
+        ns5:depiction <http://nanomine.org/viz/d0c4446ac8ddd0ed_depiction> .
+
+    <http://nanomine.org/viz/d0c4446ac8ddd0ed_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:04:06.321000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "fa24dfe2-f545-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:hu2d4j79ff a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/d0c4446ac8ddd0ed_depiction> ;
+        ns8:hasAssertion ns1:hu2d4j79ff_assertion ;
+        ns8:hasProvenance ns1:hu2d4j79ff_provenance ;
+        ns8:hasPublicationInfo ns1:hu2d4j79ff_pubinfo .
+
+    ns1:hu2d4j79ff_assertion a ns8:Assertion .
+
+    ns1:hu2d4j79ff_provenance a ns8:Provenance .
+
+    ns1:hu2d4j79ff_pubinfo a ns8:PublicationInfo .
+}
+

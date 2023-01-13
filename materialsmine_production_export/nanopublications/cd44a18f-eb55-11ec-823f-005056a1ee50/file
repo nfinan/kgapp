@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:mqiildaf6w a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/af3ae56f7d2b8fad_depiction> ;
+        ns2:hasAssertion ns1:mqiildaf6w_assertion ;
+        ns2:hasProvenance ns1:mqiildaf6w_provenance ;
+        ns2:hasPublicationInfo ns1:mqiildaf6w_pubinfo .
+
+    ns1:mqiildaf6w_assertion a ns2:Assertion .
+
+    ns1:mqiildaf6w_provenance a ns2:Provenance .
+
+    ns1:mqiildaf6w_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:mqiildaf6w_pubinfo {
+    ns1:mqiildaf6w_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:32:58.772000+00:00"^^xsd:dateTime .
+}
+
+ns1:mqiildaf6w_assertion {
+    <http://nanomine.org/viz/af3ae56f7d2b8fad> a ns3:Chart ;
+        ns4:description "For millennia, humans have looked to the stars for patterns. This stylized scatter plot displays glass transition temperature versus tensile modulus, and points are linked by the DOI of the research article from which the data were curated. Hover over a point to display these connections as well as a tooltip with further sample information. Use the mouse to pan and zoom, and double-click to reset the view." ;
+        ns4:title "Constellations" ;
+        ns8:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?sample ?Filler ?Matrix ?VolumeFraction ?Tg ?TensMod ?TMunit ?doi WHERE {
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                 sio:hasRole [ a nm:Filler ] ;
+                                 sio:hasAttribute [ a nm:VolumeFraction ;
+                                                    sio:hasValue ?VolumeFraction] ] ,
+                               [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a nm:Matrix ] ] ;
+          sio:hasAttribute [ a nm:GlassTransitionTemperature ; sio:hasValue ?Tg ; sio:hasUnit [ rdfs:label "Celsius" ]] , 
+                           [ a nm:TensileModulus ; sio:hasValue ?TensMod ; sio:hasUnit ?TMunit ] .
+  ?doi sio:hasPart ?sample .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":400,\"width\":500,\"transform\":[{\"calculate\":\"replace(datum.TMunit,/^.*om.2./,'')\",\"as\":\"TMunitTrim\"},{\"calculate\":\"(datum.TMunitTrim == 'megapascal') ? (datum.TensMod / 1000) : datum.TensMod\",\"as\":\"TensModGPa\"},{\"calculate\":\"replace(datum.sample,/^.*.org.sample./,'')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.doi,/^.*.doi.org./,'')\",\"as\":\"DOI\"}],\"layer\":[{\"transform\":[{\"filter\":{\"selection\":\"hover\"}}],\"mark\":{\"type\":\"line\",\"color\":\"rgb(255,252,214)\",\"opacity\":0.5},\"encoding\":{\"order\":{\"field\":\"VolumeFraction\",\"type\":\"quantitative\"}}},{\"mark\":{\"type\":\"point\",\"size\":500,\"filled\":true,\"clip\":true,\"color\":{\"gradient\":\"radial\",\"stops\":[{\"color\":\"rgb(255,251,189,0.5)\",\"offset\":0},{\"color\":\"rgb(255,251,189,0)\",\"offset\":1}]}}},{\"selection\":{\"hover\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"doi\",\"Filler\",\"Matrix\"]},\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":0.2,\"color\":\"rgb(247,233,40)\"},\"encoding\":{\"shape\":{\"value\":\"M 0 10 L 11.756 16.180 L 9.511 3.09 L 19.021 -6.18 L 5.878 -8.09 L 0.000 -20.000 L -5.878 -8.090 L -19.021 -6.180 L -9.511 3.090 L -11.756 16.180 L 0.000 10.000\"}}}],\"encoding\":{\"x\":{\"field\":\"TensModGPa\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\",\"domain\":[2.4,4.2],\"nice\":false},\"title\":\"Tensile Modulus (GPa)\"},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"scale\":{\"type\":\"pow\",\"exponent\":0.8,\"domain\":[91,115],\"nice\":false},\"title\":\"Glass Transition Temperature, Tg (C)\"},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"VolumeFraction\",\"type\":\"quantitative\",\"title\":\"vol% Filler\",\"format\":\".3p\"},{\"field\":\"TensModGPa\",\"type\":\"quantitative\",\"title\":\"Tensile Modulus (GPa)\",\"format\":\".3r\"},{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Tg (C)\",\"format\":\".4r\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"}]},\"config\":{\"view\":{\"stroke\":null},\"background\":\"rgb(24,15,46)\",\"padding\":30,\"axis\":{\"grid\":false,\"titleFontSize\":22,\"labelFontSize\":16,\"labelFlush\":false,\"titleFontWeight\":\"lighter\",\"titleColor\":\"rgb(255,254,235)\",\"labelColor\":\"rgb(255,254,235)\",\"tickColor\":\"rgb(255,254,235)\",\"domainColor\":\"rgb(255,254,235)\"}}}" ;
+        ns5:depiction <http://nanomine.org/viz/af3ae56f7d2b8fad_depiction> .
+
+    <http://nanomine.org/viz/af3ae56f7d2b8fad_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:32:58.772000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "02c3fc56-f54a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

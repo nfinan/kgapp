@@ -1,0 +1,63 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://vocab.rpi.edu/whyis/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://semanticscience.org/resource/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:fv71iohtkh_assertion {
+    <http://nanomine.org/viz/95fabe36a3695b21> a ns7:Chart ;
+        ns2:description "Attributes in the knowledge graph are typically linked to some unit of measure. This chart represents all attributes in the knowledge graph with units, colored by attribute type. Hover over a segment to display a tooltip with the attribute and unit labels, as well as the count of attributes linked to each type and unit." ;
+        ns2:title "Attributes and Units of Measure" ;
+        ns5:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT 
+  ?AttributeType ?Unit (COUNT(DISTINCT ?x) AS ?Count) 
+  (GROUP_CONCAT(DISTINCT ?AttributeLabel; SEPARATOR="; ") AS ?AttributeLabels) 
+  (GROUP_CONCAT(DISTINCT ?UnitLabel; SEPARATOR="; ") AS ?UnitLabels) 
+WHERE {
+  ?x sio:hasAttribute [ a ?AttributeType ;
+                        sio:hasUnit ?Unit ] .
+  ?AttributeType rdfs:label ?AttributeLabel .
+  ?Unit rdfs:label ?UnitLabel
+}
+GROUP BY ?AttributeType ?Unit
+ORDER BY DESC (?Count)""" ;
+        ns7:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"arc\",\"innerRadius\":50,\"outerRadius\":200,\"cornerRadius\":8},\"encoding\":{\"theta\":{\"field\":\"Count\",\"type\":\"quantitative\"},\"color\":{\"field\":\"AttributeType\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20\"},\"legend\":null},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.7},\"value\":1},\"tooltip\":[{\"field\":\"AttributeType\",\"type\":\"nominal\"},{\"field\":\"AttributeLabels\",\"type\":\"nominal\"},{\"field\":\"Unit\",\"type\":\"nominal\"},{\"field\":\"UnitLabels\",\"type\":\"nominal\"},{\"field\":\"Count\",\"type\":\"quantitative\"}]},\"view\":{\"stroke\":null}}" ;
+        ns6:depiction <http://nanomine.org/viz/95fabe36a3695b21_depiction> .
+
+    <http://nanomine.org/viz/95fabe36a3695b21_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:22:42.934000+00:00"^^xsd:dateTime ;
+        ns3:hasFileID "93b28716-f548-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:fv71iohtkh a ns8:Nanopublication ;
+        ns7:isAbout <http://nanomine.org/viz/95fabe36a3695b21_depiction> ;
+        ns8:hasAssertion ns1:fv71iohtkh_assertion ;
+        ns8:hasProvenance ns1:fv71iohtkh_provenance ;
+        ns8:hasPublicationInfo ns1:fv71iohtkh_pubinfo .
+
+    ns1:fv71iohtkh_assertion a ns8:Assertion .
+
+    ns1:fv71iohtkh_provenance a ns8:Provenance .
+
+    ns1:fv71iohtkh_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:fv71iohtkh_pubinfo {
+    ns1:fv71iohtkh_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:22:42.935000+00:00"^^xsd:dateTime .
+}
+

@@ -1,0 +1,54 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://schema.org/> .
+@prefix ns5: <http://semanticscience.org/resource/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:ngkuqdvbvl_pubinfo {
+    ns1:ngkuqdvbvl_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:34:09.529000+00:00"^^xsd:dateTime .
+}
+
+ns1:ngkuqdvbvl_assertion {
+    <http://nanomine.org/viz/8e525a5d9f6053ef> a ns5:Chart ;
+        ns2:description "This geographic display shows the locations of partner universities developing MaterialsMine with grant funding provided by the NSF CSSI program. The topoJSON map is referenced from the vega-datasets Github repository. Hover over a point to show a tooltip with the university and city!" ;
+        ns2:title "MaterialsMine on a Map" ;
+        ns4:query """# This is a placeholder query
+SELECT * WHERE {
+  ?sub a ?obj .
+} 
+LIMIT 1""" ;
+        ns5:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":750,\"height\":500,\"projection\":{\"type\":\"albersUsa\"},\"layer\":[{\"data\":{\"url\":\"https://raw.githubusercontent.com/vega/vega-datasets/master/data/us-10m.json\",\"format\":{\"type\":\"topojson\",\"feature\":\"states\"}},\"mark\":{\"type\":\"geoshape\",\"fill\":\"#ddd\",\"stroke\":\"#777\"}},{\"layer\":[{\"data\":{\"values\":[{\"name\":\"University of Vermont\",\"lat\":44.475883,\"long\":-73.212074,\"color\":\"#00643b\",\"city\":\"Burlington, VT\"},{\"name\":\"Rensselaer Polytechnic Institute\",\"lat\":42.72768,\"long\":-73.691063,\"color\":\"#d6001d\",\"city\":\"Troy, NY\"},{\"name\":\"Duke University\",\"lat\":35.994034,\"long\":-78.898621,\"color\":\"#064ba6\",\"city\":\"Durham, NC\"},{\"name\":\"Northwestern University\",\"lat\":42.052158,\"long\":-87.687866,\"color\":\"#4e2686\",\"city\":\"Evanston, IL\"},{\"name\":\"California Institute of Technology\",\"lat\":34.147643,\"long\":-118.142959,\"color\":\"#f37421\",\"city\":\"Pasadena, CA\"}]},\"mark\":{\"type\":\"point\",\"filled\":true},\"selection\":{\"myhighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\"}},\"encoding\":{\"latitude\":{\"field\":\"lat\",\"type\":\"quantitative\"},\"longitude\":{\"field\":\"long\",\"type\":\"quantitative\"},\"color\":{\"field\":\"color\",\"type\":\"nominal\",\"scale\":null},\"stroke\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":\"white\"},\"value\":null},\"size\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":1000},\"value\":200},\"tooltip\":[{\"field\":\"name\",\"type\":\"nominal\",\"title\":\"University\"},{\"field\":\"city\",\"type\":\"nominal\",\"title\":\"City\"}]}},{\"mark\":\"text\"}]}],\"config\":{\"background\":\"white\",\"view\":{\"stroke\":null}}}" ;
+        ns3:depiction <http://nanomine.org/viz/8e525a5d9f6053ef_depiction> .
+
+    <http://nanomine.org/viz/8e525a5d9f6053ef_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:34:09.529000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "6967c43a-f539-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:ngkuqdvbvl a ns8:Nanopublication ;
+        ns5:isAbout <http://nanomine.org/viz/8e525a5d9f6053ef_depiction> ;
+        ns8:hasAssertion ns1:ngkuqdvbvl_assertion ;
+        ns8:hasProvenance ns1:ngkuqdvbvl_provenance ;
+        ns8:hasPublicationInfo ns1:ngkuqdvbvl_pubinfo .
+
+    ns1:ngkuqdvbvl_assertion a ns8:Assertion .
+
+    ns1:ngkuqdvbvl_provenance a ns8:Provenance .
+
+    ns1:ngkuqdvbvl_pubinfo a ns8:PublicationInfo .
+}
+

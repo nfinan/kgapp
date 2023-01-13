@@ -1,0 +1,68 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://www.nanopub.org/nschema#> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:umor58osc2_pubinfo {
+    ns1:umor58osc2_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:37:56.350000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:umor58osc2 a ns3:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/eb148705c27a549c_depiction> ;
+        ns3:hasAssertion ns1:umor58osc2_assertion ;
+        ns3:hasProvenance ns1:umor58osc2_provenance ;
+        ns3:hasPublicationInfo ns1:umor58osc2_pubinfo .
+
+    ns1:umor58osc2_assertion a ns3:Assertion .
+
+    ns1:umor58osc2_provenance a ns3:Provenance .
+
+    ns1:umor58osc2_pubinfo a ns3:PublicationInfo .
+}
+
+ns1:umor58osc2_assertion {
+    <http://nanomine.org/viz/eb148705c27a549c> a ns4:Chart ;
+        ns2:description "Curated data from Zhang et al. (DOI: 10.1039/C4RA14538K - Figure 6a) showing shear storage modulus as a function of angular velocity for nanocomposite samples of titanium dioxide in PLA matrix. Tooltips and pan/zoom interactions have been added." ;
+        ns2:title "Curated Data Example: Zhang et al. (2015) - Fig. 6a" ;
+        ns5:query """# Zhang et al (2015) - Fig 6a
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+SELECT DISTINCT * WHERE {
+  <http://dx.doi.org/10.1039/C4RA14538K> a dct:BibliographicResource ;
+                                         sio:hasPart ?sample .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasAttribute [ a nm:ShearStorageModulus ; sio:hasValue ?ShearStorageModulus  ; sio:inRelationTo [ a nm:AngularVelocity ; sio:hasValue ?AngularVelocity ] ] ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] ] .
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   a [ rdfs:label ?Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                   sio:hasValue ?MassFraction ] ]
+  }
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"height\":300,\"width\":400,\"layer\":[{\"mark\":{\"type\":\"line\"},\"encoding\":{\"detail\":{\"field\":\"MassFraction\",\"type\":\"ordinal\"}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"mark\":{\"type\":\"point\",\"size\":100,\"filled\":true,\"opacity\":1},\"encoding\":{\"shape\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"scale\":{\"range\":[\"square\",\"circle\",\"triangle-up\",\"triangle-down\",\"diamond\",\"triangle-left\"]},\"legend\":{\"format\":\".1p\"}}}}],\"encoding\":{\"x\":{\"field\":\"AngularVelocity\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\",\"domain\":[0.07,120],\"nice\":false},\"axis\":{\"title\":\"Angular Velocity (rad/s)\"}},\"y\":{\"field\":\"ShearStorageModulus\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\",\"domain\":[0.1,100000]},\"axis\":{\"title\":\"G' (Pa)\"}},\"color\":{\"field\":\"MassFraction\",\"type\":\"ordinal\",\"scale\":{\"range\":[\"black\",\"red\",\"blue\",\"violet\",\"green\",\"darkblue\"]},\"legend\":{\"format\":\".1p\"}},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"MassFraction\",\"type\":\"quantitative\",\"format\":\".1p\"},{\"field\":\"AngularVelocity\",\"type\":\"quantitative\",\"title\":\"Angular Velocity (rad/s)\",\"format\":\".2e\"},{\"field\":\"ShearStorageModulus\",\"type\":\"quantitative\",\"title\":\"Shear Storage Modulus (Pa)\",\"format\":\".2e\"}]},\"config\":{\"axis\":{\"format\":\"e\",\"labelFontSize\":14,\"titleFontSize\":16,\"grid\":false}}}" ;
+        ns8:depiction <http://nanomine.org/viz/eb148705c27a549c_depiction> .
+
+    <http://nanomine.org/viz/eb148705c27a549c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T15:37:56.349000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "f099b2ba-f539-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

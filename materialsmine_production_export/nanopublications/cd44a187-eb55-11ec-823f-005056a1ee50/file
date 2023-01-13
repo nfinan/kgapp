@@ -1,0 +1,75 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:jsc9w35lim a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/9331c5f50ace6776_depiction> ;
+        ns2:hasAssertion ns1:jsc9w35lim_assertion ;
+        ns2:hasProvenance ns1:jsc9w35lim_provenance ;
+        ns2:hasPublicationInfo ns1:jsc9w35lim_pubinfo .
+
+    ns1:jsc9w35lim_assertion a ns2:Assertion .
+
+    ns1:jsc9w35lim_provenance a ns2:Provenance .
+
+    ns1:jsc9w35lim_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:jsc9w35lim_assertion {
+    <http://nanomine.org/viz/9331c5f50ace6776> a ns3:Chart ;
+        ns4:description "Electrical conductivity is displayed on a logarithmic x-axis as ticks corresponding to a particular matrix or filler material. Click-drag or scroll to pan or zoom along the x-axis, and hover over ticks in the chart to display a tooltip with more information including Sample ID and DOI. A sample with multiple values for electrical conductivity indicates that there is some additional factor, such as frequency or temperate, that was varied and showed a measurable difference in electrical conductivity." ;
+        ns4:title "Tick Charts with Electrical Conductivity Data" ;
+        ns5:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT * WHERE {
+  ?doi sio:hasPart ?sample.
+  
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ;
+                                 a [ rdfs:label ?Matrix ] 
+                               ] ;
+          sio:hasAttribute [ a nm:ElectricalConductivity ;
+                             sio:hasValue ?ElecCondSm ;
+                             sio:hasUnit [ rdfs:label "Siemens per Meter" ] 
+                           ] 
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ sio:hasRole [ a nm:Filler ] ;
+                                   a [ rdfs:label ?Filler ] ;
+                                   sio:hasAttribute [ a nm:MassFraction ;
+                                                      sio:hasValue ?Loading_mass ] ,
+                                                    [ a nm:VolumeFraction ;
+                                                      sio:hasValue ?Loading_vol ] 
+                                 ]
+  }
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.doi,/.*doi.org./,'')\",\"as\":\"DOI\"},{\"calculate\":\"replace(datum.sample,'http://nanomine.org/sample/','')\",\"as\":\"Sample ID\"},{\"calculate\":\"format(datum.ElecCondSm,'.1e')+' S/m'\",\"as\":\"Conductivity\"}],\"repeat\":[\"Matrix\",\"Filler\"],\"columns\":1,\"spec\":{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\",\"encodings\":[\"x\"]},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"fields\":[\"sample\"],\"clear\":\"mouseout\",\"nearest\":false}},\"width\":350,\"mark\":{\"type\":\"tick\"},\"encoding\":{\"x\":{\"field\":\"ElecCondSm\",\"type\":\"quantitative\",\"scale\":{\"type\":\"log\"},\"axis\":{\"labelFlushOffset\":1,\"title\":\"Electrical Conductivity (S/m)\",\"titleFontSize\":16,\"labelFontSize\":12,\"format\":\"e\"}},\"y\":{\"field\":{\"repeat\":\"repeat\"},\"type\":\"nominal\",\"axis\":{\"titleFontSize\":18,\"labelFontSize\":12}},\"color\":{\"condition\":{\"selection\":\"highlight\",\"type\":\"nominal\",\"field\":{\"repeat\":\"repeat\"},\"legend\":null},\"value\":\"black\"},\"tooltip\":[{\"field\":\"Conductivity\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"}],\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":1},\"value\":0.1}}},\"config\":{\"tick\":{\"thickness\":4}}}" ;
+        ns7:depiction <http://nanomine.org/viz/9331c5f50ace6776_depiction> .
+
+    <http://nanomine.org/viz/9331c5f50ace6776_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:42:17.529000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "8c46bfa0-f53a-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:jsc9w35lim_pubinfo {
+    ns1:jsc9w35lim_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:42:17.530000+00:00"^^xsd:dateTime .
+}
+

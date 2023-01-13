@@ -1,0 +1,336 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://www.w3.org/ns/dcat#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L164_S2_Li_2009_assertion {
+    <http://materialsmine.org/sample/l164-s1-li-2009> ns3:hasRole <http://materialsmine.org/sample/l164-s1-li-2009_control_role> .
+
+    <http://materialsmine.org/compound/BaOhSurfaceGroup> a <http://www.w3.org/2002/07/owl#Class> .
+
+    <http://materialsmine.org/compound/PolyVinylideneFluorideCoTrifluoroethyleneCoChlorotrifluoroethylene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(vinylidene fluoride-co-trifluoroethylene-co-chlorotrifluoroethylene)" ;
+        ns4:notation "P(VDF-TrFE-CTFE)" .
+
+    <http://materialsmine.org/compound/TitaniumDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Titanium dioxide" ;
+        ns4:altLabel "titania" ;
+        ns4:notation "TiO2" .
+
+    <http://materialsmine.org/sample/l164-s1-li-2009_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l164-s2-li-2009> .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009_filler_0> a <http://materialsmine.org/compound/TitaniumDioxide> ;
+        ns3:hasAttribute [ ns3:hasAttribute [ a ns3:Length ;
+                        ns2:Description "The TiO2 nanoparticles with a rod-shaped dimension (~20 nm ~ 70 nm)" ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                        ns3:hasValue 7e+01 ],
+                    [ a ns3:Width ;
+                        ns2:Description "The TiO2 nanoparticles with a rod-shaped dimension (~20 nm ~ 70 nm)" ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                        ns3:hasValue 2e+01 ],
+                    [ a ns3:Depth ;
+                        ns2:Description "The TiO2 nanoparticles with a rod-shaped dimension (~20 nm ~ 70 nm)" ;
+                        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                        ns3:hasValue 2e+01 ],
+                    ns3:Shape ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 4.23e+00 ],
+            <http://materialsmine.org/sample/l164-s2-li-2009_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l164-s2-li-2009_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l164-s2-li-2009> ] ;
+        ns3:isSurroundedBy <http://materialsmine.org/sample/l164-s2-li-2009_filler_0_surface_0> .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns2:description "computed by NanoMine" ;
+        ns3:hasValue 5.683192e-02 .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009_filler_0_surface_0> a <http://materialsmine.org/compound/BaOhSurfaceGroup> ;
+        rdfs:label "Ba-OH surface group" ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/SurfaceTreatment> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l164-s2-li-2009> ] .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns2:description "reported" ;
+        ns3:hasValue 2.5e-02 .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009_matrix_0> a <http://materialsmine.org/compound/PolyVinylideneFluorideCoTrifluoroethyleneCoChlorotrifluoroethylene> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns3:hasValue "P(VDF-TrFE-CTFE)" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.8e+00 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l164-s2-li-2009> ] .
+
+    ns3:Shape a <http://materialsmine.org/ns/NonSpherical> .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "titania in poly[chlorotrifluoroethylene-co-trifluoroethylene-co-(vinylidene fluoride)]" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 3.581292e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.498545e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 5.844098e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.998254e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 5.844098e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.998254e+02 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 1.995546e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.00194e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 4.525612e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.749952e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 7.501114e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 2.249661e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 5.523385e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 4.991271e+01 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 5.523385e-01 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 4.991271e+01 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 4.525612e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.749952e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 7.501114e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 2.249661e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 3.581292e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.498545e+02 ] ],
+            [ a <http://materialsmine.org/ns/EnergyDensity> ;
+                ns3:hasValue 1.995546e+00 ;
+                ns3:inRelationTo [ a <http://materialsmine.org/ns/ElectricField> ;
+                        ns3:hasUnit <http://qudt.org/vocab/unit/MegaV-PER-M> ;
+                        ns3:hasValue 1.00194e+02 ] ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l164-s2-li-2009_filler_0>,
+            <http://materialsmine.org/sample/l164-s2-li-2009_matrix_0> .
+
+    <http://materialsmine.org/ns/ElectricField> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Electric Field" ;
+        rdfs:subClassOf ns3:Quantity .
+
+    <http://materialsmine.org/ns/EnergyDensity> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Energy Density" ;
+        rdfs:subClassOf ns3:Quantity .
+}
+
+ns1:L164_S2_Li_2009_provenance {
+    <http://materialsmine.org/sample/l164-s2-li-2009> ns5:wasGeneratedBy <http://materialsmine.org/entry/L164_S2_Li_2009_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L164_S2_Li_2009_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns3:Procedure ;
+        ns3:hasPart <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_description>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_mixing> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_mixing_description> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_mixing_description> a ns3:Description ;
+        ns3:hasValue "Thin films of the nanocomposites were fabricated by casting DMF solution of the TiO2 nanoparticles and P(VDF-TrFE-CTFE) followed by drying at 120 ��C for 8 h in vacuo." .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_1> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_0_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_1_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_1_molding> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_1_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns3:hasInput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_1_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_drying-evaporation>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_temperature>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "120" .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_drying-evaporation_time> a ns3:TimeInterval ;
+        ns3:hasUnit ns3:Hour ;
+        ns3:hasValue "8" .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_temperature> a ns3:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_time> a ns3:Parameter,
+            ns3:TimeInterval .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3> a <http://materialsmine.org/ns/Molding> ;
+        ns3:hasInput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_2_output> ;
+        ns3:hasOutput <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_output> ;
+        ns3:hasParameter <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_description>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_pressure>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_temperature> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_description> a ns3:Description,
+            ns3:Parameter .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding> a <http://materialsmine.org/ns/Molding>,
+            ns3:Parameter ;
+        ns3:hasAttribute <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding_description>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding_pressure>,
+            <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding_temperature> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding_description> a ns3:Description ;
+        ns3:hasValue "The film was further melt-pressed at 160 ��C under 3000 psi to remove voids and residual solvent." .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding_pressure> a <obo:PATO_0001025> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ;
+        ns3:hasValue "20.68427" .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_molding_temperature> a <obo:PATO_0000146> ;
+        ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns3:hasValue "160" .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_pressure> a ns3:Parameter,
+            <obo:PATO_0001025> .
+
+    <http://materialsmine.org/sample/L164_S2_Li_2009_solution_processing_step_3_temperature> a ns3:Parameter,
+            <obo:PATO_0000146> .
+
+    ns3:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> rdfs:label "MPa" .
+
+    ns1:L164_S2_Li_2009_assertion ns5:wasDerivedFrom ns1:L164_S2_Li_2009_assertion,
+            <http://nanomine.org/pub/NTg2Mzk3LjEwNjk0Njc2Nzk_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/MzAxODE2LjgyNDI1NTk4MTQ/MaterialsmineXMLImport> ;
+                ns5:used ns1:L164_S2_Li_2009_assertion,
+                    <http://nanomine.org/pub/NTg2Mzk3LjEwNjk0Njc2Nzk_assertion> ] .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+
+ns1:L164_S2_Li_2009_pubinfo {
+    ns1:L164_S2_Li_2009_assertion ns2:created "2021-07-22T11:09:03.112000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/MzAxODE2LjgyNDI1NTk4MTQ/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/10.1002/adma.200801106> .
+
+    <http://dx.doi.org/10.1002/adma.200801106> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns2:BibliographicResource ;
+        rdfs:label "Nanocomposites of Ferroelectric Polymers with TiO2 Nanoparticles Exhibiting Significantly Enhanced Electrical Energy Density" ;
+        ns2:created 2009 ;
+        ns2:creator <http://materialsmine.org/author/chu-baojin>,
+            <http://materialsmine.org/author/dogan-fatih>,
+            <http://materialsmine.org/author/li-junjun>,
+            <http://materialsmine.org/author/seok-sang-il>,
+            <http://materialsmine.org/author/wang-qing>,
+            <http://materialsmine.org/author/zhang-qiming> ;
+        ns2:isPartOf <http://materialsmine.org/publication/advanced-materials> ;
+        ns2:language <http://materialsmine.org/language/english> ;
+        ns2:title "Nanocomposites of Ferroelectric Polymers with TiO2 Nanoparticles Exhibiting Significantly Enhanced Electrical Energy Density" ;
+        ns6:authorList ( <http://materialsmine.org/author/wang-qing> <http://materialsmine.org/author/zhang-qiming> <http://materialsmine.org/author/dogan-fatih> <http://materialsmine.org/author/chu-baojin> <http://materialsmine.org/author/seok-sang-il> <http://materialsmine.org/author/li-junjun> ) ;
+        ns6:volume 21 ;
+        ns3:hasPart <http://materialsmine.org/sample/l164-s2-li-2009> ;
+        rdfs:seeAlso <http://onlinelibrary.wiley.com/doi/10.1002/adma.200801106/abstract> ;
+        ns8:keyword "Flexible Electronics",
+            "Nanocomposites",
+            "Nanoparticles",
+            "Polymer Composites",
+            "Polymeric Materials" .
+
+    <http://materialsmine.org/language/english> a ns2:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-materials-science-and-engineering-the-pennsylvania-state-university-university-park-pennsylvania-16802-usa> a ns2:Location ;
+        rdfs:label "Department of Materials Science and Engineering The Pennsylvania State University University Park, Pennsylvania 16802, USA" .
+
+    <http://materialsmine.org/publication/advanced-materials> ns2:publisher <publisher:wiley-vch-verlag> ;
+        ns2:title "Advanced Materials" .
+
+    <http://materialsmine.org/sample/l164-s2-li-2009> ns5:wasAttributedTo <http://materialsmine.org/author/chu-baojin>,
+            <http://materialsmine.org/author/dogan-fatih>,
+            <http://materialsmine.org/author/li-junjun>,
+            <http://materialsmine.org/author/seok-sang-il>,
+            <http://materialsmine.org/author/wang-qing>,
+            <http://materialsmine.org/author/zhang-qiming> .
+
+    <publisher:wiley-vch-verlag> rdfs:label "WILEY���VCH Verlag" ;
+        ns5:atLocation <http://materialsmine.org/location/department-of-materials-science-and-engineering-the-pennsylvania-state-university-university-park-pennsylvania-16802-usa> .
+
+    <http://materialsmine.org/author/chu-baojin> a ns5:Agent ;
+        rdfs:label "Chu, Baojin" ;
+        ns7:name "Chu, Baojin" .
+
+    <http://materialsmine.org/author/dogan-fatih> a ns5:Agent ;
+        rdfs:label "Dogan, Fatih" ;
+        ns7:name "Dogan, Fatih" .
+
+    <http://materialsmine.org/author/li-junjun> a ns5:Agent ;
+        rdfs:label "Li, Junjun" ;
+        ns7:name "Li, Junjun" .
+
+    <http://materialsmine.org/author/seok-sang-il> a ns5:Agent ;
+        rdfs:label "Seok, Sang Il" ;
+        ns7:name "Seok, Sang Il" .
+
+    <http://materialsmine.org/author/wang-qing> a ns5:Agent ;
+        rdfs:label "Wang, Qing" ;
+        ns7:name "Wang, Qing" .
+
+    <http://materialsmine.org/author/zhang-qiming> a ns5:Agent ;
+        rdfs:label "Zhang, Qiming" ;
+        ns7:name "Zhang, Qiming" .
+}
+

@@ -1,0 +1,60 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:d3odep1nva a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/fb3d81894e4f841e_depiction> ;
+        ns2:hasAssertion ns1:d3odep1nva_assertion ;
+        ns2:hasProvenance ns1:d3odep1nva_provenance ;
+        ns2:hasPublicationInfo ns1:d3odep1nva_pubinfo .
+
+    ns1:d3odep1nva_assertion a ns2:Assertion .
+
+    ns1:d3odep1nva_provenance a ns2:Provenance .
+
+    ns1:d3odep1nva_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:d3odep1nva_assertion {
+    <http://nanomine.org/viz/fb3d81894e4f841e> a ns3:Chart ;
+        ns4:description "The top 100 keywords in NanoMine, ranked by the number of samples associated with the keyword, are displayed as a bar chart. Hovering over a bar displays the keyword in the chart as well as a tooltip featuring the keyword, rank, and number of samples linked to that keyword." ;
+        ns4:title "Top 100 Keywords in NanoMine" ;
+        ns7:query """PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nm: <http://materialsmine.org/ns/>
+
+SELECT (UCASE(?keyword) AS ?KEYWORD) (COUNT(?keyword) AS ?kwcount) WHERE {
+  ?doi dcat:keyword ?keyword ;
+       sio:hasPart [ a nm:PolymerNanocomposite ] .
+}
+GROUP BY ?keyword
+ORDER BY DESC (?kwcount)
+LIMIT 100""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"window\":[{\"op\":\"rank\",\"as\":\"Rank\"}]},{\"calculate\":\"datum.kwcount\",\"as\":\"# Samples\"}],\"width\":800,\"height\":495,\"layer\":[{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\"}},\"mark\":\"bar\",\"encoding\":{\"x\":{\"field\":\"KEYWORD\",\"type\":\"nominal\",\"axis\":{\"titleFontSize\":32,\"labels\":false,\"title\":\"Top 100 Keywords\",\"ticks\":false,\"titleY\":20},\"sort\":{\"order\":\"descending\"}},\"y\":{\"field\":\"kwcount\",\"type\":\"quantitative\",\"axis\":{\"labelFontSize\":14,\"titleFontSize\":32,\"title\":\"Number of Samples\",\"grid\":false},\"scale\":{\"type\":\"log\",\"domain\":[10,1000]}},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.8},\"value\":1},\"tooltip\":[{\"field\":\"KEYWORD\",\"type\":\"nominal\"},{\"field\":\"Rank\",\"type\":\"quantitative\"},{\"field\":\"# Samples\",\"type\":\"quantitative\"}]}},{\"transform\":[{\"filter\":{\"selection\":\"highlight\"}}],\"mark\":{\"type\":\"text\",\"font\":\"Tahoma\",\"fontSize\":36,\"clip\":true,\"yOffset\":-100,\"color\":\"darkgray\"},\"encoding\":{\"text\":{\"field\":\"KEYWORD\",\"type\":\"nominal\"}}}]}" ;
+        ns6:depiction <http://nanomine.org/viz/fb3d81894e4f841e_depiction> .
+
+    <http://nanomine.org/viz/fb3d81894e4f841e_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:47:25.169000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "43a4dfa6-f53b-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+
+ns1:d3odep1nva_pubinfo {
+    ns1:d3odep1nva_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T15:47:25.169000+00:00"^^xsd:dateTime .
+}
+

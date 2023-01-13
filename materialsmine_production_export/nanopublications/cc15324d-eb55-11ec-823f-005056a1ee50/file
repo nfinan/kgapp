@@ -1,0 +1,55 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://xmlns.com/foaf/0.1/> .
+@prefix ns3: <http://schema.org/> .
+@prefix ns4: <http://open.vocab.org/terms/> .
+@prefix ns5: <http://purl.org/dc/terms/> .
+@prefix ns6: <http://semanticscience.org/resource/> .
+@prefix ns7: <http://vocab.rpi.edu/whyis/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:gt9kt7on3a_assertion {
+    <http://nanomine.org/viz/0ce6acac9fad90a9> a ns6:Chart ;
+        ns5:description "Materials research is a collaborative process, often spanning geographic boundaries. This map shows locations of author affiliations throughout the world, with those linked to the same research article connected by dashed lines. Ctrl-click on a link to open the DOI of that research article in a new tab. These data were manually curated for 200 research articles, as a placeholder until author affiliation information is integrated into the knowledge graph." ;
+        ns5:title "Material World" ;
+        ns3:query """# placeholder query
+PREFIX dct: <http://purl.org/dc/terms/>
+SELECT * WHERE {
+  ?DOI a dct:BibliographicResource .
+  FILTER(!regex(str(?DOI),"unpublished"))
+}""" ;
+        ns6:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":600,\"height\":600,\"layer\":[{\"data\":{\"graticule\":{\"step\":[10,10]}},\"mark\":{\"type\":\"geoshape\",\"color\":\"black\",\"opacity\":0.5}},{\"data\":{\"url\":\"https://raw.githubusercontent.com/vega/vega-datasets/master/data/world-110m.json\",\"format\":{\"type\":\"topojson\",\"feature\":\"countries\"}},\"mark\":{\"type\":\"geoshape\",\"fill\":\"lightgray\",\"stroke\":\"white\",\"strokeWidth\":1}},{\"data\":{\"url\":\"https://raw.githubusercontent.com/mdeagen/mm-charts-data/master/DOI-affiliations.csv\"},\"transform\":[{\"calculate\":\"replace(datum.doi,/^.*doi.org./,'')\",\"as\":\"AbbrevDOI\"}],\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\",\"fields\":[\"doi\"]}},\"mark\":{\"type\":\"line\",\"point\":true,\"interpolate\":\"monotone\",\"strokeDash\":[15,2]},\"encoding\":{\"longitude\":{\"field\":\"long\",\"type\":\"quantitative\"},\"latitude\":{\"field\":\"lat\",\"type\":\"quantitative\"},\"detail\":{\"field\":\"doi\",\"type\":\"quantitative\"},\"order\":{\"field\":\"long\",\"type\":\"quantitative\"},\"opacity\":{\"condition\":{\"selection\":\"highlight\",\"value\":0.9},\"value\":0.25},\"color\":{\"condition\":{\"selection\":\"highlight\",\"value\":\"firebrick\"},\"value\":\"steelblue\"},\"strokeWidth\":{\"condition\":{\"selection\":\"highlight\",\"value\":3},\"value\":1.5},\"href\":{\"condition\":{\"selection\":\"highlight\",\"field\":\"doi\",\"type\":\"nominal\"},\"value\":null},\"tooltip\":[{\"field\":\"city\",\"type\":\"nominal\",\"title\":\"City\"},{\"field\":\"country\",\"type\":\"nominal\",\"title\":\"Country\"},{\"field\":\"AbbrevDOI\",\"type\":\"nominal\",\"title\":\"DOI\"}]}},{\"data\":{\"url\":\"https://raw.githubusercontent.com/mdeagen/mm-charts-data/master/DOI-affiliations.csv\"},\"mark\":{\"type\":\"arc\",\"innerRadius\":300,\"outerRadius\":325},\"encoding\":{\"theta\":{\"aggregate\":\"count\",\"field\":\"city\",\"type\":\"quantitative\"},\"detail\":{\"field\":\"city\",\"type\":\"nominal\"},\"color\":{\"field\":\"country\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20b\"},\"legend\":null},\"tooltip\":[{\"field\":\"country\",\"type\":\"nominal\",\"title\":\"Country\"},{\"field\":\"city\",\"type\":\"nominal\"},{\"aggregate\":\"count\",\"type\":\"quantitative\"}]}}],\"projection\":{\"type\":\"azimuthalEqualArea\",\"rotate\":[-10,0,0]},\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns2:depiction <http://nanomine.org/viz/0ce6acac9fad90a9_depiction> .
+
+    <http://nanomine.org/viz/0ce6acac9fad90a9_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns4:hasContentType "image/png" ;
+        ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T15:33:47.925000+00:00"^^xsd:dateTime ;
+        ns7:hasFileID "5c874a10-f539-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns5:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns5:FileFormat .
+}
+
+{
+    ns1:gt9kt7on3a a ns8:Nanopublication ;
+        ns6:isAbout <http://nanomine.org/viz/0ce6acac9fad90a9_depiction> ;
+        ns8:hasAssertion ns1:gt9kt7on3a_assertion ;
+        ns8:hasProvenance ns1:gt9kt7on3a_provenance ;
+        ns8:hasPublicationInfo ns1:gt9kt7on3a_pubinfo .
+
+    ns1:gt9kt7on3a_assertion a ns8:Assertion .
+
+    ns1:gt9kt7on3a_provenance a ns8:Provenance .
+
+    ns1:gt9kt7on3a_pubinfo a ns8:PublicationInfo .
+}
+
+ns1:gt9kt7on3a_pubinfo {
+    ns1:gt9kt7on3a_assertion ns5:contributor <http://nanomine.org/user/0984876> ;
+        ns5:created "2021-08-04T15:33:47.925000+00:00"^^xsd:dateTime .
+}
+

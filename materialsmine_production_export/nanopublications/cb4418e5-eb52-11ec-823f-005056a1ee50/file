@@ -1,0 +1,1203 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L166_S4_Min_2013_provenance {
+    <http://materialsmine.org/sample/l166-s4-min-2013> ns3:wasGeneratedBy <http://materialsmine.org/entry/L166_S4_Min_2013_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L166_S4_Min_2013_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L166_S4_Min_2013_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/jsm-7000f>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L166_S4_Min_2013_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns4:description "Natural crystalline graphite flakes (80 mesh, Kuntai Graphite Co. Ltd., China) were intercalated by acid treatment (sulfuric acid and acetic acid). After thermal shock, the graphite was added into the acetone bath and sonicated in the ultrasonic equipment for exfoliation, and then the very thin GNPs were obtained in acetone solvent.  After heating the bisphenol A epoxy resin (D.E.R.331, DOW Chemicals) to 60C, the curing agent (methyltetrahydrophthalic anhydride, MTHPA, DOW Chemicals) and GNP-acetone mixture were added into the epoxy resin under ultrasonication and continuously stirring for 1 h to obtain a uniform dispersion. Then the mixed epoxy system containing a certain content of accelerator (2,4,6-tri(dimethylaminomethyl) phenol, DMP-30, DOW Chemicals) was poured into a preheated mold at 90C and cured with standard procedure. The weight ratios of epoxy, curing agent and accelerator were 100, 70, and 1, respectively. The volume contents of GNPs were employed in the range from 0.270 to 2.703 vol.%." ;
+        ns2:hasPart <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5> .
+
+    <http://materialsmine.org/ns/jsm-7000f> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "JSM 7000F" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_additive>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_description> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_additive_additive>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_additive_description> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "sulfuric acid and acetic acid" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_additive_description> a ns2:Description ;
+        ns2:hasValue "Natural crystalline graphite flakes were intercalated by acid treatment" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_description>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_heating>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_temperature> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_heating_description>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_heating_temperature> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_heating_description> a ns2:Description ;
+        ns2:hasValue "Heating the bisphenol A epoxy resin" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "60" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_additive>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_description> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_additive_additive>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_additive_description> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "GNP-acetone mixture" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_additive_description> a ns2:Description ;
+        ns2:hasValue "GNP-acetone mixture were added into the epoxy resin" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasInput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_2_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_additive>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_description> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_additive> a <http://materialsmine.org/ns/Additive>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_additive_additive>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_additive_description> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_additive_additive> a <http://materialsmine.org/ns/Additive> ;
+        ns2:hasValue "methyltetrahydrophthalic anhydride" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_additive_description> a ns2:Description ;
+        ns2:hasValue "curing agent" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_3_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_mixing>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_mixingmethod> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_mixing_mixingmethod> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "ultra-sonication" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasInput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_4_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixing>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixingmethod>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_time> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixing_time> .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "1" .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L166_S4_Min_2013_solution_processing_step_5_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+
+    ns1:L166_S4_Min_2013_assertion ns3:wasDerivedFrom ns1:L166_S4_Min_2013_assertion,
+            <http://nanomine.org/pub/NDc5MzkxLjUyMjU5OTQ1MDU1_assertion> ;
+        ns3:wasGeneratedBy [ a <http://nanomine.org/setl/NDQ5MjEuNTk4MzQ3OTgyODc/MaterialsmineXMLImport> ;
+                ns3:used ns1:L166_S4_Min_2013_assertion,
+                    <http://nanomine.org/pub/NDc5MzkxLjUyMjU5OTQ1MDU1_assertion> ],
+            <http://materialsmine.org/entry/L166_S4_Min_2013_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L166_S4_Min_2013_characterization_scanning-electron-microscopy> .
+}
+
+ns1:L166_S4_Min_2013_assertion {
+    <http://materialsmine.org/sample/l166-s1-min-2013> ns2:hasRole <http://materialsmine.org/sample/l166-s1-min-2013_control_role> .
+
+    <http://materialsmine.org/compound/DgebaEpoxyResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "DGEBA Epoxy Resin" ;
+        ns5:altLabel "DER 331" .
+
+    <http://materialsmine.org/compound/Graphite> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Graphite" ;
+        ns5:altLabel "GNP",
+            "Graphite Nanoplatelets" .
+
+    <http://materialsmine.org/sample/l166-s1-min-2013_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l166-s4-min-2013> .
+
+    <http://materialsmine.org/sample/l166-s4-min-2013_filler_0> a <http://materialsmine.org/compound/Graphite> ;
+        ns2:hasAttribute [ ns2:hasAttribute [ a ns2:Depth ;
+                        ns2:hasAttribute [ a ns2:StandardDeviation,
+                                    ns2:UncertaintyValue ;
+                                ns2:hasValue 1.5e+01 ] ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                        ns2:hasValue 3.5e+01 ],
+                    ns2:Shape ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.266e+00 ],
+            <http://materialsmine.org/sample/l166-s4-min-2013_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l166-s4-min-2013_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l166-s4-min-2013> ] .
+
+    <http://materialsmine.org/sample/l166-s4-min-2013_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 2.672871e-02 .
+
+    <http://materialsmine.org/sample/l166-s4-min-2013_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 1.351e-02 .
+
+    <http://materialsmine.org/sample/l166-s4-min-2013_matrix_0> a <http://materialsmine.org/compound/DgebaEpoxyResin> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Dow Chemical" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.13e+00 ],
+            [ a <http://materialsmine.org/ns/TradeName> ;
+                ns2:hasValue "DER 331" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l166-s4-min-2013> ] .
+
+    ns2:Shape a <http://materialsmine.org/ns/NonSpherical> .
+
+    <http://materialsmine.org/sample/l166-s4-min-2013> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Graphite Nanoplatelets in bisphenol A epoxy resin" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.392471e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.08966e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.264695e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.748775e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.991435e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.528092e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.704459e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.234095e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.985316e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 7.031241e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.342313e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.442547e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.974353e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 8.854889e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.9075e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.405905e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.809316e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 6.396407e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.661819e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.223048e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.000485e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.162938e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.214716e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.046518e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 8.104027e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.05046e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 5.623413e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.336153e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.916567e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.011122e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.547426e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.398686e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.405905e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.809316e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 6.358384e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.105106e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.374186e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.490994e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.547426e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.398686e+04 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 2.5e+01 ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.3691e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.219594e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.167355e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.392471e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.264695e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.748775e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 4.765212e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.545662e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.597586e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.494673e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.609264e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.294725e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.965791e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.743035e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.044933e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 8.104027e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.05046e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.187088e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.057223e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.823826e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 6.396407e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.661819e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.272272e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.180097e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 3.229479e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.19091e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.422224e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.245735e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 7.16443e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.147696e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.493546e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.820686e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.117945e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 1.049849e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.614267e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.916567e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.011122e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.223048e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.3691e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.219594e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 9.177176e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.604119e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.264695e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.748775e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.114272e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.481346e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.463588e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 6.667203e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.939375e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.214716e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.046518e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.597586e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.494673e+03 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 3.385949e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.033867e+04 ] ],
+            [ a <http://materialsmine.org/ns/AC_DielectricDispersion> ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 5.623413e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.336153e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.234095e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.985316e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 3.096475e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.017873e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.057223e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.823826e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 6.667203e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.939375e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.555181e-06 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.950729e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 7.16443e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.147696e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.188682e-06 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.760092e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.3691e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.219594e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 8.104027e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.05046e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 8.366334e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.704878e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.234095e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.985316e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.718753e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.01057e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.401995e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.916567e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.011122e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.522473e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.687866e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.000485e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.162938e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.850306e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.839233e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.609264e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.481346e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.463588e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.000485e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.162938e+03 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.187088e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 4.06995e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.006416e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.442547e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.974353e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 5.349467e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.979138e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.991435e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.528092e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 5.278131e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.047711e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 6.358384e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.105106e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 3.096475e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.017873e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 5.278131e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.047711e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.70953e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.554635e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.571222e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.740482e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.272272e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.180097e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 7.16443e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.147696e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.704459e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.597586e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.494673e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.820686e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.117945e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 9.638696e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.97978e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 9.638696e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.97978e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 4.06995e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.006416e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.555181e-06 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.950729e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 6.358384e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.105106e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.820686e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.117945e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 9.241733e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.037908e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.374186e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.490994e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.568521e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.639162e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 5.623413e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.336153e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.87132e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.033633e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.114272e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 1.049849e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.614267e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 5.349467e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.979138e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.094893e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.370424e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.509756e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.497952e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.704459e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.743035e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.044933e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.374186e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.490994e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.442547e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.974353e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.392471e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.87132e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.033633e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.094893e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.370424e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 9.177176e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.604119e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 8.854889e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.9075e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.481346e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.463588e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 4.545004e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.780445e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.167355e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.850306e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.839233e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 9.241733e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.037908e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 6.263306e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.346634e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 6.263306e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.346634e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.568521e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.639162e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 4.765212e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.545662e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.294725e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.965791e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.87132e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.033633e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.493546e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 9.177176e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.604119e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 5.818494e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.348773e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.509756e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.497952e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.718753e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.509756e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.497952e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.167355e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.272272e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.180097e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.187088e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.114272e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 3.385949e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.033867e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.493546e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.845937e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.609264e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.01057e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.401995e+04 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.522473e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.687866e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 3.094893e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.370424e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.568521e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.639162e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.08966e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 1.049849e+00 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.614267e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 7.031241e-09 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.342313e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 2.188682e-06 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.760092e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 4.545004e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.780445e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.991435e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.528092e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 4.057223e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.823826e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 1.850306e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.839233e+05 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 2.547426e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.398686e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.08966e+05 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 3.229479e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.19091e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.012127e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.223048e+04 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 2.688917e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.718753e+05 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 8.366334e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.704878e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.571222e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.740482e+03 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 5.818494e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.348773e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 8.854889e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.9075e+02 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.70953e-08 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.554635e+03 ] ],
+            [ a <http://materialsmine.org/ns/AcConductivity> ;
+                ns2:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns2:hasValue 1.422224e-07 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.245735e+04 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 5.818494e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.348773e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 8.366334e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.704878e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 6.667203e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.939375e+02 ] ],
+            [ a <http://materialsmine.org/ns/DielectricConstant> ;
+                ns2:hasValue 5.278131e+01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.047711e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 3.571222e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.740482e+03 ] ],
+            [ a <http://materialsmine.org/ns/LossTangent> ;
+                ns2:hasValue 4.743035e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.044933e+03 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l166-s4-min-2013_filler_0>,
+            <http://materialsmine.org/sample/l166-s4-min-2013_matrix_0> .
+
+    <http://materialsmine.org/ns/AcConductivity> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "AC conductivity" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/DielectricConstant> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Dielectric Constant" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/LossTangent> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Loss Tangent" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Frequency> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Frequency" ;
+        rdfs:subClassOf ns2:Quantity .
+}
+
+ns1:L166_S4_Min_2013_pubinfo {
+    ns1:L166_S4_Min_2013_assertion ns4:created "2021-07-22T11:22:43.374000+00:00"^^xsd:dateTime ;
+        ns3:wasAttributedTo <http://nanomine.org/setl/NDQ5MjEuNTk4MzQ3OTgyODc/MaterialsmineXMLImport> ;
+        ns3:wasQuotedFrom <http://dx.doi.org/10.1016/j.carbon.2012.12.017> .
+
+    <http://dx.doi.org/10.1016/j.carbon.2012.12.017> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "A graphite nanoplatelet/epoxy composite with high dielectric constant and high thermal conductivity" ;
+        ns4:created 2013 ;
+        ns4:creator <http://materialsmine.org/author/cao-jingyu>,
+            <http://materialsmine.org/author/feng-lihua>,
+            <http://materialsmine.org/author/min-chao>,
+            <http://materialsmine.org/author/wang-guolong>,
+            <http://materialsmine.org/author/yu-demei> ;
+        ns4:isPartOf <http://materialsmine.org/publication/carbon> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "A graphite nanoplatelet/epoxy composite with high dielectric constant and high thermal conductivity" ;
+        ns6:authorList ( <http://materialsmine.org/author/feng-lihua> <http://materialsmine.org/author/wang-guolong> <http://materialsmine.org/author/cao-jingyu> <http://materialsmine.org/author/yu-demei> <http://materialsmine.org/author/min-chao> ) ;
+        ns6:volume 55 ;
+        ns2:hasPart <http://materialsmine.org/sample/l166-s4-min-2013> ;
+        rdfs:seeAlso <https://www.sciencedirect.com/science/article/pii/S0008622312009840?via%3Dihub> .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/department-of-applied-chemistry-school-of-science-xian-jiaotong-university-xian-710049-pr-china> a ns4:Location ;
+        rdfs:label "Department of Applied Chemistry, School of Science, Xi���an Jiaotong University, Xi���an 710049, PR China" .
+
+    <http://materialsmine.org/publication/carbon> ns4:publisher <publisher:pergamon> ;
+        ns4:title "Carbon" .
+
+    <http://materialsmine.org/sample/l166-s4-min-2013> ns3:wasAttributedTo <http://materialsmine.org/author/cao-jingyu>,
+            <http://materialsmine.org/author/feng-lihua>,
+            <http://materialsmine.org/author/min-chao>,
+            <http://materialsmine.org/author/wang-guolong>,
+            <http://materialsmine.org/author/yu-demei> .
+
+    <publisher:pergamon> rdfs:label "Pergamon" ;
+        ns3:atLocation <http://materialsmine.org/location/department-of-applied-chemistry-school-of-science-xian-jiaotong-university-xian-710049-pr-china> .
+
+    <http://materialsmine.org/author/cao-jingyu> a ns3:Agent ;
+        rdfs:label "Cao, Jingyu" ;
+        ns7:name "Cao, Jingyu" .
+
+    <http://materialsmine.org/author/feng-lihua> a ns3:Agent ;
+        rdfs:label "Feng, Lihua" ;
+        ns7:name "Feng, Lihua" .
+
+    <http://materialsmine.org/author/min-chao> a ns3:Agent ;
+        rdfs:label "Min, Chao" ;
+        ns7:name "Min, Chao" .
+
+    <http://materialsmine.org/author/wang-guolong> a ns3:Agent ;
+        rdfs:label "Wang, Guolong" ;
+        ns7:name "Wang, Guolong" .
+
+    <http://materialsmine.org/author/yu-demei> a ns3:Agent ;
+        rdfs:label "Yu, Demei" ;
+        ns7:name "Yu, Demei" .
+}
+

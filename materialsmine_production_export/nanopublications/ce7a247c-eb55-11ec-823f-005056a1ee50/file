@@ -1,0 +1,61 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://xmlns.com/foaf/0.1/> .
+@prefix ns8: <http://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:rca8tjhggd a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/9d15128367404cf5_depiction> ;
+        ns2:hasAssertion ns1:rca8tjhggd_assertion ;
+        ns2:hasProvenance ns1:rca8tjhggd_provenance ;
+        ns2:hasPublicationInfo ns1:rca8tjhggd_pubinfo .
+
+    ns1:rca8tjhggd_assertion a ns2:Assertion .
+
+    ns1:rca8tjhggd_provenance a ns2:Provenance .
+
+    ns1:rca8tjhggd_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:rca8tjhggd_pubinfo {
+    ns1:rca8tjhggd_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-06T17:16:22.440000+00:00"^^xsd:dateTime .
+}
+
+ns1:rca8tjhggd_assertion {
+    <http://nanomine.org/viz/9d15128367404cf5> a ns3:Chart ;
+        ns4:description "When a new chart is created and saved by a user, a nanopublication (named graph) is generated which contains the metadata corresponding to the chart, and the time of creation is saved to the knowledge graph. If the knowedge graph is cleared, charts get restored from backup and the nanopublication is assigned a new creation time. Use the mouse to zoom in the timeline, and hover over a tick mark to view the title and description of the chart below as well as a tooltip with the precise time. The gray bars show the relative density of at which nanopublications were created. Ctrl-click a tick mark to open the chart URI in a new tab." ;
+        ns4:title "Timeline of Chart Nanopublications Added to the Knowledge Graph" ;
+        ns8:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX nanopub: <http://www.nanopub.org/nschema#>
+SELECT DISTINCT * WHERE {
+  GRAPH ?assertion {
+    ?chart a sio:Chart ;
+           dct:title ?Title ;
+           dct:description ?Description .
+  }
+  ?assertion a nanopub:Assertion ;
+             dct:created ?time_GMT .                                                                              
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"vconcat\":[{\"height\":150,\"width\":575,\"layer\":[{\"mark\":{\"type\":\"bar\",\"color\":\"#dddddd\",\"tooltip\":true,\"filled\":true},\"encoding\":{\"x\":{\"field\":\"time_GMT\",\"type\":\"temporal\",\"bin\":{\"maxbins\":50,\"extent\":{\"selection\":\"zoom\"}},\"axis\":null},\"y\":{\"aggregate\":\"count\",\"type\":\"quantitative\",\"axis\":null}}},{\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"},\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"clear\":\"mouseout\",\"empty\":\"none\"}},\"mark\":{\"type\":\"tick\",\"thickness\":1},\"encoding\":{\"x\":{\"field\":\"time_GMT\",\"type\":\"temporal\",\"title\":\"Chart Nanopublication Created (GMT)\"},\"href\":{\"field\":\"chart\",\"type\":\"nominal\"},\"tooltip\":[{\"field\":\"time_GMT\",\"type\":\"temporal\",\"format\":\"%H:%M:%S, %d %b %Y\",\"title\":\"Time (GMT)\"}]}}],\"view\":{\"stroke\":\"#eeeeee\"}},{\"transform\":[{\"filter\":{\"selection\":\"highlight\"}},{\"calculate\":\"replace(datum.Description, /.{90} /g, '$&###')\",\"as\":\"Description_break\"},{\"calculate\":\"split(datum.Description_break, '###')\",\"as\":\"Description_break_split\"}],\"layer\":[{\"height\":150,\"mark\":{\"type\":\"text\",\"align\":\"left\",\"fontSize\":14,\"yOffset\":-100},\"encoding\":{\"text\":{\"field\":\"Title\",\"type\":\"nominal\"}}},{\"mark\":{\"type\":\"text\",\"align\":\"left\",\"yOffset\":-80},\"encoding\":{\"text\":{\"field\":\"Description_break_split\",\"type\":\"nominal\"}}}]}],\"config\":{\"view\":{\"stroke\":null}}}" ;
+        ns7:depiction <http://nanomine.org/viz/9d15128367404cf5_depiction> .
+
+    <http://nanomine.org/viz/9d15128367404cf5_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-10-06T17:16:22.439000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "20eddbd8-26c9-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

@@ -1,0 +1,131 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://xmlns.com/foaf/0.1/> .
+@prefix ns4: <http://semanticscience.org/resource/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://open.vocab.org/terms/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://www.nanopub.org/nschema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:rifyh58gzv_pubinfo {
+    ns1:rifyh58gzv_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:13:31.761000+00:00"^^xsd:dateTime .
+}
+
+ns1:rifyh58gzv_assertion {
+    <http://nanomine.org/viz/7d0d7cb71b4abad4> a ns4:Chart ;
+        ns2:description "This chart compiles aggregate statistics of the Knowledge Graph in a SPARQL query, and displays these values using various text formatting capabilities in Vega-Lite. Click on the number of \"Charts in the Gallery\" to visit the home page of the chart gallery." ;
+        ns2:title "Knowledge Graph at a Glance" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX npub: <http://www.nanopub.org/nschema#>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+SELECT * WHERE {
+  {
+    # DOIs
+    SELECT (COUNT(DISTINCT ?doi) AS ?DOIs) WHERE {
+      ?doi a dct:BibliographicResource .
+    }
+  }
+  {
+    # Research Articles
+    SELECT (COUNT(DISTINCT ?RA) AS ?ResearchArticles) WHERE {
+      ?RA a nm:ResearchArticle .
+    }
+  }
+  {
+    # Samples
+    SELECT (COUNT(DISTINCT ?sample) AS ?PNCsamples) WHERE {
+      ?sample a nm:PolymerNanocomposite .
+    }
+  }
+  {
+    # Control Samples
+    SELECT (COUNT(DISTINCT ?control) AS ?ControlSamples) WHERE {
+      ?control a nm:PolymerNanocomposite ;
+               sio:hasRole [ a sio:ControlRole ] .
+    }
+  }
+  {
+    # Materials Processing Procedures
+    SELECT (COUNT(DISTINCT ?proc) AS ?Procedures) WHERE {
+      ?sample a nm:PolymerNanocomposite ;
+              prov:wasGeneratedBy ?proc .
+      ?proc a sio:Procedure .
+    }
+  }
+  {
+    # Sample Attributes (Scalar only)
+    SELECT (COUNT(DISTINCT ?measurement) AS ?Measurements) WHERE {
+      ?sample a nm:PolymerNanocomposite ;
+              sio:hasAttribute ?attr .
+      ?attr sio:hasValue ?measurement ; 
+            sio:hasUnit ?unit
+      MINUS{ ?attr sio:inRelationTo ?otherattr }
+    }
+  }
+  {
+    # Images
+    SELECT (COUNT(DISTINCT ?image) AS ?Images) WHERE {
+      ?image a sio:Image .
+    }
+  }
+  {
+    # Nanopublications
+    SELECT (COUNT(DISTINCT ?nanopub) AS ?Nanopubs) WHERE {
+      ?nanopub a npub:Nanopublication .
+    }
+  }
+  {
+    # Datasets
+    SELECT (COUNT(DISTINCT ?dataset) AS ?Datasets) WHERE {
+      ?dataset a dcat:Dataset .
+    }
+  }
+  {
+    # Unique Classes
+    SELECT (COUNT(DISTINCT ?class) AS ?Classes) WHERE {
+      ?class a owl:Class .
+    }
+  }
+  {
+    # Charts
+    SELECT (COUNT(DISTINCT ?chart) AS ?Charts) WHERE {
+      ?chart a sio:Chart .
+    }
+  }
+}""" ;
+        ns4:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"datetime(now())\",\"as\":\"CurrentTime\"},{\"calculate\":\"'https://materialsmine.org/wi/about?view=view&uri=http:%2F%2Fsemanticscience.org%2Fresource%2FChart'\",\"as\":\"GalleryURL\"}],\"title\":{\"text\":\"Knowledge Graph at a Glance:\",\"font\":\"Helvetica\",\"fontSize\":40,\"fontWeight\":100,\"fontStyle\":\"italic\",\"color\":\"rgb(40,40,40)\"},\"vconcat\":[{\"hconcat\":[{\"title\":{\"text\":\"Digital Object Identifiers (DOIs) curated, including\",\"color\":\"rgb(255,147,17)\",\"orient\":\"none\",\"dx\":240,\"dy\":15,\"font\":\"Georgia\"},\"mark\":{\"type\":\"text\",\"fontSize\":64,\"font\":\"Brush Script MT\",\"color\":\"rgb(255,147,17)\"},\"encoding\":{\"text\":{\"field\":\"DOIs\",\"type\":\"quantitative\"}}},{\"title\":{\"text\":\"research articles.\",\"color\":\"rgb(255,147,17)\",\"orient\":\"none\",\"dx\":110,\"dy\":15,\"font\":\"Georgia\"},\"mark\":{\"type\":\"text\",\"fontSize\":64,\"color\":\"rgb(255,147,17)\",\"font\":\"Brush Script MT\"},\"encoding\":{\"text\":{\"field\":\"ResearchArticles\",\"type\":\"quantitative\"}}}]},{\"hconcat\":[{\"title\":{\"text\":\"polymer nanocomposite samples, including\",\"color\":\"rgb(23,96,125)\",\"orient\":\"none\",\"dx\":235,\"dy\":8,\"font\":\"Tahoma\",\"fontSize\":15},\"mark\":{\"type\":\"text\",\"fontSize\":38,\"color\":\"rgb(23,96,125)\",\"font\":\"Tahoma\"},\"encoding\":{\"text\":{\"field\":\"PNCsamples\",\"type\":\"quantitative\",\"format\":\",\"}}},{\"title\":{\"text\":\"control samples.\",\"orient\":\"none\",\"color\":\"rgb(23,96,125)\",\"dx\":120,\"dy\":8,\"font\":\"Tahoma\",\"fontSize\":15},\"mark\":{\"type\":\"text\",\"fontSize\":38,\"color\":\"rgb(23,96,125)\",\"font\":\"Tahoma\"},\"encoding\":{\"text\":{\"field\":\"ControlSamples\",\"type\":\"quantitative\"}}}]},{\"hconcat\":[{\"vconcat\":[{\"title\":{\"text\":\"Nanopublications\",\"orient\":\"none\",\"color\":\"rgb(60,60,60)\",\"dx\":130,\"dy\":9,\"font\":\"Tahoma\",\"fontSize\":15},\"mark\":{\"type\":\"text\",\"fontSize\":36,\"color\":\"rgb(60,60,60)\",\"fontWeight\":800},\"encoding\":{\"text\":{\"field\":\"Nanopubs\",\"type\":\"quantitative\"}}},{\"title\":{\"text\":[\"Uploaded\",\"Datasets:\"],\"orient\":\"none\",\"dx\":-10,\"dy\":-10,\"font\":\"Tahoma\",\"fontSize\":14,\"angle\":-25,\"fontWeight\":\"lighter\"},\"mark\":{\"type\":\"text\",\"dx\":120,\"fontSize\":98,\"color\":\"rgb(214,71,0)\",\"fontWeight\":\"lighter\"},\"encoding\":{\"text\":{\"field\":\"Datasets\",\"type\":\"quantitative\"}}}]},{\"vconcat\":[{\"title\":{\"text\":\"materials processing procedures,\",\"color\":\"rgb(120,120,120)\",\"orient\":\"none\",\"dx\":245,\"dy\":6,\"font\":\"Courier New\",\"fontStyle\":\"italic\"},\"mark\":{\"type\":\"text\",\"fontSize\":28,\"color\":\"rgb(120,120,120)\",\"font\":\"Courier New\",\"dx\":60},\"encoding\":{\"text\":{\"field\":\"Procedures\",\"type\":\"quantitative\"}}},{\"title\":{\"text\":\"materials property measurements, &\",\"color\":\"rgb(120,120,120)\",\"orient\":\"none\",\"dx\":230,\"dy\":6,\"font\":\"Courier New\",\"fontStyle\":\"italic\"},\"mark\":{\"type\":\"text\",\"fontSize\":28,\"color\":\"rgb(120,120,120)\",\"font\":\"Courier New\",\"dx\":40},\"encoding\":{\"text\":{\"field\":\"Measurements\",\"type\":\"quantitative\"}}},{\"title\":{\"text\":\"sample images.\",\"orient\":\"none\",\"color\":\"rgb(120,120,120)\",\"dx\":315,\"dy\":6,\"font\":\"Courier New\",\"fontStyle\":\"italic\"},\"mark\":{\"type\":\"text\",\"fontSize\":28,\"color\":\"rgb(120,120,120)\",\"font\":\"Courier New\",\"dx\":200},\"encoding\":{\"text\":{\"field\":\"Images\",\"type\":\"quantitative\"}}}]}]},{\"hconcat\":[{\"title\":{\"text\":[\"Unique Classes in\",\"the Knowledge Graph\"],\"orient\":\"none\",\"color\":\"rgb(100,100,100)\",\"align\":\"left\",\"dx\":90,\"dy\":-18,\"font\":\"Times New Roman\",\"fontSize\":16,\"fontWeight\":\"lighter\"},\"mark\":{\"type\":\"text\",\"fontSize\":54,\"color\":\"rgb(100,100,100)\",\"dx\":10,\"dy\":-10,\"font\":\"Times New Roman\"},\"encoding\":{\"text\":{\"field\":\"Classes\",\"type\":\"quantitative\",\"format\":\",\"}}},{\"title\":{\"text\":\"&\",\"font\":\"Brush Script MT\",\"fontWeight\":\"lighter\",\"fontSize\":74,\"dy\":50,\"dx\":20,\"color\":\"rgb(0,42,74)\"},\"mark\":\"text\"},{\"title\":{\"text\":[\"Charts\",\"in the Gallery\"],\"orient\":\"none\",\"color\":\"rgb(0,42,74)\",\"align\":\"left\",\"dx\":130,\"dy\":-21,\"font\":\"Tahoma\",\"fontSize\":24,\"fontStyle\":\"italic\"},\"mark\":{\"type\":\"text\",\"fontSize\":86,\"color\":\"rgb(0,42,74)\",\"dy\":-10,\"dx\":50,\"fontWeight\":800,\"fontStyle\":\"italic\"},\"encoding\":{\"text\":{\"field\":\"Charts\",\"type\":\"quantitative\"},\"href\":{\"field\":\"GalleryURL\",\"type\":\"nominal\"}}}]},{\"title\":{\"text\":\"Timestamp:\",\"orient\":\"none\",\"align\":\"left\",\"dx\":75,\"font\":\"Helvetica\",\"fontSize\":12,\"fontWeight\":\"normal\"},\"mark\":{\"type\":\"text\",\"font\":\"Helvetica\",\"fontSize\":12,\"dx\":315,\"dy\":-5},\"encoding\":{\"text\":{\"field\":\"CurrentTime\",\"type\":\"nominal\"}}}],\"config\":{\"view\":{\"stroke\":null},\"background\":\"rgb(255,251,238)\",\"padding\":20}}" ;
+        ns3:depiction <http://nanomine.org/viz/7d0d7cb71b4abad4_depiction> .
+
+    <http://nanomine.org/viz/7d0d7cb71b4abad4_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns6:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:13:31.760000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "4b2c217e-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+
+{
+    ns1:rifyh58gzv a ns8:Nanopublication ;
+        ns4:isAbout <http://nanomine.org/viz/7d0d7cb71b4abad4_depiction> ;
+        ns8:hasAssertion ns1:rifyh58gzv_assertion ;
+        ns8:hasProvenance ns1:rifyh58gzv_provenance ;
+        ns8:hasPublicationInfo ns1:rifyh58gzv_pubinfo .
+
+    ns1:rifyh58gzv_assertion a ns8:Assertion .
+
+    ns1:rifyh58gzv_provenance a ns8:Provenance .
+
+    ns1:rifyh58gzv_pubinfo a ns8:PublicationInfo .
+}
+

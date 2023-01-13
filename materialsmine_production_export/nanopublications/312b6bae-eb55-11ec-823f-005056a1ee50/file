@@ -1,0 +1,64 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://xmlns.com/foaf/0.1/> .
+@prefix ns6: <http://vocab.rpi.edu/whyis/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:10jd91u660 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/eb89b5472fdf7b54_depiction> ;
+        ns2:hasAssertion ns1:10jd91u660_assertion ;
+        ns2:hasProvenance ns1:10jd91u660_provenance ;
+        ns2:hasPublicationInfo ns1:10jd91u660_pubinfo .
+
+    ns1:10jd91u660_assertion a ns2:Assertion .
+
+    ns1:10jd91u660_provenance a ns2:Provenance .
+
+    ns1:10jd91u660_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:10jd91u660_pubinfo {
+    ns1:10jd91u660_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:16:35.475000+00:00"^^xsd:dateTime .
+}
+
+ns1:10jd91u660_assertion {
+    <http://nanomine.org/viz/eb89b5472fdf7b54> a ns3:Chart ;
+        ns4:description "These interactive line charts show the rank of materials systems as a function of publication year. Isolate materials by hovering or clicking in the nested pie charts, and select a material/year combination by clicking in the line plot. When you make a selection, icons will appear, each representing a materials system linked to a research article. Hover over an icon to display tooltips or Ctrl-click an icon to open the DOI of the research article in a new tab." ;
+        ns4:title "Dense Ranking of Nanocomposite Materials" ;
+        ns7:query """PREFIX nm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+SELECT DISTINCT ?doi ?Year ?Title ?Matrix ?Filler (COUNT(DISTINCT ?sample) AS ?SampleCount) WHERE {
+  ?doi sio:hasPart ?sample ;
+       dct:created ?Year ;
+       dct:title ?Title .
+  ?sample a nm:PolymerNanocomposite ;
+          sio:hasComponentPart [ sio:hasRole [ a nm:Matrix ] ; a [ rdfs:label ?Matrix] ] ,
+                               [ sio:hasRole [ a nm:Filler ] ; a [ rdfs:label ?Filler] ] .
+  FILTER(!REGEX(STR(?doi), "unpublished"))
+} 
+GROUP BY ?doi ?Year ?Title ?Matrix ?Filler""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"transform\":[{\"calculate\":\"replace(datum.doi,'http://dx.doi.org/','')\",\"as\":\"AbbrevDOI\"},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"CountThisYear_Matrix\"}],\"groupby\":[\"Year\",\"Matrix\"]},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"CountThisYear_Filler\"}],\"groupby\":[\"Year\",\"Filler\"]},{\"window\":[{\"op\":\"dense_rank\",\"field\":\"CountThisYear_Matrix\",\"as\":\"RankThisYear_Matrix\"}],\"sort\":[{\"field\":\"CountThisYear_Matrix\",\"order\":\"descending\"}],\"groupby\":[\"Year\"]},{\"window\":[{\"op\":\"dense_rank\",\"field\":\"CountThisYear_Filler\",\"as\":\"RankThisYear_Filler\"}],\"sort\":[{\"field\":\"CountThisYear_Filler\",\"order\":\"descending\"}],\"groupby\":[\"Year\"]}],\"hconcat\":[{\"vconcat\":[{\"title\":{\"text\":\"Matrix Materials\",\"fontSize\":20,\"anchor\":\"start\",\"dx\":40},\"width\":500,\"height\":150,\"layer\":[{\"selection\":{\"highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"]}},\"mark\":{\"type\":\"line\",\"orient\":\"vertical\",\"interpolate\":\"monotone\",\"strokeWidth\":3},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"RankThisYear_Matrix\",\"type\":\"ordinal\",\"title\":\"Rank\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"scale\":{\"scheme\":\"category20c\"},\"legend\":null},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"highlight_m\"},{\"and\":[{\"selection\":\"highlight\"},{\"selection\":\"isolate_m\"}]}]},\"value\":1},\"value\":0.02}}},{\"transform\":[{\"filter\":{\"selection\":\"isolate_m\"}}],\"selection\":{\"highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\",\"Year\"],\"nearest\":true},\"PointSelect\":{\"type\":\"single\",\"fields\":[\"Matrix\",\"Year\"],\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"color\":\"black\",\"filled\":true,\"size\":50},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"RankThisYear_Matrix\",\"type\":\"ordinal\"},\"fillOpacity\":{\"condition\":{\"selection\":\"highlight2\",\"value\":1},\"value\":0},\"stroke\":{\"condition\":{\"selection\":\"PointSelect\",\"value\":\"black\"},\"value\":null},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\",\"title\":\"Type\"},{\"field\":\"Year\",\"type\":\"quantitative\"},{\"field\":\"RankThisYear_Matrix\",\"type\":\"quantitative\",\"title\":\"Rank\"},{\"field\":\"CountThisYear_Matrix\",\"type\":\"quantitative\",\"title\":\"# Materials Systems\"}]}}]},{\"title\":{\"text\":\"Filler Materials\",\"fontSize\":20,\"anchor\":\"start\",\"dx\":40},\"width\":500,\"height\":150,\"layer\":[{\"selection\":{\"highlight3\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"Filler\"]}},\"mark\":{\"type\":\"line\",\"orient\":\"vertical\",\"interpolate\":\"monotone\",\"strokeWidth\":3},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"RankThisYear_Filler\",\"type\":\"ordinal\",\"title\":\"Rank\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":null},\"opacity\":{\"condition\":{\"test\":{\"and\":[{\"selection\":\"highlight_f\"},{\"and\":[{\"selection\":\"highlight3\"},{\"selection\":\"isolate_f\"}]}]},\"value\":1},\"value\":0.02}}},{\"transform\":[{\"filter\":{\"selection\":\"isolate_f\"}}],\"selection\":{\"highlight4\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Filler\",\"Year\"],\"nearest\":true},\"PointSelect2\":{\"type\":\"single\",\"fields\":[\"Filler\",\"Year\"],\"empty\":\"none\"}},\"mark\":{\"type\":\"point\",\"color\":\"black\",\"filled\":true,\"size\":50},\"encoding\":{\"x\":{\"field\":\"Year\",\"type\":\"ordinal\"},\"y\":{\"field\":\"RankThisYear_Filler\",\"type\":\"ordinal\"},\"fillOpacity\":{\"condition\":{\"selection\":\"highlight4\",\"value\":1},\"value\":0},\"stroke\":{\"condition\":{\"selection\":\"PointSelect2\",\"value\":\"black\"},\"value\":null},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\",\"title\":\"Type\"},{\"field\":\"Year\",\"type\":\"quantitative\"},{\"field\":\"RankThisYear_Filler\",\"type\":\"quantitative\",\"title\":\"Rank\"},{\"field\":\"CountThisYear_Filler\",\"type\":\"quantitative\",\"title\":\"# Materials Systems\"}]}}]}]},{\"vconcat\":[{\"transform\":[{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"Total_Matrix\"}],\"groupby\":[\"Matrix\"]},{\"joinaggregate\":[{\"op\":\"count\",\"as\":\"Total_Filler\"}],\"groupby\":[\"Filler\"]}],\"layer\":[{\"selection\":{\"highlight_m\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"]},\"highlight_m2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Matrix\"]},\"isolate_m\":{\"type\":\"multi\",\"empty\":\"all\",\"fields\":[\"Matrix\"]},\"isolate_m2\":{\"type\":\"multi\",\"empty\":\"none\",\"fields\":[\"Matrix\"]}},\"height\":200,\"width\":201,\"mark\":{\"type\":\"arc\",\"innerRadius\":60,\"outerRadius\":200,\"clip\":true,\"strokeWidth\":2},\"encoding\":{\"theta\":{\"aggregate\":\"sum\",\"field\":\"Total_Matrix\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Matrix\",\"type\":\"nominal\",\"legend\":null},\"stroke\":{\"condition\":{\"selection\":\"isolate_m2\",\"value\":\"black\"},\"value\":\"transparent\"},\"opacity\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"highlight_m2\"},{\"selection\":\"isolate_m\"}]},\"value\":1},\"value\":0.4},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Total_Matrix\",\"type\":\"quantitative\",\"title\":\"# Materials Systems\"}]}},{\"selection\":{\"highlight_f\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"Filler\"]},\"highlight_f2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"Filler\"]},\"isolate_f\":{\"type\":\"multi\",\"empty\":\"all\",\"fields\":[\"Filler\"]},\"isolate_f2\":{\"type\":\"multi\",\"empty\":\"none\",\"fields\":[\"Filler\"]}},\"height\":200,\"width\":200,\"mark\":{\"type\":\"arc\",\"innerRadius\":1,\"outerRadius\":55,\"strokeWidth\":2},\"encoding\":{\"theta\":{\"aggregate\":\"sum\",\"field\":\"Total_Filler\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Filler\",\"type\":\"nominal\",\"legend\":null},\"stroke\":{\"condition\":{\"selection\":\"isolate_f2\",\"value\":\"black\"},\"value\":\"transparent\"},\"opacity\":{\"condition\":{\"test\":{\"or\":[{\"selection\":\"highlight_f2\"},{\"selection\":\"isolate_f\"}]},\"value\":1},\"value\":0.4},\"tooltip\":[{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Total_Filler\",\"type\":\"quantitative\",\"title\":\"# Materials Systems\"}]}}],\"resolve\":{\"scale\":{\"theta\":\"independent\"}},\"view\":{\"stroke\":null}},{\"transform\":[{\"filter\":{\"or\":[{\"selection\":\"PointSelect\"},{\"selection\":\"PointSelect2\"}]}},{\"window\":[{\"op\":\"rank\",\"as\":\"Rank\"}]},{\"calculate\":\"ceil (datum.Rank/4)\",\"as\":\"row\"},{\"calculate\":\"datum.Rank - datum.row*4\",\"as\":\"col\"}],\"height\":200,\"width\":200,\"selection\":{\"DOI_highlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"none\",\"clear\":\"mouseout\",\"fields\":[\"doi\"]},\"DOI_highlight2\":{\"type\":\"single\",\"on\":\"mouseover\",\"empty\":\"all\",\"clear\":\"mouseout\",\"fields\":[\"doi\"]}},\"title\":{\"text\":\"Selections (Ctrl-click to open DOI):\"},\"mark\":{\"type\":\"point\",\"filled\":true,\"clip\":false,\"color\":\"lightgray\"},\"encoding\":{\"x\":{\"field\":\"col\",\"type\":\"ordinal\",\"axis\":null,\"scale\":{\"range\":[-20,175]}},\"y\":{\"field\":\"row\",\"type\":\"ordinal\",\"axis\":null,\"scale\":{\"range\":[-10,175]}},\"shape\":{\"value\":\"m 40 15 h 20 a 3 3 0 0 1 0 6 v 20 l 20 30 a 10 10 0 0 1 0 10 h -60 a 10 10 0 0 1 0 -10 l 20 -30 v -20 a 3 3 0 0 1 0 -6\"},\"size\":{\"value\":0.5},\"href\":{\"field\":\"doi\",\"type\":\"nominal\"},\"stroke\":{\"condition\":{\"selection\":\"DOI_highlight\",\"value\":\"blue\"},\"value\":\"black\"},\"opacity\":{\"condition\":{\"selection\":\"DOI_highlight2\",\"value\":1},\"value\":0.3},\"tooltip\":[{\"field\":\"AbbrevDOI\",\"type\":\"nominal\",\"title\":\"DOI\"},{\"field\":\"Title\",\"type\":\"nominal\"},{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"Year\",\"type\":\"quantitative\"},{\"field\":\"SampleCount\",\"type\":\"quantitative\",\"title\":\"# of Samples\"}]},\"view\":{\"stroke\":null}}]}],\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12}}}" ;
+        ns5:depiction <http://nanomine.org/viz/eb89b5472fdf7b54_depiction> .
+
+    <http://nanomine.org/viz/eb89b5472fdf7b54_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-08-04T17:16:35.474000+00:00"^^xsd:dateTime ;
+        ns6:hasFileID "b8aca458-f547-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

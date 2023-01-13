@@ -1,0 +1,59 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://vocab.rpi.edu/whyis/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://open.vocab.org/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:bs0slariz1 a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/af3a906ad3c5686c_depiction> ;
+        ns2:hasAssertion ns1:bs0slariz1_assertion ;
+        ns2:hasProvenance ns1:bs0slariz1_provenance ;
+        ns2:hasPublicationInfo ns1:bs0slariz1_pubinfo .
+
+    ns1:bs0slariz1_assertion a ns2:Assertion .
+
+    ns1:bs0slariz1_provenance a ns2:Provenance .
+
+    ns1:bs0slariz1_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:bs0slariz1_pubinfo {
+    ns1:bs0slariz1_assertion ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-22T18:19:41.986000+00:00"^^xsd:dateTime .
+}
+
+ns1:bs0slariz1_assertion {
+    <http://nanomine.org/viz/af3a906ad3c5686c> a ns3:Chart ;
+        ns4:description "This stylized Vega-Lite chart demonstrates the use of linear and radial gradients with varying opacity to create a scene of a sunset/sunrise at the beach. The curve is derived from a density estimation of glass transition temperatures of polymer nanocomposite samples containing silicon dioxide." ;
+        ns4:title "Day at the Beach" ;
+        ns7:query """PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX om-2: <http://www.ontology-of-units-of-measure.org/resource/om-2/>
+SELECT DISTINCT * WHERE {
+  ?doi sio:hasPart ?sample .
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasComponentPart [ a [ rdfs:label "Silicon dioxide" ] ] ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ; sio:hasValue ?Tg_C ; sio:hasUnit om-2:degreeCelsius ] .
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"layer\":[{\"mark\":{\"type\":\"rect\",\"color\":{\"x1\":0,\"x2\":0,\"y1\":1,\"y2\":0,\"gradient\":\"linear\",\"stops\":[{\"offset\":1,\"color\":\"#1b5175\"},{\"offset\":0.7,\"color\":\"#a399b4\"},{\"offset\":0.5,\"color\":\"#efccb6\"},{\"offset\":0.45,\"color\":\"#fea063\"},{\"offset\":0.35,\"color\":\"#495d83\"},{\"offset\":0.2,\"color\":\"#e69c5e\"},{\"offset\":0,\"color\":\"#af6c47\"}]}}},{\"transform\":[{\"sample\":1}],\"mark\":{\"type\":\"point\",\"filled\":true,\"size\":10000,\"opacity\":1,\"color\":{\"gradient\":\"radial\",\"stops\":[{\"color\":\"#fce27000\",\"offset\":0.9},{\"color\":\"#ffd42a55\",\"offset\":0.3},{\"color\":\"#ffffffff\",\"offset\":0.15}]}},\"encoding\":{\"x\":{\"datum\":225},\"y\":{\"datum\":0.065}}},{\"transform\":[{\"density\":\"Tg_C\",\"extent\":[0,450]}],\"layer\":[{\"mark\":{\"type\":\"area\",\"color\":\"#495d83\",\"opacity\":0.8,\"interpolate\":\"monotone\"},\"encoding\":{\"y2\":{\"datum\":0.06}}},{\"mark\":{\"type\":\"line\",\"color\":\"white\",\"opacity\":0.7,\"strokeWidth\":3,\"interpolate\":\"monotone\"}}],\"encoding\":{\"x\":{\"field\":\"value\",\"type\":\"quantitative\",\"axis\":{\"domain\":false,\"ticks\":false,\"labels\":false,\"title\":null}},\"y\":{\"field\":\"density\",\"type\":\"quantitative\",\"scale\":{\"domain\":[-0.025,0.175],\"nice\":false},\"axis\":{\"domain\":false,\"ticks\":false,\"labels\":false,\"title\":null}}}}]}" ;
+        ns6:depiction <http://nanomine.org/viz/af3a906ad3c5686c_depiction> .
+
+    <http://nanomine.org/viz/af3a906ad3c5686c_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns8:hasContentType "image/png" ;
+        ns4:contributor <http://nanomine.org/user/0984876> ;
+        ns4:created "2021-12-22T18:19:41.986000+00:00"^^xsd:dateTime ;
+        ns5:hasFileID "bb716ece-6353-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns4:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns4:FileFormat .
+}
+

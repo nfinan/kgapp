@@ -1,0 +1,137 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns5: <http://www.w3.org/ns/prov#> .
+@prefix ns6: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L395_S1_koerner_2005_assertion {
+    <http://materialsmine.org/compound/BisphenolAPhthalonitrileResin> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "bisphenol-A phthalonitrile resin" .
+
+    <http://materialsmine.org/compound/MultiWallCarbonNanotubes> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Multi-wall carbon nanotubes" ;
+        ns4:altLabel "CNT" .
+
+    <http://materialsmine.org/sample/l395-s1-koerner-2005_control_role> a ns3:ControlRole ;
+        ns3:inRelationTo <http://materialsmine.org/sample/l395-s1-koerner-2005> .
+
+    <http://materialsmine.org/sample/l395-s1-koerner-2005_filler_0> a <http://materialsmine.org/compound/MultiWallCarbonNanotubes> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 2.6e+00 ],
+            <http://materialsmine.org/sample/l395-s1-koerner-2005_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l395-s1-koerner-2005_filler_0_volume_fraction> ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l395-s1-koerner-2005> ] .
+
+    <http://materialsmine.org/sample/l395-s1-koerner-2005_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns2:description "computed by NanoMine" ;
+        ns3:hasValue 1.822586e-02 .
+
+    <http://materialsmine.org/sample/l395-s1-koerner-2005_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns2:description "reported" ;
+        ns3:hasValue 8.42511e-03 .
+
+    <http://materialsmine.org/sample/l395-s1-koerner-2005_matrix_0> a <http://materialsmine.org/compound/BisphenolAPhthalonitrileResin> ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns3:hasValue 1.19e+00 ] ;
+        ns3:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns3:inRelationTo <http://materialsmine.org/sample/l395-s1-koerner-2005> ] .
+
+    <http://materialsmine.org/sample/l395-s1-koerner-2005> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "CNT in Morthane" ;
+        ns3:hasAttribute [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns2:description "shape parameter" ],
+            [ a <http://materialsmine.org/ns/MechanicalProperty> ],
+            [ a <http://materialsmine.org/ns/TensileStressAtBreak> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ],
+            [ a <http://materialsmine.org/ns/ElongationAtYield> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ],
+            [ a <http://materialsmine.org/ns/ElongationAtBreak> ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/percent> ],
+            [ a <http://materialsmine.org/ns/TensileStressAtYield> ;
+                ns2:description "Apparent elongation and stress at yield (��Y,��Y) were obtained from the intercept of the linear region below and above the yield point." ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ],
+            [ a <http://materialsmine.org/ns/ElectricalConductivity> ;
+                ns2:description "DC Bulk Conductivity" ;
+                ns3:hasUnit <http://qudt.org/vocab/unit/S-PER-CentiM> ;
+                ns3:hasValue 2.60041e-05 ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <file:///apps/whyis/nan> ;
+                ns2:description "scale parameter" ],
+            [ a <http://materialsmine.org/ns/TensileModulus> ;
+                ns2:description "Mechanical evaluation was conducted on a Tinius Olson H10KS bench top tensile tester at a strain rate of 6 mm/min. A stretching force was applied to one pneumatic clamp. Clamp displacement was used to determine elongation ratio, ��=L/Lo, and engineering strain ��=�����1. Engineering stress was calculated from the initial cross-sectional area of the sample. Young's moduli E were determined from the initial slope at ��=1.025 (least squares fit, ��=2.5%)." ;
+                ns3:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/megapascal> ],
+            [ a <http://materialsmine.org/ns/TensileProperty> ] ;
+        ns3:hasComponentPart <http://materialsmine.org/sample/l395-s1-koerner-2005_filler_0>,
+            <http://materialsmine.org/sample/l395-s1-koerner-2005_matrix_0> ;
+        ns3:hasRole <http://materialsmine.org/sample/l395-s1-koerner-2005_control_role> .
+}
+
+ns1:L395_S1_koerner_2005_provenance {
+    <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_description> a ns3:Description,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_scanning-electron-microscopy> a <http://materialsmine.org/ns/ScanningElectronMicroscopy>,
+            ns3:Measuring,
+            ns5:Activity .
+
+    <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_xray-photoelectron-spectroscopy> a <http://materialsmine.org/ns/XRayPhotoelectronSpectroscopy>,
+            <http://materialsmine.org/ns/XRay_Photoelectron_Spectroscopy>,
+            ns3:Measuring,
+            ns5:Activity ;
+        ns5:used [ a <http://materialsmine.org/ns/synchrotron-x-ray-experiments-conducted-at-x27c-national-synchrotron-light-source-in-brookhaven-national-laboratory>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L395_S1_koerner_2005_description_attr_29>,
+                    <http://materialsmine.org/sample/L395_S1_koerner_2005_equipment_attr_30> ],
+            [ a <http://materialsmine.org/ns/synchrotron-x-ray-experiments-conducted-at-x27c-national-synchrotron-light-source-in-brookhaven-national-laboratory>,
+                    ns3:Device ;
+                ns3:hasAttribute <http://materialsmine.org/sample/L395_S1_koerner_2005_description_attr_29>,
+                    <http://materialsmine.org/sample/L395_S1_koerner_2005_equipment_attr_30> ] .
+
+    ns1:L395_S1_koerner_2005_assertion ns5:wasDerivedFrom ns1:L395_S1_koerner_2005_assertion,
+            <http://nanomine.org/pub/NjYxMTM1LjcwMjUxMDU1OTE_assertion> ;
+        ns5:wasGeneratedBy [ a <http://nanomine.org/setl/NDI0MzYxLjc5NzY5NjM5MDEz/MaterialsmineXMLImport> ;
+                ns5:used ns1:L395_S1_koerner_2005_assertion,
+                    <http://nanomine.org/pub/NjYxMTM1LjcwMjUxMDU1OTE_assertion> ],
+            <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_description>,
+            <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_equipment>,
+            <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_scanning-electron-microscopy>,
+            <http://materialsmine.org/entry/L395_S1_koerner_2005_characterization_xray-photoelectron-spectroscopy> .
+
+    <http://materialsmine.org/ns/synchrotron-x-ray-experiments-conducted-at-x27c-national-synchrotron-light-source-in-brookhaven-national-laboratory> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Synchrotron X-ray experiments, conducted at X27C, National Synchrotron Light Source in Brookhaven National Laboratory." ;
+        rdfs:subClassOf ns3:Device .
+
+    <http://materialsmine.org/sample/L395_S1_koerner_2005_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L395_S1_koerner_2005_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns3:hasValue ""^^xsd:double .
+}
+
+ns1:L395_S1_koerner_2005_pubinfo {
+    ns1:L395_S1_koerner_2005_assertion ns2:created "2021-07-23T06:16:31.901000+00:00"^^xsd:dateTime ;
+        ns5:wasAttributedTo <http://nanomine.org/setl/NDI0MzYxLjc5NzY5NjM5MDEz/MaterialsmineXMLImport> ;
+        ns5:wasQuotedFrom <http://dx.doi.org/unpublished-initial-create> .
+
+    <http://dx.doi.org/unpublished-initial-create> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns2:BibliographicResource ;
+        rdfs:label "" ;
+        ns2:created ""^^xsd:integer ;
+        ns2:title "" ;
+        ns6:authorList () ;
+        ns3:hasPart <http://materialsmine.org/sample/l395-s1-koerner-2005> .
+}
+

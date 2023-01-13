@@ -1,0 +1,661 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/ns/prov#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://purl.org/ontology/bibo/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L135_S1_Vasudevan_2015_provenance {
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015> ns3:wasGeneratedBy <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_material_solution_processing_procedure> .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_electrometry> a <http://materialsmine.org/ns/Electrometry>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/agilent-e4980a>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_equipmentused> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns3:Activity .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_fourier-transform-infrared-spectroscopy> a <http://materialsmine.org/ns/FourierTransformInfraredSpectroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/shimadzu-ftir>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_transmission-electron-microscopy> a <http://materialsmine.org/ns/TransmissionElectronMicroscopy>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/fei-tecnai-tf20-fegtem>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_equipment_used_attr_28> ] .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_xray-diffraction-and-scattering> a <http://materialsmine.org/ns/XRayDiffractionAndScattering>,
+            ns2:Measuring,
+            ns3:Activity ;
+        ns3:used [ a <http://materialsmine.org/ns/bruker-d8-advance-diffractometer>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_material_solution_processing_procedure> a <http://materialsmine.org/ns/SolutionProcessing>,
+            ns2:Procedure ;
+        ns4:description "non- hydrolytic sol-gel" ;
+        ns2:hasPart <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2> .
+
+    <http://materialsmine.org/ns/agilent-e4980a> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Agilent E4980A" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/bruker-d8-advance-diffractometer> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Bruker D8 advance diffractometer" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/fei-tecnai-tf20-fegtem> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "FEI Tecnai TF20 FEGTEM" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/ns/shimadzu-ftir> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Shimadzu FTIR" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_equipment_used_attr_28> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0> a <http://materialsmine.org/ns/Mixing> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_chemicalused>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixer>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixingmethod>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_temperature>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_time> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixer> a <http://materialsmine.org/ns/Mixer>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing> a <http://materialsmine.org/ns/Mixing>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_chemicalused>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_mixer>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_mixingmethod>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_temperature>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_time> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_chemicalused> a <http://materialsmine.org/ns/ChemicalUsed> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_mixer> a <http://materialsmine.org/ns/Mixer> ;
+        ns2:hasValue "Magnetic" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_mixingmethod> a <http://materialsmine.org/ns/MixingMethod> ;
+        ns2:hasValue "stirring" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "25" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixing_time> a ns2:TimeInterval ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> ;
+        ns2:hasValue "20" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_mixingmethod> a <http://materialsmine.org/ns/MixingMethod>,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1> a <http://materialsmine.org/ns/Drying-Evaporation> ;
+        ns2:hasInput <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_0_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_drying-evaporation>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_temperature>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_time> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_drying-evaporation> a <http://materialsmine.org/ns/Drying-Evaporation>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_drying-evaporation_temperature>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_drying-evaporation_time> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_drying-evaporation_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "60" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_drying-evaporation_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "24" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2> a <http://materialsmine.org/ns/Heating> ;
+        ns2:hasInput <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_1_output> ;
+        ns2:hasOutput <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_output> ;
+        ns2:hasParameter <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_description>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_temperature>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_time> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_description> a ns2:Description,
+            ns2:Parameter .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating> a <http://materialsmine.org/ns/Heating>,
+            ns2:Parameter ;
+        ns2:hasAttribute <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating_description>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating_temperature>,
+            <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating_time> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating_description> a ns2:Description ;
+        ns2:hasValue "Annealing" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating_temperature> a <obo:PATO_0000146> ;
+        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+        ns2:hasValue "360" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_heating_time> a ns2:TimeInterval ;
+        ns2:hasUnit ns2:Hour ;
+        ns2:hasValue "2" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_temperature> a ns2:Parameter,
+            <obo:PATO_0000146> .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_solution_processing_step_2_time> a ns2:Parameter,
+            ns2:TimeInterval .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/minute-Time> rdfs:label "minutes" .
+
+    ns1:L135_S1_Vasudevan_2015_assertion ns3:wasDerivedFrom ns1:L135_S1_Vasudevan_2015_assertion,
+            <http://nanomine.org/pub/NjE4MDAxLjcxNjM3MjEyNzQ_assertion> ;
+        ns3:wasGeneratedBy [ a <http://nanomine.org/setl/MjE2Mjc5LjgxNzQwNDYxNTc/MaterialsmineXMLImport> ;
+                ns3:used ns1:L135_S1_Vasudevan_2015_assertion,
+                    <http://nanomine.org/pub/NjE4MDAxLjcxNjM3MjEyNzQ_assertion> ],
+            <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_electrometry>,
+            <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_equipment>,
+            <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_equipmentused>,
+            <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_fourier-transform-infrared-spectroscopy>,
+            <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_transmission-electron-microscopy>,
+            <http://materialsmine.org/entry/L135_S1_Vasudevan_2015_characterization_xray-diffraction-and-scattering> .
+
+    ns2:Hour rdfs:label "hours" .
+
+    <http://materialsmine.org/sample/L135_S1_Vasudevan_2015_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> rdfs:label "Celsius" .
+}
+
+ns1:L135_S1_Vasudevan_2015_assertion {
+    <http://materialsmine.org/compound/PolyVinylPyrrolidone> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Poly(vinyl pyrrolidone)" ;
+        ns5:notation "PVP" .
+
+    <http://materialsmine.org/compound/TitaniumDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Titanium dioxide" ;
+        ns5:altLabel "titania" .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l135-s1-vasudevan-2015> .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015_filler_0> a <http://materialsmine.org/compound/TitaniumDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 4.23e+00 ],
+            <http://materialsmine.org/sample/l135-s1-vasudevan-2015_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l135-s1-vasudevan-2015_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l135-s1-vasudevan-2015> ] .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 2.5e-01 .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 8.043478e-02 .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015_matrix_0> a <http://materialsmine.org/compound/PolyVinylPyrrolidone> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Abbreviation> ;
+                ns2:hasValue "PVP" ],
+            [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.11e+00 ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l135-s1-vasudevan-2015> ] .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "titania in polyvinylpyrrolidone" ;
+        ns2:hasAttribute [ ns2:hasValue 3.01e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.003971e+00 ] ],
+            [ ns2:hasValue 1.54924e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.303087e+00 ] ],
+            [ ns2:hasValue 2.323849e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.482771e+00 ] ],
+            [ ns2:hasValue 9.39e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.906948e+00 ] ],
+            [ ns2:hasValue 2.825069e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.300098e+00 ] ],
+            [ ns2:hasValue 2.55645e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.786121e+00 ] ],
+            [ ns2:hasValue 4.38e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.301195e+00 ] ],
+            [ ns2:hasValue 6.03e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.884828e+00 ] ],
+            [ ns2:hasValue 1.06e-07 ;
+                ns2:inRelationTo [ ns2:hasValue 6.003059e+00 ] ],
+            [ ns2:hasValue 3.404696e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.896745e+00 ] ],
+            [ ns2:hasValue 1.734872e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.947025e+00 ] ],
+            [ ns2:hasValue 3.56682e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.481006e+00 ] ],
+            [ ns2:hasValue 1.815514e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.688391e+00 ] ],
+            [ ns2:hasValue 2.6e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.901094e+00 ] ],
+            [ ns2:hasValue 1.14e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.305942e+00 ] ],
+            [ ns2:hasValue 1.781803e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.774608e+00 ] ],
+            [ ns2:hasValue 5.57e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.745974e+00 ] ],
+            [ ns2:hasValue 3.990621e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.602456e+00 ] ],
+            [ ns2:hasValue 2.97147e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.592263e+00 ] ],
+            [ ns2:hasValue 2.581147e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.473296e+00 ] ],
+            [ ns2:hasValue 2.207633e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.896703e+00 ] ],
+            [ ns2:hasValue 1.721452e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.994048e+00 ] ],
+            [ ns2:hasValue 3.622653e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.775124e+00 ] ],
+            [ ns2:hasValue 4.64e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.602757e+00 ] ],
+            [ ns2:hasValue 7.13712e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.69138e+00 ] ],
+            [ ns2:hasValue 6.03e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.832767e+00 ] ],
+            [ ns2:hasValue 1.375371e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.002566e+00 ] ],
+            [ ns2:hasValue 4.17e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.476918e+00 ] ],
+            [ ns2:hasValue 3.500023e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.837904e+00 ] ],
+            [ ns2:hasValue 8.72e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.854522e+00 ] ],
+            [ ns2:hasValue 1.97059e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.292579e+00 ] ],
+            [ ns2:hasValue 4.17e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.476918e+00 ] ],
+            [ ns2:hasValue 6.3632e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.838528e+00 ] ],
+            [ ns2:hasValue 3.31614e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.943827e+00 ] ],
+            [ ns2:hasValue 1.685449e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.299659e+00 ] ],
+            [ ns2:hasValue 2.16008e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.947671e+00 ] ],
+            [ ns2:hasValue 1.896377e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.472853e+00 ] ],
+            [ ns2:hasValue 1.54924e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.303087e+00 ] ],
+            [ ns2:hasValue 2.18e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.779393e+00 ] ],
+            [ ns2:hasValue 8.12e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.99774e+00 ] ],
+            [ ns2:hasValue 2.581147e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.473296e+00 ] ],
+            [ ns2:hasValue 2.79402e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.703557e+00 ] ],
+            [ ns2:hasValue 2.479331e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.598743e+00 ] ],
+            [ ns2:hasValue 2.139849e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.998617e+00 ] ],
+            [ ns2:hasValue 1.584085e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.841174e+00 ] ],
+            [ ns2:hasValue 2.97e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.001078e+00 ] ],
+            [ ns2:hasValue 4.290503e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.472936e+00 ] ],
+            [ ns2:hasValue 2.479331e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.598743e+00 ] ],
+            [ ns2:hasValue 1.97e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.69685e+00 ] ],
+            [ ns2:hasValue 1.500594e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.90214e+00 ] ],
+            [ ns2:hasValue 1.834628e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.704954e+00 ] ],
+            [ ns2:hasValue 4.290503e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.472936e+00 ] ],
+            [ ns2:hasValue 6.03e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.832767e+00 ] ],
+            [ ns2:hasValue 1.734872e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.947025e+00 ] ],
+            [ ns2:hasValue 1.90316e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.015865e+00 ] ],
+            [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ ns2:hasValue 3.56682e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.481006e+00 ] ],
+            [ ns2:hasValue 2.41e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.844594e+00 ] ],
+            [ ns2:hasValue 6.96e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.936939e+00 ] ],
+            [ ns2:hasValue 2.6e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.901094e+00 ] ],
+            [ ns2:hasValue 3.248075e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.990893e+00 ] ],
+            [ ns2:hasValue 1.46e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.475315e+00 ] ],
+            [ ns2:hasValue 6.6012e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.784689e+00 ] ],
+            [ ns2:hasValue 2.13966e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.861488e+00 ] ],
+            [ ns2:hasValue 3.500023e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.837904e+00 ] ],
+            [ ns2:hasValue 2.825069e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.300098e+00 ] ],
+            [ ns2:hasValue 1.842395e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.60218e+00 ] ],
+            [ ns2:hasValue 1.06e-07 ;
+                ns2:inRelationTo [ ns2:hasValue 6.003059e+00 ] ],
+            [ ns2:hasValue 9.39e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.906948e+00 ] ],
+            [ ns2:hasValue 2.323849e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.482771e+00 ] ],
+            [ ns2:hasValue 5.756608e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.989907e+00 ] ],
+            [ ns2:hasValue 1.721452e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.994048e+00 ] ],
+            [ ns2:hasValue 1.815514e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.688391e+00 ] ],
+            [ ns2:hasValue 2.41e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.844594e+00 ] ],
+            [ ns2:hasValue 2.261997e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.841812e+00 ] ],
+            [ ns2:hasValue 1.029552e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.303872e+00 ] ],
+            [ ns2:hasValue 1.685449e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 6.299659e+00 ] ],
+            [ ns2:hasValue 5.47e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.47966e+00 ] ],
+            [ ns2:hasValue 1.761612e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.83339e+00 ] ],
+            [ ns2:hasValue 2.019553e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.604581e+00 ] ],
+            [ ns2:hasValue 3.86254e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.294318e+00 ] ],
+            [ ns2:hasValue 2.377354e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.692848e+00 ] ],
+            [ ns2:hasValue 2.78e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.948917e+00 ] ],
+            [ ns2:hasValue 2.16008e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.947671e+00 ] ],
+            [ ns2:hasValue 9.97e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.968e+00 ] ],
+            [ ns2:hasValue 1.584085e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.841174e+00 ] ],
+            [ ns2:hasValue 3.86254e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.294318e+00 ] ],
+            [ ns2:hasValue 8.12e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.99774e+00 ] ],
+            [ ns2:hasValue 1.434998e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.952351e+00 ] ],
+            [ ns2:hasValue 1.434998e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.952351e+00 ] ],
+            [ ns2:hasValue 2.019553e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.604581e+00 ] ],
+            [ ns2:hasValue 7.26e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.701886e+00 ] ],
+            [ ns2:hasValue 7.26e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.701886e+00 ] ],
+            [ ns2:hasValue 2.31628e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.771251e+00 ] ],
+            [ ns2:hasValue 8.72e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.854522e+00 ] ],
+            [ ns2:hasValue 3.71e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.312034e+00 ] ],
+            [ ns2:hasValue 8.05e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.784743e+00 ] ],
+            [ ns2:hasValue 5.756608e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 2.989907e+00 ] ],
+            [ ns2:hasValue 5.33e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.702578e+00 ] ],
+            [ ns2:hasValue 6.00601e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.906718e+00 ] ],
+            [ ns2:hasValue 4.042552e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.013937e+00 ] ],
+            [ ns2:hasValue 3.31614e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.943827e+00 ] ],
+            [ ns2:hasValue 1.96222e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.972783e+00 ] ],
+            [ ns2:hasValue 6.42e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.605989e+00 ] ],
+            [ ns2:hasValue 1.14e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.305942e+00 ] ],
+            [ ns2:hasValue 1.76e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.60563e+00 ] ],
+            [ ns2:hasValue 6.03e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.789384e+00 ] ],
+            [ ns2:hasValue 1.691462e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.78382e+00 ] ],
+            [ ns2:hasValue 1.76e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.60563e+00 ] ],
+            [ ns2:hasValue 1.97e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.69685e+00 ] ],
+            [ ns2:hasValue 6.42e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.605989e+00 ] ],
+            [ ns2:hasValue 4.38e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.301195e+00 ] ],
+            [ ns2:hasValue 2.207633e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.896703e+00 ] ],
+            [ ns2:hasValue 1.029552e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.303872e+00 ] ],
+            [ ns2:hasValue 6.03e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.884828e+00 ] ],
+            [ ns2:hasValue 6.3632e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.838528e+00 ] ],
+            [ ns2:hasValue 7.73291e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.608848e+00 ] ],
+            [ ns2:hasValue 9.97e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.968e+00 ] ],
+            [ ns2:hasValue 1.781803e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.774608e+00 ] ],
+            [ ns2:hasValue 6.96e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.936939e+00 ] ],
+            [ ns2:hasValue 2.377354e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.692848e+00 ] ],
+            [ ns2:hasValue 2.31628e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.771251e+00 ] ],
+            [ ns2:hasValue 1.896377e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.472853e+00 ] ],
+            [ ns2:hasValue 8.05e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.784743e+00 ] ],
+            [ ns2:hasValue 2.139849e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.998617e+00 ] ],
+            [ ns2:hasValue 3.71e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.312034e+00 ] ],
+            [ ns2:hasValue 6.03e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.789384e+00 ] ],
+            [ ns2:hasValue 5.64877e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.971318e+00 ] ],
+            [ ns2:hasValue 2.805653e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.296822e+00 ] ],
+            [ ns2:hasValue 1.375371e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.002566e+00 ] ],
+            [ ns2:hasValue 4.042552e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.013937e+00 ] ],
+            [ ns2:hasValue 5.64877e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.971318e+00 ] ],
+            [ ns2:hasValue 7.13712e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.69138e+00 ] ],
+            [ ns2:hasValue 2.08061e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.904571e+00 ] ],
+            [ ns2:hasValue 1.97059e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.292579e+00 ] ],
+            [ ns2:hasValue 3.622653e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.775124e+00 ] ],
+            [ ns2:hasValue 1.691462e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.78382e+00 ] ],
+            [ ns2:hasValue 3.248075e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.990893e+00 ] ],
+            [ ns2:hasValue 3.793016e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.696636e+00 ] ],
+            [ ns2:hasValue 2.97e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.001078e+00 ] ],
+            [ ns2:hasValue 2.261997e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.841812e+00 ] ],
+            [ ns2:hasValue 1.54e-07 ;
+                ns2:inRelationTo [ ns2:hasValue 6.309312e+00 ] ],
+            [ ns2:hasValue 2.08061e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.904571e+00 ] ],
+            [ ns2:hasValue 2.55645e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.786121e+00 ] ],
+            [ ns2:hasValue 6.6012e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.784689e+00 ] ],
+            [ ns2:hasValue 2.18e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.779393e+00 ] ],
+            [ ns2:hasValue 5.57e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.745974e+00 ] ],
+            [ ns2:hasValue 5.33e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.702578e+00 ] ],
+            [ ns2:hasValue 4.76091e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.3e+00 ] ],
+            [ ns2:hasValue 6.00601e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.906718e+00 ] ],
+            [ ns2:hasValue 4.64e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.602757e+00 ] ],
+            [ ns2:hasValue 5.47e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 5.47966e+00 ] ],
+            [ ns2:hasValue 1.96222e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.972783e+00 ] ],
+            [ ns2:hasValue 4.76091e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.3e+00 ] ],
+            [ ns2:hasValue 3.404696e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.896745e+00 ] ],
+            [ ns2:hasValue 2.13966e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.861488e+00 ] ],
+            [ ns2:hasValue 2.805653e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 4.296822e+00 ] ],
+            [ ns2:hasValue 3.793016e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.696636e+00 ] ],
+            [ ns2:hasValue 1.755103e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.896078e+00 ] ],
+            [ ns2:hasValue 1.842395e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.60218e+00 ] ],
+            [ ns2:hasValue 1.90316e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 6.015865e+00 ] ],
+            [ ns2:hasValue 3.990621e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.602456e+00 ] ],
+            [ ns2:hasValue 1.54e-07 ;
+                ns2:inRelationTo [ ns2:hasValue 6.309312e+00 ] ],
+            [ ns2:hasValue 1.46e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.475315e+00 ] ],
+            [ ns2:hasValue 1.834628e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.704954e+00 ] ],
+            [ ns2:hasValue 2.78e-08 ;
+                ns2:inRelationTo [ ns2:hasValue 4.948917e+00 ] ],
+            [ ns2:hasValue 2.79402e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.703557e+00 ] ],
+            [ ns2:hasValue 3.01e-09 ;
+                ns2:inRelationTo [ ns2:hasValue 3.003971e+00 ] ],
+            [ ns2:hasValue 1.500594e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 3.90214e+00 ] ],
+            [ ns2:hasValue 1.761612e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.83339e+00 ] ],
+            [ ns2:hasValue 8.56675e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.476068e+00 ] ],
+            [ ns2:hasValue 1.755103e+00 ;
+                ns2:inRelationTo [ ns2:hasValue 5.896078e+00 ] ],
+            [ ns2:hasValue 8.56675e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.476068e+00 ] ],
+            [ ns2:hasValue 2.97147e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 5.592263e+00 ] ],
+            [ ns2:hasValue 7.73291e-01 ;
+                ns2:inRelationTo [ ns2:hasValue 4.608848e+00 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l135-s1-vasudevan-2015_filler_0>,
+            <http://materialsmine.org/sample/l135-s1-vasudevan-2015_matrix_0> ;
+        ns2:hasRole <http://materialsmine.org/sample/l135-s1-vasudevan-2015_control_role> .
+}
+
+ns1:L135_S1_Vasudevan_2015_pubinfo {
+    ns1:L135_S1_Vasudevan_2015_assertion ns4:created "2021-07-22T08:59:15.345000+00:00"^^xsd:dateTime ;
+        ns3:wasAttributedTo <http://nanomine.org/setl/MjE2Mjc5LjgxNzQwNDYxNTc/MaterialsmineXMLImport> ;
+        ns3:wasQuotedFrom <http://dx.doi.org/10.1088/1757-899X/73/1/012015> .
+
+    <http://dx.doi.org/10.1088/1757-899X/73/1/012015> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "Synthesis and dielectric studies of poly (vinyl pyrrolidone) / titanium dioxide nanocomposites" ;
+        ns4:created 2015 ;
+        ns4:creator <http://materialsmine.org/author/arunkumar-k-v>,
+            <http://materialsmine.org/author/karthika-s>,
+            <http://materialsmine.org/author/prathibha-vasudevan>,
+            <http://materialsmine.org/author/sunil-thomas>,
+            <http://materialsmine.org/author/unnikrishnan-n-v> ;
+        ns4:isPartOf <http://materialsmine.org/publication/iop-conference-series-materials-science-and-engineering> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "Synthesis and dielectric studies of poly (vinyl pyrrolidone) / titanium dioxide nanocomposites" ;
+        ns7:authorList ( <http://materialsmine.org/author/unnikrishnan-n-v> <http://materialsmine.org/author/karthika-s> <http://materialsmine.org/author/arunkumar-k-v> <http://materialsmine.org/author/sunil-thomas> <http://materialsmine.org/author/prathibha-vasudevan> ) ;
+        ns7:volume 73 ;
+        ns2:hasPart <http://materialsmine.org/sample/l135-s1-vasudevan-2015> ;
+        rdfs:seeAlso <http://iopscience.iop.org/article/10.1088/1757-899X/73/1/012015/meta> .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/location/school-of-pure-applied-physics-mahatma-gandhi-university-kottayam-686-560-kerala-india> a ns4:Location ;
+        rdfs:label "School of Pure & Applied Physics, Mahatma Gandhi University, Kottayam- 686 560, Kerala, India" .
+
+    <http://materialsmine.org/publication/iop-conference-series-materials-science-and-engineering> ns4:publisher <publisher:iop-publishing> ;
+        ns4:title "IOP Conference Series: Materials Science and Engineering" .
+
+    <http://materialsmine.org/sample/l135-s1-vasudevan-2015> ns3:wasAttributedTo <http://materialsmine.org/author/arunkumar-k-v>,
+            <http://materialsmine.org/author/karthika-s>,
+            <http://materialsmine.org/author/prathibha-vasudevan>,
+            <http://materialsmine.org/author/sunil-thomas>,
+            <http://materialsmine.org/author/unnikrishnan-n-v> .
+
+    <publisher:iop-publishing> rdfs:label "IOP Publishing" ;
+        ns3:atLocation <http://materialsmine.org/location/school-of-pure-applied-physics-mahatma-gandhi-university-kottayam-686-560-kerala-india> .
+
+    <http://materialsmine.org/author/arunkumar-k-v> a ns3:Agent ;
+        rdfs:label "Arunkumar, K V" ;
+        ns6:name "Arunkumar, K V" .
+
+    <http://materialsmine.org/author/karthika-s> a ns3:Agent ;
+        rdfs:label "Karthika, S" ;
+        ns6:name "Karthika, S" .
+
+    <http://materialsmine.org/author/prathibha-vasudevan> a ns3:Agent ;
+        rdfs:label "Prathibha, Vasudevan" ;
+        ns6:name "Prathibha, Vasudevan" .
+
+    <http://materialsmine.org/author/sunil-thomas> a ns3:Agent ;
+        rdfs:label "Sunil, Thomas" ;
+        ns6:name "Sunil, Thomas" .
+
+    <http://materialsmine.org/author/unnikrishnan-n-v> a ns3:Agent ;
+        rdfs:label "Unnikrishnan, N V" ;
+        ns6:name "Unnikrishnan, N V" .
+}
+

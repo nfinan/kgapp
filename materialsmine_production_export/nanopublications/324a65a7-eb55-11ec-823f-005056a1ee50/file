@@ -1,0 +1,56 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://purl.org/dc/terms/> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://www.nanopub.org/nschema#> .
+@prefix ns5: <http://schema.org/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://open.vocab.org/terms/> .
+@prefix ns8: <http://vocab.rpi.edu/whyis/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:9i9yujrbtu_pubinfo {
+    ns1:9i9yujrbtu_assertion ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:07:03.654000+00:00"^^xsd:dateTime .
+}
+
+{
+    ns1:9i9yujrbtu a ns4:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/bd562d64e5b9fdcb_depiction> ;
+        ns4:hasAssertion ns1:9i9yujrbtu_assertion ;
+        ns4:hasProvenance ns1:9i9yujrbtu_provenance ;
+        ns4:hasPublicationInfo ns1:9i9yujrbtu_pubinfo .
+
+    ns1:9i9yujrbtu_assertion a ns4:Assertion .
+
+    ns1:9i9yujrbtu_provenance a ns4:Provenance .
+
+    ns1:9i9yujrbtu_pubinfo a ns4:PublicationInfo .
+}
+
+ns1:9i9yujrbtu_assertion {
+    <http://nanomine.org/viz/bd562d64e5b9fdcb> a ns3:Chart ;
+        ns2:description "In appreciation of all the authors whose data have been curated into the MaterialsMine knowledge graph, this holiday wreath displays author URIs in the knowledge graph as well as the number of unique DOIs linked to each author URI. The \"snow\" comes from the random() function in Vega's expression language, and the festive bow is a custom SVG path layered onto the chart." ;
+        ns2:title "Happy Holidays from MaterialsMine" ;
+        ns5:query """PREFIX dct: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT ?Author (count(distinct ?doi) as ?NumberOfPapers) WHERE {
+  ?doi a dct:BibliographicResource ;
+       dct:creator ?Author 
+}
+GROUP BY ?Author""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"config\":{\"view\":{\"stroke\":\"\"}},\"width\":495,\"height\":495,\"layer\":[{\"selection\":{\"myhighlight\":{\"type\":\"single\",\"on\":\"mouseover\",\"nearest\":false,\"empty\":\"all\",\"clear\":\"mouseout\"}},\"mark\":{\"type\":\"arc\",\"innerRadius\":115},\"encoding\":{\"theta\":{\"field\":\"NumberOfPapers\",\"type\":\"quantitative\"},\"color\":{\"field\":\"Author\",\"type\":\"nominal\",\"scale\":{\"scheme\":{\"name\":\"greens\",\"extent\":[0.7,1]}},\"legend\":null},\"tooltip\":[{\"field\":\"Author\",\"type\":\"nominal\",\"title\":\"Author URI\"},{\"field\":\"NumberOfPapers\",\"type\":\"quantitative\",\"title\":\"# Papers\"}],\"opacity\":{\"condition\":{\"selection\":\"myhighlight\",\"value\":1},\"value\":0.7}},\"view\":{\"stroke\":null}},{\"transform\":[{\"calculate\":\"random()\",\"as\":\"RandomX\"},{\"calculate\":\"random()\",\"as\":\"RandomY\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"color\":\"white\"},\"encoding\":{\"x\":{\"field\":\"RandomX\",\"type\":\"quantitative\",\"axis\":null},\"y\":{\"field\":\"RandomY\",\"type\":\"quantitative\",\"axis\":null}}},{\"data\":{\"values\":[{\"xPos\":0.2,\"yPos\":1.03,\"svgpath\":\"bow\"},{\"xPos\":0.2,\"yPos\":1.03,\"svgpath\":\"knot\"}]},\"mark\":{\"type\":\"point\",\"filled\":true,\"opacity\":1,\"color\":\"rgb(255,24,24)\",\"stroke\":\"rgb(150,10,10)\"},\"encoding\":{\"x\":{\"field\":\"xPos\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,1]},\"axis\":null},\"y\":{\"field\":\"yPos\",\"type\":\"quantitative\",\"scale\":{\"domain\":[0,1]},\"axis\":null},\"shape\":{\"field\":\"svgpath\",\"type\":\"nominal\",\"legend\":null,\"scale\":{\"domain\":[\"bow\",\"knot\"],\"range\":[\"m 50 35 c 60 -100 40 100 0 0 c -60 -100 -40 100 0 0 z c 0 15 -25 35 -35 45 c 10 10 15 0 20 10 c 0 0 0 0 15 -45 c 0 0 0 0 15 45 c 15 0 10 -10 20 -10 c -15 -15 -35 -30 -35 -45 z\",\"m 40 35 a 10 15 180 0 0 20 0 a 10 15 0 0 0 -20 0 z\"]}},\"size\":{\"value\":35}}}],\"resolve\":{\"axis\":{\"x\":\"independent\",\"y\":\"independent\"}}}" ;
+        ns6:depiction <http://nanomine.org/viz/bd562d64e5b9fdcb_depiction> .
+
+    <http://nanomine.org/viz/bd562d64e5b9fdcb_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns7:hasContentType "image/png" ;
+        ns2:contributor <http://nanomine.org/user/0984876> ;
+        ns2:created "2021-08-04T17:07:03.653000+00:00"^^xsd:dateTime ;
+        ns8:hasFileID "63d7a82a-f546-11eb-9f8e-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns2:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns2:FileFormat .
+}
+

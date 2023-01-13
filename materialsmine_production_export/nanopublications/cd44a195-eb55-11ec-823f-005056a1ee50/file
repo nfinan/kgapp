@@ -1,0 +1,80 @@
+@prefix ns1: <http://nanomine.org/pub/> .
+@prefix ns2: <http://www.nanopub.org/nschema#> .
+@prefix ns3: <http://semanticscience.org/resource/> .
+@prefix ns4: <http://vocab.rpi.edu/whyis/> .
+@prefix ns5: <http://open.vocab.org/terms/> .
+@prefix ns6: <http://xmlns.com/foaf/0.1/> .
+@prefix ns7: <http://schema.org/> .
+@prefix ns8: <http://purl.org/dc/terms/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+{
+    ns1:nmk68tnaib a ns2:Nanopublication ;
+        ns3:isAbout <http://nanomine.org/viz/3b859b52ef02883f_depiction> ;
+        ns2:hasAssertion ns1:nmk68tnaib_assertion ;
+        ns2:hasProvenance ns1:nmk68tnaib_provenance ;
+        ns2:hasPublicationInfo ns1:nmk68tnaib_pubinfo .
+
+    ns1:nmk68tnaib_assertion a ns2:Assertion .
+
+    ns1:nmk68tnaib_provenance a ns2:Provenance .
+
+    ns1:nmk68tnaib_pubinfo a ns2:PublicationInfo .
+}
+
+ns1:nmk68tnaib_assertion {
+    <http://nanomine.org/viz/3b859b52ef02883f> a ns3:Chart ;
+        ns8:description "When a SPARQL query contains an OPTIONAL clause, there may or may not exist a value bound to a variable defined in the clause. For example, if a material sample has no filler, then there is no \"filler mass fraction\" attribute. For plotting purposes, you may want to call the mass fraction 0 instead of undefined (otherwise, the data mark will not appear along the axis). You can use the impute transform in Vega-Lite, but this chart shows how to do so within the SPARQL query using a conditional statement to assign a value depending on whether the variable is bound. The chart shows glass transition temperature, Tg, versus volume fraction, where the magnitude and direction of change from the control sample are shown with size and color encodings, respectively." ;
+        ns8:title "Imputing Optional Values within a SPARQL Query" ;
+        ns7:query """PREFIX sio: <http://semanticscience.org/resource/>
+PREFIX mm: <http://materialsmine.org/ns/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+SELECT DISTINCT * WHERE {
+  ?doi sio:hasPart ?sample .
+  
+  ?sample a mm:PolymerNanocomposite ;
+          sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                             sio:hasValue ?Tg ;
+                             sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  
+  ?control_sample a mm:PolymerNanocomposite ;
+                  sio:hasRole [ a sio:ControlRole ; sio:inRelationTo ?sample ] ;
+                  sio:hasAttribute [ a mm:GlassTransitionTemperature ;
+                                     sio:hasValue ?Tg_control ;
+                                     sio:hasUnit [ rdfs:label "Celsius" ] ] .
+  
+  ?sample sio:hasComponentPart [ a [ rdfs:label ?Matrix ] ;
+                                 sio:hasRole [ a mm:Matrix ] ] .
+  
+  OPTIONAL {
+    ?sample sio:hasComponentPart [ a [ rdfs:label ?Filler ] ; 
+                                   sio:hasRole [ a mm:Filler ] ;
+                                   sio:hasAttribute [ a mm:MassFraction ;
+                                                      sio:hasValue ?MassFrac ] ,
+                                                    [ a mm:VolumeFraction ;
+                                                      sio:hasValue ?VolFrac ] ] .
+  }
+  BIND(IF(BOUND(?MassFrac), ?MassFrac, 0) AS ?MassFracNorm)
+  BIND(IF(BOUND(?VolFrac), ?VolFrac, 0) AS ?VolFracNorm)
+}""" ;
+        ns3:hasValue "{\"$schema\":\"https://vega.github.io/schema/vega-lite/v4.json\",\"width\":700,\"height\":495,\"selection\":{\"zoom\":{\"type\":\"interval\",\"bind\":\"scales\"}},\"transform\":[{\"calculate\":\"datum.Tg - datum.Tg_control\",\"as\":\"delta_Tg\"},{\"calculate\":\"abs(datum.delta_Tg)\",\"as\":\"delta_Tg_abs\"},{\"calculate\":\"replace(datum.sample, /^.*.org.sample./, '')\",\"as\":\"Sample ID\"},{\"calculate\":\"replace(datum.control_sample, /^.*.org.sample./, '')\",\"as\":\"Control ID\"},{\"calculate\":\"replace(datum.doi, /^.*doi.org./, '')\",\"as\":\"DOI\"}],\"mark\":{\"type\":\"point\",\"filled\":true,\"stroke\":\"black\"},\"encoding\":{\"x\":{\"field\":\"VolFracNorm\",\"type\":\"quantitative\",\"title\":\"Filler Loading (vol.%)\",\"axis\":{\"format\":\"p\"},\"scale\":{\"zero\":false,\"nice\":false,\"padding\":10}},\"y\":{\"field\":\"Tg\",\"type\":\"quantitative\",\"title\":\"Glass Transition Temperature, Tg (��C)\",\"scale\":{\"zero\":false,\"nice\":false,\"padding\":10}},\"color\":{\"field\":\"delta_Tg\",\"type\":\"quantitative\",\"scale\":{\"scheme\":{\"name\":\"redblue\",\"extent\":[1,0]},\"domainMid\":0},\"title\":\"Change from Control Tg\"},\"size\":{\"field\":\"delta_Tg_abs\",\"type\":\"quantitative\",\"title\":\"Magnitude of Change\",\"scale\":{\"range\":[10,500]}},\"tooltip\":[{\"field\":\"Matrix\",\"type\":\"nominal\"},{\"field\":\"Filler\",\"type\":\"nominal\"},{\"field\":\"VolFracNorm\",\"type\":\"quantitative\",\"format\":\".3p\",\"title\":\"Filler Amt. (vol.%)\"},{\"field\":\"Tg\",\"type\":\"quantitative\"},{\"field\":\"Tg_control\",\"type\":\"quantitative\"},{\"field\":\"delta_Tg\",\"type\":\"quantitative\"},{\"field\":\"DOI\",\"type\":\"nominal\"},{\"field\":\"Sample ID\",\"type\":\"nominal\"},{\"field\":\"Control ID\",\"type\":\"nominal\"}]},\"config\":{\"axis\":{\"titleFontSize\":16,\"labelFontSize\":12,\"labelFlush\":false}}}" ;
+        ns6:depiction <http://nanomine.org/viz/3b859b52ef02883f_depiction> .
+
+    <http://nanomine.org/viz/3b859b52ef02883f_depiction> a <http://purl.org/net/provenance/ns#File>,
+            <https://www.iana.org/assignments/media-types/image>,
+            <https://www.iana.org/assignments/media-types/image/png> ;
+        ns5:hasContentType "image/png" ;
+        ns8:contributor <http://nanomine.org/user/0984876> ;
+        ns8:created "2021-11-16T18:12:42.618000+00:00"^^xsd:dateTime ;
+        ns4:hasFileID "ca9baf8e-4708-11ec-ba1c-005056a1dd7b" .
+
+    <https://www.iana.org/assignments/media-types/image> a ns8:FileFormat .
+
+    <https://www.iana.org/assignments/media-types/image/png> a ns8:FileFormat .
+}
+
+ns1:nmk68tnaib_pubinfo {
+    ns1:nmk68tnaib_assertion ns8:contributor <http://nanomine.org/user/0984876> ;
+        ns8:created "2021-11-16T18:12:42.618000+00:00"^^xsd:dateTime .
+}
+

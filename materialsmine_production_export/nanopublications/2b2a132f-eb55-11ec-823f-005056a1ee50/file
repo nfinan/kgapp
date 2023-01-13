@@ -1,0 +1,1243 @@
+@prefix ns1: <http://materialsmine.org/nanpub/> .
+@prefix ns2: <http://semanticscience.org/resource/> .
+@prefix ns3: <http://www.w3.org/2004/02/skos/core#> .
+@prefix ns4: <http://purl.org/dc/terms/> .
+@prefix ns5: <http://purl.org/ontology/bibo/> .
+@prefix ns6: <http://www.w3.org/ns/prov#> .
+@prefix ns7: <http://www.w3.org/ns/dcat#> .
+@prefix ns8: <http://xmlns.com/foaf/0.1/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ns1:L391_S14_mortezaei_2011_assertion {
+    <http://materialsmine.org/sample/l391-s1-mortezaei-2011> ns2:hasRole <http://materialsmine.org/sample/l391-s1-mortezaei-2011_control_role> .
+
+    <http://materialsmine.org/compound/Polystyrene> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Polystyrene" .
+
+    <http://materialsmine.org/compound/SiliconDioxide> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Silicon dioxide" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "Degussa, Chemical, Germany Essen" ] ;
+        ns3:altLabel "Silica" .
+
+    <http://materialsmine.org/sample/l391-s1-mortezaei-2011_control_role> a ns2:ControlRole ;
+        ns2:inRelationTo <http://materialsmine.org/sample/l391-s14-mortezaei-2011> .
+
+    <http://materialsmine.org/sample/l391-s14-mortezaei-2011_filler_0> a <http://materialsmine.org/compound/SiliconDioxide> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 2.65e+00 ],
+            [ a ns2:Width ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/nanometre> ;
+                ns2:hasValue 1.2e+01 ],
+            <http://materialsmine.org/sample/l391-s14-mortezaei-2011_filler_0_mass_fraction>,
+            <http://materialsmine.org/sample/l391-s14-mortezaei-2011_filler_0_volume_fraction> ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Filler> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l391-s14-mortezaei-2011> ] .
+
+    <http://materialsmine.org/sample/l391-s14-mortezaei-2011_filler_0_mass_fraction> a <http://materialsmine.org/ns/MassFraction> ;
+        ns4:description "computed by NanoMine" ;
+        ns2:hasValue 1.172566e-01 .
+
+    <http://materialsmine.org/sample/l391-s14-mortezaei-2011_filler_0_volume_fraction> a <http://materialsmine.org/ns/VolumeFraction> ;
+        ns4:description "reported" ;
+        ns2:hasValue 5e-02 .
+
+    <http://materialsmine.org/sample/l391-s14-mortezaei-2011_matrix_0> a <http://materialsmine.org/compound/Polystyrene> ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/Density> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/gramPerCubicCentimetre> ;
+                ns2:hasValue 1.05e+00 ],
+            [ a <http://materialsmine.org/ns/ManufacturerOrSourceName> ;
+                ns2:hasValue "EN CHUAN (Taiwan Hsien)" ] ;
+        ns2:hasRole [ a <http://materialsmine.org/ns/Matrix> ;
+                ns2:inRelationTo <http://materialsmine.org/sample/l391-s14-mortezaei-2011> ] .
+
+    <http://materialsmine.org/sample/l391-s14-mortezaei-2011> a <http://materialsmine.org/ns/PolymerNanocomposite> ;
+        rdfs:label "Silica in polystyrene" ;
+        ns2:hasAttribute [ a <http://materialsmine.org/ns/ElectricalProperty> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.96043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.232904e-01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.639135e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.836752e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.462075e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.263342e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.808977e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.367306e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.517106e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.512384e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.239501e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.223185e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.808977e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.367306e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.178307e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.338292e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.316145e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.454509e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.239501e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.223185e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.408542e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.25903e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.178307e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.338292e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.30828e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.526992e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.246721e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.210942e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.946485e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.205599e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.181909e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.013702e+02 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.6e+02 ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.937835e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.480139e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.815681e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.111383e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.408542e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.25903e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.349193e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.3435e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.22569e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.912041e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.702677e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.461566e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.050576e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.909036e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.408542e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.25903e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.332225e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.371832e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.216147e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.682703e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.001195e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.502636e-02 ] ],
+            [ a <file:///apps/whyis/nan> ;
+                ns4:description "shape parameter" ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.026432e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.49892e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.640475e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.039444e-02 ] ],
+            [ a <http://materialsmine.org/ns/ThermalProperty> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 7.313389e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.009343e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.214043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.496701e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.231149e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.356856e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.164055e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.715529e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 6.651772e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.314917e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.478904e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.814706e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.178307e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.338292e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.478904e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.814706e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.605589e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.126664e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.316145e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.454509e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.540816e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.628376e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.214043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.496701e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 6.651772e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.314917e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.808977e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.367306e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.588408e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.563484e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.49206e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.574871e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.316145e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.454509e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.823046e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.11807e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.269139e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.12186e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.640475e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.039444e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.478904e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.814706e-02 ] ],
+            [ a <obo:PATO_0000146> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.6e+02 ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.164055e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.715529e-02 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/StrainAmplitude> ;
+                ns2:hasValue 1e-02 ],
+            [ a <obo:PATO_0000146> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.6e+02 ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 5.019143e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.107963e+00 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.937835e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.480139e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.3578e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.285084e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.562772e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.653867e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.829122e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.459359e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.28166e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.031392e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.462075e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.362168e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.050576e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.909036e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.22569e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.912041e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.462075e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.263342e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.815681e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.111383e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.214043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.994217e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.371141e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.048653e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.470025e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.2109e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 5.019143e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.107963e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.470025e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.2109e+01 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.679717e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.908195e+01 ] ],
+            [ a <http://materialsmine.org/ns/Condition> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.133285e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.172242e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.605589e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.126664e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.246721e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.210942e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.702677e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.461566e-01 ] ],
+            [ a <http://materialsmine.org/ns/StrainAmplitude> ;
+                ns2:hasValue 1e-02 ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.026028e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.228589e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.540816e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.628376e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.214043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.496701e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.791772e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.340933e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.181909e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.013702e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.269139e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.12186e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.517106e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.512384e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.13723e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.407557e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.517106e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.512384e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.332225e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.371832e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.679717e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.908195e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.805595e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.781559e-01 ] ],
+            [ a <http://materialsmine.org/ns/FrequencySweep> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.872874e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.008663e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.567362e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.465152e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.679717e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 7.908195e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.567362e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.465152e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.001195e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.502636e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.493984e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.386766e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.549178e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.367842e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.829122e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.459359e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.823046e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.11807e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.332225e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.371832e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.462075e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.263342e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.562772e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.653867e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.711533e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.472615e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.13723e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.407557e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.588408e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.563484e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.28166e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.031392e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.493984e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.386766e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.164055e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.715529e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.22569e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.912041e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.702677e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.461566e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.349193e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.3435e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.133285e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.172242e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.96043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.232904e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.3578e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.285084e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.96043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.232904e-01 ] ],
+            [ a <http://materialsmine.org/ns/DielectricBreakdownStrength> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 5.019143e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.107963e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.49206e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.574871e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.562772e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.653867e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.231149e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.356856e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.540816e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.628376e+00 ] ],
+            [ a <http://materialsmine.org/ns/StrainAmplitude> ;
+                ns2:hasValue 1e-02 ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.829122e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.459359e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.231149e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.356856e-01 ] ],
+            [ a <http://materialsmine.org/ns/ViscoelasticProperty> ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.371141e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.048653e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.3578e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.285084e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.614548e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.63813e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.12256e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.410222e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.133285e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.172242e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.30828e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.526992e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.549178e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.367842e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.214043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.994217e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.493984e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.386766e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.031919e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.458387e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.49206e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.574871e-01 ] ],
+            [ a <http://materialsmine.org/ns/DynamicProperty> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.791772e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.340933e+00 ] ],
+            [ a <file:///apps/whyis/nan> ;
+                ns4:description "scale parameter" ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.558688e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.126908e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 5.800048e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.330205e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.28166e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.031392e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.558688e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.126908e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.549178e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.367842e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.872874e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.008663e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.214043e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.994217e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 5.800048e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.330205e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 7.313389e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.009343e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.239501e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.223185e+01 ] ],
+            [ a <http://materialsmine.org/ns/FrequencySweep> ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.791772e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.340933e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.815681e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.111383e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.026028e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.228589e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.639135e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.836752e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.805595e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.781559e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.946485e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.205599e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.246721e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.210942e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.30828e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.526992e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.026028e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.228589e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.567362e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.465152e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.558688e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.126908e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 4.349193e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.3435e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.937835e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.480139e-01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.462075e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.362168e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.805595e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.781559e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 7.313389e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.009343e+01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.163993e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.021318e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.031919e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.458387e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 6.651772e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.314917e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.823046e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.11807e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.026432e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.49892e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.13723e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.407557e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.216147e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.682703e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.371141e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.048653e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.12256e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.410222e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.470025e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.2109e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 1.605589e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.126664e-02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 2.639135e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.836752e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.640475e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.039444e-02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 2.588408e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.563484e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.216147e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 4.682703e+02 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.462075e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.362168e+01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 3.026432e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.49892e-01 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.001195e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.502636e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.711533e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.472615e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.050576e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.909036e+02 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 5.800048e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 8.330205e+00 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.269139e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.12186e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.614548e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.63813e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.946485e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 9.205599e+00 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.163993e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.021318e-01 ] ],
+            [ a <http://materialsmine.org/ns/GlassTransitionTemperature> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/degreeCelsius> ;
+                ns2:hasValue 1.1e+02 ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.031919e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.458387e-02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.163993e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 6.021318e-01 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 8.872874e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.008663e+01 ] ],
+            [ a <http://materialsmine.org/ns/DampingFactor> ;
+                ns2:hasValue 3.12256e-01 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 1.410222e+00 ] ],
+            [ a <http://materialsmine.org/ns/FrequencySweep> ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.614548e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 5.63813e+00 ] ],
+            [ a <http://materialsmine.org/ns/LossModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 1.181909e+05 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 3.013702e+02 ] ],
+            [ a <http://materialsmine.org/ns/StorageModulus> ;
+                ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/pascal> ;
+                ns2:hasValue 9.711533e+04 ;
+                ns2:inRelationTo [ a <http://materialsmine.org/ns/Frequency> ;
+                        ns2:hasUnit <http://www.ontology-of-units-of-measure.org/resource/om-2/hertz> ;
+                        ns2:hasValue 2.472615e-01 ] ] ;
+        ns2:hasComponentPart <http://materialsmine.org/sample/l391-s14-mortezaei-2011_filler_0>,
+            <http://materialsmine.org/sample/l391-s14-mortezaei-2011_matrix_0> .
+
+    <http://materialsmine.org/ns/StorageModulus> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Storage modulus" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/LossModulus> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Loss modulus" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/DampingFactor> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Damping factor" ;
+        rdfs:subClassOf ns2:Quantity .
+
+    <http://materialsmine.org/ns/Frequency> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "Frequency" ;
+        rdfs:subClassOf ns2:Quantity .
+}
+
+ns1:L391_S14_mortezaei_2011_pubinfo {
+    ns1:L391_S14_mortezaei_2011_assertion ns4:created "2021-07-23T05:53:50.087000+00:00"^^xsd:dateTime ;
+        ns6:wasAttributedTo <http://nanomine.org/setl/MTg2NzMyLjEyNzI0ODg2ODE0/MaterialsmineXMLImport> ;
+        ns6:wasQuotedFrom <http://dx.doi.org/10.1016/j.compscitech.2011.02.012> .
+
+    <http://dx.doi.org/10.1016/j.compscitech.2011.02.012> a <http://materialsmine.org/ns/ResearchArticle>,
+            ns4:BibliographicResource ;
+        rdfs:label "The role of interfacial interactions on the glass-transition and viscoelastic properties of silica/polystyrene nanocomposite" ;
+        ns4:created 2011 ;
+        ns4:creator <http://materialsmine.org/author/famili-mohammad-hossein-navid>,
+            <http://materialsmine.org/author/kokabi-mehrdad>,
+            <http://materialsmine.org/author/mortezaei-mehrzad> ;
+        ns4:isPartOf <http://materialsmine.org/publication/composites-science-and-technology> ;
+        ns4:language <http://materialsmine.org/language/english> ;
+        ns4:title "The role of interfacial interactions on the glass-transition and viscoelastic properties of silica/polystyrene nanocomposite" ;
+        ns5:authorList ( <http://materialsmine.org/author/kokabi-mehrdad> <http://materialsmine.org/author/famili-mohammad-hossein-navid> <http://materialsmine.org/author/mortezaei-mehrzad> ) ;
+        ns5:volume 71 ;
+        ns2:hasPart <http://materialsmine.org/sample/l391-s14-mortezaei-2011> ;
+        rdfs:seeAlso <https://linkinghub.elsevier.com/retrieve/pii/S0266353811000881> ;
+        ns7:keyword "Interfacial Strength",
+            "Interphase",
+            "Nanoparticles",
+            "Viscoelasticity" .
+
+    <http://materialsmine.org/language/english> a ns4:LinguisticSystem ;
+        rdfs:label "English" .
+
+    <http://materialsmine.org/publication/composites-science-and-technology> ns4:title "Composites Science and Technology" .
+
+    <http://materialsmine.org/sample/l391-s14-mortezaei-2011> ns6:wasAttributedTo <http://materialsmine.org/author/famili-mohammad-hossein-navid>,
+            <http://materialsmine.org/author/kokabi-mehrdad>,
+            <http://materialsmine.org/author/mortezaei-mehrzad> .
+
+    <http://materialsmine.org/author/famili-mohammad-hossein-navid> a ns6:Agent ;
+        rdfs:label "Famili, Mohammad Hossein Navid" ;
+        ns8:name "Famili, Mohammad Hossein Navid" .
+
+    <http://materialsmine.org/author/kokabi-mehrdad> a ns6:Agent ;
+        rdfs:label "Kokabi, Mehrdad" ;
+        ns8:name "Kokabi, Mehrdad" .
+
+    <http://materialsmine.org/author/mortezaei-mehrzad> a ns6:Agent ;
+        rdfs:label "Mortezaei, Mehrzad" ;
+        ns8:name "Mortezaei, Mehrzad" .
+}
+
+ns1:L391_S14_mortezaei_2011_provenance {
+    <http://materialsmine.org/entry/L391_S14_mortezaei_2011_characterization_description> a ns2:Description,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/entry/L391_S14_mortezaei_2011_characterization_dynamic-mechanical-analysis> a <http://materialsmine.org/ns/DynamicMechanicalAnalysis>,
+            ns2:Measuring,
+            ns6:Activity ;
+        ns6:used [ a <http://materialsmine.org/ns/stress-controlled-rotary-shear-rheometer-paar-physica-uds-200-austria-graz>,
+                    ns2:Device ;
+                ns2:hasAttribute <http://materialsmine.org/sample/L391_S14_mortezaei_2011_description_attr_29>,
+                    <http://materialsmine.org/sample/L391_S14_mortezaei_2011_equipment_attr_30> ] .
+
+    <http://materialsmine.org/entry/L391_S14_mortezaei_2011_characterization_equipment> a <http://materialsmine.org/ns/Equipment>,
+            ns2:Measuring,
+            ns6:Activity .
+
+    <http://materialsmine.org/ns/stress-controlled-rotary-shear-rheometer-paar-physica-uds-200-austria-graz> a <http://www.w3.org/2002/07/owl#Class> ;
+        rdfs:label "stress controlled rotary shear rheometer (Paar-Physica UDS 200, Austria Graz)" ;
+        rdfs:subClassOf ns2:Device .
+
+    <http://materialsmine.org/sample/L391_S14_mortezaei_2011_description_attr_29> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    <http://materialsmine.org/sample/L391_S14_mortezaei_2011_equipment_attr_30> a <file:///apps/whyis/method_attr.uri> ;
+        ns2:hasValue ""^^xsd:double .
+
+    ns1:L391_S14_mortezaei_2011_assertion ns6:wasDerivedFrom ns1:L391_S14_mortezaei_2011_assertion,
+            <http://nanomine.org/pub/NjUwNzQ0LjM2MzYxMTYxMzU_assertion> ;
+        ns6:wasGeneratedBy [ a <http://nanomine.org/setl/MTg2NzMyLjEyNzI0ODg2ODE0/MaterialsmineXMLImport> ;
+                ns6:used ns1:L391_S14_mortezaei_2011_assertion,
+                    <http://nanomine.org/pub/NjUwNzQ0LjM2MzYxMTYxMzU_assertion> ],
+            <http://materialsmine.org/entry/L391_S14_mortezaei_2011_characterization_description>,
+            <http://materialsmine.org/entry/L391_S14_mortezaei_2011_characterization_dynamic-mechanical-analysis>,
+            <http://materialsmine.org/entry/L391_S14_mortezaei_2011_characterization_equipment> .
+}
+
