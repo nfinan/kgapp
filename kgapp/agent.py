@@ -19,10 +19,29 @@ class SurfaceEnergyGen(autonomic.UpdateChangeService):
         return QUERY
 
     def process(self, i, o):
-        for vf, pst, matrix, FillerPart, MatrixPart in i.graph.query(filler_query, initNs={sample:i.identifier}):
+        # print("running proccess!!!!!!!!!!!!!!!")
+        # print(f"i: {i}")
+        # pprint(i)
+        matches = 0
+        # for vf, pst, matrix, FillerPart, MatrixPart in i.graph.query(filler_query, initNs={"sample":i.identifier}):
+        for vf, pst, matrix, FillerPart, MatrixPart in i.graph.query(filler_query, initBindings={"sample":i.identifier}):
+            print(f'vf: {vf}')
+            print(f'pst: {pst}')
+            print(f'matrix: {matrix}')
+            print(f'FillerPart: {FillerPart}')
+            print(f'MatrixPart: {MatrixPart}')
+            
             # Do the thing!!
             # Returns nested dict with 4 "Raw Terms" and 3 "Work Terms"
             d = surface_energy_terms(matrix, pst)
+            # end early if no matches found
+            if d is False:
+                print("No Match Detected")
+                return
+            matches += 1
+            print("Match Found")
+            print("d:")
+            pprint(d)
             units = {
                 "WorkOfAdhesion": "http://www.ontology-of-units-of-measure.org/resource/om-2/joulePerSquareMetre",
                 "WorkOfSpreading": "http://www.ontology-of-units-of-measure.org/resource/om-2/joulePerSquareMetre",
@@ -85,6 +104,7 @@ class SurfaceEnergyGen(autonomic.UpdateChangeService):
             #     property.add(sio.hasValue, Literal(value)) # Whatever the actual value is)
             #     property.add(sio.hasUnit, URIRef("URI_OF_THE_UOM")
             #     o.add(sio.hasAttribute, property)
+        print("running proccess!!!!!!!!!!!!!!!")
 
 
 filler_query = '''
@@ -98,11 +118,13 @@ SELECT DISTINCT ?VolFrac (LCASE(?SurfaceTreatmentType) AS ?PST) (LCASE(?MatrixTy
                                ?MatrixPart .
   ?FillerPart sio:hasRole [ a nm:Filler ] ;
               a [ rdfs:label "Silicon dioxide" ];
-              sio:hasAttribute [a nm:VolumeFraction; sio:hasValue ?volFrac] .
+              sio:hasAttribute [a nm:VolumeFraction; sio:hasValue ?VolFrac] .
   
   ?MatrixPart sio:hasRole [ a nm:Matrix ] ;
               a [ rdfs:label ?MatrixType ] .
   
+#   FILTER (lcase(?MatrixType) IN ('polypropylene', 'polybenzimidazole', 'poly(vinyl alcohol)', 'nylon 6', 'polystyrene', 'pvb', 'epoxy', 'p2vp', 'poly(lactic acid)', 'polyurethane', 'poly(ethylene terephthalate)', 'poly(methyl methacrylate)', 'poly(fluorinated styrene-acrylate)', 'triacetylcellulose', 'no surface treatment', 'octyldimethylmethoxysilane', 'chloropropyldimethylethoxysilane', 'aminopropyldimethylethoxysilane', 'poly(ethyl methacrylate)', 'pgma', '3-methacryloxypropyldimethylchlorosilane', 'octyltrimethoxysilane', 'bis(trimethylsilyl)amine', 'dimethyldichlorosilane', 'vinyltriethoxysilane', 'poly(dl-lactic acid)', 'polycarbonate', 'pvvm', 'plla', 'poly(propylene glycerol)', 'poly(vinyl acetate)', '3‐aminopropyltriethoxysilane', 'γ‐glycidyloxypropyltrimethoxy silane', 'γ‐methylacryloxypropl trimethoxy siliane')).
+
   OPTIONAL {
     ?FillerPart sio:isSurroundedBy [ sio:hasRole [ a nm:SurfaceTreatment ] ;
                                      a [ rdfs:label ?SurfaceTreatmentType ] ] .
@@ -115,19 +137,16 @@ PREFIX nm: <http://materialsmine.org/ns/>
 PREFIX sio: <http://semanticscience.org/resource/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
-SELECT DISTINCT ?sample WHERE {
+SELECT DISTINCT ?sample ?MatrixType WHERE {
   ?sample a nm:PolymerNanocomposite;
           sio:hasComponentPart ?FillerPart ,
                                ?MatrixPart .
   ?FillerPart sio:hasRole [ a nm:Filler ] ;
               a [ rdfs:label "Silicon dioxide" ] .
-  
+
   ?MatrixPart sio:hasRole [ a nm:Matrix ] ;
               a [ rdfs:label ?MatrixType ] .
-  
-  OPTIONAL {
-    ?FillerPart sio:isSurroundedBy [ sio:hasRole [ a nm:SurfaceTreatment ] ;
-                                     a [ rdfs:label ?SurfaceTreatmentType ] ] .
-  }                   
+
+#   FILTER (lcase(?MatrixType) IN ('polypropylene', 'polybenzimidazole', 'poly(vinyl alcohol)', 'nylon 6', 'polystyrene', 'pvb', 'epoxy', 'p2vp', 'poly(lactic acid)', 'polyurethane', 'poly(ethylene terephthalate)', 'poly(methyl methacrylate)', 'poly(fluorinated styrene-acrylate)', 'triacetylcellulose', 'no surface treatment', 'octyldimethylmethoxysilane', 'chloropropyldimethylethoxysilane', 'aminopropyldimethylethoxysilane', 'poly(ethyl methacrylate)', 'pgma', '3-methacryloxypropyldimethylchlorosilane', 'octyltrimethoxysilane', 'bis(trimethylsilyl)amine', 'dimethyldichlorosilane', 'vinyltriethoxysilane', 'poly(dl-lactic acid)', 'polycarbonate', 'pvvm', 'plla', 'poly(propylene glycerol)', 'poly(vinyl acetate)', '3‐aminopropyltriethoxysilane', 'γ‐glycidyloxypropyltrimethoxy silane', 'γ‐methylacryloxypropl trimethoxy siliane')).
 }
 '''
